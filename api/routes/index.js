@@ -41,5 +41,7 @@ const UserController = require("../controllers/user-controller");
 });*/
 
 router.get('/', UserController.getTest);
+router.get("/patients", UserController.getPatients);
+router.get("/patients/:id", UserController.getPatientByID);
 
 module.exports = router;

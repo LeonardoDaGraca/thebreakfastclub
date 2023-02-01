@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+const db = require("./db/database.js");
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
@@ -17,7 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//on error of database
+db.on("error", console.error.bind(console, 'MongoDB connection error:'));
+
+app.use('/api', indexRouter);
 //app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
