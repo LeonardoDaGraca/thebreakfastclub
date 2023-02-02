@@ -1,9 +1,9 @@
-import { Navbar } from "./Navbar/Navbar";
+import './Exams.css';
+import { Navbar } from "../Navbar/Navbar";
 
-export const Home = () => {
+export const Exams = () => {
     return (
         <>
-            <Navbar />
             <p style={{marginTop: "500px"}}> TESTING HOME PAGE </p>
         </>
     )

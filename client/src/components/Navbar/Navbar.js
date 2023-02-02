@@ -1,6 +1,6 @@
 import './Navbar.css'
 // import link element from dependency react-router-dom for use with browser router
-import { Link } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 // implement functional React component for the Navbar
 export const Navbar = () => {
@@ -15,14 +15,15 @@ export const Navbar = () => {
                     <ul className="list">
                         <li>
                             {/* link is essentially an anchor tag that links to the specified path */}
-                            <Link to="/">Exams</Link>
+                            <NavLink to="/">Exams</NavLink>
                         </li>
                         <li>
-                            <Link to="/admin">Admin</Link>
+                            <NavLink to="/admin">Admin</NavLink>
                         </li>
                     </ul>
                 </nav>
             </header>
+            <Outlet />
         </div>
     )
 }
