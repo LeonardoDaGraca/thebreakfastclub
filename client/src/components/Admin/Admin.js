@@ -1,61 +1,69 @@
 import './Admin.css';
-import { Navbar } from "../Navbar/Navbar";
+// import { Navbar } from "../Navbar/Navbar";
+// import { useApi } from "../../hooks/use-api";
+import {useState, useEffect} from 'react';
 
-let data = require("../../data/exam-data.json");
+// let data = require("../../data/exam-data.json");
+
+// API endpoint for fetching ALL exam data: 
+// https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
+
+// API endpoint for fetching SINGLE PT exam data: 
+// https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
 
 export const Admin = () => {
+
+// const data = useApi('exams');
+// console.log('useApi: ', useApi('exams'));
+
+const [data, setData] = useState([]);
+
+useEffect(() => {
+  fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
+    .then(res => res.json())
+    // .then(res => console.log(res))
+    .then(res => setData(res))
+    .then(() => console.log(data.exams))
+    .catch(error => console.error('Error:', error));
+}, []);
+
+    
+
     return (
         <>
-        
+
             <table className='admin'>
                 <thead>
                     <tr>
                         <th>Patient ID</th>
+                        <th>Exam ID</th>
+                        <th>Key Findings</th>
+                        <th>Brixia Scores</th>
                         <th>Age</th>
                         <th>Sex</th>
-                        <th>Zip</th>
                         <th>BMI</th>
-                        <th>Weight</th>
-                        <th>Image</th>
-                        <th>Exam ID</th>
-                        <th>ICU Admission</th>
-                        <th>ICU Length of Stay</th>
-                        <th>Mortality</th>
+                        <th>Zip Code</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                {data.map(function (item) {
-                    return (
-                        <tr>
-                            <td>{item.patient_id}</td>
-                            <td>{item.age}</td>
-                            <td>{item.sex}</td>
-                            <td>{item.zip}</td>
-                            <td>{item.latest_bmi}</td>
-                            <td>{item.latest_weight}</td>
-                            <td>{item.images}</td>
-                            <td>{item.exam_Id}</td>
-                            <td>{item.icu_admit}</td>
-                            <td>{item.icu_admit_times}</td>
-                            <td>{item.mortality}</td>
-                        </tr>
-                        // <li key={item.patient_id}>
-                        //     <span>{item.patient_id}</span>
-                        //     <span>{item.age}</span>
-                        //     <span>{item.sex}</span>
-                        //     <span>{item.zip}</span>
-                        //     <span>{item.latest_bmi}</span>
-                        //     <span>{item.latest_weight}</span>
-                        //     <span>{item.images}</span>
-                        //     <span>{item.exam_Id}</span>
-                        //     <span>{item.icu_admit}</span>
-                        //     <span>{item.icu_admit_times}</span>
-                        //     <span>{item.mortality}</span>
-                        //     <button>Update</button>
-                        //     <button>Delete</button>
-                        // </li>
-                    )
-                })}
+                    {data.exams.map(function (item) {
+                        return (
+                            <tr key={item.patientId}>
+                                <td>{item.patientId}</td>
+                                <td>{item.examId}</td>
+                                <td>{item.keyFindings}</td>
+                                <td>{item.brixiaScores}</td>
+                                <td>{item.age}</td>
+                                <td>{item.sex}</td>
+                                <td>{item.bmi}</td>
+                                <td>{item.zipCode}</td>
+                                <td><button>Update</button></td>
+                                <td><button>Delete</button></td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </>

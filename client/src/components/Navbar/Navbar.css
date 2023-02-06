@@ -1,8 +1,9 @@
 .Navbar {
     background-color: rgb(0, 0, 8);
-    width: 100vw;
+    /* width: 100%; */
     margin: 0;
     height: 8%;
+    font-size: 2rem;
 }
 
 .nav {
@@ -12,7 +13,6 @@
 
 .nav img {
     height: 2rem;
-    padding: 1.5%;
     margin-left: 5%;
 }
 
