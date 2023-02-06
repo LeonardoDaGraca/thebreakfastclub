@@ -39,9 +39,21 @@ const UserController = require("../controllers/user-controller");
 /*router.get('/', function(req, res, next) {
   res.send('API is working properly!');
 });*/
-
-router.get('/', UserController.getTest);
-router.get("/patients", UserController.getPatients);
-router.get("/patients/:id", UserController.getPatientByID);
+//router for patients
+router.get('/test', UserController.getTest);
+router.get('/patients', UserController.getPatients);
+router.get('/patients/:id', UserController.getPatientByID);
+router.post('/patients', UserController.createPatient);
+router.put('/patients/:id', UserController.updatePatient);
+router.delete('/patients/:id', UserController.deletePatient);
+//rouers for exams
+router.get("/exams", UserController.getExams);
+router.get("/patients/:patientId/exams", UserController.getExamsOfPatient);
+router.get("/exams/:id", UserController.getExamByID);
+router.post("/exams", UserController.createExam);
+router.put("/exams/:id", UserController.updateExam);
+router.delete("/exams/:id", UserController.deleteExam);
+//other routers
+//TODO: add rounter for getGenInfo
 
 module.exports = router;

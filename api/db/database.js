@@ -16,6 +16,7 @@ const parameters = {
 const errorHandeling = (e) => {
   console.log("Failure at trying to connect to Mongo Atrlas DB", e.message);
 };
+mongoose.set('strictQuery', false);
 mongoose.connect(MONGO_URI, parameters).catch(errorHandeling);
 
 const db = mongoose.connection;
