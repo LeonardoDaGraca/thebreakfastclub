@@ -21,9 +21,7 @@ const [data, setData] = useState([]);
 useEffect(() => {
   fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
     .then(res => res.json())
-    // .then(res => console.log(res))
-    .then(res => setData(res))
-    .then(() => console.log(data.exams))
+    .then(res => setData(res.exams))
     .catch(error => console.error('Error:', error));
 }, []);
 
@@ -48,9 +46,9 @@ useEffect(() => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.exams.map(function (item) {
+                    {data.map(function (item) {
                         return (
-                            <tr key={item.patientId}>
+                            <tr key={item.patientId + item.examId}>
                                 <td>{item.patientId}</td>
                                 <td>{item.examId}</td>
                                 <td>{item.keyFindings}</td>
