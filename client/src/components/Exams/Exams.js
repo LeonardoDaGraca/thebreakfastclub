@@ -40,8 +40,6 @@ export const Exams = () => {
             <th>Sex</th>
             <th>BMI</th>
             <th>Zip Code</th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
