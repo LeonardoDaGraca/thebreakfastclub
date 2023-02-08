@@ -3,6 +3,7 @@ import "./Exams.css";
 // import { useApi } from "../../hooks/use-api";
 import { useState, useEffect } from "react";
 
+
 // let data = require("../../data/exam-data.json");
 
 // API endpoint for fetching ALL exam data:
@@ -23,14 +24,16 @@ export const Exams = () => {
       .then((res) => setData(res.exams))
       .catch((error) => console.error("Error:", error));
   }, []);
+  console.log(data)
 
   return (
     <>
-      <table className="exams">
+      <table className="exams-container">
         <thead>
           <tr>
             <th>Patient ID</th>
             <th>Exam ID</th>
+            <th>Images</th>
             <th>Key Findings</th>
             <th>Brixia Scores</th>
             <th>Age</th>
@@ -44,9 +47,10 @@ export const Exams = () => {
         <tbody>
           {data.map(function (item) {
             return (
-              <tr key={item.patientId + item.examId}>
+              <tr key={item}>
                 <td>{item.patientId}</td>
                 <td>{item.examId}</td>
+                <td><img src="{item.imageURL}" alt="image" className="images"/></td>
                 <td>{item.keyFindings}</td>
                 <td>{item.brixiaScores}</td>
                 <td>{item.age}</td>

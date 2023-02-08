@@ -30,7 +30,7 @@ function App() {
             </Route>
           </Routes>
         </div>
-        <Search/>
+        <Search />
       </Router>
     </>
   );

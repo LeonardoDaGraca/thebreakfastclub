@@ -6,7 +6,7 @@ export const Search = () => {
             <div className="search">
                 <input type="text" />
                 
-                <button>Search</button>
+                <button className="search-btn">Search</button>
             </div>
             
         </div>
