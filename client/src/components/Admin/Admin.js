@@ -16,16 +16,35 @@ export const Admin = () => {
 // const data = useApi('exams');
 // console.log('useApi: ', useApi('exams'));
 
-const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
+    const [localData, setLocalData] = useState([]);
 
-useEffect(() => {
-  fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
-    .then(res => res.json())
-    .then(res => setData(res.exams))
-    .catch(error => console.error('Error:', error));
-}, []);
+    useEffect(() => {
+      fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
+        .then(res => res.json())
+        .then(res => setData(res.exams))
+        .catch(error => console.error('Error:', error));
+    }, []);
 
+    // useEffect(() => {
+    //   localStorage.setItem('localData', JSON.stringify(data));
+    // }, [data]);
     
+
+    // const removeToDo = (id) => {
+    //     const updatedToDoList = toDoList.filter(
+    //       (todo) => todo.id !== id
+    //       );
+
+    const handleUpdate = () => {
+        // do something
+    }
+
+    const handleDelete = (id) => {
+        const examArr = JSON.parse(localStorage.getItem('data'));
+        const updatedExamArr = examArr.filter((exam) => exam.id !== id);
+        localStorage.setItem('localData', JSON.stringify(updatedExamArr));
+    }
 
     return (
         <>
@@ -57,8 +76,8 @@ useEffect(() => {
                                 <td>{item.sex}</td>
                                 <td>{item.bmi}</td>
                                 <td>{item.zipCode}</td>
-                                <td><button>Update</button></td>
-                                <td><button>Delete</button></td>
+                                <td><button className="admin-button">Update</button></td>
+                                <td><button className="admin-button">Delete</button></td>
                             </tr>
                         )
                     })}
