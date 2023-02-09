@@ -1,5 +1,5 @@
 .exams-container {
-    width: 90%;
+    width: 75%;
     min-width: 500px;
     margin: auto;
     border-collapse: collapse;
@@ -13,11 +13,12 @@ tr > th {
     font-size: 1.75rem;
     font-weight: 700;
     text-align: left;
-    padding: 15px;
+    align-items: center;
+    padding: 10px;
 }
 
 td {
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid black;
     font-size: 1.5rem;
     font-weight: 700;

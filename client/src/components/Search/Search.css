@@ -1,9 +1,11 @@
 .search-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
+    width: 90%;
+    min-width: 500px;
     justify-content: center;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 8%;
     padding: 10px;
 }
 

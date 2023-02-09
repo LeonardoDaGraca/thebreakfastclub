@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 
 
+
 // let data = require("../../data/exam-data.json");
 
 // API endpoint for fetching ALL exam data:
@@ -64,38 +65,38 @@ export const Exams = () => {
               <button className="search-btn">Search</button>
           </div>
       </div>
-      <table className="exams-container">
-        <thead>
-          <tr>
-            <th>Patient ID</th>
-            <th>Exam ID</th>
-            <th>Images</th>
-            <th>Key Findings</th>
-            <th>Brixia Scores</th>
-            <th>Age</th>
-            <th>Sex</th>
-            <th>BMI</th>
-            <th>Zip Code</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pageData.map(function (item) {
-            return (
-              <tr key={item}>
-                <td>{item.patientId}</td>
-                <td>{item.examId}</td>
-                <td><img src={item.imageURL} alt="images" className="images"/></td>
-                <td>{item.keyFindings}</td>
-                <td>{item.brixiaScores}</td>
-                <td>{item.age}</td>
-                <td>{item.sex}</td>
-                <td>{item.bmi}</td>
-                <td>{item.zipCode}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        <table className="exams-container">
+          <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Exam ID</th>
+              <th>Images</th>
+              <th>Key Findings</th>
+              <th>Brixia Scores</th>
+              <th>Age</th>
+              <th>Sex</th>
+              <th>BMI</th>
+              <th>Zip Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pageData.map(function (item) {
+              return (
+                <tr key={item}>
+                  <td>{item.patientId}</td>
+                  <td>{item.examId}</td>
+                  <td><img src={item.imageURL} alt="images" className="images"/></td>
+                  <td>{item.keyFindings}</td>
+                  <td>{item.brixiaScores}</td>
+                  <td>{item.age}</td>
+                  <td>{item.sex}</td>
+                  <td>{item.bmi}</td>
+                  <td>{item.zipCode}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       <div className="page-select">
         <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
           <i class="fa-solid fa-arrow-left"></i>
