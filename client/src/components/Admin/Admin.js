@@ -48,7 +48,7 @@ export const Admin = () => {
               <tr key={item}>
                 <td>{item.patientId}</td>
                 <td>{item.examId}</td>
-                <td><img src="{item.imageURL}" alt="image" className="images"/></td>
+                <td><img src={item.imageURL} alt="image" className="images"/></td>
                 <td>{item.keyFindings}</td>
                 <td>{item.brixiaScores}</td>
                 <td>{item.age}</td>

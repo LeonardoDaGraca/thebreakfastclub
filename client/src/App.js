@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import the components being rendered by the route component
 import { Navbar } from "./components/Navbar/Navbar";
-import { Search } from "./components/Search/Search";
 import { Exams } from "./components/Exams/Exams";
 import { Admin } from "./components/Admin/Admin";
 import { NotFound } from "./components/NotFound/NotFound";
@@ -30,7 +29,6 @@ function App() {
             </Route>
           </Routes>
         </div>
-        <Search />
       </Router>
     </>
   );

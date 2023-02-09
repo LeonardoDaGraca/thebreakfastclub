@@ -4,6 +4,7 @@ import "./Exams.css";
 import { useState, useEffect } from "react";
 
 
+
 // let data = require("../../data/exam-data.json");
 
 // API endpoint for fetching ALL exam data:
@@ -18,6 +19,14 @@ export const Exams = () => {
 
   const [data, setData] = useState([]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
+
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   useEffect(() => {
     fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
       .then((res) => res.json())
@@ -26,8 +35,35 @@ export const Exams = () => {
   }, []);
   console.log(data)
 
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageData = data.slice(startIndex, endIndex);
+
+  const pageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handlePrevious = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <>
+      <div className="search-container">
+          <div className="search">
+              <input type="text" />
+              
+              <button className="search-btn">Search</button>
+          </div>
+      </div>
       <table className="exams-container">
         <thead>
           <tr>
@@ -43,12 +79,12 @@ export const Exams = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(function (item) {
+          {pageData.map(function (item) {
             return (
               <tr key={item}>
                 <td>{item.patientId}</td>
                 <td>{item.examId}</td>
-                <td><img src="{item.imageURL}" alt="image" className="images"/></td>
+                <td><img src={item.imageURL} alt="images" className="images"/></td>
                 <td>{item.keyFindings}</td>
                 <td>{item.brixiaScores}</td>
                 <td>{item.age}</td>
@@ -60,6 +96,21 @@ export const Exams = () => {
           })}
         </tbody>
       </table>
+      <div className="page-select">
+        <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        {pageNumbers.map((number) => (
+          <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+            {number}
+          </button>
+        ))}
+          <button
+            disabled={currentPage === pageNumbers.length}
+            onClick={handleNext} className="page-btn">
+              <i class="fa-solid fa-arrow-right"></i>
+          </button>
+      </div>
     </>
   );
 };
