@@ -7,6 +7,7 @@ import {Search} from "./components/Search/Search";
 import { Exams } from "./components/Exams/Exams";
 // import { Pagination } from "./components/Pagination/Pagination";
 import { Admin } from "./components/Admin/Admin";
+
 import { NotFound } from "./components/NotFound/NotFound";
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
               {/* do I need to pass in the id as a prop to Exam right here in the route? */}
               {/* <Route path="/:id" element={<Exam />} /> */}
             </Route>
-            <Route path="/admin" element={<Admin />}>
+            <Route path="/Admin" element={<Admin />}>
               {/* setting up nested route to be able to create new exam */}
               {/* <Route path="/admin/new" element={<NewExam />} /> */}
             </Route>

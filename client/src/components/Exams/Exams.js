@@ -58,31 +58,31 @@ export const Exams = () => {
       <div className="flex justify-center pt-6">
         <table className="table-auto w-90% text-left">
           <thead>
-            <tr className="bg-gray-800 text-white text-sm">
-              <th className="px-2 py-1">Patient ID</th>
+            <tr className="bg-gray-800 text-white text-base ">
+              <th className="px-2 py-2">Patient ID</th>
               <th className="px-2 py-2">Exam ID</th>
-              <th className="px-2 py-1">Images</th>
-              <th className="px-2 py-1">Key Findings</th>
-              <th className="px-2 py-1">Brixia Scores</th>
-              <th className="px-2 py-1">Age</th>
-              <th className="px-2 py-1">Sex</th>
-              <th className="px-2 py-1">BMI</th>
-              <th className="px-2 py-1">Zip Code</th>
+              <th className="px-2 py-2">Images</th>
+              <th className="px-2 py-2">Key Findings</th>
+              <th className="px-2 py-2">Brixia Scores</th>
+              <th className="px-2 py-2">Age</th>
+              <th className="px-2 py-2">Sex</th>
+              <th className="px-2 py-2">BMI</th>
+              <th className="px-2 py-2">Zip Code</th>
             </tr>
           </thead>
           <tbody>
             {pageData.map(function (item) {
               return (
                 <tr key={item} className="bg-gray-200 text-sm ">
-                  <td className="border px-2 py-1">{item.patientId}</td>
-                  <td className="border px-2 py-1">{item.examId}</td>
-                  <td className="border px-2 py-1"><img src={item.imageURL} alt="images" className="w-28"/></td>
-                  <td className="border px-2 py-1">{item.keyFindings}</td>
-                  <td className="border px-2 py-1">{item.brixiaScores}</td>
-                  <td className="border px-2 py-1">{item.age}</td>
-                  <td className="border px-2 py-1">{item.sex}</td>
-                  <td className="border px-2 py-1">{item.bmi}</td>
-                  <td className="border px-2 py-1">{item.zipCode}</td>
+                  <td className="border px-2 py-2">{item.patientId}</td>
+                  <td className="border px-2 py-2">{item.examId}</td>
+                  <td className="border px-2 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
+                  <td className="border px-4 py-2">{item.keyFindings}</td>
+                  <td className="border px-2 py-2">{item.brixiaScores}</td>
+                  <td className="border px-2 py-2">{item.age}</td>
+                  <td className="border px-2 py-2">{item.sex}</td>
+                  <td className="border px-2 py-2">{item.bmi}</td>
+                  <td className="border px-2 py-2">{item.zipCode}</td>
                 </tr>
               );
             })}
