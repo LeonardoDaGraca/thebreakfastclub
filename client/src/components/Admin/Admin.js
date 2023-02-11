@@ -18,7 +18,7 @@ export const Admin = () => {
   const [data, setData] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
 
   const handlePageChange = (page) => {
@@ -55,40 +55,41 @@ export const Admin = () => {
 
   return (
     <>
-      <div className="flex justify-center pt-6">
-        <table className="table-auto w-90% text-left">
+      <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-7xl">
+        <table className="table-auto w-90% text-left ">
           <thead>
-            <tr className="bg-gray-800 text-white">
-              <th className="px-4 py-2">Patient ID</th>
-              <th className="px-4 py-2">Exam ID</th>
-              <th className="px-4 py-2">Images</th>
-              <th className="px-4 py-2">Key Findings</th>
-              <th className="px-4 py-2">Brixia Scores</th>
-              <th className="px-4 py-2">Age</th>
-              <th className="px-4 py-2">Sex</th>
-              <th className="px-4 py-2">BMI</th>
-              <th className="px-4 py-2">Zip Code</th>
+          <tr className="bg-gray-800 text-white text-base ">
+              <th className="px-2 py-4">Patient ID</th>
+              <th className="px-2 py-4">Exam ID</th>
+              <th className="px-2 py-4">Images</th>
+              <th className="px-2 py-4">Key Findings</th>
+              <th className="px-2 py-4">Brixia Scores</th>
+              <th className="px-2 py-4">Age</th>
+              <th className="px-2 py-4">Sex</th>
+              <th className="px-2 py-4">BMI</th>
+              <th className="px-2 py-4">Zip Code</th>
+              <th className="px-2 py-4">Action</th>
             </tr>
           </thead>
           <tbody>
             {pageData.map(function (item) {
               return (
-                <tr key={item}>
-                <td className="border px-4 py-2">{item.patientId}</td>
-                    <td className="border px-4 py-2">{item.examId}</td>
-                    <td className="border px-4 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
-                    <td className="border px-4 py-2">{item.keyFindings}</td>
-                    <td className="border px-4 py-2">{item.brixiaScores}</td>
-                    <td className="border px-4 py-2">{item.age}</td>
-                    <td className="border px-4 py-2">{item.sex}</td>
-                    <td className="border px-4 py-2">{item.bmi}</td>
-                    <td className="border px-4 py-2">{item.zipCode}</td>
-                  <td>
-                    <button>Update</button>
-                  </td>
-                  <td>
-                    <button>Delete</button>
-                  </td>
+                <tr key={item} className="bg-gray-200 text-sm">
+                  <td className="border px-2 py-2">{item.patientId}</td>
+                  <td className="border px-2 py-2">{item.examId}</td>
+                  <td className="border px-2 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
+                  <td className="border px-2 py-2">{item.keyFindings}</td>
+                  <td className="border px-2 py-2">{item.brixiaScores}</td>
+                  <td className="border px-2 py-2">{item.age}</td>
+                  <td className="border px-2 py-2">{item.sex}</td>
+                  <td className="border px-2 py-2">{item.bmi}</td>
+                  <td className="border px-2 py-2">{item.zipCode}</td>
+                    <td className="border px-4 py-2">
+                      <button>Update</button>
+                    </td>
+                    <td className="border px-4 py-2">
+                      <button>Delete</button>
+                    </td>
                 </tr>
               );
             })}

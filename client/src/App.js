@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <div className="relative bg-gray-100 min-h-screen">
+        <div className="relative bg-gray-100 min-h-screen min-w-fit">
           <Routes>
           <Route element={<Navbar />}>
             <Route path="/" element={<Exams />}>
