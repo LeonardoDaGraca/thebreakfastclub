@@ -1,13 +1,10 @@
-
-
 .admin {
     width: 80%;
     min-width: 500px;
     margin: auto;
     border-collapse: collapse;
     margin-top: 8%;
-    border: 1px solid black;
-    overflow-y: auto;
+   
 }
 
 .admin thead {
@@ -22,93 +19,5 @@
 
 .admin > tbody > tr > td {
     padding-top: 2%;
-    font-size: 1rem;
-}
-
-
-@media screen and (min-width:1024px){
-
-    .admin {
-        width: 80vw;
-        margin: 4% auto;
-
-    }
-
-    .admin th {
-        font-size: 1.8rem;
-    }
-
-    .admin > tbody > tr > td {
-        font-size: 1.4rem;
-        word-wrap: break-word;
-        padding: 1%;
-        width: fit-content;
-   
-    }
-
-    .admin tr {
-        width: fit-content;
-    }
-
-    td {
-        border-top: 1px solid darkgray;
-        padding: 3%;
-        margin: 3%;
-
-    }
-
-    td:nth-child(2) {
-        word-break: break-all;
-    }
-
-    th:nth-child(2) {
-        width: 12%;
-    }
-
-    th:nth-child(3) {
-        width: 35%;
-    }
-
-    th:nth-child(7), th:nth-child(8) {
-        width: 8%;
-    }
-
-    th:nth-child(5), th:nth-child(6)  {
-        width: 4%;
-    }
-
-    th:nth-child(9), th:nth-child(10) {
-        width: 8%;
-        text-align: center;
-    }
-
-    /* td:nth-child(9), td:nth-child(10) {
-        justify-items: center;
-        align-content: center;
-    } */
-
-    .admin-button {
-        box-sizing: content-box;
-        width: 100%;
-        min-width: 50px;
-        padding: 16% 3%;
-        background-color: rgb(165, 120, 5);
-        color:antiquewhite;
-        font-size: 1.2rem;
-        font-weight: 900;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        border: 1px solid darkgoldenrod;
-        border-radius: 5px;
-        box-shadow: 2px 1px 6px darkgray;
-        word-wrap: normal;
-    }
-
-    .admin-button:hover {
-        border: 2px solid darkslategrey;
-    }
-
-    .admin-button:active {
-        border: 2px solid antiquewhite;
-        background-color: darkslategrey;
-    }
+    font-size: .8rem;
 }
