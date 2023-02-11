@@ -7,17 +7,25 @@ import {Search} from "./components/Search/Search";
 import { Exams } from "./components/Exams/Exams";
 // import { Pagination } from "./components/Pagination/Pagination";
 import { Admin } from "./components/Admin/Admin";
-// import { NotFound } from "./components/NotFound/NotFound";
+import { NotFound } from "./components/NotFound/NotFound";
 
 const App = () => {
   return (
     <>
       <Router>
         <div className="relative bg-gray-100 min-h-screen">
-          <Navbar />
           <Routes>
-            <Route>
-              <Admin to="" />
+            <Route element={<Navbar />}>
+              <Route path="/" element={<Exams />}>
+                {/* setting up nested route to view a single exam by :id param */}
+                {/* do I need to pass in the id as a prop to Exam right here in the route? */}
+                {/* <Route path="/:id" element={<Exam />} /> */}
+              </Route>
+              <Route path="/admin" element={<Admin />}>
+                {/* setting up nested route to be able to create new exam */}
+                {/* <Route path="/admin/new" element={<NewExam />} /> */}
+              </Route>
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
             <div className="container mx-auto p-6">
