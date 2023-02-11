@@ -16,9 +16,11 @@ export const Admin = () => {
 // const data = useApi('exams');
 // console.log('useApi: ', useApi('exams'));
 
+// check for local storage before rendering data from the API
     const [data, setData] = useState([]);
     const [localData, setLocalData] = useState([]);
 
+    // fetch the API data from the endpoint on first render
     useEffect(() => {
       fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
         .then(res => res.json())
@@ -26,9 +28,19 @@ export const Admin = () => {
         .catch(error => console.error('Error:', error));
     }, []);
 
-    // useEffect(() => {
-    //   localStorage.setItem('localData', JSON.stringify(data));
-    // }, [data]);
+    // store API data in local storage
+    useEffect(() => {
+        // console.log(data);
+        localStorage.setItem('localData', JSON.stringify(data));
+        setLocalData(data);
+        // fetch(JSON.parse(localStorage.getItem('localData')))
+        //     .then(res => setLocalData(res));
+    }, [data]);
+    
+    // get the local data to display on the page by setting the state of the localData variable to whatever is in local storage
+    useEffect(() => {
+      setLocalData(JSON.parse(localStorage.getItem('localData')))
+    }, [])
     
 
     // const removeToDo = (id) => {
@@ -41,9 +53,14 @@ export const Admin = () => {
     }
 
     const handleDelete = (id) => {
-        const examArr = JSON.parse(localStorage.getItem('data'));
-        const updatedExamArr = examArr.filter((exam) => exam.id !== id);
+        console.log(id);  
+        console.log("clicked delete");
+        const examArr = JSON.parse(localStorage.getItem('localData'));
+        const updatedExamArr = examArr.filter((exam) => exam._id !== id);
         localStorage.setItem('localData', JSON.stringify(updatedExamArr));
+        setLocalData(updatedExamArr);
+        console.log(localData);
+        return data;
     }
 
     return (
@@ -65,9 +82,9 @@ export const Admin = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(function (item) {
+                    {localData.map(function (item) {
                         return (
-                            <tr key={item.patientId + item.examId}>
+                            <tr key={item._id}>
                                 <td>{item.patientId}</td>
                                 <td>{item.examId}</td>
                                 <td>{item.keyFindings}</td>
@@ -77,7 +94,8 @@ export const Admin = () => {
                                 <td>{item.bmi}</td>
                                 <td>{item.zipCode}</td>
                                 <td><button className="admin-button">Update</button></td>
-                                <td><button className="admin-button">Delete</button></td>
+                                <td><button className="admin-button"
+                                onClick={(id) =>  handleDelete(item._id)}>Delete</button></td>
                             </tr>
                         )
                     })}
