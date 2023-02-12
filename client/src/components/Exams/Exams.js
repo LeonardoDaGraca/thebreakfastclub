@@ -58,13 +58,7 @@ export const Exams = () => {
 
   return (
     <>
-      <div className="search-container">
-          <div className="search">
-              <input type="text" />
-              
-              <button className="search-btn">Search</button>
-          </div>
-      </div>
+       
         <table className="exams-container">
           <thead>
             <tr>
