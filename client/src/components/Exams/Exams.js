@@ -2,6 +2,7 @@ import "./Exams.css";
 // import { Navbar } from "../Navbar/Navbar";
 // import { useApi } from "../../hooks/use-api";
 import { useState, useEffect } from "react";
+// import {Search} from "../Search/Search"
 
 // let data = require("../../data/exam-data.json");
 
@@ -55,25 +56,27 @@ export const Exams = () => {
 
   return (
     <>
+      <div className="container mx-auto p-6">
+        {/* <Search/> */}
       <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-2xl">
         <table className="table-auto w-90% text-left ">
           <thead>
-            <tr className="bg-gray-800 text-white text-base">
-              <th className="px-2 py-4">Patient ID</th>
-              <th className="px-2 py-4">Exam ID</th>
-              <th className="px-2 py-4">Images</th>
-              <th className="px-2 py-4">Key Findings</th>
-              <th className="px-2 py-4">Brixia Scores</th>
-              <th className="px-2 py-4">Age</th>
-              <th className="px-2 py-4">Sex</th>
-              <th className="px-2 py-4">BMI</th>
-              <th className="px-2 py-4">Zip Code</th>
+            <tr className="bg-gray-800 text-white text-xs md:text-sm ">
+              <th className="px-1 py-2">Patient ID</th>
+              <th className="px-1 py-2">Exam ID</th>
+              <th className="px-1 py-2">Images</th>
+              <th className="px-1 py-2">Key Findings</th>
+              <th className="px-1 py-2">Brixia Scores</th>
+              <th className="px-1 py-2">Age</th>
+              <th className="px-1 py-2">Sex</th>
+              <th className="px-1 py-2">BMI</th>
+              <th className="px-1 py-2">Zip Code</th>
             </tr>
           </thead>
           <tbody>
             {pageData.map(function (item) {
               return (
-                <tr key={item} className="bg-gray-200 text-sm">
+                <tr key={item} className="bg-gray-200 text-sm border-b-2 border-black">
                   <td className="border px-2 py-4">{item.patientId}</td>
                   <td className="border px-2 py-4">{item.examId}</td>
                   <td className="border px-2 py-4"><img src={item.imageURL} alt="images" className="w-28"/></td>
@@ -107,7 +110,8 @@ export const Exams = () => {
             </button>
         </div>
       </div>
-          
-    </>
+      </div>
+      
+    </>  
   );
 };

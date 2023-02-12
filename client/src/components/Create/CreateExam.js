@@ -14,7 +14,7 @@ const CreateExam = () => {
       {showForm ? (
         <CreateForm />
       ) : (
-        <CreateBtn onClick={handleClick} />
+        <CreateBtn onclick={handleClick} />
       )}
     </div>
   );

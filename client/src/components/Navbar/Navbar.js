@@ -44,7 +44,8 @@ export const Navbar = () => {
                     </NavLink>
                   </div>
               </div>
-          </div>
+           </div>
+          <Outlet/>
       </nav>
   );
 };
