@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateBtn } from '../Create/CreateBtn';
+import { CreateExam } from '../Create/CreateExam';
 
 export const Search = () => {
     return (
@@ -13,7 +13,7 @@ export const Search = () => {
                 <button className="bg-blue-500 p-2 rounded text-white">
                     Search
                 </button>
-                <CreateBtn />
+                <CreateExam />
             </div>
         </div>
     );

@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
-import CreateForm from './CreateForm';
-import CreateBtn from './CreateBtn';
+import { CreateForm } from './CreateForm';
+import { CreateBtn } from "./CreateBtn";
 
-const CreateExam = () => {
+export const CreateExam = () => {
   const [showForm, setShowForm] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('create form btn clicked');
     setShowForm(true);
   };
+
+  const handleShowForm = () => {
+    setShowForm(false);
+  }
 
   return (
     <div className="p-10">
       {showForm ? (
-        <CreateForm />
+        <CreateForm handleShowForm={handleShowForm}/>
       ) : (
-        <CreateBtn onClick={handleClick} />
+        <CreateBtn handleClick={handleClick} />
       )}
     </div>
   );
 };
 
-export default CreateExam;
+// export default CreateExam;

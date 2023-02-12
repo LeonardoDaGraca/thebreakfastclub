@@ -56,7 +56,7 @@ export const Admin = ({ data, localData, handleDelete }) => {
               <th className="px-2 py-4">Sex</th>
               <th className="px-2 py-4">BMI</th>
               <th className="px-2 py-4">Zip Code</th>
-              <th className="px-2 py-4">Action</th>
+              <th className="px-2 py-4" colSpan="2">Action</th>
             </tr>
           </thead>
           <tbody>

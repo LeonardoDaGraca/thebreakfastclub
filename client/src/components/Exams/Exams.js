@@ -1,4 +1,3 @@
-import "./Exams.css";
 import { useState, useEffect } from "react";
 
 // let data = require("../../data/exam-data.json");

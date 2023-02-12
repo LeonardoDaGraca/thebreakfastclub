@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const CreateBtn = ({ onClick }) => {
-  const handleClick = () => {
-    console.log('Button was clicked');
-    onClick();
-  };
+export const CreateBtn = ({ handleClick }) => {
+  // const handleClick = () => {
+  //   console.log('Button was clicked');
+  //   onClick();
+  // };
 
   return (
     <button

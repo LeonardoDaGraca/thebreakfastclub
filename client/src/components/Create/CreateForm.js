@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const CreateForm = () => {
+export const CreateForm = ({ handleShowForm }) => {
   const [formData, setFormData] = useState({
     name: '',
     field1: '',
@@ -16,6 +16,7 @@ export const CreateForm = () => {
     e.preventDefault();
     // Submit the form data
     console.log(formData);
+    handleShowForm();
   };
 
   return (
