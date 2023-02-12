@@ -11,12 +11,7 @@ import {useState, useEffect} from 'react';
 // API endpoint for fetching SINGLE PT exam data: 
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
 
-export const Admin = () => {
-
-// const data = useApi('exams');
-// console.log('useApi: ', useApi('exams'));
-
-  const [data, setData] = useState([]);
+export const Admin = ({ data, localData, handleDelete }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
@@ -26,17 +21,9 @@ export const Admin = () => {
     setCurrentPage(page);
   };
 
-  useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-  console.log(data)
-
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const pageData = data.slice(startIndex, endIndex);
+  const pageData = localData.slice(startIndex, endIndex);
 
   const pageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -75,7 +62,7 @@ export const Admin = () => {
           <tbody>
             {pageData.map(function (item) {
               return (
-                <tr key={item} className="bg-gray-200 text-sm">
+                <tr key={item._id} className="bg-gray-200 text-sm">
                   <td className="border px-2 py-2">{item.patientId}</td>
                   <td className="border px-2 py-2">{item.examId}</td>
                   <td className="border px-2 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
@@ -89,7 +76,7 @@ export const Admin = () => {
                       <button>Update</button>
                     </td>
                     <td className="border px-4 py-2">
-                      <button>Delete</button>
+                      <button onClick={(id) => handleDelete(item._id)}>Delete</button>
                     </td>
                 </tr>
               );
