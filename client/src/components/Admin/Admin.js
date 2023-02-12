@@ -1,4 +1,4 @@
-import './Admin.css';
+import React from 'react';
 // import { Navbar } from "../Navbar/Navbar";
 // import { useApi } from "../../hooks/use-api";
 import {useState, useEffect} from 'react';
@@ -16,91 +16,105 @@ export const Admin = () => {
 // const data = useApi('exams');
 // console.log('useApi: ', useApi('exams'));
 
-// check for local storage before rendering data from the API
-    const [data, setData] = useState([]);
-    const [localData, setLocalData] = useState([]);
+  const [data, setData] = useState([]);
 
-    // fetch the API data from the endpoint on first render
-    useEffect(() => {
-      fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams')
-        .then(res => res.json())
-        .then(res => setData(res.exams))
-        .catch(error => console.error('Error:', error));
-    }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
-    // store API data in local storage
-    useEffect(() => {
-        // console.log(data);
-        localStorage.setItem('localData', JSON.stringify(data));
-        setLocalData(data);
-        // fetch(JSON.parse(localStorage.getItem('localData')))
-        //     .then(res => setLocalData(res));
-    }, [data]);
-    
-    // get the local data to display on the page by setting the state of the localData variable to whatever is in local storage
-    useEffect(() => {
-      setLocalData(JSON.parse(localStorage.getItem('localData')))
-    }, [])
-    
 
-    // const removeToDo = (id) => {
-    //     const updatedToDoList = toDoList.filter(
-    //       (todo) => todo.id !== id
-    //       );
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
-    const handleUpdate = () => {
-        // do something
-    }
+  useEffect(() => {
+    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+      .then((res) => res.json())
+      .then((res) => setData(res.exams))
+      .catch((error) => console.error("Error:", error));
+  }, []);
+  console.log(data)
 
-    const handleDelete = (id) => {
-        console.log(id);  
-        console.log("clicked delete");
-        const examArr = JSON.parse(localStorage.getItem('localData'));
-        const updatedExamArr = examArr.filter((exam) => exam._id !== id);
-        localStorage.setItem('localData', JSON.stringify(updatedExamArr));
-        setLocalData(updatedExamArr);
-        console.log(localData);
-        return data;
-    }
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageData = data.slice(startIndex, endIndex);
 
-    return (
-        <>
+  const pageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
-            <table className='admin'>
-                <thead>
-                    <tr>
-                        <th>Patient ID</th>
-                        <th>Exam ID</th>
-                        <th>Key Findings</th>
-                        <th>Brixia Scores</th>
-                        <th>Age</th>
-                        <th>Sex</th>
-                        <th>BMI</th>
-                        <th>Zip Code</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {localData.map(function (item) {
-                        return (
-                            <tr key={item._id}>
-                                <td>{item.patientId}</td>
-                                <td>{item.examId}</td>
-                                <td>{item.keyFindings}</td>
-                                <td>{item.brixiaScores}</td>
-                                <td>{item.age}</td>
-                                <td>{item.sex}</td>
-                                <td>{item.bmi}</td>
-                                <td>{item.zipCode}</td>
-                                <td><button className="admin-button">Update</button></td>
-                                <td><button className="admin-button"
-                                onClick={(id) =>  handleDelete(item._id)}>Delete</button></td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-        </>
-    )
+  const handlePrevious = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <>
+      <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-7xl">
+        <table className="table-auto w-90% text-left ">
+          <thead>
+          <tr className="bg-gray-800 text-white text-base ">
+              <th className="px-2 py-4">Patient ID</th>
+              <th className="px-2 py-4">Exam ID</th>
+              <th className="px-2 py-4">Images</th>
+              <th className="px-2 py-4">Key Findings</th>
+              <th className="px-2 py-4">Brixia Scores</th>
+              <th className="px-2 py-4">Age</th>
+              <th className="px-2 py-4">Sex</th>
+              <th className="px-2 py-4">BMI</th>
+              <th className="px-2 py-4">Zip Code</th>
+              <th className="px-2 py-4">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pageData.map(function (item) {
+              return (
+                <tr key={item} className="bg-gray-200 text-sm">
+                  <td className="border px-2 py-2">{item.patientId}</td>
+                  <td className="border px-2 py-2">{item.examId}</td>
+                  <td className="border px-2 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
+                  <td className="border px-2 py-2">{item.keyFindings}</td>
+                  <td className="border px-2 py-2">{item.brixiaScores}</td>
+                  <td className="border px-2 py-2">{item.age}</td>
+                  <td className="border px-2 py-2">{item.sex}</td>
+                  <td className="border px-2 py-2">{item.bmi}</td>
+                  <td className="border px-2 py-2">{item.zipCode}</td>
+                    <td className="border px-4 py-2">
+                      <button>Update</button>
+                    </td>
+                    <td className="border px-4 py-2">
+                      <button>Delete</button>
+                    </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+        <div className="border-2 flex w-3/4 justify-center">
+          <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            {pageNumbers.map((number) => (
+              <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+                {number}
+            </button>
+          ))}
+            <button
+              disabled={currentPage === pageNumbers.length}
+              onClick={handleNext} className="page-btn">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+      </div>
+    </>
+  );
 };

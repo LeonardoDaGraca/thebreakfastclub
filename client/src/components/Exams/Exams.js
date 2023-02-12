@@ -3,9 +3,6 @@ import "./Exams.css";
 // import { useApi } from "../../hooks/use-api";
 import { useState, useEffect } from "react";
 
-
-
-
 // let data = require("../../data/exam-data.json");
 
 // API endpoint for fetching ALL exam data:
@@ -21,7 +18,7 @@ export const Exams = () => {
   const [data, setData] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
 
   const handlePageChange = (page) => {
@@ -58,60 +55,59 @@ export const Exams = () => {
 
   return (
     <>
-      <div className="search-container">
-          <div className="search">
-              <input type="text" />
-              
-              <button className="search-btn">Search</button>
-          </div>
-      </div>
-        <table className="exams-container">
+      <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-2xl">
+        <table className="table-auto w-90% text-left ">
           <thead>
-            <tr>
-              <th>Patient ID</th>
-              <th>Exam ID</th>
-              <th>Images</th>
-              <th>Key Findings</th>
-              <th>Brixia Scores</th>
-              <th>Age</th>
-              <th>Sex</th>
-              <th>BMI</th>
-              <th>Zip Code</th>
+            <tr className="bg-gray-800 text-white text-base">
+              <th className="px-2 py-4">Patient ID</th>
+              <th className="px-2 py-4">Exam ID</th>
+              <th className="px-2 py-4">Images</th>
+              <th className="px-2 py-4">Key Findings</th>
+              <th className="px-2 py-4">Brixia Scores</th>
+              <th className="px-2 py-4">Age</th>
+              <th className="px-2 py-4">Sex</th>
+              <th className="px-2 py-4">BMI</th>
+              <th className="px-2 py-4">Zip Code</th>
             </tr>
           </thead>
           <tbody>
             {pageData.map(function (item) {
               return (
-                <tr key={item}>
-                  <td>{item.patientId}</td>
-                  <td>{item.examId}</td>
-                  <td><img src={item.imageURL} alt="images" className="images"/></td>
-                  <td>{item.keyFindings}</td>
-                  <td>{item.brixiaScores}</td>
-                  <td>{item.age}</td>
-                  <td>{item.sex}</td>
-                  <td>{item.bmi}</td>
-                  <td>{item.zipCode}</td>
+                <tr key={item} className="bg-gray-200 text-sm">
+                  <td className="border px-2 py-4">{item.patientId}</td>
+                  <td className="border px-2 py-4">{item.examId}</td>
+                  <td className="border px-2 py-4"><img src={item.imageURL} alt="images" className="w-28"/></td>
+                  <td className="border px-2 py-4">{item.keyFindings}</td>
+                  <td className="border px-2 py-4">{item.brixiaScores}</td>
+                  <td className="border px-2 py-4">{item.age}</td>
+                  <td className="border px-2 py-4">{item.sex}</td>
+                  <td className="border px-2 py-4">{item.bmi}</td>
+                  <td className="border px-2 py-4">{item.zipCode}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-      <div className="page-select">
-        <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        {pageNumbers.map((number) => (
-          <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
-            {number}
-          </button>
-        ))}
-          <button
-            disabled={currentPage === pageNumbers.length}
-            onClick={handleNext} className="page-btn">
-              <i class="fa-solid fa-arrow-right"></i>
-          </button>
       </div>
+ 
+      <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+        <div className="border-2 flex w-3/4 justify-center font-semibold space-x-3 text-lg">
+          <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            {pageNumbers.map((number) => (
+              <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+                {number}
+            </button>
+          ))}
+            <button
+              disabled={currentPage === pageNumbers.length}
+              onClick={handleNext} className="page-btn">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+      </div>
+          
     </>
   );
 };
