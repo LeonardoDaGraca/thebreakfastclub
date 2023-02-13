@@ -15,7 +15,7 @@ import {CreateBtn} from "./components/Create/CreateBtn";
 const App = () => {
   return (
     <>
-        <div className="h-screen w-screen">
+        <div className="h-screen w-screen ">
           <Routes>
             <Route element={<Navbar />}>
               <Route path="/" element={[<Search/> ,<Exams />]}>

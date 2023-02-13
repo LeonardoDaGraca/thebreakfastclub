@@ -2,6 +2,7 @@ import React from 'react';
 // import { Navbar } from "../Navbar/Navbar";
 // import { useApi } from "../../hooks/use-api";
 import { useState, useEffect } from "react";
+import {Search} from "../Search/Search";
 
 // let data = require("../../data/exam-data.json");
 
@@ -56,8 +57,9 @@ export const Admin = () => {
   return (
     <>
 
-            <div className=" max-w-6xl m-auto p-6 h-screen">
-                <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit ">
+        <div className="form flex items-center justify-center w-screen h-auto ">
+            <div className=" m-auto p-6 h-screen">
+                <div className="flex justify-center w-full p-6 bg-gray-200 border-black rounded-xl min-w-fit mt-4 ">
                     <table className=" table-auto max-w-7xl min-w-fit text-left ">
                         <thead className="">
                         <tr className="bg-gray-800 text-white text-xs md:text-sm lg:text-base w-max">
@@ -78,20 +80,25 @@ export const Admin = () => {
                         {pageData.map(function (item) {
                             return (
                                 <tr key={item} className="bg-gray-200 text-sm border-b-2 border-black items-center">
-                                    <td className="border px-2 py-4">{item.patientId}</td>
-                                    <td className="border px-2 py-4">{item.examId}</td>
-                                    <td className="border px-2 py-4"><img src={item.imageURL} alt="images"/></td>
-                                    <td className="border px-2 py-4">{item.keyFindings}</td>
-                                    <td className="border px-2 py-4">{item.brixiaScores}</td>
-                                    <td className="border px-2 py-4">{item.age}</td>
-                                    <td className="border px-2 py-4">{item.sex}</td>
-                                    <td className="border px-2 py-4">{item.bmi}</td>
-                                    <td className="border px-2 py-4">{item.zipCode}</td>
-                                    <td className="border px-2 py-4">
-                                        <button className="border-2 bg-gray-500 px-2 py-2 rounded-md text-white">Update</button>
+                                    <td className=" px-2 py-4">{item.patientId}</td>
+                                    <td className=" px-2 py-4">{item.examId}</td>
+                                    <td className=" px-2 py-4"><img src={item.imageURL} alt="images"/></td>
+                                    <td className=" px-2 py-4">{item.keyFindings}</td>
+                                    <td className=" px-2 py-4">{item.brixiaScores}</td>
+                                    <td className=" px-2 py-4">{item.age}</td>
+                                    <td className=" px-2 py-4">{item.sex}</td>
+                                    <td className=" px-2 py-4">{item.bmi}</td>
+                                    <td className=" px-2 py-4">{item.zipCode}</td>
+                                    <td className="  ">
+                                        <button
+                                            className=" bg-gray-500 px-2 py-2 rounded-md text-white">
+                                            Update
+                                        </button>
                                     </td>
-                                    <td className="border px-2 py-4">
-                                        <button className="border-2 bg-red-500 px-2 py-2 rounded-md text-white">Delete</button>
+                                    <td className="">
+                                        <button className=" bg-red-500 px-2 py-2 rounded-md text-white">
+                                            Delete
+                                        </button>
                                     </td>
                                 </tr>
                             );
@@ -118,6 +125,7 @@ export const Admin = () => {
                     </div>
                 </div>
             </div>
+        </div>
 
 
     </>

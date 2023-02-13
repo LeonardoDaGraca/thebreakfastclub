@@ -7,7 +7,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-      <nav className="bg-white shadow w-screen">
+      <nav className="bg-white shadow w-screen relative">
           <div className="flex items-center justify-between w-screen mx-auto border-2 border-black p-6 fixed md:static">
               <h1 className="text-2xl font-medium text-gray-900 drop-shadow-2xl">The Breakfast Club</h1>
               <div className="block lg:hidden ">
