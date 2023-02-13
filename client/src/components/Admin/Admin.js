@@ -55,65 +55,71 @@ export const Admin = () => {
 
   return (
     <>
-      <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-7xl">
-        <table className="table-auto w-90% text-left ">
-          <thead>
-          <tr className="bg-gray-800 text-white text-base ">
-              <th className="px-2 py-4">Patient ID</th>
-              <th className="px-2 py-4">Exam ID</th>
-              <th className="px-2 py-4">Images</th>
-              <th className="px-2 py-4">Key Findings</th>
-              <th className="px-2 py-4">Brixia Scores</th>
-              <th className="px-2 py-4">Age</th>
-              <th className="px-2 py-4">Sex</th>
-              <th className="px-2 py-4">BMI</th>
-              <th className="px-2 py-4">Zip Code</th>
-              <th className="px-2 py-4">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pageData.map(function (item) {
-              return (
-                <tr key={item} className="bg-gray-200 text-sm">
-                  <td className="border px-2 py-2">{item.patientId}</td>
-                  <td className="border px-2 py-2">{item.examId}</td>
-                  <td className="border px-2 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
-                  <td className="border px-2 py-2">{item.keyFindings}</td>
-                  <td className="border px-2 py-2">{item.brixiaScores}</td>
-                  <td className="border px-2 py-2">{item.age}</td>
-                  <td className="border px-2 py-2">{item.sex}</td>
-                  <td className="border px-2 py-2">{item.bmi}</td>
-                  <td className="border px-2 py-2">{item.zipCode}</td>
-                    <td className="border px-4 py-2">
-                      <button>Update</button>
-                    </td>
-                    <td className="border px-4 py-2">
-                      <button>Delete</button>
-                    </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
 
-      <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
-        <div className="border-2 flex w-3/4 justify-center">
-          <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            {pageNumbers.map((number) => (
-              <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
-                {number}
-            </button>
-          ))}
-            <button
-              disabled={currentPage === pageNumbers.length}
-              onClick={handleNext} className="page-btn">
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-      </div>
+            <div className=" max-w-6xl m-auto p-6 h-screen">
+                <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit ">
+                    <table className=" table-auto max-w-7xl min-w-fit text-left ">
+                        <thead className="">
+                        <tr className="bg-gray-800 text-white text-xs md:text-sm lg:text-base w-max">
+                            <th className="px-2 py-2 w-32">Patient ID</th>
+                            <th className="px-2 py-2 w-28">Exam ID</th>
+                            <th className="px-2 py-2 w-28">Images</th>
+                            <th className="px-2 py-2 w-96">Key Findings</th>
+                            <th className="px-2 py-2 w-24">Brixia Scores</th>
+                            <th className="px-2 py-2 w-24">Age</th>
+                            <th className="px-2 py-2 w-24">Sex</th>
+                            <th className="px-2 py-2 w-24">BMI</th>
+                            <th className="px-2 py-2 w-24">Zip Code</th>
+                            <th className="px-2 py-2 ">Take Action</th>
+                            <th className="px-2 py-2 w-24"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {pageData.map(function (item) {
+                            return (
+                                <tr key={item} className="bg-gray-200 text-sm border-b-2 border-black items-center">
+                                    <td className="border px-2 py-4">{item.patientId}</td>
+                                    <td className="border px-2 py-4">{item.examId}</td>
+                                    <td className="border px-2 py-4"><img src={item.imageURL} alt="images"/></td>
+                                    <td className="border px-2 py-4">{item.keyFindings}</td>
+                                    <td className="border px-2 py-4">{item.brixiaScores}</td>
+                                    <td className="border px-2 py-4">{item.age}</td>
+                                    <td className="border px-2 py-4">{item.sex}</td>
+                                    <td className="border px-2 py-4">{item.bmi}</td>
+                                    <td className="border px-2 py-4">{item.zipCode}</td>
+                                    <td className="border px-2 py-4">
+                                        <button className="border-2 bg-gray-500 px-2 py-2 rounded-md text-white">Update</button>
+                                    </td>
+                                    <td className="border px-2 py-4">
+                                        <button className="border-2 bg-red-500 px-2 py-2 rounded-md text-white">Delete</button>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+                    <div className="border-2 flex w-3/4 justify-center">
+                        <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+                            <i className="fa-solid fa-arrow-left"></i>
+                        </button>
+                        {pageNumbers.map((number) => (
+                            <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+                                {number}
+                            </button>
+                        ))}
+                        <button
+                            disabled={currentPage === pageNumbers.length}
+                            onClick={handleNext} className="page-btn">
+                            <i className="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
     </>
   );
 };
