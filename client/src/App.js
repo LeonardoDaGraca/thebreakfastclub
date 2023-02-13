@@ -5,15 +5,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
 import {Search} from "./components/Search/Search";
 import { Exams } from "./components/Exams/Exams";
+import {ExamForm} from "./components/Create/ExamForm";
 // import { Pagination } from "./components/Pagination/Pagination";
 import { Admin } from "./components/Admin/Admin";
 
 import { NotFound } from "./components/NotFound/NotFound";
+import {CreateBtn} from "./components/Create/CreateBtn";
 
 const App = () => {
   return (
     <>
-        <div className="relative bg-gray-100 min-h-screen min-w-fit">
+        <div className="h-screen w-screen">
           <Routes>
             <Route element={<Navbar />}>
               <Route path="/" element={[<Search/> ,<Exams />]}>
@@ -25,8 +27,12 @@ const App = () => {
                 {/* setting up nested route to be able to create new exam */}
                 {/* <Route path="/admin/new" element={<NewExam />} /> */}
               </Route>
+              <Route path="/examform" element={<ExamForm />}>
+                    {/* setting up nested route to be able to create new exam */}
+                    {/* <Route path="/admin/new" element={<NewExam />} /> */}
+              </Route>
               <Route path="*" element={<NotFound />} />
-            </Route>
+              </Route>
            </Routes>
             {/* <div className="container mx-auto p-6"> */}
                 {/* <Search/> */}
