@@ -8,7 +8,7 @@ export const Navbar = () => {
 
   return (
       <nav className="bg-white shadow w-screen">
-          <div className="flex items-center justify-between w-screen mx-auto border-2 border-black p-4 fixed md:static">
+          <div className="flex items-center justify-between w-screen mx-auto border-2 border-black p-6 fixed md:static">
               <h1 className="text-2xl font-medium text-gray-900 drop-shadow-2xl">The Breakfast Club</h1>
               <div className="block lg:hidden ">
                   <button
