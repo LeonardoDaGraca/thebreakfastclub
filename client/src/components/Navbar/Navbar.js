@@ -44,7 +44,7 @@ export const Navbar = () => {
                     </NavLink>
                       <NavLink to="/examform"
                                className="block mt-4 lg:inline-block lg:mt-0
-                                text-slate-200 hover:text-white hover:shadow-md ml-4 border-2 border-gray-200 p-2 bg-blue-600 rounded-lg"
+                                text-slate-100 hover:text-white hover:shadow-md ml-4 border-2 border-gray-200 p-2 bg-blue-500 hover:bg-blue-600 rounded-md"
                       >
                           Create Exam
                       </NavLink>

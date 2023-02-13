@@ -139,14 +139,15 @@ export const ExamForm = ({ onSubmit, onCancel }) => {
               <div className="flex justify-end">
                   <button
                       type="submit"
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
+                      className="bg-blue-500 hover:bg-blue-600 hover:shadow-lg text-slate-100 hover:text-white font-medium py-2 px-4 rounded-md"
+
                   >
                       Save Exam
                   </button>
                   <button
                       type="button"
                       onClick={onCancel}
-                      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded ml-4"
+                      className="bg-red-500  hover:bg-red-600 hover:shadow-lg text-slate-100 hover:text-white font-medium py-2 px-4 rounded-md ml-4"
                   >
                       Cancel
                   </button>
