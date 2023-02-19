@@ -44,7 +44,7 @@ export const Mobile = () => {
     
     return (
         <>
-            <div className="relative flex justify-center items-center w-full h-80 md:hidden p-6 ">
+            <div className="relative flex justify-center items-center w-full h-80 md:hidden p-4 ">
                 <div className="grid grid-cols-2 grid-rows-2 w-full h-full p-4 border-2 shadow-lg rounded-2xl gap-2 justify-center">
                     <div className="shadow-md col-span-3 flex w-full h-auto rounded-xl  ">
                         <div className=" w-full  justify-between shadow-lg rounded-xl">

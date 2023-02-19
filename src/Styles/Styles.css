@@ -6,4 +6,5 @@
     .grid-custom {
         grid-template-colums: repeat(3, minmax(0, max-content));
     }
+
 }
