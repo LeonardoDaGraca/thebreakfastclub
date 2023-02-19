@@ -19,18 +19,28 @@ const images = require(`${relativePath}exam-model.js`);
   });
 }*/
 
-/**@desc gets all the patients from the database
-*/
-async function getTest(req, res)
+/*async function getTest(req, res)
 {
   let payload = {
     success: true,
     message: 'API is working (test)'
   };
-  return res.status(200).json(payload);
-}
+  res.status(200).json(payload);
+}*/
+
+/**@desc it's just a test for the api
+*/
+getTest = asyncHandler( async (req, res) => {
+  let payload = {
+    success: true,
+    message: "API is working (test)"
+  }
+  res.status(200).json(payload);
+});
 
 //CONTROLERS for patients:
+/**@desc gets all the patients from the database
+*/
 /*async function getPatients (req, res)
 {
   const allPatients = await patients.find({});

@@ -14,7 +14,7 @@ const parameters = {
   useFindAndModify: true,*/
 };
 const errorHandeling = (e) => {
-  console.log("Failure at trying to connect to Mongo Atrlas DB", e.message);
+  console.log("Failure at trying to connect to MongoDB Atrlas DB", e.message);
 };
 mongoose.set('strictQuery', false);
 mongoose.connect(MONGO_URI, parameters).catch(errorHandeling);
