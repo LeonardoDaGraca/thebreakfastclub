@@ -21,7 +21,7 @@ THE API:
 "DELETE http://<host>:<port>/api/exams/<id>" <-- deletes the exam with the conrresponding id
 
   Pattern for other CRUD opperations:
-"GET http://<host>:<port>/api/geninfo" <-- gets the aggregation of general info of the patients and their exams
+"GET http://<host>:<port>/api/everything" <-- gets the aggregation of general info of the patients and their exams
 **/
 
 /*FIXME:
@@ -54,6 +54,6 @@ router.post("/exams", UserController.createExam);
 router.put("/exams/:id", UserController.updateExam);
 router.delete("/exams/:id", UserController.deleteExam);
 //other routers
-//TODO: add rounter for getGenInfo
+router.get("/everything", UserController.getEverything);
 
 module.exports = router;

@@ -193,7 +193,21 @@ deleteExam = asyncHandler( async (req, res) =>
 
 //other controllers (unification of the two databases)
 
-//TODO: make the controller that is an agregate of both patients and images collections, check mongodb agregate function. call it getGenInfo
+/**@desc gets the union between patients and images data, each patient will have their corresponding exams, uses mongodb aggregation to make the untion*/
+getEverything = asyncHandler( async (req, res) =>
+{
+  //document for mongodb
+  const queryDocument = [{
+    $lookup: {
+      from: "images",
+      localField: "_id",
+      foreignField: "patients",
+      as: "exams"
+    }
+  }];
+  const aggregateCollections = await patients.aggregate(queryDocument);
+  res.status(200).json(aggregateCollections);
+});
 
 module.exports = {
   getTest,
@@ -208,4 +222,5 @@ module.exports = {
   createExam,
   updateExam,
   deleteExam,
+  getEverything
 };
