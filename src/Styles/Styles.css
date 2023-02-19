@@ -1,0 +1,9 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+    .grid-custom {
+        grid-template-colums: repeat(3, minmax(0, max-content));
+    }
+}
