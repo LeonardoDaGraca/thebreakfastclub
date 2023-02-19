@@ -34,7 +34,7 @@ export const Exams = () => {
       .then((res) => setData(res.exams))
       .catch((error) => console.error("Error:", error));
   }, []);
-  console.log(data)
+
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -91,6 +91,8 @@ export const Exams = () => {
             })}
           </tbody>
         </table>
+
+        {/* pagination */}
       <div className="page-select">
         <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
           <i class="fa-solid fa-arrow-left"></i>

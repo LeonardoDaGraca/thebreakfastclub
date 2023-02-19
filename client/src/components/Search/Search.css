@@ -8,6 +8,15 @@
     margin-top: 8%;
     padding: 10px;
 }
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
 
 /* .search {
     border: 2px solid black;
