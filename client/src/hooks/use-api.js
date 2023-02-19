@@ -1,10 +1,18 @@
+/**
+* Pedro Gutierrez Rincon
+* 02/19/2023
+* Middleware to connect the api to the front end
+* Designed to take the method for HTML request, (GET, POST, PATCH or DELETE), the path and/or the payload from front end
+*/
+
 import { useState, useEffect } from 'react';
 
 const API_ROOT = 'http://localhost:9000/api';
 
-export function useApi({ method, path, payload } = { method: '', path: '', payload: {} }) {
+export function useApi({ method, path, payload } = { method: "GET", path: "", payload: {} }) {
   const [response, setResponse] = useState();
   const METHODS = {
+    GET: "GET",
     POST: "POST",
     PATCH: "PATCH",
     DELETE: "DELETE"
