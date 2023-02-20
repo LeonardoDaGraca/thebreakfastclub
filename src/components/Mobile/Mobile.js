@@ -1,50 +1,86 @@
+import {React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { React, useState, useEffect } from "react";
+
+// API endpoint for fetching ALL exam data:
+// https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
+
+// API endpoint for fetching SINGLE PT exam data:
+// https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
 
 export const Mobile = () => {
+  // const data = useApi('exams');
+  // console.log('useApi: ', useApi('exams'));
 
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(5);
-  
-  
-    const handlePageChange = (page) => {
-      setCurrentPage(page);
-    };
-  
-    useEffect(() => {
-      fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-        .then((res) => res.json())
-        .then((res) => setData(res.exams))
-        .catch((error) => console.error("Error:", error));
-    }, []);
-    console.log(data)
-  
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const pageData = data.slice(startIndex, endIndex);
-  
-    const pageChange = (pageNumber) => {
-      setCurrentPage(pageNumber);
-    };
-  
-    const handlePrevious = () => {
-      setCurrentPage(currentPage - 1);
-    };
-  
-    const handleNext = () => {
-      setCurrentPage(currentPage + 1);
-    };
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-      pageNumbers.push(i);
-    }
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(2);
+
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+      .then((res) => res.json())
+      .then((res) => setData(res.exams))
+      .catch((error) => console.error("Error:", error));
+  }, []);
+  console.log(data)
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageData = data.slice(startIndex, endIndex);
+
+  const pageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handlePrevious = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
     
     return (
         <>
-            <div className="relative flex justify-center items-center w-full h-80 md:hidden p-2 ">
+            {pageData.map(function (item) {
+                return (
+                    <section className="relative flex items-center justify-center w-full h-full mt-3 md:hidden p-1.5 ">
+                        <div className="flexx border-2 justify-center items-center shadow-lg p-2 w-full h-auto rounded-lg space-y-3">
+                            <div className="flex justify-center items-center border-2 rounded-lg p-2  shadow-lg">
+                                <div className="flex flex-col items-center ">
+                                    <h1 className="text-base font-semibold mb-1">Patient ID</h1>
+                                    <Link className="text-sm hover:text-blue-500"><p>{item.patientId}</p></Link>
+                                </div>
+                            </div>
+                            <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg  ">
+                                <div className="flex flex-col items-center ">
+                                    <h1 className="text-base font-semibold mb-1">Key Findings</h1>
+                                    <div className="container ">
+                                        <p className="text-sm mx-6 leading-5 h-14 overflow-hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, sequi facere quis pariatur perspiciatis sapiente exercitationem sunt, neque odio alias debitis? Eveniet ea ratione quae. Vitae voluptate quos repellat excepturi?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg h-1/2">
+                                <div className="flex flex-col justify-center items-center ">
+                                    <h1 className="text-base font-semibold mb-1">Images</h1>
+                                    <Link className="text-sm "><p>COVID-19-AR-16434380</p></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )        
+            })}    
+            {/* <div className="relative flex justify-center items-center w-full h-80 md:hidden p-2 ">
                 <div className="grid grid-cols-2 grid-rows-2 w-full h-full p-3 border-2 shadow-lg rounded-2xl gap-2 justify-center">
                     <div className="shadow-md col-span-3 flex w-full h-auto rounded-xl  ">
                         <div className=" w-full  justify-between shadow-lg rounded-xl">
@@ -85,7 +121,7 @@ export const Mobile = () => {
                         <a href="#"><img src="" alt=""></img>Images</a>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
         </>
         
