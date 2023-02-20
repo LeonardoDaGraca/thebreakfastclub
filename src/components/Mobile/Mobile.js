@@ -14,7 +14,7 @@ export const Mobile = () => {
   const [data, setData] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [itemsPerPage, setItemsPerPage] = useState(1);
 
 
   const handlePageChange = (page) => {
@@ -54,26 +54,26 @@ export const Mobile = () => {
         <>
             {pageData.map(function (item) {
                 return (
-                    <section className="relative flex items-center justify-center w-full h-full mt-3 md:hidden p-1.5 ">
+                    <section className="relative flex items-center justify-center w-full h-full mt-40 md:hidden p-1.5 ">
                         <div className="flexx border-2 justify-center items-center shadow-lg p-2 w-full h-auto rounded-lg space-y-3">
                             <div className="flex justify-center items-center border-2 rounded-lg p-2  shadow-lg">
                                 <div className="flex flex-col items-center ">
-                                    <h1 className="text-base font-semibold mb-1">Patient ID</h1>
-                                    <Link className="text-sm hover:text-blue-500"><p>{item.patientId}</p></Link>
+                                    <h1 className="text-base font-bold mb-1">Patient ID</h1>
+                                    <Link><p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p></Link>
                                 </div>
                             </div>
                             <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg  ">
                                 <div className="flex flex-col items-center ">
-                                    <h1 className="text-base font-semibold mb-1">Key Findings</h1>
+                                    <h1 className="text-base font-bold mb-1">Key Findings</h1>
                                     <div className="container ">
-                                        <p className="text-sm mx-6 leading-5 h-14 overflow-hidden">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, sequi facere quis pariatur perspiciatis sapiente exercitationem sunt, neque odio alias debitis? Eveniet ea ratione quae. Vitae voluptate quos repellat excepturi?</p>
+                                    <p className="flex flex-wrap text-base mx-10">{item.keyFindings}</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg h-1/2">
                                 <div className="flex flex-col justify-center items-center ">
-                                    <h1 className="text-base font-semibold mb-1">Images</h1>
-                                    <Link className="text-sm "><p>COVID-19-AR-16434380</p></Link>
+                                    <h1 className="text-base text-black font-bold mb-1 ">Images</h1>
+                                    <Link><img className="w-32" src={item.imageURL} alt="images"/></Link>
                                 </div>
                             </div>
                         </div>
