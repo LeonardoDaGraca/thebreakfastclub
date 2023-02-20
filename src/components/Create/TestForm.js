@@ -1,5 +1,6 @@
 import React from "react"
 import { Navbar } from "../Navbar/Navbar"
+import { Footer } from "../Footer/Footer"
 
 export const TestForm = () => {
     return (
@@ -81,6 +82,7 @@ export const TestForm = () => {
                 </form>
                 
             </div>
+            <Footer/>
             
         </>
         

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Navbar } from '../Navbar/Navbar';
 // import {Search} from "../Search/Search";
 import { TestSearch } from '../Search/TestSearch';
+import { Footer } from '../Footer/Footer';
 
 // let data = require("../../data/exam-data.json");
 
@@ -129,7 +130,7 @@ export const Admin = () => {
                 </div>
             </div>
         </div>
-
+        <Footer/>
 
     </>
   );
