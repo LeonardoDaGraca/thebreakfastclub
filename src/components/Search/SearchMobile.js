@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 export const SearchMobile = () => {

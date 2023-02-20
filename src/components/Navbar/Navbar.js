@@ -64,7 +64,7 @@ export const Navbar = () => {
                 Create Exam
               </NavLink>
               <NavLink
-                to="/TestForm"
+                to="/test-form"
                 onClick={handleMenuClick}
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
               >

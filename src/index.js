@@ -1,16 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { TestForm } from './components/Create/TestForm';
+import { Admin } from './components/Admin/Admin';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Exams } from './components/Exams/Exams';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+  {
+    path: "exams",
+    element: <Exams/>,
+  },
+  {
+    path: "admin",
+    element: <Admin/>,
+  },
+  {
+    path: "test-form",
+    element: <TestForm/>,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

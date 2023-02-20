@@ -2,7 +2,9 @@ import React from 'react';
 // import { Navbar } from "../Navbar/Navbar";
 // import { useApi } from "../../hooks/use-api";
 import { useState, useEffect } from "react";
-import {Search} from "../Search/Search";
+import { Navbar } from '../Navbar/Navbar';
+// import {Search} from "../Search/Search";
+import { TestSearch } from '../Search/TestSearch';
 
 // let data = require("../../data/exam-data.json");
 
@@ -56,7 +58,8 @@ export const Admin = () => {
 
   return (
     <>
-
+          <Navbar />
+          <TestSearch/>
         <div className="form flex items-center justify-center w-screen h-auto ">
             <div className=" m-auto p-6 ">
                 <div className="flex justify-center w-full p-6 bg-gray-200 border-black rounded-xl min-w-fit mt-4 ">
