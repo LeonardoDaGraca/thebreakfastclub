@@ -1,6 +1,7 @@
 import {React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import PopUp from "../PopUp/PopUp";
+import DataPopUp from "../PopUp/DataPopUp";
+import ImagePopUp from "../PopUp/ImagePopUp";
 
 // API endpoint for fetching ALL exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
@@ -15,7 +16,7 @@ export const Mobile = () => {
   const [data, setData] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(2);
 
 
   const handlePageChange = (page) => {
@@ -59,7 +60,7 @@ export const Mobile = () => {
         <>
             {pageData.map(function (item) {
                 return (
-                    <section className="relative flex flex-col items-center justify-center w-full h-full mt-28 md:hidden p-1.5 ">
+                    <section className="relative flex flex-col items-center justify-center w-full h-full mt-6 md:hidden p-1.5 ">
                         <div className="flexx border-2 justify-center items-center shadow-lg p-2 w-full h-auto rounded-lg space-y-3">
                             <div className="flex justify-center items-center border-2 rounded-lg p-2  shadow-lg">
                                 <div className="flex flex-col items-center ">
@@ -67,22 +68,23 @@ export const Mobile = () => {
                                     <Link onClick={() => setShowMyPopUp(true)} ><p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p></Link>
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg  ">
+                            {/* <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg  ">
                                 <div className="flex flex-col items-center ">
                                     <h1 className="text-base font-bold mb-1">Key Findings</h1>
                                     <div className="container ">
                                     <p className="flex flex-wrap text-base mx-10">{item.keyFindings}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg h-1/2">
                                 <div className="flex flex-col justify-center items-center ">
                                     <h1 className="text-base text-black font-bold mb-1 ">Images</h1>
-                                    <Link><img className="w-32" src={item.imageURL} alt="images"/></Link>
+                                    <Link onClick={() => setShowMyPopUp(true)} ><img className="w-32" src={item.imageURL} alt="images"/></Link>
                                 </div>
                             </div>
                         </div>
-                        <PopUp onClose={handleOnClose } visible={showMyPopUp} />
+                        <DataPopUp onClose={handleOnClose } visible={showMyPopUp} />
+                        <ImagePopUp onClose={handleOnClose } visible={showMyPopUp} />
                     </section>
                 )        
             })}    
