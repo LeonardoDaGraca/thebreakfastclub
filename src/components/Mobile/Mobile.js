@@ -1,5 +1,6 @@
 import {React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import PopUp from "../PopUp/PopUp";
 
 // API endpoint for fetching ALL exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
@@ -48,18 +49,22 @@ export const Mobile = () => {
   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
+    
+    // PopUp Window section
+    const [showMyPopUp, setShowMyPopUp] = useState(false)
+    const handleOnClose = () => setShowMyPopUp(false);
 
     
     return (
         <>
             {pageData.map(function (item) {
                 return (
-                    <section className="relative flex items-center justify-center w-full h-full mt-40 md:hidden p-1.5 ">
+                    <section className="relative flex flex-col items-center justify-center w-full h-full mt-28 md:hidden p-1.5 ">
                         <div className="flexx border-2 justify-center items-center shadow-lg p-2 w-full h-auto rounded-lg space-y-3">
                             <div className="flex justify-center items-center border-2 rounded-lg p-2  shadow-lg">
                                 <div className="flex flex-col items-center ">
                                     <h1 className="text-base font-bold mb-1">Patient ID</h1>
-                                    <Link><p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p></Link>
+                                    <Link onClick={() => setShowMyPopUp(true)} ><p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p></Link>
                                 </div>
                             </div>
                             <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg  ">
@@ -77,6 +82,7 @@ export const Mobile = () => {
                                 </div>
                             </div>
                         </div>
+                        <PopUp onClose={handleOnClose } visible={showMyPopUp} />
                     </section>
                 )        
             })}    

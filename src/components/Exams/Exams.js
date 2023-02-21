@@ -1,6 +1,7 @@
 import {React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Mobile } from "../Mobile/Mobile";
+import PopUp from "../PopUp/PopUp";
 
 // API endpoint for fetching ALL exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
@@ -95,6 +96,7 @@ export const Exams = () => {
                 <p className="text-sm">{ item.zipCode}</p>
               </div>
             </div>
+            <PopUp/>
           </section>
         );
       })}
