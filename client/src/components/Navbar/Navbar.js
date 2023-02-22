@@ -7,10 +7,10 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-      <nav className="bg-white shadow p-6 min-w-full">
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
+      <nav className="bg-white shadow w-screen relative">
+          <div className="flex items-center justify-between w-screen mx-auto border-2 border-black p-6 fixed md:static">
               <h1 className="text-2xl font-medium text-gray-900 drop-shadow-2xl">The Breakfast Club</h1>
-              <div className="block lg:hidden">
+              <div className="block lg:hidden ">
                   <button
                       className="flex items-center px-3 py-2 border rounded text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:shadow-outline"
                       onClick={() => setIsOpen(!isOpen)}
@@ -42,10 +42,16 @@ export const Navbar = () => {
                     >
                       Admin
                     </NavLink>
+                      <NavLink to="/examform"
+                               className="block mt-4 lg:inline-block lg:mt-0
+                                text-slate-100 hover:text-white hover:shadow-md ml-4 border-2 border-gray-200 p-2 bg-blue-500 hover:bg-blue-600 rounded-md"
+                      >
+                          Create Exam
+                      </NavLink>
                   </div>
               </div>
-          </div>
-        <Outlet />
+           </div>
+          <Outlet/>
       </nav>
   );
 };
