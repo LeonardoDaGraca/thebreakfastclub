@@ -17,10 +17,33 @@ export const Admin = () => {
   // console.log('useApi: ', useApi('exams'));
 
   const [data, setData] = useState([]);
-
+  const [localData, setLocalData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
+   // store API data in local storage
+   useEffect(() => {
+    // console.log(data);
+    localStorage.setItem('localData', JSON.stringify(data));
+    setLocalData(data);
+    // fetch(JSON.parse(localStorage.getItem('localData')))
+    //     .then(res => setLocalData(res));
+}, [data]);
+
+// get the local data to display on the page by setting the state of the localData variable to whatever is in local storage
+  useEffect(() => {
+    setLocalData(JSON.parse(localStorage.getItem('localData')))
+  }, [])
+
+  const handleDelete = (id) => {
+    const examArr = JSON.parse(localStorage.getItem('data'));
+    console.log(id);  
+    const updatedExamArr = examArr.filter((exam) => exam.id !== id);
+    localStorage.setItem('localData', JSON.stringify(updatedExamArr));
+    setLocalData(updatedExamArr);
+    console.log(localData);
+    return data;
+}
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
