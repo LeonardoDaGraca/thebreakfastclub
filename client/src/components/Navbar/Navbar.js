@@ -1,57 +1,108 @@
 import React, { useState } from 'react';
 // import link element from dependency react-router-dom for use with browser router
 import { NavLink, Outlet } from "react-router-dom";
-
+import { FaBars, FaTimes, FaSearch} from 'react-icons/fa';
+import { SearchMobile } from '../Search/SearchMobile';
 // implement functional React component for the Navbar
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-      <nav className="bg-white shadow w-screen relative">
-          <div className="flex items-center justify-between w-screen mx-auto border-2 border-black p-6 fixed md:static">
-              <h1 className="text-2xl font-medium text-gray-900 drop-shadow-2xl">The Breakfast Club</h1>
-              <div className="block lg:hidden ">
-                  <button
-                      className="flex items-center px-3 py-2 border rounded text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:shadow-outline"
-                      onClick={() => setIsOpen(!isOpen)}
-                  >
-                      <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                          {isOpen ? (
-                              <path d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.828-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.828z"/>
-                          ) : (
-                              <path d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
-                          )}
-                      </svg>
-                  </button>
-              </div>
-              <div
-                  className={`${
-                      isOpen ? 'block' : 'hidden'
-                  } lg:block lg:flex lg:items-center w-full lg:w-auto`}
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const handleToggle = () => {
+      setIsOpen(!isOpen);
+    };
+  
+    const handleMenuClick = () => {
+      setIsOpen(false);
+    };
+  
+    return (
+      <nav className="bg-gray-900">
+        <div className=" max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 text-base md:text-2xl font-bold">
+            <div>
+              <NavLink
+                to="/"
+                className="text-white font-bold"
               >
-                  <div className="text-sm lg:flex-grow">
-                    
-                    <NavLink to="/"
-                      className="block mt-4 lg:inline-block lg:mt-0
-                      text-gray-600 hover:text-gray-900 mr-4"
-                    >
-                      Exams
-                    </NavLink> 
-                    <NavLink to="/admin"
-                      className="block mt-4 lg:inline-block lg:mt-0 text-gray-600 hover:text-gray-900"
-                    >
-                      Admin
-                    </NavLink>
-                      <NavLink to="/examform"
-                               className="block mt-4 lg:inline-block lg:mt-0
-                                text-slate-100 hover:text-white hover:shadow-md ml-4 border-2 border-gray-200 p-2 bg-blue-500 hover:bg-blue-600 rounded-md"
-                      >
-                          Create Exam
-                      </NavLink>
-                  </div>
+                MedBay
+              </NavLink>
+            </div>
+            <SearchMobile/>
+            <div className=" flex border-2 rounded-lg md:hidden">
+              <button
+                onClick={handleToggle}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              >
+                {isOpen ? (
+                  <FaTimes onClick={handleToggle} />
+                ) : (
+                  <FaBars onClick={handleToggle} />
+                )}
+              </button>
+            </div>
+            
+            <div className="hidden md:block">
+              <div className="ml-4 flex items-center space-x-4 ">
+                <NavLink
+                  to="/exam"
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
+                >
+                  Exam
+                </NavLink>
+                <NavLink
+                  to="/admin"
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
+                >
+                  Admin
+                </NavLink>
+                <NavLink
+                  to="/create-exam"
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
+                >
+                  Create Exam
+                </NavLink>
+                <NavLink
+                  to="/test-form"
+                  onClick={handleMenuClick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
+                >
+                  Test Form
+                </NavLink>
               </div>
-           </div>
-          <Outlet/>
+            </div>
+          </div>
+        </div>
+        {isOpen && (
+          <div className="md:hidden absolute top-0 right-0 w-full h-full z-10">
+            <div className="flex flex-col items-end mt-16 mr-4">
+              <NavLink
+                to="/exam"
+                onClick={handleMenuClick}
+                className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium mt-2"
+              >
+                Exam
+              </NavLink>
+              <NavLink
+                to="/admin"
+                onClick={handleMenuClick}
+                className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Admin
+              </NavLink>
+              <NavLink
+                to="/create-exam"
+                onClick={handleMenuClick}
+                className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Create Exam
+              </NavLink>
+            </div>
+          </div>
+        )}
+        <Outlet/>
       </nav>
-  );
-};
+    );
+  };

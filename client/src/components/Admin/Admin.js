@@ -2,8 +2,11 @@ import React from 'react';
 // import { Navbar } from "../Navbar/Navbar";
 // import { useApi } from "../../hooks/use-api";
 import { useState, useEffect } from "react";
-import {Search} from "../Search/Search";
-
+// import {Search} from "../Search/Search";
+import { Navbar } from '../Navbar/Navbar';
+// import {Search} from "../Search/Search";
+import { TestSearch } from '../Search/TestSearch';
+import { Footer } from '../Footer/Footer';
 // let data = require("../../data/exam-data.json");
 
 // API endpoint for fetching ALL exam data:
@@ -21,6 +24,14 @@ export const Admin = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
+  useEffect(() => {
+    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+      .then((res) => res.json())
+      .then((res) => setData(res.exams))
+      .catch((error) => console.error("Error:", error));
+  }, []);
+  console.log(data)
+
    // store API data in local storage
    useEffect(() => {
     // console.log(data);
@@ -28,9 +39,9 @@ export const Admin = () => {
     setLocalData(data);
     // fetch(JSON.parse(localStorage.getItem('localData')))
     //     .then(res => setLocalData(res));
-}, [data]);
+  }, [data]);
 
-// get the local data to display on the page by setting the state of the localData variable to whatever is in local storage
+  // get the local data to display on the page by setting the state of the localData variable to whatever is in local storage
   useEffect(() => {
     setLocalData(JSON.parse(localStorage.getItem('localData')))
   }, [])
@@ -43,14 +54,16 @@ export const Admin = () => {
     setLocalData(updatedExamArr);
     console.log(localData);
     return data;
-}
+  }
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
+  // const pageData = data.slice(startIndex, endIndex);
   const pageData = localData.slice(startIndex, endIndex);
 
   const pageChange = (pageNumber) => {
@@ -71,6 +84,8 @@ export const Admin = () => {
 
   return (
     <>
+     <Navbar />
+          <TestSearch/>
       <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-7xl">
         <table className="table-auto w-90% text-left ">
           <thead>
@@ -182,7 +197,7 @@ export const Admin = () => {
                 </div>
             </div>
         </div>
-
+      <Footer/>
 
     </>
   );

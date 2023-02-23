@@ -4,11 +4,16 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import the components being rendered by the route component
 import { Navbar } from "./components/Navbar/Navbar";
-import { Search } from "./components/Search/Search";
 import { Exams } from './components/Exams/Exams';
 import { Admin } from './components/Admin/Admin';
-import { NotFound } from "./components/NotFound/NotFound";
-
+import { NotFound } from "./components/NotFound/NotFound";import { Navbar } from "./components/Navbar/Navbar";
+// import { Search } from "./components/Search/Search";
+import { TestSearch } from "./components/Search/TestSearch";
+import { Footer } from "./components/Footer/Footer";
+// import { TestForm } from "./components/Create/TestForm";
+// import { Admin } from "./components/Admin/Admin";
+// import { ExamForm } from "./components/Create/ExamForm";
+// import { NotFound } from "./components/Notfound/NotFound";
 import { ExamForm } from "./components/Create/ExamForm";
 // import { Pagination } from "./components/Pagination/Pagination";
 import { CreateBtn } from "./components/Create/CreateBtn";
@@ -71,6 +76,16 @@ const App = () => {
                 {/*<ExamsFetch/>*/}
             {/* </div> */}
             {/* <Pagination/> */}
+
+            {/* return (
+    <>
+      <div className="App">
+        <Navbar/>
+        <TestSearch/>
+        <Exams />
+        <Footer/> */}
+
+
         </div>
     </>
   );

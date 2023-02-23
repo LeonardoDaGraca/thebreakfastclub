@@ -1,5 +1,5 @@
 import React from "react"
-import { Navbar } from "../Navbar/Navbar"
+import { Navbar } from "../../../../src/components/Navbar/Navbar"
 import { Footer } from "../Footer/Footer"
 
 export const TestForm = () => {
