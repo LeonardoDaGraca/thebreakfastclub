@@ -12,7 +12,7 @@ import PopUp from "../PopUp/DataPopUp";
 // API endpoint for fetching SINGLE PT exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
 
-export const Exams = ({ data, localData }) => {
+export const Exams = ({ localData }) => {
   // const data = useApi('exams');
   // console.log('useApi: ', useApi('exams'));
 
