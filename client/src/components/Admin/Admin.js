@@ -46,15 +46,54 @@ export const Admin = () => {
     setLocalData(JSON.parse(localStorage.getItem('localData')))
   }, [])
 
-  const handleDelete = (id) => {
-    const examArr = JSON.parse(localStorage.getItem('data'));
-    console.log(id);  
-    const updatedExamArr = examArr.filter((exam) => exam.id !== id);
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    const examArr = JSON.parse(localStorage.getItem('localData'));
+    console.log(examArr, id);  
+    const updatedExamArr = examArr.filter((exam) => exam._id !== id);
+    console.log(`updatedExamArr: ${updatedExamArr}`)
     localStorage.setItem('localData', JSON.stringify(updatedExamArr));
     setLocalData(updatedExamArr);
     console.log(localData);
-    return data;
+    // return data;
   }
+
+  // planning for update functionality
+  // const updateExamRecord = (updatedExam) => {
+  //   fetch(` /* API URL */ `, {
+  //     method: 'PATCH', 
+  //     headers: {
+  //         'Content-Type': 'application/JSON',
+  //         Authorization: `Bearer ${/* if needed */}`
+  //       },
+  //     body: JSON.stringify({
+  //       fields: {
+          // include updated fields here
+          // age: updatedExam.age (for example)
+          // bmi
+          // brixia
+          // imageUrl
+          // exam ID
+          // key findings
+          // sex
+          // zipcode
+          // patient ID
+        // }}),
+        //   })
+      // .then(setTimeout(() => {
+      //     getData()
+      //   }, 100))
+  //     .catch(()=>{console.log('Error')})
+  // };
+  // }
+
+// planning for update functionality
+  // const handleUpdateSubmit = (e, id) => {
+    // when passed an ID, the matching exam will display in a separate pop up component with input fields filled with current data but editable
+    // e.preventDefault();
+    // updateExamRecord({ /* this is passed to the updateExamRecord function above as an object and includes fields that have been updated here */ })
+
+  // }
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -84,7 +123,7 @@ export const Admin = () => {
 
   return (
     <>
-     <Navbar />
+     {/* <Navbar />
           <TestSearch/>
       <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-7xl">
         <table className="table-auto w-90% text-left ">
@@ -126,7 +165,7 @@ export const Admin = () => {
             })}
           </tbody>
         </table>
-      </div>
+      </div> */}
 
         <div className="form flex items-center justify-center w-screen h-auto ">
             <div className=" m-auto p-6 h-screen">
@@ -150,7 +189,7 @@ export const Admin = () => {
                         <tbody>
                         {pageData.map(function (item) {
                             return (
-                                <tr key={item} className="bg-gray-200 text-sm border-b-2 border-black items-center">
+                                <tr key={item._id} className="bg-gray-200 text-sm border-b-2 border-black items-center">
                                     <td className=" px-2 py-4">{item.patientId}</td>
                                     <td className=" px-2 py-4">{item.examId}</td>
                                     <td className=" px-2 py-4"><img src={item.imageURL} alt="images"/></td>
@@ -162,12 +201,13 @@ export const Admin = () => {
                                     <td className=" px-2 py-4">{item.zipCode}</td>
                                     <td className="  ">
                                         <button
-                                            className=" bg-gray-500 px-2 py-2 rounded-md text-white">
+                                            className=" bg-gray-500 px-2 py-2 rounded-md text-white"
+                            /* onClick={(id) => handleUpdate(item._id)} */>
                                             Update
                                         </button>
                                     </td>
                                     <td className="">
-                                        <button className=" bg-red-500 px-2 py-2 rounded-md text-white">
+                                        <button className=" bg-red-500 px-2 py-2 rounded-md text-white" onClick={(id) => handleDelete(item._id)}>
                                             Delete
                                         </button>
                                     </td>
