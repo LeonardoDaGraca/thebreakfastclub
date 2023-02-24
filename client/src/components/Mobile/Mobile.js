@@ -9,63 +9,65 @@ import ImagePopUp from "../PopUp/ImagePopUp";
 // API endpoint for fetching SINGLE PT exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
 
-export const Mobile = () => {
+export const Mobile = ({ item }) => {
   // const data = useApi('exams');
   // console.log('useApi: ', useApi('exams'));
 
-  const [data, setData] = useState([]);
+//   const [data, setData] = useState([]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(2);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [itemsPerPage, setItemsPerPage] = useState(2);
 
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+//   const handlePageChange = (page) => {
+//     setCurrentPage(page);
+//   };
 
-  useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-  console.log(data)
+//   useEffect(() => {
+//     fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+//       .then((res) => res.json())
+//       .then((res) => setData(res.exams))
+//       .catch((error) => console.error("Error:", error));
+//   }, []);
+//   console.log(data)
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const pageData = data.slice(startIndex, endIndex);
+//   const startIndex = (currentPage - 1) * itemsPerPage;
+//   const endIndex = startIndex + itemsPerPage;
+//   const pageData = data.slice(startIndex, endIndex);
 
-  const pageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+//   const pageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//   };
 
-  const handlePrevious = () => {
-    setCurrentPage(currentPage - 1);
-  };
+//   const handlePrevious = () => {
+//     setCurrentPage(currentPage - 1);
+//   };
 
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1);
-  };
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+//   const handleNext = () => {
+//     setCurrentPage(currentPage + 1);
+//   };
+//   const pageNumbers = [];
+//   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+//     pageNumbers.push(i);
+//   }
     
     // PopUp Window section
-    const [showMyPopUp, setShowMyPopUp] = useState(false)
-    const handleOnClose = () => setShowMyPopUp(false);
+    const [showDataPopUp, setShowDataPopUp] = useState(false)
+    const [showImagePopUp, setShowImagePopUp] = useState(false)
+    const handleDataClose = () => setShowDataPopUp(false);
+    const handleImageClose = () => setShowImagePopUp(false);
 
     
     return (
         <>
-            {pageData.map(function (item) {
-                return (
+            {/* {pageData.map(function (item) {
+                return ( */}
                     <section className="relative flex flex-col items-center justify-center w-full h-full mt-6 md:hidden p-1.5 ">
                         <div className="flexx border-2 justify-center items-center shadow-lg p-2 w-full h-auto rounded-lg space-y-3">
                             <div className="flex justify-center items-center border-2 rounded-lg p-2  shadow-lg">
                                 <div className="flex flex-col items-center ">
                                     <h1 className="text-base font-bold mb-1">Patient ID</h1>
-                                    <Link onClick={() => setShowMyPopUp(true)} ><p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p></Link>
+                                    <Link onClick={() => setShowDataPopUp(true)} ><p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p></Link>
                                 </div>
                             </div>
                             {/* <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg  ">
@@ -79,15 +81,19 @@ export const Mobile = () => {
                             <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg h-1/2">
                                 <div className="flex flex-col justify-center items-center ">
                                     <h1 className="text-base text-black font-bold mb-1 ">Images</h1>
-                                    <Link onClick={() => setShowMyPopUp(true)} ><img className="w-32" src={item.imageURL} alt="images"/></Link>
+                                    <Link onClick={() => setShowImagePopUp(true)} ><img className="w-32" src={item.imageURL} alt={`exam image with ${item.keyFindings}`}/></Link>
                                 </div>
                             </div>
                         </div>
-                        <DataPopUp onClose={handleOnClose } visible={showMyPopUp} />
-                        <ImagePopUp onClose={handleOnClose } visible={showMyPopUp} />
+                        <DataPopUp key={item._id} item={item} onClose={handleDataClose } visible={showDataPopUp} />
+                        <ImagePopUp key={item._id} item={item} onClose={handleImageClose } visible={showImagePopUp} />
                     </section>
-                )        
-            })}    
+                    </>
+        );     
+    }
+
+                {/* )        
+            })}     */}
             {/* <div className="relative flex justify-center items-center w-full h-80 md:hidden p-2 ">
                 <div className="grid grid-cols-2 grid-rows-2 w-full h-full p-3 border-2 shadow-lg rounded-2xl gap-2 justify-center">
                     <div className="shadow-md col-span-3 flex w-full h-auto rounded-xl  ">
@@ -131,7 +137,3 @@ export const Mobile = () => {
                 </div>
             </div> */}
 
-        </>
-        
-    );     
-}

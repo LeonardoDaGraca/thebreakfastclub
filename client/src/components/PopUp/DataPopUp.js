@@ -3,54 +3,53 @@ import { useState, useEffect } from 'react';
 import {GrClose} from "react-icons/gr"
 
 
-export default function DataPopUp ({visible, onClose}) {
+export default function DataPopUp ({visible, onClose, item}) {
     
   // const data = useApi('exams');
   // console.log('useApi: ', useApi('exams'));
 
-  const [data, setData] = useState([]);
+//   const [data, setData] = useState([]);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [itemsPerPage, setItemsPerPage] = useState(1);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(1);
 
+//   const handlePageChange = (page) => {
+//     setCurrentPage(page);
+//   };
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+//   useEffect(() => {
+//     fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+//       .then((res) => res.json())
+//       .then((res) => setData(res.exams))
+//       .catch((error) => console.error("Error:", error));
+//   }, []);
+//   console.log(data)
 
-  useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-  console.log(data)
+//   const startIndex = (currentPage - 1) * itemsPerPage;
+//   const endIndex = startIndex + itemsPerPage;
+//   const pageData = data.slice(startIndex, endIndex);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const pageData = data.slice(startIndex, endIndex);
+//   const pageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//   };
 
-  const pageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+//   const handlePrevious = () => {
+//     setCurrentPage(currentPage - 1);
+//   };
 
-  const handlePrevious = () => {
-    setCurrentPage(currentPage - 1);
-  };
-
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1);
-  };
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+//   const handleNext = () => {
+//     setCurrentPage(currentPage + 1);
+//   };
+//   const pageNumbers = [];
+//   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+//     pageNumbers.push(i);
+//   }
   if (!visible) return null;
 
     return (
         <>
-            {pageData.map(function (item) {
-                return (
+            {/* {pageData.map(function (item) {
+                return ( */}
                     <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm p-2">
                         <div className='bg-white p-3 rounded-lg w-full space-y-2 shadow-xl h-auto'>
                             <div className='flex justify-end'>
@@ -93,8 +92,8 @@ export default function DataPopUp ({visible, onClose}) {
                         </div>
         
                     </div>
-                )     
-            })}; 
+                {/* )     
+            })};  */}
         </>
         
     )     
