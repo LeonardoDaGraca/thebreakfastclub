@@ -107,6 +107,7 @@ deletePatient = asyncHandler( async (req, res) => {
 
 /**@desc gets all the exams
 */
+
 getExams = asyncHandler( async (req, res) => {
   const allExams = await images.find({}); //passed empty object returns all member of the set
   res.status(200).json(allExams);
