@@ -161,7 +161,7 @@ createExam = asyncHandler( async (req, res) =>
     throw new Error("Please, define a body");
   }
   let newId = mongoose.Types.ObjectId();
-  const bodyWithId = {
+  const bodyWithId = { //doing it like this instead of spreading because I want _id to be on top of everything
     _id: newId,
     patientId: body.patientId,
     daysImageDiagnosos: body.daysImageDiagnosos,
@@ -170,8 +170,18 @@ createExam = asyncHandler( async (req, res) =>
     modality: body.modality,
     fio: body.fio,
     findings: body.findings
-  }; //add new property to body
-  const newExam = await images.create(bodyWithId); //FIXME: THIS IS NOT WORKING FOR SOME REASON
+  }; //added new id property to body
+  const onInsert = (err, docs) => {
+    if (err)
+    {
+      res.status(400);
+      throw new Error(`Error at inserting new exam object(s):
+        ${docs}
+        Error:
+        ${err}`);
+    }
+  };
+  await images.collection.insert([bodyWithId], onInsert); //using this way works, no other worked
   res.status(200).json(bodyWithId);
 });
 
