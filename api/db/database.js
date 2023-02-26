@@ -7,7 +7,7 @@
 const mongoose = require("mongoose");
 
 //to connect to the mongodb database
-const MONGO_URI = "mongodb+srv://rwuser:9ngCkMV9Ur1zYAqo@cluster0.5efdq.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URI = "mongodb+srv://rwuser:9ngCkMV9Ur1zYAqo@cluster0.5efdq.mongodb.net/techdive_2023?retryWrites=true&w=majority";
 
 const parameters = {
   useNewUrlParser: true/*,

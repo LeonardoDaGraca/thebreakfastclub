@@ -14,7 +14,7 @@ export function useApi({ method, path, payload } = { method: "GET", path: "", pa
   const METHODS = {
     GET: "GET",
     POST: "POST",
-    PATCH: "PATCH",
+    PUT: "PUT",
     DELETE: "DELETE"
   };
   const setPath = () => {return `${API_ROOT}/${path}`};
@@ -36,7 +36,7 @@ export function useApi({ method, path, payload } = { method: "GET", path: "", pa
   };
   const updateToDb = () => {
     const htmlRequest = {
-      method: METHODS.PATCH,
+      method: METHODS.PUT,
       headers: {"content-type": "application/json"},
       body: JSON.stringify(payload)
     };
@@ -55,7 +55,7 @@ export function useApi({ method, path, payload } = { method: "GET", path: "", pa
       case METHODS.POST:
         createTomDb();
         break;
-      case METHODS.PATCH:
+      case METHODS.PUT:
         updateToDb();
         break;
       case METHODS.DELETE:
