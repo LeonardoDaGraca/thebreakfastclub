@@ -10,7 +10,8 @@ const asyncHandler = require("express-async-handler"); //facilitates error hande
 const relativePath = "../models/";
 //models of the objects stored in the database: two collections for patients and exams
 const patients = require(`${relativePath}patient-model.js`);
-const images = require(`${relativePath}exam-model.js`);
+const images = require(`${relativePath}exam-model.js`).images;
+//const images = imagesCollectionUtilities.images;
 
 /*const getUser = async (req, res) => {
   return res.status(200).json({
@@ -119,7 +120,7 @@ getExams = asyncHandler( async (req, res) => {
 getExamsOfPatient = asyncHandler( async (req, res) =>
 {
   const examsOfPatient = await images.find({patientId: req.params.patientId});
-
+  //console.log(examsOfPatient);
   if (!examsOfPatient) //error handeling
   {
     res.status(400);
@@ -127,6 +128,9 @@ getExamsOfPatient = asyncHandler( async (req, res) =>
   }
 
   res.status(200).json(examsOfPatient);
+
+  /*const test = {message: `${req.params.patientId}`};
+  res.status(200).json(test);*/
 });
 
 /**@desc gets an exam from a patient using a provided ID and index.
@@ -151,15 +155,25 @@ getExamByID = asyncHandler( async (req, res) =>
 createExam = asyncHandler( async (req, res) =>
 {
   let body = req.body;
+  console.log(body);
   if (!body) //exception hadeling for body
   {
     res.status(400);
     throw new Error("Please, define a body");
   }
-  const newId = mongoose.Types.ObjectId();
-  body = {...body, _id: newId}; //add new property to body
-  const newExam = await images.create(body);
-  res.status(200).json(newExam);
+  let newId = mongoose.Types.ObjectId();
+  const bodyWithId = {
+    _id: newId,
+    patientId: body.patientId,
+    daysImageDiagnosos: body.daysImageDiagnosos,
+    hrsImageDiagnosis: body.hrsImageDiagnosis,
+    imageDescription: body.imageDescription,
+    modality: body.modality,
+    fio: body.fio,
+    findings: body.findings
+  }; //add new property to body
+  const newExam = await images.create(bodyWithId); //FIXME: THIS IS NOT WORKING FOR SOME REASON
+  res.status(200).json(bodyWithId);
 });
 
 /**@desc updates an exam from a patient using a provided ID and index
@@ -212,7 +226,7 @@ getEverything = asyncHandler( async (req, res) =>
     $lookup: {
       from: "images",
       localField: "_id",
-      foreignField: "patients",
+      foreignField: "patientId",
       as: "exams"
     }
   }];

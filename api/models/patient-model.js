@@ -47,7 +47,7 @@ const PatientSchema = new Schema(
           type: String,
           required: true
         }
-    }
-);
+    }, {collection: "patients"}
+  );
 
 module.exports = mongoose.model("patients", PatientSchema);
