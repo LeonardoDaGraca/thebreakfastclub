@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const ExamSchema = new Schema(
+const image = new Schema(
     {
       _id: {
           type: Schema.Types.ObjectId, //uses MongoDB ID object as ID
@@ -36,7 +36,17 @@ const ExamSchema = new Schema(
         type: String,
         required: false
       }
-    }
+    },
+    {collection: "images"}
 );
 
-module.exports = mongoose.model('images', ExamSchema);
+function newId()
+{
+  return new mongoose.Types.ObjectId();
+}
+const images = mongoose.model('Image', image);
+
+module.exports = {
+  images,
+  newId
+};
