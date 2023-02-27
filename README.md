@@ -29,7 +29,7 @@ npm start
 You should then be able to visit `localhost:9000` in your browser and see the server running.
 
 ## Express API to make CRUD operations on remote MongoDB database
-READ THIS TO UNDERSTAND THE API
+READ THIS TO UNDERSTAND THE API<br>
 The api works with the url: **\<api-root\>/\<pattern\>**<br>
 *api-root* = "http://\<host\>:\<port\>/api"<br>
 *pattern* **is what matters to know** and with it you can make CRUD operations to the database<br>
