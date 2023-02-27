@@ -91,6 +91,7 @@ updatePatient = asyncHandler( async (req, res) => {
 /**@desc deletes a specific patient
 */
 deletePatient = asyncHandler( async (req, res) => {
+  //validation
   //find patient before attempting to delete
   const patient = await patients.findById(req.params["id"]);
   if (!patient)
@@ -98,6 +99,15 @@ deletePatient = asyncHandler( async (req, res) => {
     rest.status(400);
     throw new Error("Patient not found");
   }
+  //finding if there are exams related to patient
+  const examsOfPatient = await images.find({patientId: req.params["id"]});
+  console.log(examsOfPatient);
+  if (examsOfPatient.length > 0) //if there are exams, patient can't be deleted
+  {
+    rest.status(400);
+    throw new Error("There are exams associated with given patient, delete those first");
+  }
+  //end of validation
 
   await patients.findOneAndDelete({_id: req.params.id}); //Did work
 
@@ -154,12 +164,20 @@ getExamByID = asyncHandler( async (req, res) =>
 createExam = asyncHandler( async (req, res) =>
 {
   let body = req.body;
-  console.log(body);
-  if (!body) //exception hadeling for body
+  //manual validation
+  if (!body || !body.patientId) //exception hadeling for body validation (manual validation because Model.collection.insert() does not validate)
   {
     res.status(400);
-    throw new Error("Please, define a body");
+    throw new Error("Please, define a body correctly, remember to include the correct patient id");
   }
+  const patient = await patients.findOne({_id: body.patientId});
+  if (!patient)
+  {
+    res.status(400);
+    throw new Error(`patient with given ID ${body.patientId} does not exist
+                     Only exams can be created for already existing patients.`);
+  }
+  //end of validation
   let newId = mongoose.Types.ObjectId();
   const bodyWithId = { //doing it like this instead of spreading because I want _id to be on top of everything
     _id: newId,
