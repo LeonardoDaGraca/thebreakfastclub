@@ -54,7 +54,7 @@ The pattern is designed to start from more general to more specific access: coll
 You **can only** delete specific items by giving its *id* and you can only create a new item by accessing either collection ("/patients/\<id\>/exams" cannot be used to create a new exam for patient with *id*)<br>
 **To avoid the anomaly** of having exams that belong to no patient on the database:<br>
 You **cannot** create exams if patient does not exit<br>
-You **cannot** delete a patient when there are exams associated with them (those exams **need to** be deleted first)
+You **cannot** delete a patient when there are exams associated with them (those exams **need to** be deleted first)<br>
 You **cannot** create new patients or exams without defining the required properties for each object:<br>
 For patient: `_id`, `age`, `sex`<br>
 For exam: `patientId` (technically also `_id`, but this one is automatically taken care of by the back end, so that field **should not** be defined by anybody), `patientId` **should be** the ID of an existing patient
