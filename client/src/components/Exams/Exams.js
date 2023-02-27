@@ -1,41 +1,23 @@
 import { useState, useEffect } from "react";
-// import {Search} from "../Search/Search"
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { Mobile } from "../Mobile/Mobile";
-// import DataPopUp from "../PopUp/DataPopUp";
-// import ImagePopUp from "../PopUp/ImagePopUp";
+import DataPopUp from "../PopUp/DataPopUp";
+import ImagePopUp  from "../PopUp/ImagePopUp";
+import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 
-// let data = require("../../data/exam-data.json");
+export const Exams = () => {
+  const data = useLoaderData();
 
-// API endpoint for fetching ALL exam data:
-// https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
-
-// API endpoint for fetching SINGLE PT exam data:
-// https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
-
-export const Exams = ({ localData }) => {
-  // const data = useApi('exams');
-  // console.log('useApi: ', useApi('exams'));
-
-  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-
-  useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-  console.log(data)
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
+  const [itemsPerPage, setItemsPerPage] = useState(8);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const pageData = data.slice(startIndex, endIndex);
+
+  // pagination state and handlers
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const pageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -54,40 +36,53 @@ export const Exams = ({ localData }) => {
     pageNumbers.push(i);
   }
 
-  // const handlePopUpClick = (e) => {
-  //   // when a user clicks on the patient ID number, we want this patient data card to pop up displaying only the data relevant to that particular patient 
-  //     console.log(e.target);
-  // }
+  // manage patient/exam pop up modals
+  const [showDataPopUp, setShowDataPopUp] = useState(false)
+  const [showImagePopUp, setShowImagePopUp] = useState(false)
+  const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
+  const handleDataClose = () => setShowDataPopUp(false);
+  const handleImageClose = () => setShowImagePopUp(false);
+  const handleExamDataClose = () => setShowExamDataPopUp(false);
 
   return (
     <>
+    {/* map through each object returned from the api to display the appropriate information */}
       {pageData.map(function (item) {
+        console.log(item)
         return (
           <>
-            <section key={item._id} className="md:flex relative w-full hidden px-4">
+            <section key={item._id} className="md:flex relative w-full hidden px-4 white-font">
               <div className="flex w-full justify-center p-4 md:max-w-7xl mx-auto h-auto border rounded-lg shadow-lg space-x-2">
                 <div className=" w-36">
                   <h1 className="font-bold text-base mb-1">Patient ID</h1>
                     <div>
-                      <p className="text-sm text-blue-600 hover:font-bold hover:underline "><Link>{item.patientId}</Link></p>
+                    <Link onClick={() => setShowDataPopUp(true)}><p className="text-sm text-blue-600 hover:font-bold hover:underline ">{item._id}</p></Link>
                     </div>
                 </div>
                 <div className=" w-28">
-                  <h1 className="font-bold text-base mb-1">Exam ID</h1>
-                  <Link><p className="text-sm text-blue-600 hover:font-bold hover:underline  ">{item.examId}</p></Link>
+                  <h1 className="font-bold text-base mb-1">Exams</h1>
+                    {item.exams.sort().map(function (exam, index) {
+                      return (
+                        <>
+                          <Link onClick={() => setShowExamDataPopUp(true)}>
+                            <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Exam {index+1}</p>
+                          </Link>
+                          <ExamDataPopUp 
+                            key={exam._id} 
+                            exam={exam} 
+                            examNum={index+1} 
+                            onClose={handleExamDataClose} visible={showExamDataPopUp}
+                          />
+                        </>
+                      )
+                    })
+                  }  
                 </div>
-                <div className=" w-36">
-                  <h1 className="font-bold text-base mb-1">Images</h1>
-                  <Link><img className="w-32" src={item.imageURL} alt={`exam image with ${item.keyFindings}`}/></Link>
-                </div>
-                <div className=" w-80 px-2">
+                {/* DO NOT CURRENTLY HAVE ACCESS TO IMAGES, THIS WILL LIKELY GO ON THE EXAM MODAL IF/WHEN AVAILABLE */}
+                {/* <div className=" w-80 px-2">
                   <h1 className="font-bold text-base mb-1">Key Findings</h1>
-                  <p className="flex flex-wrap text-sm ">{item.keyFindings}</p>
-                </div>
-                <div className=" w-36">
-                  <h1 className="font-bold text-base mb-1">Brixi Score</h1>
-                  <p className="text-sm">{item.brixiaScores}</p>
-                </div>
+                  <p className="flex flex-wrap text-sm ">{item.findings}</p>
+                </div> */}
                 <div className=" w-28 ">
                   <h1 className="font-bold text-base mb-1">Age</h1>
                   <p className="text-sm">{item.age}</p>
@@ -102,17 +97,35 @@ export const Exams = ({ localData }) => {
                 </div>
                 <div className=" w-28 ">
                   <h1 className="font-bold text-base mb-1">Zip Code</h1>
-                  <p className="text-sm">{ item.zipCode}</p>
+                  <p className="text-sm">{ item.zip}</p>
                 </div>
             </div>
-            {/* <DataPopUp record={record} />
-            <ImagePopUp record={record} /> */}
+            <DataPopUp item={item} onClose={handleDataClose } visible={showDataPopUp} setShowExamDataPopUp={setShowExamDataPopUp} handleExamDataClose={handleExamDataClose} showExamDataPopUp={showExamDataPopUp} />
+            <ImagePopUp item={item} onClose={handleImageClose } visible={showImagePopUp}/>
 
           </section>
-        <Mobile key={item._id} item={item}/> 
+        <Mobile item={item}/> 
         </>
         )
       })};
+      <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+        <div className="border-2 flex w-3/4 justify-center font-semibold space-x-3 text-lg">
+          <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+            <i className="fa-solid fa-arrow-left"></i>
+          </button>
+          {pageNumbers.map((number) => (
+            <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+              {number}
+            </button>
+              ))}
+              <button
+                  disabled={currentPage === pageNumbers.length}
+                  onClick={handleNext} 
+                  className="page-btn">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+        </div>
+      </div>
     </>  
   );
 };
@@ -154,25 +167,11 @@ export const Exams = ({ localData }) => {
               </tbody>
             </table>
           </div>
+                  </div>
+      </div> 
+          */}
 
-          <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
-            <div className="border-2 flex w-3/4 justify-center font-semibold space-x-3 text-lg">
-              <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
-                <i class="fa-solid fa-arrow-left"></i>
-              </button>
-              {pageNumbers.map((number) => (
-                  <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
-                    {number}
-                  </button>
-              ))}
-              <button
-                  disabled={currentPage === pageNumbers.length}
-                  onClick={handleNext} className="page-btn">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
+
+
             
 

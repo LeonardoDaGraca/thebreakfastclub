@@ -62,7 +62,7 @@ export const Mobile = ({ item }) => {
         <>
             {/* {pageData.map(function (item) {
                 return ( */}
-                    <section className="relative flex flex-col items-center justify-center w-full h-full mt-6 md:hidden p-1.5 ">
+                    <section className="relative flex flex-col items-center justify-center w-full h-full mt-6 md:hidden p-1.5 white-font">
                         <div className="flexx border-2 justify-center items-center shadow-lg p-2 w-full h-auto rounded-lg space-y-3">
                             <div className="flex justify-center items-center border-2 rounded-lg p-2  shadow-lg">
                                 <div className="flex flex-col items-center ">
@@ -80,13 +80,13 @@ export const Mobile = ({ item }) => {
                             </div> */}
                             <div className="flex justify-center items-center border-2 rounded-lg p-2 shadow-lg h-1/2">
                                 <div className="flex flex-col justify-center items-center ">
-                                    <h1 className="text-base text-black font-bold mb-1 ">Images</h1>
+                                    <h1 className="text-base text-black font-bold mb-1 white-font ">Images</h1>
                                     <Link onClick={() => setShowImagePopUp(true)} ><img className="w-32" src={item.imageURL} alt={`exam image with ${item.keyFindings}`}/></Link>
                                 </div>
                             </div>
                         </div>
-                        <DataPopUp key={item._id} item={item} onClose={handleDataClose } visible={showDataPopUp} />
-                        <ImagePopUp key={item._id} item={item} onClose={handleImageClose } visible={showImagePopUp} />
+                        <DataPopUp item={item} onClose={handleDataClose } visible={showDataPopUp} /* handleUpdate={handleUpdate} *//>
+                        <ImagePopUp item={item} onClose={handleImageClose } visible={showImagePopUp} />
                     </section>
                     </>
         );     

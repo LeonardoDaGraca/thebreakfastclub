@@ -1,55 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import {GrClose} from "react-icons/gr"
+import { Link } from "react-router-dom";
+import { ExamDataPopUp } from "./ExamDataPopUp";
 
 
-export default function DataPopUp ({visible, onClose, item}) {
-    
-  // const data = useApi('exams');
-  // console.log('useApi: ', useApi('exams'));
+export default function DataPopUp ({visible, onClose, item, handleUpdate, showExamDataPopUp, setShowExamDataPopUp, handleExamDataClose}) {
 
-//   const [data, setData] = useState([]);
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const [itemsPerPage, setItemsPerPage] = useState(1);
-
-
-//   const handlePageChange = (page) => {
-//     setCurrentPage(page);
-//   };
-
-//   useEffect(() => {
-//     fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-//       .then((res) => res.json())
-//       .then((res) => setData(res.exams))
-//       .catch((error) => console.error("Error:", error));
-//   }, []);
-//   console.log(data)
-
-//   const startIndex = (currentPage - 1) * itemsPerPage;
-//   const endIndex = startIndex + itemsPerPage;
-//   const pageData = data.slice(startIndex, endIndex);
-
-//   const pageChange = (pageNumber) => {
-//     setCurrentPage(pageNumber);
-//   };
-
-//   const handlePrevious = () => {
-//     setCurrentPage(currentPage - 1);
-//   };
-
-//   const handleNext = () => {
-//     setCurrentPage(currentPage + 1);
-//   };
-//   const pageNumbers = [];
-//   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-//     pageNumbers.push(i);
-//   }
   if (!visible) return null;
 
     return (
         <>
-            {/* {pageData.map(function (item) {
-                return ( */}
+
                     <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm p-2">
                         <div className='bg-white p-3 rounded-lg w-full space-y-2 shadow-xl h-auto'>
                             <div className='flex justify-end'>
@@ -58,15 +20,29 @@ export default function DataPopUp ({visible, onClose, item}) {
                             <div className=' h-auto space-y-2'>
                                 <div className='flex items-center px-4 '>
                                     <h1 className="text-base font-bold   w-24">Patient ID</h1>
-                                    <p className="text-base font-medium text-blue-600 hover:font-bold hover:underline ">{item.patientId}</p>
+                                    <p className="text-base font-medium text-blue-600 hover:font-bold hover:underline ">{item._id}</p>
                                 </div>
                                 <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Exam ID</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{item.examId}</p>
-                                </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Brixi Score</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{item.brixiaScores}</p>
+                                    <h1 className="text-base font-bold  w-24">Exams</h1>
+                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">    
+                                    { item.exams.sort().map(function (exam, index) {
+                      return (
+                        <>
+                          <Link onClick={() => setShowExamDataPopUp(true)}>
+                            <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Exam {index+1}</p>
+                          </Link>
+                          <ExamDataPopUp 
+                            key={exam._id} 
+                            exam={exam} 
+                            examNum={index+1} 
+                            onClose={handleExamDataClose} visible={showExamDataPopUp}
+                            handleUpdate={handleUpdate}
+                          />
+                        </>
+                      )
+                    })
+                  } 
+                                        </p>
                                 </div>
                                 <div className='flex items-center px-4'>
                                     <h1 className="text-base font-bold  w-24">Age</h1>
@@ -82,13 +58,9 @@ export default function DataPopUp ({visible, onClose, item}) {
                                 </div>
                                 <div className='flex items-center px-4'>
                                     <h1 className="text-base font-bold  w-24">Zip Code</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{item.zipCode}</p>
+                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{item.zip}</p>
                                 </div>
-                                <div className='flex items-center px-4 pb-6'>
-                                    <h1 className="text-base font-bold  w-24">Key Findings</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{item.keyFindings}</p>
-                                </div>
-                            </div>                             
+                            </div>                          
                         </div>
         
                     </div>

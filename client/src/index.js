@@ -9,14 +9,36 @@ import { Admin } from './components/Admin/Admin';
 import { Exams } from './components/Exams/Exams';
 import { Navbar } from './components/Navbar/Navbar';
 
-// import { BrowserRouter } from 'react-router-dom';
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Navbar />}>
-      <Route path="/" element={<App />}></Route>
-      <Route path="exams" element={<Exams />}></Route>
-      <Route path="admin" element={<Admin />}></Route>
+      <Route 
+        path="/" 
+        element={<App />}
+        loader={() => {
+          return fetch("http://localhost:9000/api/everything")
+            .then(res => res.json())
+            .catch((error) => console.error("Error:", error));
+          }}>
+      </Route>
+      <Route 
+        path="exams" 
+        element={<Exams />}
+        loader={() => {
+          return fetch("http://localhost:9000/api/everything")
+            .then(res => res.json())
+            .catch((error) => console.error("Error:", error));
+          }}>
+      </Route>
+      <Route 
+        path="admin" 
+        element={<Admin />}
+        loader={() => {
+          return fetch("http://localhost:9000/api/everything")
+          .then(res => res.json())
+          .catch((error) => console.error("Error:", error));
+        }}>
+      </Route>
       <Route path="test-form" element={<TestForm />}></Route>
     </Route>
     )
@@ -33,10 +55,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-// setting up nested route to view a single exam by :id param
-// do I need to pass in the id as a prop to Exam right here in the route?
-// <Route path="/:id" element={<Exam />} />
-
-// setting up nested route to be able to create new exam
-// <Route path="/admin/new" element={<NewExam />} />

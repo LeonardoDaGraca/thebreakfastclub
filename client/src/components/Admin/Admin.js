@@ -1,62 +1,42 @@
 import React from 'react';
-// import { Navbar } from "../Navbar/Navbar";
-// import { useApi } from "../../hooks/use-api";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import {Search} from "../Search/Search";
-import { Navbar } from '../Navbar/Navbar';
-// import {Search} from "../Search/Search";
 import { TestSearch } from '../Search/TestSearch';
 import { Footer } from '../Footer/Footer';
-// let data = require("../../data/exam-data.json");
-
-// API endpoint for fetching ALL exam data:
-// https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
-
-// API endpoint for fetching SINGLE PT exam data:
-// https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16424082
+import { useLoaderData } from "react-router-dom";
+import DataPopUp from "../PopUp/DataPopUp";
+import ImagePopUp from "../PopUp/ImagePopUp";
+import { Mobile } from "../Mobile/Mobile";
+import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
+import { v4 as uuidv4 } from 'uuid';
 
 export const Admin = () => {
-  // const data = useApi('exams');
-  // console.log('useApi: ', useApi('exams'));
+  const data = useLoaderData();
+  console.log(data);
 
-  const [data, setData] = useState([]);
-  const [localData, setLocalData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
+  // const handleUpdateSubmit = (e) => {
+  //     e.preventDefault();
+  
+  //     onSubmit({
+  //       patientId,
+  //       examId,
+  //       keyFindings,
+  //       brixiaScore,
+  //       age,
+  //       sex,
+  //       bmi,
+  //       zipCode,
+  //       image
+  //     });
+  //   }
 
-  useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-  console.log(data)
-
-   // store API data in local storage
-   useEffect(() => {
-    // console.log(data);
-    localStorage.setItem('localData', JSON.stringify(data));
-    setLocalData(data);
-    // fetch(JSON.parse(localStorage.getItem('localData')))
-    //     .then(res => setLocalData(res));
-  }, [data]);
-
-  // get the local data to display on the page by setting the state of the localData variable to whatever is in local storage
-  useEffect(() => {
-    setLocalData(JSON.parse(localStorage.getItem('localData')))
-  }, [])
-
-  const handleDelete = (e, id) => {
-    e.preventDefault();
-    const examArr = JSON.parse(localStorage.getItem('localData'));
-    console.log(examArr, id);  
-    const updatedExamArr = examArr.filter((exam) => exam._id !== id);
-    console.log(`updatedExamArr: ${updatedExamArr}`)
-    localStorage.setItem('localData', JSON.stringify(updatedExamArr));
-    setLocalData(updatedExamArr);
-    console.log(localData);
-    // return data;
-  }
+  // const handleDelete = (e, id) => {
+  //   e.preventDefault();
+  //   console.log(examArr, id);  
+  //   const updatedExamArr = data.filter((exam) => exam._id !== id);
+  //   console.log(`updatedExamArr: ${updatedExamArr}`)
+  //   // return data;
+  // }
 
   // planning for update functionality
   // const updateExamRecord = (updatedExam) => {
@@ -95,15 +75,16 @@ export const Admin = () => {
 
   // }
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageData = data.slice(startIndex, endIndex);
+
+  // pagination state and handlers
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  // const pageData = data.slice(startIndex, endIndex);
-  const pageData = localData.slice(startIndex, endIndex);
 
   const pageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -116,129 +97,180 @@ export const Admin = () => {
   const handleNext = () => {
     setCurrentPage(currentPage + 1);
   };
+
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
+  // manage patient/exam pop up modals
+  const [showDataPopUp, setShowDataPopUp] = useState(false)
+  const [showImagePopUp, setShowImagePopUp] = useState(false)
+  const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
+  const handleDataClose = () => setShowDataPopUp(false);
+  const handleImageClose = () => setShowImagePopUp(false);
+  const handleExamDataClose = () => setShowExamDataPopUp(false);
+
   return (
     <>
-     {/* <Navbar />
-          <TestSearch/>
-      <div className="flex justify-center p-6 bg-gray-200 border-black rounded-xl min-w-fit max-w-7xl">
-        <table className="table-auto w-90% text-left ">
-          <thead>
-          <tr className="bg-gray-800 text-white text-base ">
-              <th className="px-2 py-4">Patient ID</th>
-              <th className="px-2 py-4">Exam ID</th>
-              <th className="px-2 py-4">Images</th>
-              <th className="px-2 py-4">Key Findings</th>
-              <th className="px-2 py-4">Brixia Scores</th>
-              <th className="px-2 py-4">Age</th>
-              <th className="px-2 py-4">Sex</th>
-              <th className="px-2 py-4">BMI</th>
-              <th className="px-2 py-4">Zip Code</th>
-              <th className="px-2 py-4" colSpan="2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pageData.map(function (item) {
-              return (
-                <tr key={item._id} className="bg-gray-200 text-sm">
-                  <td className="border px-2 py-2">{item.patientId}</td>
-                  <td className="border px-2 py-2">{item.examId}</td>
-                  <td className="border px-2 py-2"><img src={item.imageURL} alt="images" className="w-28"/></td>
-                  <td className="border px-2 py-2">{item.keyFindings}</td>
-                  <td className="border px-2 py-2">{item.brixiaScores}</td>
-                  <td className="border px-2 py-2">{item.age}</td>
-                  <td className="border px-2 py-2">{item.sex}</td>
-                  <td className="border px-2 py-2">{item.bmi}</td>
-                  <td className="border px-2 py-2">{item.zipCode}</td>
-                    <td className="border px-4 py-2">
-                      <button>Update</button>
-                    </td>
-                    <td className="border px-4 py-2">
-                      <button onClick={(id) => handleDelete(item._id)}>Delete</button>
-                    </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div> */}
-
-        <div className="form flex items-center justify-center w-screen h-auto ">
-            <div className=" m-auto p-6 h-screen">
-                <div className="flex justify-center w-full p-6 bg-gray-200 border-black rounded-xl min-w-fit mt-4 ">
-                    <table className=" table-auto max-w-7xl min-w-fit text-left ">
-                        <thead className="">
-                        <tr className="bg-gray-800 text-white text-xs md:text-sm lg:text-base w-max">
-                            <th className="px-2 py-2 w-32">Patient ID</th>
-                            <th className="px-2 py-2 w-28">Exam ID</th>
-                            <th className="px-2 py-2 w-28">Images</th>
-                            <th className="px-2 py-2 w-96">Key Findings</th>
-                            <th className="px-2 py-2 w-24">Brixia Scores</th>
-                            <th className="px-2 py-2 w-24">Age</th>
-                            <th className="px-2 py-2 w-24">Sex</th>
-                            <th className="px-2 py-2 w-24">BMI</th>
-                            <th className="px-2 py-2 w-24">Zip Code</th>
-                            <th className="px-2 py-2 ">Take Action</th>
-                            <th className="px-2 py-2 w-24"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {pageData.map(function (item) {
-                            return (
-                                <tr key={item._id} className="bg-gray-200 text-sm border-b-2 border-black items-center">
-                                    <td className=" px-2 py-4">{item.patientId}</td>
-                                    <td className=" px-2 py-4">{item.examId}</td>
-                                    <td className=" px-2 py-4"><img src={item.imageURL} alt="images"/></td>
-                                    <td className=" px-2 py-4">{item.keyFindings}</td>
-                                    <td className=" px-2 py-4">{item.brixiaScores}</td>
-                                    <td className=" px-2 py-4">{item.age}</td>
-                                    <td className=" px-2 py-4">{item.sex}</td>
-                                    <td className=" px-2 py-4">{item.bmi}</td>
-                                    <td className=" px-2 py-4">{item.zipCode}</td>
-                                    <td className="  ">
-                                        <button
-                                            className=" bg-gray-500 px-2 py-2 rounded-md text-white"
-                            /* onClick={(id) => handleUpdate(item._id)} */>
-                                            Update
-                                        </button>
-                                    </td>
-                                    <td className="">
-                                        <button className=" bg-red-500 px-2 py-2 rounded-md text-white" onClick={(id) => handleDelete(item._id)}>
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                        </tbody>
-                    </table>
-                </div>
-
-                <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
-                    <div className="border-2 flex w-3/4 justify-center">
-                        <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
-                            <i className="fa-solid fa-arrow-left"></i>
-                        </button>
-                        {pageNumbers.map((number) => (
-                            <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
-                                {number}
-                            </button>
-                        ))}
-                        <button
-                            disabled={currentPage === pageNumbers.length}
-                            onClick={handleNext} className="page-btn">
-                            <i className="fa-solid fa-arrow-right"></i>
-                        </button>
+    {/* map through each object returned from the api to display the appropriate information */}
+      {pageData.map(function (item, index) {
+        return (
+          <div key={uuidv4()}>
+            <section className="md:flex relative w-full hidden px-4 white-font">
+              <div className="flex w-full justify-center p-4 md:max-w-7xl mx-auto h-auto border rounded-lg shadow-lg space-x-2">
+                <div className=" w-36">
+                  <h1 className="font-bold text-base mb-1">Patient ID</h1>
+                    <div>
+                    <Link onClick={() => setShowDataPopUp(true)}><p className="text-sm text-blue-600 hover:font-bold hover:underline ">{item._id}</p></Link>
                     </div>
                 </div>
+                <div className=" w-28">
+                  <h1 className="font-bold text-base mb-1">Exams</h1>
+                    {item.exams.sort().map(function (exam, index) {
+                      return (
+                        <div key={uuidv4()} >
+                          <Link onClick={() => setShowExamDataPopUp(true)}>
+                            <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Exam {index+1}</p>
+                          </Link>
+                          <ExamDataPopUp 
+                            key={exam._id} 
+                            exam={exam} 
+                            examNum={index+1} 
+                            onClose={handleExamDataClose} visible={showExamDataPopUp}
+                          />
+                        </div>
+                      )
+                    })
+                  }  
+                </div>
+                {/* DO NOT CURRENTLY HAVE ACCESS TO IMAGES, THIS WILL LIKELY GO ON THE EXAM MODAL IF/WHEN AVAILABLE */}
+                {/* <div className=" w-80 px-2">
+                  <h1 className="font-bold text-base mb-1">Key Findings</h1>
+                  <p className="flex flex-wrap text-sm ">{item.findings}</p>
+                </div> */}
+                <div className=" w-28 ">
+                  <h1 className="font-bold text-base mb-1">Age</h1>
+                  <p className="text-sm">{item.age}</p>
+                </div>
+                <div className=" w-28 ">
+                  <h1 className="font-bold text-base mb-1">Sex</h1>
+                  <p className="text-sm">{item.sex}</p>
+                </div>
+                <div className=" w-28 ">
+                  <h1 className="font-bold text-base mb-1">BMI</h1>
+                  <p className="text-sm">{ item.bmi}</p>
+                </div>
+                <div className=" w-28 ">
+                  <h1 className="font-bold text-base mb-1">Zip Code</h1>
+                  <p className="text-sm">{ item.zip}</p>
+                </div>
             </div>
-        </div>
-      <Footer/>
+            <DataPopUp item={item} onClose={handleDataClose } visible={showDataPopUp} setShowExamDataPopUp={setShowExamDataPopUp} handleExamDataClose={handleExamDataClose} showExamDataPopUp={showExamDataPopUp} />
+            {/* <ImagePopUp item={item} onClose={handleImageClose } visible={showImagePopUp}/> */}
 
-    </>
+          </section>
+        <Mobile item={item}/> 
+        </div>
+        )
+      })};
+
+      <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+        <div className="border-2 flex w-3/4 justify-center font-semibold space-x-3 text-lg">
+          <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+            <i className="fa-solid fa-arrow-left"></i>
+          </button>
+          {pageNumbers.map((number) => (
+            <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+              {number}
+            </button>
+              ))}
+              <button
+                  disabled={currentPage === pageNumbers.length}
+                  onClick={handleNext} 
+                  className="page-btn">
+                <i className="fa-solid fa-arrow-right"></i>
+              </button>
+        </div>
+      </div>
+      <Footer />
+    </>  
   );
 };
+
+//        <div className="form flex items-center justify-center w-screen h-auto ">
+//             <div className=" m-auto p-6 h-screen">
+//                 <div className="flex justify-center w-full p-6 bg-gray-200 border-black rounded-xl min-w-fit mt-4 ">
+//                     <table className=" table-auto max-w-7xl min-w-fit text-left ">
+//                         <thead className="">
+//                         <tr className="bg-gray-800 text-white text-xs md:text-sm lg:text-base w-max">
+//                             <th className="px-2 py-2 w-32">Patient ID</th>
+//                             <th className="px-2 py-2 w-28">Exam ID</th>
+//                             <th className="px-2 py-2 w-28">Images</th>
+//                             <th className="px-2 py-2 w-96">Key Findings</th>
+//                             <th className="px-2 py-2 w-24">Brixia Scores</th>
+//                             <th className="px-2 py-2 w-24">Age</th>
+//                             <th className="px-2 py-2 w-24">Sex</th>
+//                             <th className="px-2 py-2 w-24">BMI</th>
+//                             <th className="px-2 py-2 w-24">Zip Code</th>
+//                             <th className="px-2 py-2 ">Take Action</th>
+//                             <th className="px-2 py-2 w-24"></th>
+//                         </tr>
+//                         </thead>
+//                         <tbody>
+//                         {pageData.map(function (item) {
+//                             return (
+//                                 <tr key={item._id} className="bg-gray-200 text-sm border-b-2 border-black items-center">
+//                                     <td className=" px-2 py-4">{item.patientId}</td>
+//                                     <td className=" px-2 py-4">{item.examId}</td>
+//                                     <td className=" px-2 py-4"><img src={item.imageURL} alt="images"/></td>
+//                                     <td className=" px-2 py-4">{item.keyFindings}</td>
+//                                     <td className=" px-2 py-4">{item.brixiaScores}</td>
+//                                     <td className=" px-2 py-4">{item.age}</td>
+//                                     <td className=" px-2 py-4">{item.sex}</td>
+//                                     <td className=" px-2 py-4">{item.bmi}</td>
+//                                     <td className=" px-2 py-4">{item.zipCode}</td>
+//                                     <td className="  ">
+//                                         <button
+//                                             className=" bg-gray-500 px-2 py-2 rounded-md text-white"
+//                             onClick={(id) => handleUpdateSubmit(item._id)}>
+//                                             Update
+//                                         </button>
+//                                     </td>
+//                                     <td className="">
+//                                         <button className=" bg-red-500 px-2 py-2 rounded-md text-white"
+//                                         onClick={(id) => handleDelete(item._id)}
+//                                         >
+//                                             Delete
+//                                         </button>
+//                                     </td>
+//                                 </tr>
+//                             );
+//                         })}
+//                         </tbody>
+//                     </table>
+//                 </div>
+
+//                 <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+//                     <div className="border-2 flex w-3/4 justify-center">
+//                         <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
+//                             <i className="fa-solid fa-arrow-left"></i>
+//                         </button>
+//                         {pageNumbers.map((number) => (
+//                             <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
+//                                 {number}
+//                             </button>
+//                         ))}
+//                         <button
+//                             disabled={currentPage === pageNumbers.length}
+//                             onClick={handleNext} className="page-btn">
+//                             <i className="fa-solid fa-arrow-right"></i>
+//                         </button>
+//                     </div>
+//                 </div>
+//             </div>
+//           </div>
+//       <Footer/>
+//     </>
+//   );
+// };
