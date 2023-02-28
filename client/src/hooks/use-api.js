@@ -2,69 +2,72 @@
 * Pedro Gutierrez Rincon
 * 02/19/2023
 * Middleware to connect the api to the front end
-* Designed to take the method for HTML request, (GET, POST, PATCH or DELETE), the path and/or the payload from front end
+* Designed to take the method for HTML request, (GET, POST, PUT or DELETE), the path and/or the payload from front end
 */
 
 import { useState, useEffect } from 'react';
 
 const API_ROOT = 'http://localhost:9000/api';
 
-export function useApi({ method, path, payload } = { method: "GET", path: "", payload: {} }) {
+export function useApi(method = "GET", path = "/everything", payload = {}) {
   const [response, setResponse] = useState();
-  const METHODS = {
-    GET: "GET",
-    POST: "POST",
-    PUT: "PUT",
-    DELETE: "DELETE"
-  };
-  const setPath = () => {return `${API_ROOT}/${path}`};
-  //functions for CRUD operations, to run according to the given method:
-  const readFromDb = () => {
-    fetch(setPath())
-      .then(res => res.json())
-      .then(res => setResponse(res));
-  };
-  const createTomDb = () => {
-    const htmlRequest = {
-      method: METHODS.POST,
-      headers: {"content-type": "application/json"},
-      body: JSON.stringify(payload)
+  const apiDecider = () =>
+  {
+    const METHODS = {
+      GET: "GET",
+      POST: "POST",
+      PUT: "PUT",
+      DELETE: "DELETE"
     };
-    fetch(setPath(), htmlRequest)
+    const setPath = () => {return `${API_ROOT}/${path}`};
+    //functions for CRUD operations, to run according to the given method:
+    const readFromDb = () => {
+      fetch(setPath())
       .then(res => res.json())
       .then(res => setResponse(res));
-  };
-  const updateToDb = () => {
-    const htmlRequest = {
-      method: METHODS.PUT,
-      headers: {"content-type": "application/json"},
-      body: JSON.stringify(payload)
     };
-    fetch(setPath(), htmlRequest)
+    const createTomDb = () => {
+      const htmlRequest = {
+        method: METHODS.POST,
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify(payload)
+      };
+      fetch(setPath(), htmlRequest)
       .then(res => res.json())
       .then(res => setResponse(res));
-  };
-  const deleteFromDb = () => {
-    fetch(setPath(), {method: METHODS.DELETE})
-    .then(res => res.json())
-    .then(res => setResponse(res));
-  };
+    };
+    const updateToDb = () => {
+      const htmlRequest = {
+        method: METHODS.PUT,
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify(payload)
+      };
+      fetch(setPath(), htmlRequest)
+      .then(res => res.json())
+      .then(res => setResponse(res));
+    };
+    const deleteFromDb = () => {
+      fetch(setPath(), {method: METHODS.DELETE})
+      .then(res => res.json())
+      .then(res => setResponse(res));
+    };
 
-  useEffect(() => {
     switch (method) {
       case METHODS.POST:
-        createTomDb();
-        break;
+      createTomDb();
+      break;
       case METHODS.PUT:
-        updateToDb();
-        break;
+      updateToDb();
+      break;
       case METHODS.DELETE:
-        deleteFromDb();
-        break;
+      deleteFromDb();
+      break;
       default:
-        readFromDb();
+      readFromDb();
     }
-  }, []);
+  };
+
+  useEffect(apiDecider, []);
 
   return {
     response
