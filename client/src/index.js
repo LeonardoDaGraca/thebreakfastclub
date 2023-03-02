@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { TestForm } from './components/Create/TestForm';
-import { Admin } from './components/Admin/Admin';
+import { Edit } from './components/Edit/Edit';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     },
     {
         path: "admin",
-        element: <Admin/>,
+        element: <Edit/>,
     },
     {
         path: "test-form",

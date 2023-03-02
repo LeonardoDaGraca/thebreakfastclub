@@ -1,7 +1,7 @@
 // Exam Form Component
 import React, { useState } from 'react';
 
-export const ExamForm = ({ onSubmit, onCancel }) => {
+export const CreateExamForm = ({ onSubmit, onCancel }) => {
   const [patientId, setPatientId] = useState('');
   const [examId, setExamId] = useState('');
   const [keyFindings, setKeyFindings] = useState('');

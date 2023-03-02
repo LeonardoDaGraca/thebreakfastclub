@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {ExamForm} from "./ExamForm";
+import {CreateExamForm} from "./CreateExamForm";
 
 export const CreateBtn = () => {
     const [showForm, setShowForm] = useState(false);
@@ -13,7 +13,7 @@ export const CreateBtn = () => {
                 >
                     Create Exam
                 </button>
-                {showForm && <ExamForm/>}
+                {showForm && <CreateExamForm/>}
             </div>
         </>
     );
