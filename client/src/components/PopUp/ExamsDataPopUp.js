@@ -63,7 +63,7 @@ export const ExamsDataPopUp = ({ visible, onClose }) => {
                                     <GrClose className='text-gray-600 text-xs md:text-lg font-bold' />
                                 </button>
                             </div>
-                            <div className='flex flex-col justify-around h-auto gap-2 md:h-5/6 md:gap-6 border-2'>
+                            <div className='flex flex-col justify-around h-auto gap-2 md:h-5/6 md:gap-6 md:p-3'>
                                 <div className='flex flex-wrap justify-between h-auto w-full gap-3 p-1 md:items-center '>
                                     <table className="flex flex-col items-start">
                                         <th className="font-bold mb-2 text-sm md:text-xl ">Patient ID</th>
@@ -94,7 +94,7 @@ export const ExamsDataPopUp = ({ visible, onClose }) => {
                                         <td className="text-sm md:text-lg font-medium ">{item.zipCode}</td>
                                     </table>
                                 </div>
-                                <div className='flex flex-col h-auto w-full p-1 md:flex md:justify-evenly'>
+                                <div className='flex flex-col h-auto w-full p-1 md:flex md:justify-evenly md:space-y-6'>
                                     <table className="flex flex-col items-start " >
                                         <th className="text-sm md:text-xl font-bold mb-2">Key Findings</th>
                                         <td className="text-sm  md:text-lg font-medium"><textarea name="" className="h-auto border-2 border-gray-200 rounded-md " >{item.keyFindings}</textarea></td>
