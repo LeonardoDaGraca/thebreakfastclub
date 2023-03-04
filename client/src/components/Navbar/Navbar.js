@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 // import link element from dependency react-router-dom for use with browser router
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { FaBars, FaTimes, FaSearch} from 'react-icons/fa';
 import { SearchMobile } from '../Search/SearchMobile';
+import { Search } from "../Search/Search";
 // implement functional React component for the Navbar
 export const Navbar = () => {
+    const data = useLoaderData();
     const [isOpen, setIsOpen] = useState(false);
   
     const handleToggle = () => {
@@ -27,6 +29,7 @@ export const Navbar = () => {
                 MedBay
               </NavLink>
             </div>
+            <Search data={data}/>
             <SearchMobile/>
             <div className=" flex border-2 rounded-lg md:hidden">
               <button

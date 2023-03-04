@@ -122,7 +122,7 @@ export const Exams = () => {
                   disabled={currentPage === pageNumbers.length}
                   onClick={handleNext} 
                   className="page-btn">
-                <i class="fa-solid fa-arrow-right"></i>
+                <i className="fa-solid fa-arrow-right"></i>
               </button>
         </div>
       </div>

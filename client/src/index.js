@@ -11,7 +11,12 @@ import { Navbar } from './components/Navbar/Navbar';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Navbar />}>
+    <Route element={<Navbar />}
+      loader={() => {
+        return fetch(`http://localhost:9000/api/everything`)
+          .then(res => res.json())
+          .catch((error) => console.error("Error:", error));
+        }}>
       <Route 
         path="/" 
         element={<App />}
