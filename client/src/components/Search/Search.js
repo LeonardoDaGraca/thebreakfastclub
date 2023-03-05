@@ -43,7 +43,7 @@ console.log(filteredPatients)
        onChange= {e => setQuery(e.target.value)}
       placeholder="Search Exams"/>
     </form>
-    
+        
      </div>
         
     </>
