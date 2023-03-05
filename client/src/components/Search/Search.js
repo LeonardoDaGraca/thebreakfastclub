@@ -32,9 +32,9 @@ export const Search = ({data}) => {
     }
 
     // this isn't working - this is loading on first render AND on changes to searchedPatient; I need it not to load on first render
-    useEffect(() => {
-        setShowSearchResult(true);
-    }, [searchedPatient])
+    // useEffect(() => {
+    //     setShowSearchResult(true);
+    // }, [searchedPatient])
     
 
     return (

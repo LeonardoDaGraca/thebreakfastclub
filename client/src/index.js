@@ -44,7 +44,7 @@ const router = createBrowserRouter(
           .catch((error) => console.error("Error:", error));
         }}>
       </Route>
-      <Route path="test-form" element={<TestForm />}></Route>
+      <Route path="create-exam" element={<TestForm />}></Route>
     </Route>
     )
   );
