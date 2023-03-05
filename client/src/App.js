@@ -9,8 +9,7 @@ import {ExamForm} from "./components/Create/ExamForm";
 // import { Pagination } from "./components/Pagination/Pagination";
 import { Admin } from "./components/Admin/Admin";
 
-import { NotFound } from "./components/NotFound/NotFound";
-import {CreateBtn} from "./components/Create/CreateBtn";
+import { useApi } from './hooks/use-api.js';
 
 const App = () => {
   return (
