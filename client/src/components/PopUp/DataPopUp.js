@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ExamDataPopUp } from "./ExamDataPopUp";
 
 
-export default function DataPopUp ({visible, onClose, item, handleUpdate, showExamDataPopUp, setShowExamDataPopUp, handleExamDataClose}) {
+export default function DataPopUp ({visible, onClose, item, showExamDataPopUp, setShowExamDataPopUp, handleExamDataClose}) {
 
   if (!visible) return null;
   console.table(item);

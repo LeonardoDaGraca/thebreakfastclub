@@ -1,155 +1,126 @@
-export const Update = () => {
-    const [patient, setPatient] = useState({});
-    
-    const handleUpdateSubmit = (e) => {
-        e.preventDefault();
-    
-        onSubmit({
-          patientId,
-          examId,
-          keyFindings,
-          brixiaScore,
-          age,
-          sex,
-          bmi,
-          zipCode,
-          image
-        });
-      }
-    // const [examId, setExamId] = useState('');
-    // const [keyFindings, setKeyFindings] = useState('');
-    // const [brixiaScore, setBrixiaScore] = useState('');
-    // const [age, setAge] = useState('');
-    // const [sex, setSex] = useState('');
-    // const [bmi, setBmi] = useState('');
-    // const [zipCode, setZipCode] = useState('');
-    // const [image, setImage] = useState(null);
-  
+import {useEffect, useState} from "react"
+import { Footer } from "../Footer/Footer"
 
-  
+
+export const Update = ({exam, onClose, visible}) => {
+    const [updateFormData, setUpdateFormData] = useState({
+        patientId: '',
+        daysImageDiagnosos: '',
+        hrsImageDiagnosis: '',
+        imageDescription: '',
+        findings: '',
+        modality: '',
+        fio: '',
+      });
+
+      if (!visible) return null;
+
+    const handleInputChanges = (e) => {
+        // with multiple entries in a form, e.target = []
+        console.log(`${e.target.name}: ${e.target.value}`);
+            setUpdateFormData({
+                ...updateFormData,
+                [e.target.name]: e.target.value,
+            })
+    }
+
+    // need an update component to render to accept input to update the appropriate fields***
+
+    const handleUpdateSubmit = (e, id) => {
+        e.preventDefault();
+        fetch(`http://localhost:9000/api/exams/${id}`, {
+            method: 'PUT', 
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            body:  JSON.stringify(updateFormData),
+        })
+        // .then((res) => console.log(res))
+        .then((res) => {
+            if(res.status === 201) {
+                console.log('success')
+            } else {
+                console.log('res.status != 201')
+            }
+        })
+        // .then(() => setFormData({
+        //     patientId: '',
+        //     daysImageDiagnosos: '',
+        //     hrsImageDiagnosis: '',
+        //     imageDescription: '',
+        //     findings: '',
+        //     modality: '',
+        //     fio: '',
+        // }))
+        .catch((err) => console.error(err))
+    }
+
     return (
-        <div className="form flex items-center justify-center w-screen h-screen ">
-            <form onSubmit={handleSubmit} className=" md:max-w-2xl bg-white md:p-6 p-3 rounded-lg md:shadow-xl ">
-                <h2 className="block text-base md:text-lg font-bold mb-4 ">
-                    Exam Form
-                </h2>
-  
-                <div className="flex flex-wrap text-base">
-                    <div className="w-1/2 mb-2 md:mb-4">
-                        <label className="block text-gray-700 font-medium w-24">
-                            Patient ID:
-                        </label>
-                        <input
-                            type="text"
-                            value={patientId}
-                            onChange={e => setPatient.patientId(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
+        <>          
+            <div className="flex justify-center p-2 mt-10 md:mt-36 md:my-10  md:mx-auto ">
+                <form className="p-4 space-y-4 rounded-lg shadow-2xl border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5" action="" onSubmit={(e, id) => handleUpdateSubmit(e, exam._id)}>
+                    <h1 className="mb-2 text-black text-base md:text-xl lg:text-2xl font-bold ">Create Exam</h1>
+
+                    <div className="space-y-3 md:flex md:space-y-0">
+                        {/* <div className='flex items-center px-4 ' style={{ display: 'none'}}>
+                            <h1 className="text-base font-bold   w-24">Exam ID</h1>
+                            <p className="text-base font-medium text-blue-600 hover:font-bold hover:underline ">{exam._id}</p>
+                        </div> */}
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="patientId">Patient ID</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="patientId" id="patientId" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
                     </div>
-                    <div className="w-1/2 mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium w-24">
-                            Exam ID:
-                        </label>
-                        <input
-                            type="text"
-                            value={examId}
-                            onChange={e => setPatient.examId(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
+
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="daysImageDiagnosos">Days Since Dx</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="daysImageDiagnosos" id="daysImageDiagnosos" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="hrsImageDiagnosis">Hrs Since Dx</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="hrsImageDiagnosis" id="hrsImageDiagnosis" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
                     </div>
-  
-                    <div className="w-1/2 mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium w-24">
-                            Age:
-                        </label>
-                        <input
-                            type="text"
-                            value={age}
-                            onChange={e => setPatient.age(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
+                    
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="imageDescription">Describe Image</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="imageDescription" id="imageDescription" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="findings">Key Findings</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="findings" id="findings" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
                     </div>
-                    <div className="w-1/2 mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium">
-                            Sex:
-                        </label>
-                        <input
-                            type="text"
-                            value={sex}
-                            onChange={e => setPatient.sex(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
+
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="modality">Modality</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="modality" id="modality" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="fio">Fio</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="fio" id="fio" onChange={(e) => handleInputChanges(e)}/>
+                        </div>
                     </div>
-  
-                    <div className="w-1/2 mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium">
-                            Brixia Score:
-                        </label>
-                        <input
-                            type="text"
-                            value={brixiaScore}
-                            onChange={e => setPatient.brixiaScore(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
-                    </div>
-                    <div className="w-1/2 mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium">
-                            BMI:
-                        </label>
-                        <input
-                            type="text"
-                            value={bmi}
-                            onChange={e => setPatient.bmi(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
-                    </div>
-                    <div className="w-1/2 mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium">
-                            Zip Code:
-                        </label>
-                        <input
-                            type="text"
-                            value={zipCode}
-                            onChange={e => setPatient.zipCode(e.target.value)}
-                            className="border border-gray-400 w-max md:w-11/12"
-                        />
-                    </div>
-                    <div className="w-full mb-2 md:mb-2">
-                        <label className="block text-gray-700 font-medium">
-                            Images:
-                        </label>
-                        <input
-                            type="file"
-                            onChange={e => setPatient.image(e.target.files[0])}
-                            className="border border-gray-400 w-full"
-                        />
-                    </div>
-                    <div className="w-full mb-2 md:mb-2">
-                        <label className="block mb-2 text-gray-700 font-medium">
-                            Key Findings:
-                        </label>
-                        <textarea
-                            value={keyFindings}
-                            onChange={e => setPatient.keyFindings(e.target.value)}
-                            className="border border-gray-400 p-2 w-full "
-                        />
-                    </div>
+
+                    <div className="flex justify-end  ">
+                        <button className=" px-3 py-1 rounded-full mr-3 bg-red-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg" onClick={onClose}>
+                            Cancel
+                        </button>
+                        <button className="px-3 py-1 rounded-full bg-blue-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg">
+                            Submit
+                        </button>
                 </div>
-                <div className="flex justify-end">
-                    <button
-                        type="submit"
-                        className="bg-blue-500 hover:bg-blue-600 hover:shadow-lg text-slate-100 hover:text-white font-medium py-2 px-4 rounded-md"
-                    >
-                        Save Exam
-                    </button>
-                    <button
-                        type="button"
-                        onClick={onCancel}
-                        className="bg-red-500  hover:bg-red-600 hover:shadow-lg text-slate-100 hover:text-white font-medium py-2 px-4 rounded-md ml-4"
-                    >
-                        Cancel
-                    </button>
-                </div>
-            </form>
-        </div>
-};
+                </form>
+                
+            </div>
+            <Footer/>
+            
+        </>
+        
+        
+        
+    )
+}

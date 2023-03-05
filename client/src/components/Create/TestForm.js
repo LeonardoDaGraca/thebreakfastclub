@@ -18,21 +18,14 @@ export const TestForm = () => {
             setFormData({
                 ...formData,
                 [e.target.name]: e.target.value,
-            //     daysImageDiagnosos: e.target.value,
-            //     hrsImageDiagnosis: e.target.value,
-            //     imageDescription: e.target.value,
-            //     findings: e.target.value,
-            //     modality: e.target.value,
-            //     fio: e.target.value,
             })
     }
 
     const handleCreateExamSubmit = (e) => {
         e.preventDefault();
-        // console.table(`from submit ${e.target[1].name}`);
         console.log(formData)
         fetch(`http://localhost:9000/api/exams`, {
-            method: "POST", 
+            method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
               },

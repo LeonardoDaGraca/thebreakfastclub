@@ -38,17 +38,16 @@ export const Exams = () => {
 
   // manage patient/exam pop up modals
   const [showDataPopUp, setShowDataPopUp] = useState(false)
-  const [showImagePopUp, setShowImagePopUp] = useState(false)
+  // const [showImagePopUp, setShowImagePopUp] = useState(false)
   const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
   const handleDataClose = () => setShowDataPopUp(false);
-  const handleImageClose = () => setShowImagePopUp(false);
+  // const handleImageClose = () => setShowImagePopUp(false);
   const handleExamDataClose = () => setShowExamDataPopUp(false);
 
   return (
     <>
     {/* map through each object returned from the api to display the appropriate information */}
       {pageData.map(function (item) {
-        console.log(item)
         return (
           <>
             <section key={item._id} className="md:flex relative w-full hidden px-4 white-font">
@@ -71,18 +70,14 @@ export const Exams = () => {
                             key={exam._id} 
                             exam={exam} 
                             examNum={index+1} 
-                            onClose={handleExamDataClose} visible={showExamDataPopUp}
+                            onClose={handleExamDataClose}
+                            visible={showExamDataPopUp}
                           />
                         </>
                       )
                     })
                   }  
                 </div>
-                {/* DO NOT CURRENTLY HAVE ACCESS TO IMAGES, THIS WILL LIKELY GO ON THE EXAM MODAL IF/WHEN AVAILABLE */}
-                {/* <div className=" w-80 px-2">
-                  <h1 className="font-bold text-base mb-1">Key Findings</h1>
-                  <p className="flex flex-wrap text-sm ">{item.findings}</p>
-                </div> */}
                 <div className=" w-28 ">
                   <h1 className="font-bold text-base mb-1">Age</h1>
                   <p className="text-sm">{item.age}</p>
@@ -101,8 +96,6 @@ export const Exams = () => {
                 </div>
             </div>
             <DataPopUp item={item} onClose={handleDataClose } visible={showDataPopUp} setShowExamDataPopUp={setShowExamDataPopUp} handleExamDataClose={handleExamDataClose} showExamDataPopUp={showExamDataPopUp} />
-            <ImagePopUp item={item} onClose={handleImageClose } visible={showImagePopUp}/>
-
           </section>
         <Mobile item={item}/> 
         </>
@@ -129,49 +122,3 @@ export const Exams = () => {
     </>  
   );
 };
-
-
-      {/* <div className="form flex items-center justify-center w-screen h-auto ">
-        <div className=" m-auto p-6 h-screen">
-          <div className="flex justify-center w-full p-6 bg-gray-200 border-black rounded-xl min-w-fit mt-4 ">
-            <table className=" table-auto max-w-7xl min-w-fit text-left ">
-              <thead className="">
-              <tr className="bg-gray-800 text-white text-xs md:text-sm lg:text-base">
-                <th className="px-2 py-2 w-32">Patient ID</th>
-                <th className="px-2 py-2 w-28">Exam ID</th>
-                <th className="px-2 py-2 w-28">Images</th>
-                <th className="px-2 py-2 w-96">Key Findings</th>
-                <th className="px-2 py-2 w-24">Brixia Scores</th>
-                <th className="px-2 py-2 w-24">Age</th>
-                <th className="px-2 py-2 w-24">Sex</th>
-                <th className="px-2 py-2 w-24">BMI</th>
-                <th className="px-2 py-2 w-24">Zip Code</th>
-              </tr>
-              </thead>
-              <tbody>
-              {pageData.map(function (item) {
-                return (
-                    <tr key={item} className="bg-gray-200 text-sm border-b-2 border-black">
-                      <td className="border px-2 py-4">{item.patientId}</td>
-                      <td className="border px-2 py-4">{item.examId}</td>
-                      <td className="border px-2 py-4"><img src={item.imageURL} alt="images"/></td>
-                      <td className="border px-2 py-4">{item.keyFindings}</td>
-                      <td className="border px-2 py-4">{item.brixiaScores}</td>
-                      <td className="border px-2 py-4">{item.age}</td>
-                      <td className="border px-2 py-4">{item.sex}</td>
-                      <td className="border px-2 py-4">{item.bmi}</td>
-                      <td className="border px-2 py-4">{item.zipCode}</td>
-                    </tr>
-                );
-              })}
-              </tbody>
-            </table>
-          </div>
-                  </div>
-      </div> 
-          */}
-
-
-
-            
-
