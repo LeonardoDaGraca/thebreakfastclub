@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { TestForm } from './components/Create/TestForm';
+import { CreateExamForm } from './components/Create/CreateExamForm';
 import { Edit } from './components/Edit/Edit';
 import './index.css';
 import App from './App';
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     },
     {
         path: "test-form",
-        element: <TestForm/>,
+        element: <CreateExamForm/>,
     },
 ]);
 

@@ -47,9 +47,9 @@ export const CardData = () => {
     function renderCard(patient) {
         const { patientId } = patient;
         return (
-            <button key={patientId} onClick={() => setShowMyData(true)} className="card flex flex-col  justify-center items-center border rounded-md shadow-md  h-16 md:h-20 lg:h-28  hover:shadow-lg hover:cursor-pointer ">
-                <th className="text-base font-bold">Patient ID</th>
-                <td className="text-sm font-normal  ">{patient.patientId}</td>
+            <button key={patientId} onClick={() => setShowMyData(true)} className="card flex flex-col justify-center items-center border rounded-md shadow-md hover:shadow-lg hover:cursor-pointer space-y-1 h-16 md:h-20 lg:h-28 xl:h-32 2xl:space-y-6 2xl:h-72 ">
+                <th className="text-base font-bold lg:text-lg xl:text-2xl 2xl:text-5xl">Patient ID</th>
+                <td className="text-sm font-semibold lg:text-base xl:text-xl 2xl:text-4xl ">{patient.patientId}</td>
             </button>
         );
     }
@@ -73,21 +73,18 @@ export const CardData = () => {
     {/*Checking the device width to determine the number of columns and rows to display the data.*/}
     const deviceWidth = window.innerWidth;
     let numColumns, numRows;
-    if (deviceWidth >= 768 && deviceWidth < 1024) {
-        // Tablet layout
-        numColumns = 2;
-        numRows = 6;
-    } else if (deviceWidth >= 1024) {
+    if (deviceWidth >= 1024) {
         // Desktop layout
         numColumns = 4;
         numRows = 8;
-    } else if (deviceWidth === 390){
+    } else if (deviceWidth >= 768 && deviceWidth < 1024) {
+        // Tablet layout
+        numColumns = 2;
+        numRows = 6;
+    } else {
         // Mobile layout
         numColumns = 1;
         numRows = 8;
-    } else {
-        numColumns = 1;
-        numRows = 6;
     }
 
     {/*Reduce the data rows of data based on the number of columns specified. This function takes two arguments, an array of data and the number of columns to display, and returns a new array of data with a reduced number of rows.*/}
@@ -95,20 +92,16 @@ export const CardData = () => {
 
     return (
         <div>
-            <div className={`grid grid-cols-${numColumns} grid-rows-${numRows} max-w-7xl  mx-auto rounded-md p-4 h-auto gap-2`}>
+            <div className={`grid grid-cols-${numColumns} grid-rows-${numRows}  2xl:w-full mx-auto rounded-md p-4 h-auto gap-2`}>
                 {reducedData.map((row, index) => (
-                    <div key={index} className="grid grid-cols-1 gap-y-4">
+                    <div key={index} className="grid grid-cols-1 gap-y-1">
                         {row.map(renderCard)}
                         <ExamsPopUp onClose={closeDataPopUp } visible={showMyData} />
                     </div>
                 ))}
             </div>
             {/* The Pagination component is used to display page numbers and allow the user to navigate through the data. It takes three props: currentPage which is the current page number, totalPages which is the total number of pages, and onPageChange which is a function that is called when the user clicks on a page number. This function is used to update the currentPage state variable in the parent component. */}
-            <Pagination
-                currentPage={currentPage}
-                totalPages={pageNumbers.length}
-                onPageChange={handlePageChange}
-            />
+            <Pagination pageNumbers={pageNumbers} currentPage={currentPage} onPageChange={handlePageChange} />
         </div>
     );
 };

@@ -1,159 +1,92 @@
-// Exam Form Component
-import React, { useState } from 'react';
+import React from "react"
+import { Navbar } from "../Navbar/Navbar"
+import { Footer } from "../Footer/Footer"
 
-export const CreateExamForm = ({ onSubmit, onCancel }) => {
-  const [patientId, setPatientId] = useState('');
-  const [examId, setExamId] = useState('');
-  const [keyFindings, setKeyFindings] = useState('');
-  const [brixiaScore, setBrixiaScore] = useState('');
-  const [age, setAge] = useState('');
-  const [sex, setSex] = useState('');
-  const [bmi, setBmi] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [image, setImage] = useState(null);
+export const CreateExamForm = () => {
+    return (
+        <>
+            <Navbar/>
+            
+            <div className="flex justify-center p-2 mt-10 md:mt-36 md:my-10  md:mx-auto ">
+                <form className="p-4 space-y-4 rounded-lg shadow-2xl border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5" action="">
+                    <h1 className="mb-2 text-black text-base md:text-xl lg:text-2xl font-bold ">Create Exam</h1>
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+                    <div className="space-y-3 md:flex md:space-y-0">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="firstname">First Name</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="firstname" id="firstname" />
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="lastname">Last Name</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="lastname" id="lastname" />
+                        </div>
+                    </div>
 
-    onSubmit({
-      patientId,
-      examId,
-      keyFindings,
-      brixiaScore,
-      age,
-      sex,
-      bmi,
-      zipCode,
-      image
-    });
-  }
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="patient-id">Patient ID</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="patient-id" id="patient-id" />
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="exam-id">Exam ID</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="exam-id" id="exam-id" />
+                        </div>
+                    </div>
+                    
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="keyfindings">Key Findings</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="keyfindings" id="keyfindings" />
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="brixia-score">Brixia Score</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="brixia-score" id="brixia-score" />
+                        </div>
+                    </div>
 
-  return (
-      <div className="form flex items-center justify-center w-screen h-screen ">
-          <form onSubmit={handleSubmit} className=" md:max-w-2xl bg-white md:p-6 p-3 rounded-lg md:shadow-xl ">
-              <h2 className="block text-base md:text-lg font-bold mb-4 ">
-                  Exam Form
-              </h2>
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="bmi">BMI</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="bmi" id="bmi" />
+                        </div>
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="age">Age</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="age" id="age" />
+                        </div>
+                    </div>
 
-              <div className="flex flex-wrap text-base">
-                  <div className="w-1/2 mb-2 md:mb-4">
-                      <label className="block text-gray-700 font-medium w-24">
-                          Patient ID:
-                      </label>
-                      <input
-                          type="text"
-                          value={patientId}
-                          onChange={e => setPatientId(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
-                  <div className="w-1/2 mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium w-24">
-                          Exam ID:
-                      </label>
-                      <input
-                          type="text"
-                          value={examId}
-                          onChange={e => setExamId(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
+                    <div className="space-y-3 md:space-y-0 md:flex ">
+                        <div className="flex  items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="sex">Sex</label>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="sex" id="sex" />
+                        </div>
+                        <div className="flex items-center md:w-1/2">
+                            <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" for="zip-code">Zip Code</label>
+                            <input className="border-2 lg:text-xl" type="text" name="zip-code" id="zip-code" />
+                        </div>
+                    </div>
 
-                  <div className="w-1/2 mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium w-24">
-                          Age:
-                      </label>
-                      <input
-                          type="text"
-                          value={age}
-                          onChange={e => setAge(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
-                  <div className="w-1/2 mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium">
-                          Sex:
-                      </label>
-                      <input
-                          type="text"
-                          value={sex}
-                          onChange={e => setSex(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
+                    <div>
+                        <label className="text-sm md:text-base lg:text-xl" for="image-upload">Upload file</label>
+                        <input className=" border-2 text-sm md:text-base w-full " id="image-upload" type="file" placeholder="" />
+                    </div>
 
-                  <div className="w-1/2 mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium">
-                          Brixia Score:
-                      </label>
-                      <input
-                          type="text"
-                          value={brixiaScore}
-                          onChange={e => setBrixiaScore(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
-                  <div className="w-1/2 mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium">
-                          BMI:
-                      </label>
-                      <input
-                          type="text"
-                          value={bmi}
-                          onChange={e => setBmi(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
-                  <div className="w-1/2 mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium">
-                          Zip Code:
-                      </label>
-                      <input
-                          type="text"
-                          value={zipCode}
-                          onChange={e => setZipCode(e.target.value)}
-                          className="border border-gray-400 w-max md:w-11/12"
-                      />
-                  </div>
-                  <div className="w-full mb-2 md:mb-2">
-                      <label className="block text-gray-700 font-medium">
-                          Images:
-                      </label>
-                      <input
-                          type="file"
-                          onChange={e => setImage(e.target.files[0])}
-                          className="border border-gray-400 w-full"
-                      />
-                  </div>
-                  <div className="w-full mb-2 md:mb-2">
-                      <label className="block mb-2 text-gray-700 font-medium">
-                          Key Findings:
-                      </label>
-                      <textarea
-                          value={keyFindings}
-                          onChange={e => setKeyFindings(e.target.value)}
-                          className="border border-gray-400 p-2 w-full "
-                      />
-                  </div>
-              </div>
-              <div className="flex justify-end">
-                  <button
-                      type="submit"
-                      className="bg-blue-500 hover:bg-blue-600 hover:shadow-lg text-slate-100 hover:text-white font-medium py-2 px-4 rounded-md"
-
-                  >
-                      Save Exam
-                  </button>
-                  <button
-                      type="button"
-                      onClick={onCancel}
-                      className="bg-red-500  hover:bg-red-600 hover:shadow-lg text-slate-100 hover:text-white font-medium py-2 px-4 rounded-md ml-4"
-                  >
-                      Cancel
-                  </button>
-              </div>
-          </form>
-      </div>
-  )
+                    <div className="flex justify-end  ">
+                        <button className=" px-3 py-1 rounded-full mr-3 bg-red-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg">
+                            Cancel
+                        </button>
+                        <button className="px-3 py-1 rounded-full bg-blue-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg">
+                            Submit
+                        </button>
+                </div>
+                </form>
+                
+            </div>
+            <Footer/>
+            
+        </>
+        
+        
+        
+    )
 }
-
