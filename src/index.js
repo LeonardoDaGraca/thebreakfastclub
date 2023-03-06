@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { TestForm } from './components/Create/TestForm';
+import { CreateExamForm } from './components/Create/CreateExamForm';
 import { Admin } from './components/Admin/Admin';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Exams } from './components/Exams/Exams';
+import { ExamsDataPopUp } from './components/PopUp/ExamsDataPopUp';
 
 const router = createBrowserRouter([
   {
@@ -14,16 +14,16 @@ const router = createBrowserRouter([
     element: <App/>,
   },
   {
-    path: "exams",
-    element: <Exams/>,
-  },
-  {
     path: "admin",
     element: <Admin/>,
   },
   {
-    path: "test-form",
-    element: <TestForm/>,
+    path: "create-exam",
+    element: <CreateExamForm/>,
+  },
+  {
+    path: "exams-data-popup",
+    element: <ExamsDataPopUp/>,
   },
 ]);
 

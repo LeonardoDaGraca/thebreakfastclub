@@ -1,7 +1,8 @@
 import {React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Mobile } from "../Mobile/Mobile";
-import PopUp from "../PopUp/DataPopUp";
+import DataPopUp from "../PopUp/ExamsPopUp";
+import ImagePopUp from "../PopUp/ExamsPopUp";
 
 // API endpoint for fetching ALL exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
@@ -15,25 +16,24 @@ export const Exams = () => {
 
   const [data, setData] = useState([]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
   useEffect(() => {
     fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
       .then((res) => res.json())
       .then((res) => setData(res.exams))
       .catch((error) => console.error("Error:", error));
   }, []);
-  console.log(data)
+  // console.log(data)
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const pageData = data.slice(startIndex, endIndex);
+  const pageData = data.slice(startIndex, endIndex); 
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const pageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -96,7 +96,8 @@ export const Exams = () => {
                 <p className="text-sm">{ item.zipCode}</p>
               </div>
             </div>
-            <PopUp/>
+            <DataPopUp />
+            <ImagePopUp/>
           </section>
         );
       })}

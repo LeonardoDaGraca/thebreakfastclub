@@ -4,8 +4,9 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Navbar } from '../Navbar/Navbar';
 // import {Search} from "../Search/Search";
-import { TestSearch } from '../Search/TestSearch';
+import { Search } from '../Search/Search';
 import { Footer } from '../Footer/Footer';
+import {HiOutlineArrowSmRight, HiOutlineArrowSmLeft} from "react-icons/hi"
 
 // let data = require("../../data/exam-data.json");
 
@@ -60,7 +61,7 @@ export const Admin = () => {
   return (
     <>
           <Navbar />
-          <TestSearch/>
+          <Search/>
         <div className="form flex items-center justify-center w-screen h-auto ">
             <div className=" m-auto p-6 ">
                 <div className="flex justify-center w-full p-6 bg-gray-200 border-black rounded-xl min-w-fit mt-4 ">
@@ -114,7 +115,7 @@ export const Admin = () => {
                 <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
                     <div className="border-2 flex w-3/4 justify-center">
                         <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
-                            <i className="fa-solid fa-arrow-left"></i>
+                        <HiOutlineArrowSmLeft/>
                         </button>
                         {pageNumbers.map((number) => (
                             <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
@@ -124,7 +125,7 @@ export const Admin = () => {
                         <button
                             disabled={currentPage === pageNumbers.length}
                             onClick={handleNext} className="page-btn">
-                            <i className="fa-solid fa-arrow-right"></i>
+                            <HiOutlineArrowSmRight/>
                         </button>
                     </div>
                 </div>
