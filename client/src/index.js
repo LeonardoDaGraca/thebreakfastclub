@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Route, createBrowserRouter, RouterProvider, createRoutesFromElements } from 'react-router-dom';
 import { CreateExamForm } from './components/Create/CreateExamForm';
 import { Edit } from './components/Edit/Edit';
 import reportWebVitals from './reportWebVitals';
+import { Navbar } from './components/Navbar/Navbar';
+import { Exams } from './components/Exams/Exams';
+import {TestForm} from '../src/components/Create/TestForm'
 import './index.css';
 import App from './App';
 
@@ -52,7 +55,7 @@ const router = createBrowserRouter(
             .catch((error) => console.error("Error:", error));
           }}>
       </Route>
-      <Route 
+      {/* <Route 
         path="admin" 
         element={<Admin />}
         loader={() => {
@@ -60,7 +63,7 @@ const router = createBrowserRouter(
           .then(res => res.json())
           .catch((error) => console.error("Error:", error));
         }}>
-      </Route>
+      </Route> */}
       <Route path="create-exam" element={<TestForm />}></Route>
     </Route>
     )

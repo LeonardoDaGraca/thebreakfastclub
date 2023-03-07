@@ -1,6 +1,5 @@
 import React from "react";
 import {useState, useEffect} from 'react';
-import "./Search.css";
 let data = require("../../data/exam-data.json");
 
 

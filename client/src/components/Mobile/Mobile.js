@@ -1,7 +1,6 @@
 import {React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DataPopUp from "../PopUp/DataPopUp";
-import ImagePopUp from "../PopUp/ImagePopUp";
 
 // API endpoint for fetching ALL exam data:
 // https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams
@@ -86,7 +85,6 @@ export const Mobile = ({ item }) => {
                             </div>
                         </div>
                         <DataPopUp item={item} onClose={handleDataClose } visible={showDataPopUp} /* handleUpdate={handleUpdate} *//>
-                        <ImagePopUp item={item} onClose={handleImageClose } visible={showImagePopUp} />
                     </section>
                     </>
         );     

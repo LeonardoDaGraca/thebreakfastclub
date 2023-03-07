@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { Mobile } from "../Mobile/Mobile";
 import DataPopUp from "../PopUp/DataPopUp";
-import ImagePopUp  from "../PopUp/ImagePopUp";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 
 export const Exams = () => {
