@@ -1,13 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { CreateExamForm } from './components/Create/CreateExamForm';
+import { Edit } from './components/Edit/Edit';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-import { TestForm } from './components/Create/TestForm';
-import { Admin } from './components/Admin/Admin';
-import { Exams } from './components/Exams/Exams';
-import { Navbar } from './components/Navbar/Navbar';
+
+// const router = createBrowserRouter([
+//   {
+//       path: "/",
+//       element: <App/>,
+//   },
+//   {
+//       path: "exams",
+//       element: <Exams/>,
+//   },
+//   {
+//       path: "admin",
+//       element: <Edit/>,
+//   },
+//   {
+//       path: "test-form",
+//       element: <CreateExamForm/>,
+//   },
+// ]);
 
 const router = createBrowserRouter(
   createRoutesFromElements(

@@ -1,18 +1,27 @@
-import "./Styles/Styles.css"
-// import { useState, useEffect } from "react";
-import { Exams } from './components/Exams/Exams';
-// import { Admin } from './components/Admin/Admin';
+import React from "react";
+import "./Styles/Styles.css";
+import { Navbar } from "./components/Navbar/Navbar";
+// import { Search } from "./components/Search/Search";
+import { Exams } from "./components/Exams/Exams";
+import { Search } from "./components/Search/Search";
 import { Footer } from "./components/Footer/Footer";
-// import { useLoaderData } from "react-router-dom";
+// import { CreateExamForm } from "./components/Create/CreateExamForm";
+// import { Edit } from "./components/Edit/Edit";
+// import { CreateExamForm } from "./components/Create/CreateExamForm";
+// import { NotFound } from "./components/Notfound/NotFound";
+
+
 
 const App = () => {
   return (
-    <>
-      <div className="relative bg-gray-100 min-h-screen min-w-fit h-screen w-screen white-font">
-        <Exams />
-        <Footer/>
-      </div>
-    </>
+      <>
+        <div className="App">
+          <Navbar/>
+          <Search/>
+          <Exams />
+          <Footer/>
+        </div>
+      </>
   );
 }
 

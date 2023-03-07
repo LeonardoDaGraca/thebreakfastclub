@@ -1,68 +1,44 @@
-import { useState, useEffect } from "react";
-import DataPopUp from "../PopUp/DataPopUp";
+import React, { useState } from "react";
 
-export const Search = ({data}) => {
-    const [searchedPatient, setSearchedPatient] = useState({});
-    const [searchTerm, setSearchTerm] = useState("");
-    const [showSearchResult, setShowSearchResult] = useState(false);
-    const handleSearchResultClose = () => setShowSearchResult(false);
+export const Search = () => {
+    const [query, setQuery] = useState("");
+    const exams = ["Exam 1", "Exam 2", "Exam 3", "Final Exam"];
 
-    const handleSearchInputChange = (e) => {
-        let newSearchTerm = e.target.value;
-        setSearchTerm(newSearchTerm);
-        e.target.value="";
-      }
-    
-    const submitSearch = () => {
-      if(searchTerm.length>0) {
-          fetch(`http://localhost:9000/api/patients/${searchTerm}`)
-          .then(res => res.json())
-          .then(res => console.log(res))
-          .then(res => setSearchedPatient(res))
-          .catch(err => console.error('Error'));
-      }
-    }
-    
-    console.log(searchedPatient);
+    const filteredExams = exams.filter((exam) =>
+        exam.toLowerCase().includes(query.toLowerCase())
+    );
 
-    const handleSearchSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        submitSearch();
-        // return data;
-    }
-
-    // this isn't working - this is loading on first render AND on changes to searchedPatient; I need it not to load on first render
-    // useEffect(() => {
-    //     setShowSearchResult(true);
-    // }, [searchedPatient])
-    
+        // Do something with the search query, e.g. fetch data from API
+    };
 
     return (
-
-        <div className="flex items-center w-3/5 justify-center relative">
-            <div className="flex  justify-around w-full md:w-2/5">
-                <form onSubmit={e => handleSearchSubmit(e)}>
-                <input
-                    className="block w-full px-2 py-1 text-xs text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    type="text"
-                    placeholder="Search exams"
-                    onChange={e => {handleSearchInputChange(e)}}
-                    value={searchTerm}
-                />
-                <button type="submit" className="text-white absolute right-0.5  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Search
-                </button>
+        <>
+            <div className="md:flex justify-center w-full p-6 hidden">
+                <form onSubmit={handleSubmit} className="w-1/2">
+                    <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 2xl:text-6xl sr-only dark:text-white">
+                        Search
+                    </label>
+                    <div className="relative">
+                        <input
+                            type="search"
+                            id="default-search"
+                            className="block w-full p-3 pl-10 md:pl-5 text-sm md:text-base xl:text-xl 2xl:text-5xl text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Search Exams..."
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            required
+                        />
+                        <button
+                            type="submit"
+                            className="text-white absolute right-1.5 bottom-1 md:bottom-1.5 xl:bottom-1.5 2xl:bottom-3 2xl:right-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:text-base md:px-2 md:py-1.5 xl:text-lg 2xl:px-4 2xl:py-2 2xl:text-4xl  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                            Search
+                        </button>
+                    </div>
                 </form>
-                <DataPopUp 
-                    item={searchedPatient} 
-                    onClose={handleSearchResultClose } 
-                    visible={showSearchResult} 
-                    // setShowExamDataPopUp={setShowExamDataPopUp} 
-                    handleSearchResultClose={handleSearchResultClose} 
-                    // showExamDataPopUp={showExamDataPopUp} 
-                />
             </div>
-        </div>
-        
+        </>
     );
 };
