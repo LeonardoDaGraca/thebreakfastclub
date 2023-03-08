@@ -10,19 +10,17 @@ import { Footer } from "./components/Footer/Footer";
 // import { CreateExamForm } from "./components/Create/CreateExamForm";
 // import { NotFound } from "./components/Notfound/NotFound";
 
-
-
 const App = () => {
   return (
-      <>
-        <div className="App">
-          <Navbar/>
-          <Search/>
-          <Exams />
-          <Footer/>
-        </div>
-      </>
+    <>
+      <div className="App">
+        <Navbar />
+        <Search />
+        {/* <Exams /> */}
+        <Footer />
+      </div>
+    </>
   );
-}
+};
 
 export default App;
