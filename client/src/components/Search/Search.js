@@ -1,51 +1,17 @@
 import React from "react";
-import {useState, useEffect} from 'react';
-import "./Search.css";
-let data = require("../../data/exam-data.json");
-
-
 
 export const Search = () => {
-   const [query, setQuery] = useState("");
-   const [data, setData] =useState([])
-   useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-
-  const patients = data
-//   console.log(patients)
-    const getFilterdPatients = (query, patients) =>{
-        if(!query){
-            return patients
-        }
-        return patients.filter(patient => patient.patientId.includes(query))
-    }
-
- const filteredPatients = getFilterdPatients(query, patients);
-console.log(filteredPatients)
-
-
-// if userinput matches patientID add a class of hide to the patient Row or set display equals none
-// Create the form
-
     return (
         <>
-    {/* Search bar */}
-      <div className="search-container">
-      <form action="/" method="get">  
-       <input 
-       id= "btn" 
-       type="text" 
-       name ='search' 
-       onChange= {e => setQuery(e.target.value)}
-      placeholder="Search Exams"/>
-    </form>
-        
-     </div>
-        
-    </>
+            <div className="md:flex justify-center w-full p-6 hidden">
+                <form action="" className="w-1/2">
+                    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                    <div class="relative">
+                        <input type="search" id="default-search" class="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Exams..." required />
+                        <button type="submit" class="text-white absolute right-1.5 bottom-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                    </div>
+                </form>
+            </div>
+        </>
     )
 }

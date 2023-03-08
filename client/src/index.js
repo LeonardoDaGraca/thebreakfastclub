@@ -1,18 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { TestForm } from './components/Create/TestForm';
+import { Edit } from './components/Edit/Edit';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { Exams } from './components/Exams/Exams';
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App/>,
+    },
+    {
+        path: "exams",
+        element: <Exams/>,
+    },
+    {
+        path: "admin",
+        element: <Edit/>,
+    },
+    {
+        path: "test-form",
+        element: <TestForm/>,
+    },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    {/* implement react browser router v6 with browser router (there is an updated version, it could be a stretch goal to convert to the most recent version 6.8) */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
