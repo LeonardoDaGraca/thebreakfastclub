@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { GrClose } from "react-icons/gr"
 import { ExamsDataPopUp } from './ExamsDataPopUp';
 
-export const ExamsPopUp = ({ visible, onClose }) => {
+export default function ExamsPopUp({ visible, onClose }) {
 
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
