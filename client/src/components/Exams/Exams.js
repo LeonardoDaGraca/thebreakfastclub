@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { Mobile } from "../Mobile/Mobile";
 import DataPopUp from "../PopUp/DataPopUp";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
+import { Pagination } from "../Pagination/Pagination";
 
 export const Exams = () => {
   const data = useLoaderData();
@@ -13,27 +13,27 @@ export const Exams = () => {
   const endIndex = startIndex + itemsPerPage;
   const pageData = data.slice(startIndex, endIndex);
 
-  // pagination state and handlers
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  // // pagination state and handlers
+  // const handlePageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
 
-  const pageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+  // const pageChange = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  // };
 
-  const handlePrevious = () => {
-    setCurrentPage(currentPage - 1);
-  };
+  // const handlePrevious = () => {
+  //   setCurrentPage(currentPage - 1);
+  // };
 
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1);
-  };
+  // const handleNext = () => {
+  //   setCurrentPage(currentPage + 1);
+  // };
 
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  // const pageNumbers = [];
+  // for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+  //   pageNumbers.push(i);
+  // }
 
   // manage patient/exam pop up modals
   const [showDataPopUp, setShowDataPopUp] = useState(false)
@@ -94,13 +94,12 @@ export const Exams = () => {
                   <p className="text-sm">{ item.zip}</p>
                 </div>
             </div>
-            <DataPopUp item={item} onClose={handleDataClose } visible={showDataPopUp} setShowExamDataPopUp={setShowExamDataPopUp} handleExamDataClose={handleExamDataClose} showExamDataPopUp={showExamDataPopUp} />
+            <DataPopUp key={item._id} item={item} onClose={handleDataClose } visible={showDataPopUp} setShowExamDataPopUp={setShowExamDataPopUp} handleExamDataClose={handleExamDataClose} showExamDataPopUp={showExamDataPopUp} />
           </section>
-        <Mobile item={item}/> 
         </>
         )
       })};
-      <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
+      {/* <div className="border-2 flex justify-center mt-2 w-1/2 m-auto p-6">
         <div className="border-2 flex w-3/4 justify-center font-semibold space-x-3 text-lg">
           <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
             <i className="fa-solid fa-arrow-left"></i>
@@ -117,7 +116,9 @@ export const Exams = () => {
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
         </div>
-      </div>
+      </div> */}
+
+      <Pagination />
     </>  
   );
 };

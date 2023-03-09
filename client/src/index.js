@@ -4,39 +4,14 @@ import { Route, createBrowserRouter, RouterProvider, createRoutesFromElements } 
 import { CreateExamForm } from './components/Create/CreateExamForm';
 import { Edit } from './components/Edit/Edit';
 import reportWebVitals from './reportWebVitals';
-import { Navbar } from './components/Navbar/Navbar';
 import { Exams } from './components/Exams/Exams';
 import {TestForm} from '../src/components/Create/TestForm'
 import './index.css';
 import App from './App';
 
-// const router = createBrowserRouter([
-//   {
-//       path: "/",
-//       element: <App/>,
-//   },
-//   {
-//       path: "exams",
-//       element: <Exams/>,
-//   },
-//   {
-//       path: "admin",
-//       element: <Edit/>,
-//   },
-//   {
-//       path: "test-form",
-//       element: <CreateExamForm/>,
-//   },
-// ]);
-
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Navbar />}
-      loader={() => {
-        return fetch(`http://localhost:9000/api/everything`)
-          .then(res => res.json())
-          .catch((error) => console.error("Error:", error));
-        }}>
+    <>
       <Route 
         path="/" 
         element={<App />}
@@ -55,17 +30,8 @@ const router = createBrowserRouter(
             .catch((error) => console.error("Error:", error));
           }}>
       </Route>
-      {/* <Route 
-        path="admin" 
-        element={<Admin />}
-        loader={() => {
-          return fetch("http://localhost:9000/api/everything")
-          .then(res => res.json())
-          .catch((error) => console.error("Error:", error));
-        }}>
-      </Route> */}
       <Route path="create-exam" element={<TestForm />}></Route>
-    </Route>
+   </>
     )
   );
 

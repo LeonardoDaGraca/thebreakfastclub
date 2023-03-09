@@ -7,12 +7,12 @@ let data = require("../../data/exam-data.json");
 export const Search = () => {
    const [query, setQuery] = useState("");
    const [data, setData] =useState([])
-   useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
-      .then((res) => res.json())
-      .then((res) => setData(res.exams))
-      .catch((error) => console.error("Error:", error));
-  }, []);
+//    useEffect(() => {
+//     fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+//       .then((res) => res.json())
+//       .then((res) => setData(res.exams))
+//       .catch((error) => console.error("Error:", error));
+//   }, []);
 
   const patients = data
 //   console.log(patients)
@@ -27,7 +27,7 @@ export const Search = () => {
 console.log(filteredPatients)
 
 
-// if userinput matches patientID add a class of hide to the patient Row or set display equals none
+// if user input matches patientID add a class of hide to the patient Row or set display equals none
 // Create the form
 
     return (
