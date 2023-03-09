@@ -43,32 +43,11 @@ export const Navbar = () => {
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4 ">
                 <NavLink
-                    to="/exam"
-                    onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
-                >
-                  Exam
-                </NavLink>
-                <NavLink
-                    to="/admin"
-                    onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
-                >
-                  Admin
-                </NavLink>
-                <NavLink
                     to="/create-exam"
                     onClick={handleMenuClick}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
                 >
                   Create Exam
-                </NavLink>
-                <NavLink
-                    to="/test-form"
-                    onClick={handleMenuClick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm md:text-base font-medium"
-                >
-                  Test Form
                 </NavLink>
               </div>
             </div>

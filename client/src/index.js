@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { CreateExamForm } from './components/Create/CreateExamForm';
-import { Edit } from './components/Edit/Edit';
-import './index.css';
+// import { Edit } from './components/Edit/Edit';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Exams } from './components/Exams/Exams';
 
 const router = createBrowserRouter([
     {
@@ -14,15 +12,7 @@ const router = createBrowserRouter([
         element: <App/>,
     },
     {
-        path: "exams",
-        element: <Exams/>,
-    },
-    {
-        path: "admin",
-        element: <Edit/>,
-    },
-    {
-        path: "test-form",
+        path: "create-exam",
         element: <CreateExamForm/>,
     },
 ]);
