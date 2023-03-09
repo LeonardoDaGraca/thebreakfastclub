@@ -1,13 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import PatientList from "../PatientList/patientsList";
-import Pagination from "../Pagination/Pagination";
+import PaginatePage from "../Pagination/Pagination";
 import axios from "axios";
 
 export const Search = () => {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const [filtered, setFilterd] = useState([]);
+
+  const [currentPage, setcurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,12 +27,17 @@ export const Search = () => {
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     const results = filtered.filter((res) =>
       res.patientId.toLowerCase().includes(query)
     );
     setData(results);
   }, [query, filtered]);
+  
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPost = data.slice(firstPostIndex, lastPostIndex);
 
   return (
     <>
@@ -57,8 +66,12 @@ export const Search = () => {
             </button>
           </div>
         </form>
-        <PatientList data={data} />
-        <Pagination data={data} />
+        <PatientList data={currentPost} />
+        <PaginatePage
+          totalPosts={data.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setcurrentPage}
+        />
       </div>
     </>
   );
