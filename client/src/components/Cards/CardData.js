@@ -139,13 +139,13 @@ export const CardData = () => {
                                             <tbody className="w-full">
                                             <tr className=" grid grid-cols-6 text-center w-full whitespace-normal break-words">
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.exams}
+                                                    {exams.examId}
                                                 </td>
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
                                                     {exams.brixiaScores}
                                                 </td>
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.zip}
+                                                    {exams.zipCode}
                                                 </td>
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
                                                     {exams.sex}
@@ -175,7 +175,7 @@ export const CardData = () => {
                                             <tbody className="w-full h-auto">
                                             <tr className=" grid grid-cols-2 text-center w-full ">
                                                 <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.findings}
+                                                    {exams.keyFindings}
                                                 </td>
                                                 <td className="mx-auto">
                                                     <Link className="flex justify-center border-2">

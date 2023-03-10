@@ -7,9 +7,9 @@ export const Pagination3 = () => {
     const [dataPerPgae, setDataPerpage] = useState(4);
 
     useEffect(() => {
-        fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+        fetch("http://localhost:9000/api/everything")
             .then((res) => res.json())
-            .then((res) => setData(res.exams))
+            .then((res) => setData(res))
             .catch((error) => console.error("Error:", error));
     }, []);
 
