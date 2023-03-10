@@ -15,14 +15,15 @@ export const CardData = () => {
             .then((res) => res.json())
             .then((res) => setData(res.exams))
             .catch((error) => console.error("Error:", error));
+        console.log(data)
     }, []);
     // Fetching data from API using the useEffect Hook ends
 
     // Function to group data by patient ID starts
     const groupByPatientId = (data) => {
         return data.reduce((acc, cur) => {
-            acc[cur.patientId] = acc[cur.patientId] || [];
-            acc[cur.patientId].push(cur);
+            acc[cur._id] = acc[cur._id] || [];
+            acc[cur._id].push(cur);
             return acc;
         }, {});
     };
