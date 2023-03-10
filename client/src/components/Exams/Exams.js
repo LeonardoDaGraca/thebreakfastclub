@@ -1,11 +1,24 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import DataPopUp from "../PopUp/DataPopUp";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 import { Pagination } from "../Pagination/Pagination";
+import { Navbar } from "../Navbar/Navbar";
 
 export const Exams = () => {
-  const data = useLoaderData();
+  // const data = useLoaderData();
+  const [data, setData] = useState([]);
+
+useEffect(() => {
+    fetch("http://localhost:9000/api/everything")
+      .then(res => res.json())
+      .then(res => setData(res))
+      // .then(res => console.log(res))
+      .catch((error) => console.error("Error:", error));
+}, []);
+    
+
+  console.log(data);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(8);
@@ -45,6 +58,7 @@ export const Exams = () => {
 
   return (
     <>
+    <Navbar />
     {/* map through each object returned from the api to display the appropriate information */}
       {pageData.map(function (item) {
         return (
