@@ -276,4 +276,17 @@ module.exports = {
   updateExam,
   deleteExam,
   getEverything
+  getTest,
+  getPatients,
+  getPatientByID,
+  createPatient,
+  updatePatient,
+  deletePatient,
+  getExams,
+  getExamsOfPatient,
+  getExamByID,
+  createExam,
+  updateExam,
+  deleteExam,
+  getEverything
 };
