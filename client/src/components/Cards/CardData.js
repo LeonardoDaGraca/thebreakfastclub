@@ -13,7 +13,7 @@ export const CardData = () => {
     useEffect(() => {
         fetch("http://localhost:9000/api/everything")
             .then((res) => res.json())
-            .then((res) => setData(res.exams))
+            .then((res) => setData(res))
             .catch((error) => console.error("Error:", error));
         console.log(data)
     }, []);
@@ -31,8 +31,8 @@ export const CardData = () => {
     // Function to group data by patient ID ends
 
     // Function to handle button click and set selected patient ID starts
-    const handleButtonClick = (patientId) => {
-        setSelectedPatientId(patientId);
+    const handleButtonClick = (_id) => {
+        setSelectedPatientId(_id);
     };
 
     // Function to clear selected patient ID starts
@@ -43,11 +43,11 @@ export const CardData = () => {
     return (
         <>
             <div className="mt-2 grid grid-cols-1 gap-4  p-3 sm:grid-cols-1 md:grid-cols-2 md:p-6 lg:grid-cols-3 lg:w-full lg:px-6 lg:gap-6 xl:grid-cols-4 2xl:px-20 2xl:gap-8">
-                {Object.entries(groupedData).map(([patientId, exams]) => (
+                {Object.entries(groupedData).map(([_id, exams]) => (
                     <button
-                        key={patientId}
+                        key={_id}
                         className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-24  md:h-28 lg:h-36 2xl:h-60"
-                        onClick={() => handleButtonClick(patientId)}
+                        onClick={() => handleButtonClick(_id)}
                     >
 
                         <div className="flex flex-col items-center">
@@ -61,7 +61,7 @@ export const CardData = () => {
                             <tr>
                                 <tbody>
                                 <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-base xl:text-lg 2xl:text-4xl">
-                                    {patientId}
+                                    {_id}
                                 </td>
                                 </tbody>
                             </tr>
@@ -139,13 +139,13 @@ export const CardData = () => {
                                             <tbody className="w-full">
                                             <tr className=" grid grid-cols-6 text-center w-full whitespace-normal break-words">
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.examId}
+                                                    {exams.exams}
                                                 </td>
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
                                                     {exams.brixiaScores}
                                                 </td>
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.zipCode}
+                                                    {exams.zip}
                                                 </td>
                                                 <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
                                                     {exams.sex}
@@ -175,7 +175,7 @@ export const CardData = () => {
                                             <tbody className="w-full h-auto">
                                             <tr className=" grid grid-cols-2 text-center w-full ">
                                                 <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.keyFindings}
+                                                    {exams.findings}
                                                 </td>
                                                 <td className="mx-auto">
                                                     <Link className="flex justify-center border-2">
