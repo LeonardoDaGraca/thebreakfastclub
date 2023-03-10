@@ -30,14 +30,14 @@ const images = require(`${relativePath}exam-model.js`).images;
 }*/
 
 /**@desc it's just a test for the api
-*/
-getTest = asyncHandler( async (req, res) => {
-  let payload = {
-    success: true,
-    message: "API is working (test)"
-  }
-  res.status(200).json(payload);
-});
+// */
+// getTest = asyncHandler( async (req, res) => {
+//   let payload = {
+//     success: true,
+//     message: "API is working (test)"
+//   }
+//   res.status(200).json(payload);
+// });
 
 //CONTROLERS for patients:
 /**@desc gets all the patients from the database
@@ -263,20 +263,7 @@ getEverything = asyncHandler( async (req, res) =>
 });
 
 module.exports = {
-  getTest,
-  getPatients,
-  getPatientByID,
-  createPatient,
-  updatePatient,
-  deletePatient,
-  getExams,
-  getExamsOfPatient,
-  getExamByID,
-  createExam,
-  updateExam,
-  deleteExam,
-  getEverything
-  getTest,
+  // getTest,
   getPatients,
   getPatientByID,
   createPatient,

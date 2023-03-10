@@ -40,7 +40,7 @@ const UserController = require("../controllers/user-controller");
   res.send('API is working properly!');
 });*/
 //router for patients
-router.get('/test', UserController.getTest);
+// router.get('/test', UserController.getTest);
 router.get('/patients', UserController.getPatients);
 router.get('/patients/:id', UserController.getPatientByID);
 router.post('/patients', UserController.createPatient);
