@@ -17,7 +17,7 @@ export const Pagination3 = () => {
     const indexOfLastPage = currentPage * dataPerPgae;
     const indexOfFirstPage = indexOfLastPage - dataPerPgae;
     const currentData = data.slice(indexOfFirstPage, indexOfLastPage);
-    console.log(indexOfFirstPage, indexOfLastPage, currentData);
+    // console.log(indexOfFirstPage, indexOfLastPage, currentData);
 
     // Pagination
     const pageNumbers = [];
@@ -25,7 +25,7 @@ export const Pagination3 = () => {
     // Let numOfTotalData = data.length
     for (let i = 1; i <= Math.ceil(data.length / dataPerPgae); i++)
         pageNumbers.push(i);
-    console.log(pageNumbers)
+    // console.log(pageNumbers)
 
     return (
         <>

@@ -30,7 +30,7 @@ export const Exams = () => {
 
   useEffect(() => {
     fetch("http://localhost:9000/api/everything")
-      .then((res) => res.json())
+      .then((res) => {console.log(`exams component response: ${res}`); res.json()})
       .then((res) => setData(res.exams))
       .catch((error) => console.error("Error:", error));
   }, []);

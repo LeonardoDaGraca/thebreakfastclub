@@ -50,22 +50,22 @@ export const CardData = () => {
                         onClick={() => handleButtonClick(_id)}
                     >
 
-                        <div className="flex flex-col items-center">
-                            <tr className="mb-2 lg:mb-1 xl:mb-2 2xl:mb-6">
-                                <thead className="">
-                                <th className="text-base font-bold text-gray-900 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
+                        <table className="flex flex-col items-center">
+                            <thead className="">
+                                <tr className="mb-2 lg:mb-1 xl:mb-2 2xl:mb-6">
+                                    <th className="text-base font-bold text-gray-900 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
                                     Patient ID
-                                </th>
-                                </thead>
-                            </tr>
-                            <tr>
-                                <tbody>
-                                <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-base xl:text-lg 2xl:text-4xl">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-base xl:text-lg 2xl:text-4xl">
                                     {_id}
-                                </td>
-                                </tbody>
-                            </tr>
-                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </button>
                 ))}
