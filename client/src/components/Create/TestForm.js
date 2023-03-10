@@ -1,5 +1,6 @@
-import {useEffect, useState} from "react"
-import { Footer } from "../Footer/Footer"
+import {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { Footer } from "../Footer/Footer";
 
 export const TestForm = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +12,13 @@ export const TestForm = () => {
         modality: '',
         fio: '',
       });
+      
+   // redirect to the home page on cancellation of create exam
+    let navigate = useNavigate(); 
+    const redirectHome = () =>{ 
+      let path = `/`; 
+      navigate(path);
+    }
 
     const handleInputChanges = (e) => {
         // with multiple entries in a form, e.target = []
@@ -31,23 +39,11 @@ export const TestForm = () => {
               },
             body:  JSON.stringify(formData),
         })
-        // .then((res) => console.log(res))
         .then((res) => {
-            if(res.status === 201) {
-                console.log('success')
-            } else {
-                console.log('res.status != 201')
-            }
-        })
-        // .then(() => setFormData({
-        //     patientId: '',
-        //     daysImageDiagnosos: '',
-        //     hrsImageDiagnosis: '',
-        //     imageDescription: '',
-        //     findings: '',
-        //     modality: '',
-        //     fio: '',
-        // }))
+            if (res.status === 200) {
+                console.log(res.status);
+                redirectHome();
+            }})
         .catch((err) => console.error(err))
     }
 
@@ -98,10 +94,10 @@ export const TestForm = () => {
                     </div>
 
                     <div className="flex justify-end  ">
-                        <button className=" px-3 py-1 rounded-full mr-3 bg-red-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg">
+                        <button type="reset" className=" px-3 py-1 rounded-full mr-3 bg-red-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg" onClick={redirectHome}>
                             Cancel
                         </button>
-                        <button className="px-3 py-1 rounded-full bg-blue-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg">
+                        <button type="submit" className="px-3 py-1 rounded-full bg-blue-600 text-zinc-50 font-bold shadow-lg md:px-4 md:py-2 md:rounded-lg">
                             Submit
                         </button>
                 </div>

@@ -29,7 +29,7 @@ export const Exams = () => {
   };
 
   useEffect(() => {
-    fetch("https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams")
+    fetch("http://localhost:9000/api/everything")
       .then((res) => res.json())
       .then((res) => setData(res.exams))
       .catch((error) => console.error("Error:", error));

@@ -16,11 +16,13 @@ export const Search = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams"
+          "http://localhost:9000/api/everything"
         );
         console.log(res.data.exams);
-        setData(res.data.exams);
-        setFilterd(res.data.exams);
+        // setData(res.data.exams);
+        setData(res.json())
+        // setFilterd(res.data.exams);
+        setFilterd(data.exams)
       } catch (err) {
         throw new Error(err);
       }
