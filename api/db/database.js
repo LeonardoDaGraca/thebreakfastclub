@@ -10,11 +10,11 @@ const mongoose = require("mongoose");
 const MONGO_URI = "mongodb+srv://rwuser:9ngCkMV9Ur1zYAqo@cluster0.5efdq.mongodb.net/techdive_2023?retryWrites=true&w=majority";
 
 const parameters = {
-    useNewUrlParser: true/*,
+  useNewUrlParser: true/*,
   useFindAndModify: true,*/
 };
 const errorHandeling = (e) => {
-    console.log("Failure at trying to connect to MongoDB Atrlas DB", e.message);
+  console.log("Failure at trying to connect to MongoDB Atrlas DB", e.message);
 };
 mongoose.set('strictQuery', false);
 mongoose.connect(MONGO_URI, parameters).catch(errorHandeling);

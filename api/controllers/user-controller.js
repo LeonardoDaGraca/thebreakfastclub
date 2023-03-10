@@ -1,9 +1,9 @@
 /**
- * Pedro Gutierrez Rincon
- * 01/29/2023
- * the controllers for CRUD opperations are defined here.
- * Called by router.
- **/
+* Pedro Gutierrez Rincon
+* 01/29/2023
+* the controllers for CRUD opperations are defined here.
+* Called by router.
+**/
 
 const mongoose = require("mongoose"); //to interact with the database (creat and update)
 const asyncHandler = require("express-async-handler"); //facilitates error handeling for express async functions
@@ -30,7 +30,7 @@ const images = require(`${relativePath}exam-model.js`).images;
 }*/
 
 /**@desc it's just a test for the api
- */
+*/
 getTest = asyncHandler( async (req, res) => {
   let payload = {
     success: true,
@@ -41,7 +41,7 @@ getTest = asyncHandler( async (req, res) => {
 
 //CONTROLERS for patients:
 /**@desc gets all the patients from the database
- */
+*/
 /*async function getPatients (req, res)
 {
   const allPatients = await patients.find({});
@@ -49,7 +49,7 @@ getTest = asyncHandler( async (req, res) => {
 }*/
 
 /**@desc gets all the patients from the database
- */
+*/
 getPatients = asyncHandler( async (req, res) => {
   const allPatients = await patients.find({}); //passed empty object returns all member of the set
   res.status(200).json(allPatients);
@@ -61,7 +61,7 @@ getPatientByID = asyncHandler( async (req, res) => {
 });
 
 /**@desc creates a new patient
- */
+*/
 createPatient = asyncHandler( async (req, res) => {
   const body = req.body;
   if (!body) //exception hadeling for body
@@ -75,7 +75,7 @@ createPatient = asyncHandler( async (req, res) => {
 });
 
 /**@desc updates a specific patient
- */
+*/
 updatePatient = asyncHandler( async (req, res) => {
   const patient = await patients.findById(req.params["id"]); //finding the patient:
   if (!patient) //checking if patient was obtained
@@ -89,7 +89,7 @@ updatePatient = asyncHandler( async (req, res) => {
 });
 
 /**@desc deletes a specific patient
- */
+*/
 deletePatient = asyncHandler( async (req, res) => {
   //validation
   //find patient before attempting to delete
@@ -117,7 +117,7 @@ deletePatient = asyncHandler( async (req, res) => {
 //CONTROLLERS for exams:
 
 /**@desc gets all the exams
- */
+*/
 getExams = asyncHandler( async (req, res) => {
   const allExams = await images.find({}); //passed empty object returns all member of the set
   res.status(200).json(allExams);
@@ -125,7 +125,7 @@ getExams = asyncHandler( async (req, res) => {
 
 //
 /**@desc gets exams of the corresponding patians by ID.
- */
+*/
 getExamsOfPatient = asyncHandler( async (req, res) =>
 {
   const examsOfPatient = await images.find({patientId: req.params.patientId});
@@ -143,7 +143,7 @@ getExamsOfPatient = asyncHandler( async (req, res) =>
 });
 
 /**@desc gets an exam from a patient using a provided ID and index.
- */
+*/
 getExamByID = asyncHandler( async (req, res) =>
 {
   let id = req.params.id;
@@ -160,7 +160,7 @@ getExamByID = asyncHandler( async (req, res) =>
 });
 
 /**@desc creates a new exam for a given patient by ID
- */
+*/
 createExam = asyncHandler( async (req, res) =>
 {
   let body = req.body;
@@ -204,7 +204,7 @@ createExam = asyncHandler( async (req, res) =>
 });
 
 /**@desc updates an exam from a patient using a provided ID and index
- */
+*/
 updateExam = asyncHandler( async (req, res) =>
 {
   console.log(req.params);
@@ -222,7 +222,7 @@ updateExam = asyncHandler( async (req, res) =>
 });
 
 /**@desc deletes an exam from a patient using a provided ID and index
- */
+*/
 deleteExam = asyncHandler( async (req, res) =>
 {
   //find exam before attempting to delete

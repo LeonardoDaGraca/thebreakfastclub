@@ -28,26 +28,26 @@ const PatientSchema = new Schema(
             required: false
         },
         image: {
-            type: String,
-            required: false
+          type: String,
+          required: false
         },
         examId: {
-            type: String,
-            required: false
+          type: String,
+          required: false
         },
         icuAdmit: {
-            type: String,
-            required: false
+          type: String,
+          required: false
         },
         numIcuAdmit: {
-            type: Number,
-            required: false
+          type: Number,
+          required: false
         },
         mortality: {
-            type: String,
-            required: true
+          type: String,
+          required: true
         }
     }, {collection: "patients"}
-);
+  );
 
 module.exports = mongoose.model("Patient", PatientSchema);
