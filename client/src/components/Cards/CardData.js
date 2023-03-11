@@ -4,6 +4,7 @@ import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai"
 import { Pagination3 } from "../Pagination/Pagination3";
 
 
+
 export const CardData = () => {
     const [data, setData] = useState([]);
     const [selectedPatientId, setSelectedPatientId] = useState(null);
