@@ -13,7 +13,7 @@ export const TestForm = () => {
         fio: '',
       });
       
-   // redirect to the home page on cancellation of create exam
+   // redirect to the home page on cancellation/submission of create exam
     let navigate = useNavigate(); 
     const redirectHome = () =>{ 
       let path = `/`; 

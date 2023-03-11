@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react"
 import { Footer } from "../Footer/Footer"
+import { useNavigate } from "react-router-dom";
 
 
 export const Update = ({exam, onClose, visible}) => {
@@ -13,7 +14,14 @@ export const Update = ({exam, onClose, visible}) => {
         fio: '',
       });
 
-      if (!visible) return null;
+    // redirect to the home page on cancellation/submission of create exam
+    let navigate = useNavigate(); 
+    const redirectHome = () =>{ 
+      let path = `/`; 
+      navigate(path);
+    }
+
+    if (!visible) return null;
 
     const handleInputChanges = (e) => {
         // with multiple entries in a form, e.target = []
@@ -37,12 +45,13 @@ export const Update = ({exam, onClose, visible}) => {
         })
         // .then((res) => console.log(res))
         .then((res) => {
-            if(res.status === 201) {
-                console.log('success')
+            if (res.status === 200) {
+                console.log(res.status);
             } else {
-                console.log('res.status != 201')
+                console.error('Form Submission Not Successful')
             }
         })
+        .then(redirectHome())
         // .then(() => setFormData({
         //     patientId: '',
         //     daysImageDiagnosos: '',
@@ -58,8 +67,8 @@ export const Update = ({exam, onClose, visible}) => {
     return (
         <>          
             <div className="flex justify-center p-2 mt-10 md:mt-36 md:my-10  md:mx-auto ">
-                <form className="p-4 space-y-4 rounded-lg shadow-2xl border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5" action="" onSubmit={(e, id) => handleUpdateSubmit(e, exam._id)}>
-                    <h1 className="mb-2 text-black text-base md:text-xl lg:text-2xl font-bold ">Create Exam</h1>
+                <form className="p-4 space-y-4 rounded-lg shadow-2xl border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5" action="" onSubmit={(e, id) => {handleUpdateSubmit(e, exam._id); redirectHome();}}>
+                    <h1 className="mb-2 text-black text-base md:text-xl lg:text-2xl font-bold ">Update Exam</h1>
 
                     <div className="space-y-3 md:flex md:space-y-0">
                         {/* <div className='flex items-center px-4 ' style={{ display: 'none'}}>
