@@ -9,7 +9,8 @@ export const TestSearch = () => {
   const [data, setData] = useState([]);
   const [filtered, setFilterd] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(8);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,7 +44,7 @@ export const TestSearch = () => {
 
   return (
     <>
-      <div className="md:flex flex-col w-full p-6 hidden">
+      <div className="md:flex flex-col items-center w-full p-6 hidden">
         <form action="" className="w-1/2">
           <label
             htmlFor="default-search"

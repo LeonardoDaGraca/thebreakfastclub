@@ -2,7 +2,6 @@ import React from "react";
 import "./Styles/Styles.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
-import { CardData } from "./components/Cards/CardData";
 import { TestSearch } from "./components/Search/TestSearch";
 
 const App = () => {

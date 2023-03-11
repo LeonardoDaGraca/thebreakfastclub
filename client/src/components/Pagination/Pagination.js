@@ -8,7 +8,8 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage }) => {
     pages.push(i);
   }
   return (
-    <div className="flex justify-center w-96 ">
+    
+    <div className="flex items-center w-96 ">
       {pages.map((page, index) => {
         return (
           <button
