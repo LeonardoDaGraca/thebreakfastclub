@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai"
 import { Pagination3 } from "../Pagination/Pagination3";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
+import { TestForm } from "../Create/TestForm";
 
 
 export const CardData = () => {
@@ -10,6 +11,7 @@ export const CardData = () => {
     const [selectedPatientId, setSelectedPatientId] = useState(null);
     const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
     const handleExamDataClose = () => setShowExamDataPopUp(false);
+    // const [showCreateExam, setShowCreateExam] = useState(false);
 
 
     // Fetching data from API using the useEffect Hook starts
@@ -154,6 +156,7 @@ export const CardData = () => {
                                                             examNum={index+1} 
                                                             onClose={handleExamDataClose}
                                                             visible={showExamDataPopUp}
+                                                            // closePatientCard={handleClosePatientCard}
                                                         />
                                                         </>
                                                     )
@@ -177,6 +180,14 @@ export const CardData = () => {
                                                 </td>
                                             </tr>
                                             </tbody>
+                                            <tfoot>
+                                            {/* <Link onClick={setShowCreateExam(true)}>
+                                                <button className="text-sm text-blue-600 hover:font-bold hover:underline ">Create Exam</button>
+                                            </Link>  
+                                                
+
+                                            <TestForm patientId={exams.patientId} visible={showCreateExam}/> */}
+                                            </tfoot>
                                         </table>
                                     </div>
                                     {/* <div className="w-full h-3/4 ">
@@ -221,7 +232,7 @@ export const CardData = () => {
                     </div>
                 </div>
             )}
-            <Pagination3/>
+            {/* <Pagination3/> */}
         </>
     );
 };

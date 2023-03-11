@@ -66,12 +66,12 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{exam.findings}</p>
                                 </div>
                             </div>  
-                            <Link onClick={() => setShowUpdatePopUp(true)}>
+                            <Link onClick={() => {setShowUpdatePopUp(true)}}>
                                 <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Update</p>
                             </Link>           
-                            <button onClick={(e, id) => handleDeleteExam(e, exam._id)}>Delete</button>                 
+                            {/* <button onClick={(e, id) => handleDeleteExam(e, exam._id)}>Delete</button>                  */}
                         </div>
-                    <Update key={exam._id} exam={exam} onClose={handleUpdateClose} visible={showUpdatePopUp}/>
+                    <Update key={exam._id} exam={exam} onClose={handleUpdateClose} visible={showUpdatePopUp} isVisible={setShowUpdatePopUp}/>
                     </div>
         </>
         

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 
-export const TestForm = () => {
+export const TestForm = ({patientId}) => {
     const [formData, setFormData] = useState({
         patientId: '',
         daysImageDiagnosos: '',
@@ -56,7 +56,7 @@ export const TestForm = () => {
                     <div className="space-y-3 md:flex md:space-y-0">
                         <div className="flex  items-center md:w-1/2">
                             <label className="text-sm w-24 md:text-base md:w-24 lg:text-xl" htmlFor="patientId">Patient ID</label>
-                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="patientId" id="patientId" onChange={(e) => handleInputChanges(e)}/>
+                            <input className="border-2 border-gray-200 focus:outline-none lg:text-xl" type="text" name="patientId" id="patientId" value={patientId} onChange={(e) => handleInputChanges(e)}/>
                         </div>
                     </div>
 
