@@ -10,14 +10,11 @@ export const TestSearch = () => {
   const [filtered, setFilterd] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(8);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:9000/api/everything"
-        );
-        console.log(res.data);
+        const res = await axios.get("http://localhost:9000/api/everything");
         setData(res.data);
         setFilterd(res.data);
       } catch (err) {
@@ -26,17 +23,22 @@ export const TestSearch = () => {
     };
     fetchData();
   }, []);
-//   useEffect(() => {
-//     fetch("http://localhost:9000/api/everything")
-//       .then((res) => res.json())
-//       .then((res) => setData(res))
-//       .catch((error) => console.error("Error:", error));
-//   }, []);
+  //   useEffect(() => {
+  //     fetch("http://localhost:9000/api/everything")
+  //       .then((res) => res.json())
+  //       .then((res) => setData(res))
+  //       .catch((error) => console.error("Error:", error));
+  //   }, []);
 
   useEffect(() => {
-    const results = filtered.filter((res) => res._id.toLowerCase().includes(query));
-    setData(results);
+   const results = filtered.filter((res) =>
+      res._id.toLowerCase().includes(query)
+    );
+    setData(results) 
   }, [query, filtered]);
+
+  
+
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;

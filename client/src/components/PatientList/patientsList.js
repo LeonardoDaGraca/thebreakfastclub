@@ -19,14 +19,15 @@ const PatientList = ({ data }) => {
   };
 
   // Function to group data by patient ID starts
-  // const groupByPatientId = (data) => {
-  //   return data.reduce((acc, cur) => {
-  //     acc[cur.patientId] = acc[cur.patientId] || [];
-  //     acc[cur.patientId].push(cur);
-  //     return acc;
-  //   }, {});
-  // };
-  // const groupedData = groupByPatientId(data);
+  const groupByPatientId = (data) => {
+    return data.reduce((acc, cur) => {
+      acc[cur._id] = acc[cur._id] || [];
+      acc[cur._id].push(cur);
+      return acc;
+    }, {});
+  };
+  const groupedData = groupByPatientId(data);
+
   return (
     <>
       <div className="mt-2 grid grid-cols-1 gap-4  p-3 sm:grid-cols-1 md:grid-cols-2 md:p-6 lg:grid-cols-3 lg:w-full lg:px-6 lg:gap-6 xl:grid-cols-4 2xl:px-20 2xl:gap-8">
@@ -89,8 +90,9 @@ const PatientList = ({ data }) => {
             </div>
 
             <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2">
-              {data.map((exams) => (
+              {groupedData[selectedPatientId].map((exams) => (
                 <div key={exams._id} className=" border-gray-200 h-full w-full">
+                  
                   <div className="w-full  mb-6 2xl:mb-16">
                     <table className="flex flex-col items-center xl:gap-y-2 2xl:gap-y-4 2xl:mb-6">
                       <thead className="w-full">
