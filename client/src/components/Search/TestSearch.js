@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import PatientList from "../PatientList/patientsList";
 import PaginatePage from "../Pagination/Pagination";
+import axios from "axios";
 
 export const TestSearch = () => {
   const [query, setQuery] = useState("");
@@ -9,16 +10,30 @@ export const TestSearch = () => {
   const [filtered, setFilterd] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
-
   useEffect(() => {
-    fetch("http://localhost:9000/api/everything")
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((error) => console.error("Error:", error));
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:9000/api/everything"
+        );
+        console.log(res.data);
+        setData(res.data);
+        setFilterd(res.data);
+      } catch (err) {
+        throw new Error(err);
+      }
+    };
+    fetchData();
   }, []);
+//   useEffect(() => {
+//     fetch("http://localhost:9000/api/everything")
+//       .then((res) => res.json())
+//       .then((res) => setData(res))
+//       .catch((error) => console.error("Error:", error));
+//   }, []);
 
   useEffect(() => {
-    const results = data.filter((res) => res._id.toLowerCase().includes(query));
+    const results = filtered.filter((res) => res._id.toLowerCase().includes(query));
     setData(results);
   }, [query, filtered]);
 
