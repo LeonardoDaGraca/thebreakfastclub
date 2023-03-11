@@ -28,13 +28,14 @@ export const Search = () => {
     fetchData();
   }, []);
 
+
   useEffect(() => {
     const results = filtered.filter((res) =>
-      res.patientId.toLowerCase().includes(query)
+      res._id.toLowerCase().includes(query)
     );
     setData(results);
   }, [query, filtered]);
-  
+
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPost = data.slice(firstPostIndex, lastPostIndex);

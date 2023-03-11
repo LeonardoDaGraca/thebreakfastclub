@@ -1,24 +1,21 @@
 import React from "react";
 import "./Styles/Styles.css";
 import { Navbar } from "./components/Navbar/Navbar";
-import { Search } from "./components/Search/Search";
 import { Footer } from "./components/Footer/Footer";
 import { CardData } from "./components/Cards/CardData";
-
-
-
+import { TestSearch } from "./components/Search/TestSearch";
 
 const App = () => {
   return (
-      <>
-        <div className="App">
-          <Navbar/>
-          <Search/>
-          <CardData />
-          <Footer/>
-        </div>
-      </>
+    <>
+      <div className="App">
+        <Navbar />
+        <TestSearch />
+
+        <Footer />
+      </div>
+    </>
   );
-}
+};
 
 export default App;
