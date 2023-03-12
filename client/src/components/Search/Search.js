@@ -15,7 +15,7 @@ export const Search = () => {
 
     return (
         <>
-            <div className="md:flex justify-center w-full p-6 hidden">
+            <div className="md:flex justify-center w-full md:p-3 md:mt-3 xl:p-3 xl:mt-6 2xl:p-12 2xl:mt-6 hidden border-2 border-black">
                 <form onSubmit={handleSubmit} className="w-1/2">
                     <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 2xl:text-6xl sr-only dark:text-white">
                         Search
