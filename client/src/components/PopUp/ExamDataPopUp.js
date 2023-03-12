@@ -14,12 +14,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
   const handleDeleteExam = (e, id) => {
     fetch(`http://localhost:9000/api/exams/${id}`, {
         method: 'DELETE', 
-        headers: {
-            'Content-Type': 'application/json',
-          },
-        body:  JSON.stringify(id),
+        body:  id,
     })
-    .then(res => console.log(res.status))
     .catch(err => console.error(err))
   }
 
@@ -69,7 +65,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                             <Link onClick={() => {setShowUpdatePopUp(true)}}>
                                 <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Update</p>
                             </Link>           
-                            {/* <button onClick={(e, id) => handleDeleteExam(e, exam._id)}>Delete</button>                  */}
+                            <button onClick={(e, id) => handleDeleteExam(e, exam._id)}>Delete</button>                 
                         </div>
                     <Update key={exam._id} exam={exam} onClose={handleUpdateClose} visible={showUpdatePopUp} isVisible={setShowUpdatePopUp}/>
                     </div>
