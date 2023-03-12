@@ -192,7 +192,7 @@ export const CardData = () => {
                     </div>
                 </div>
             )}
-            <Pagination3/>
+            {/* <Pagination3/> */}
         </>
     );
 };
