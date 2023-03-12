@@ -228,7 +228,6 @@ deleteExam = asyncHandler( async (req, res) =>
 {
   //find exam before attempting to delete
   const id = req.params.id;
-  console.log(`req.params.id: `id);
   const trueId = mongoose.Types.ObjectId(id);
   const exam = await images.find({_id: trueId});
   if (!exam)
