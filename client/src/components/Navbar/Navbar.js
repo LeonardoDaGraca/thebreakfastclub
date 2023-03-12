@@ -55,25 +55,11 @@ export const Navbar = () => {
         </div>
         {isOpen && (
             <div className="md:hidden absolute top-0 right-0 w-full h-full z-10">
-              <div className="flex flex-col items-end mt-16 mr-4">
-                <NavLink
-                    to="/exam"
-                    onClick={handleMenuClick}
-                    className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium mt-2"
-                >
-                  Exam
-                </NavLink>
-                <NavLink
-                    to="/admin"
-                    onClick={handleMenuClick}
-                    className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Admin
-                </NavLink>
+              <div className="flex flex-col items-end mt-16  bg-blue-900">
                 <NavLink
                     to="/create-exam"
                     onClick={handleMenuClick}
-                    className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-zinc-100 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Create Exam
                 </NavLink>
