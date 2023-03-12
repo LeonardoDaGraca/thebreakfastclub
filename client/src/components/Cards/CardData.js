@@ -1,44 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
-import { TestForm } from "../Create/TestForm";
 
 
 export const CardData = ({data}) => {
-    // const [data, setData] = useState([]);
-    // const [filtered, setFilterd] = useState([]);
     const [selectedPatientId, setSelectedPatientId] = useState(null);
     const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
     const handleExamDataClose = () => setShowExamDataPopUp(false);
-    // const [showCreateExam, setShowCreateExam] = useState(false);
-
-
-    // Fetching data from API using the useEffect Hook starts
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const res = await axios.get("http://localhost:9000/api/everything");
-    //         setData(res.data);
-    //         setFilterd(res.data);
-    //       } catch (err) {
-    //         throw new Error(err);
-    //       }
-    //     };
-    //     fetchData();
-    //   }, []);
-
-
-    // useEffect(() => {
-    //     fetch("http://localhost:9000/api/everything")
-    //         .then((res) => res.json())
-    //         .then((res) => setData(res))
-    //         .catch((error) => console.error("Error:", error));
-    //     console.log(data)
-    // }, []);
-    // Fetching data from API using the useEffect Hook ends
 
     // Function to group data by patient ID starts
     const groupByPatientId = (data) => {
