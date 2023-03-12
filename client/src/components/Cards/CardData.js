@@ -42,7 +42,7 @@ export const CardData = () => {
 
     return (
         <>
-            <div className=" grid grid-cols-1 gap-4 mt-6 px-4 sm:grid-cols-1 md:grid-cols-2 md:px-6 lg:grid-cols-3 lg:w-full lg:px-6 lg:gap-6 xl:grid-cols-4 2xl:px-20 2xl:gap-8">
+            <div className=" grid grid-cols-1 gap-4 mt-6 px-4 sm:grid-cols-1 md:grid-cols-2 md:px-6 lg:grid-cols-4 lg:w-full lg:px-6 lg:gap-6 xl:grid-cols-4 2xl:px-20 2xl:gap-8">
                 {Object.entries(groupedData).map(([_id, exams]) => (
                     <button
                         key={_id}
