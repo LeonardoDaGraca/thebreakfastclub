@@ -15,7 +15,7 @@ export const CardData = () => {
             .then((res) => res.json())
             .then((res) => setData(res))
             .catch((error) => console.error("Error:", error));
-        console.log(data)
+        console.log()
     }, []);
     // Fetching data from API using the useEffect Hook ends
 
@@ -51,20 +51,22 @@ export const CardData = () => {
                     >
 
                         <div className="flex flex-col items-center">
-                            <tr className="mb-2 lg:mb-1 xl:mb-2 2xl:mb-6">
+                            <table className="flex flex-col items-center">
                                 <thead className="">
-                                <th className="text-base font-bold text-gray-900 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
-                                    Patient ID
-                                </th>
+                                    <tr className="mb-2 lg:mb-1 xl:mb-2 2xl:mb-6">
+                                        <th className="text-base font-bold text-gray-900 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
+                                            Patient ID
+                                        </th>
+                                    </tr>
                                 </thead>
-                            </tr>
-                            <tr>
                                 <tbody>
-                                <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-base xl:text-lg 2xl:text-4xl">
-                                    {_id}
-                                </td>
+                                    <tr>
+                                        <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-base xl:text-lg 2xl:text-4xl">
+                                            {_id}
+                                        </td>
+                                    </tr>
                                 </tbody>
-                            </tr>
+                            </table>
                         </div>
 
                     </button>
@@ -92,19 +94,19 @@ export const CardData = () => {
 
                         <div className="flex justify-center items-center  px-10  2xl:h-1/5">
                             <table className="flex flex-col justify-center items-center px-10  my-4 xl:gap-y-2 2xl:mb-10 2xl:gap-y-4 2xl:h-1/5">
-                                <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
-                                    <thead>
-                                    <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                        Patient ID
-                                    </th>
-                                    </thead>
-                                </tr>
+                                <thead>
+                                    <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
+                                        <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                            Patient ID
+                                        </th>
+                                    </tr>
+                                </thead>
                                 <tbody className="">
-                                <tr className="">
-                                    <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                        {selectedPatientId}
-                                    </td>
-                                </tr>
+                                    <tr className="">
+                                        <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                            {selectedPatientId}
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -115,74 +117,74 @@ export const CardData = () => {
                                     <div className="w-full  mb-6 2xl:mb-16">
                                         <table className="flex flex-col items-center xl:gap-y-2 2xl:gap-y-4 2xl:mb-6">
                                             <thead className="w-full">
-                                            <tr className="grid grid-cols-6 text-center w-full mb-2">
-                                                <th className="text-sm  font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Exam ID
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Brixia Score
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Zip Code
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Sex
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Age
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    BMI
-                                                </th>
-                                            </tr>
+                                                <tr className="grid grid-cols-6 text-center w-full mb-2">
+                                                    <th className="text-sm  font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Exam ID
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Brixia Score
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Zip Code
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Sex
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Age
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        BMI
+                                                    </th>
+                                                </tr>
                                             </thead>
                                             <tbody className="w-full">
-                                            <tr className=" grid grid-cols-6 text-center w-full whitespace-normal break-words">
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.examId}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.brixiaScores}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.zipCode}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.sex}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.age}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                    {exams.bmi}
-                                                </td>
-                                            </tr>
+                                                <tr className=" grid grid-cols-6 text-center w-full whitespace-normal break-words">
+                                                    <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                        {exams.examId}
+                                                    </td>
+                                                    <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                        {exams.brixiaScores}
+                                                    </td>
+                                                    <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                        {exams.zipCode}
+                                                    </td>
+                                                    <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                        {exams.sex}
+                                                    </td>
+                                                    <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                        {exams.age}
+                                                    </td>
+                                                    <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                        {exams.bmi}
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="w-full h-3/4 ">
                                         <table className="flex flex-col  items-center xl:gap-y-2 2xl:gap-y-6">
                                             <thead className="w-full">
-                                            <tr className="grid grid-cols-2 text-center w-full mb-2">
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Key Findings
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Images
-                                                </th>
-                                            </tr>
+                                                <tr className="grid grid-cols-2 text-center w-full mb-2">
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Key Findings
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Images
+                                                    </th>
+                                                </tr>
                                             </thead>
                                             <tbody className="w-full h-auto">
-                                            <tr className=" grid grid-cols-2 text-center w-full ">
-                                                <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.keyFindings}
-                                                </td>
-                                                <td className="mx-auto">
-                                                    <Link className="flex justify-center border-2">
-                                                        <img src={exams.imageURL} alt="images" className="rounded-lg shadow-xl hover:shadow-2xl w-32 md:w-36 lg:w-40 xl:w-52 2xl:w-96 " />
-                                                    </Link>
-                                                </td>
-                                            </tr>
+                                                <tr className=" grid grid-cols-2 text-center w-full ">
+                                                    <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
+                                                        {exams.findings}
+                                                    </td>
+                                                    <td className="mx-auto">
+                                                        <Link className="flex justify-center border-2">
+                                                            <img src={exams.image} alt="images" className="rounded-lg shadow-xl hover:shadow-2xl w-32 md:w-36 lg:w-40 xl:w-52 2xl:w-96 " />
+                                                        </Link>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
