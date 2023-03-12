@@ -1,44 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
-import { TestForm } from "../Create/TestForm";
 
 
 export const CardData = ({data}) => {
-    // const [data, setData] = useState([]);
-    // const [filtered, setFilterd] = useState([]);
     const [selectedPatientId, setSelectedPatientId] = useState(null);
     const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
     const handleExamDataClose = () => setShowExamDataPopUp(false);
-    // const [showCreateExam, setShowCreateExam] = useState(false);
-
-
-    // Fetching data from API using the useEffect Hook starts
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const res = await axios.get("http://localhost:9000/api/everything");
-    //         setData(res.data);
-    //         setFilterd(res.data);
-    //       } catch (err) {
-    //         throw new Error(err);
-    //       }
-    //     };
-    //     fetchData();
-    //   }, []);
-
-
-    // useEffect(() => {
-    //     fetch("http://localhost:9000/api/everything")
-    //         .then((res) => res.json())
-    //         .then((res) => setData(res))
-    //         .catch((error) => console.error("Error:", error));
-    //     console.log(data)
-    // }, []);
-    // Fetching data from API using the useEffect Hook ends
 
     // Function to group data by patient ID starts
     const groupByPatientId = (data) => {
@@ -96,13 +66,13 @@ export const CardData = ({data}) => {
                 <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm flex justify-center items-center lg:px-16 xl:px-16 2xl:px-20">
                     <div className=" bg-white rounded-xl shadow-md p-4 w-full h-1/2 overflow-y-auto">
                         <div className="flex items-center justify-between  md:px-4 md:pt-4">
-                            {/* <button
+                            <button
                                 className=" "
                                 onClick={() => setSelectedPatientId(null)}
                             >
-            <AiOutlineEdit className="text-gray-500 font-medium hover:text-gray-800 focus:outline-none text-base md:text-2xl xl:text-2xl 2xl:text-5xl" /> */}
+                                <AiOutlineEdit className="text-gray-500 font-medium hover:text-gray-800 focus:outline-none text-base md:text-2xl xl:text-2xl 2xl:text-5xl" /> */}
                                 {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
-                           {/*} </button> */}
+                           </button>
                             <button
                                 className=""
                                 onClick={() => setSelectedPatientId(null)}
@@ -136,26 +106,26 @@ export const CardData = ({data}) => {
                                     <div className="w-full  mb-6 2xl:mb-16">
                                         <table className="flex flex-col items-center xl:gap-y-2 2xl:gap-y-4 2xl:mb-6">
                                             <thead className="w-full">
-                                            <tr className="grid grid-cols-6 text-center w-full mb-2">
-                                                <th className="text-sm  font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Exams
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Age
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Sex
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Zip Code
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Weight
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    BMI
-                                                </th>
-                                            </tr>
+                                                <tr className="grid grid-cols-6 text-center w-full mb-2">
+                                                    <th className="text-sm  font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Exams
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Age
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Sex
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Zip Code
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        Weight
+                                                    </th>
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                        BMI
+                                                    </th>
+                                                </tr>
                                             </thead>
                                             <tbody className="w-full">
                                             <tr className=" grid grid-cols-6 text-center w-full whitespace-normal break-words">
@@ -253,3 +223,4 @@ export const CardData = ({data}) => {
         </>
     );
 };
+
