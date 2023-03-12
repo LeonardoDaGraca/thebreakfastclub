@@ -7,15 +7,17 @@ import { Update } from "../Update/Update";
 
 export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
 
-
   const [showUpdatePopUp, setShowUpdatePopUp] = useState(false);
   const handleUpdateClose = () => setShowUpdatePopUp(false);
 
+
   const handleDeleteExam = (e, id) => {
+    console.log(id)
     fetch(`http://localhost:9000/api/exams/${id}`, {
         method: 'DELETE', 
         body:  id,
     })
+    .then(res => { if(res.status === 200) {onClose()}})
     .catch(err => console.error(err))
   }
 
