@@ -10,7 +10,8 @@ const mongoose = require("mongoose");
 const MONGO_URI = "mongodb+srv://rwuser:9ngCkMV9Ur1zYAqo@cluster0.5efdq.mongodb.net/techdive_2023?retryWrites=true&w=majority";
 
 const parameters = {
-  useNewUrlParser: true/*,
+  useNewUrlParser: true,
+  useUnifiedTopology: true/*,
   useFindAndModify: true,*/
 };
 const errorHandeling = (e) => {

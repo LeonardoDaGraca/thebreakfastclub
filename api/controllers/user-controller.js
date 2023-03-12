@@ -262,7 +262,7 @@ getEverything = asyncHandler( async (req, res) =>
 });
 
 module.exports = {
-  getTest,
+  // getTest,
   getPatients,
   getPatientByID,
   createPatient,

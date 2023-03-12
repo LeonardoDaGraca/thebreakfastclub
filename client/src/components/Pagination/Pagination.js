@@ -1,49 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import {HiOutlineArrowSmRight, HiOutlineArrowSmLeft} from "react-icons/hi"
+import React from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-export const Pagination = () => {
+const Pagination = ({ totalPosts, postsPerPage, setCurrentPage }) => {
+  let pages = [];
 
-    const [data, setData] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(4);
-
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-    };
-
-    const pageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
-
-    const handlePrevious = () => {
-        setCurrentPage(currentPage - 1);
-    };
-
-    const handleNext = () => {
-        setCurrentPage(currentPage + 1);
-    };
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-        pageNumbers.push(i);
-    }
-
-    return (
-        <div className=" flex justify-center mt-2 m-auto p-4 max-w-7xl">
-            <div className="border-2 flex w-3/4 justify-center font-semibold space-x-3 text-lg">
-                <button disabled={currentPage === 1} onClick={handlePrevious} className="page-btn">
-                    <HiOutlineArrowSmLeft/>
-                </button>
-                {pageNumbers.map((number) => (
-                    <button key={number} onClick={() => setCurrentPage(number)} className="page-btn">
-                        {number}
-                    </button>
-                ))}
-                <button
-                    disabled={currentPage === pageNumbers.length}
-                    onClick={handleNext} className="page-btn">
-                    <HiOutlineArrowSmRight/>
-                </button>
-            </div>
-        </div>
-    )
-}
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pages.push(i);
+  }
+  return (
+    
+    <div className="flex items-center w-96 ">
+      {pages.map((page, index) => {
+        return (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(page)}
+            className="rounded-xl px-1 py-1 bg-blue-900 text-white focus:ring hover:bg-blue-800 md:p-2 md:text-xs lg:p-2 lg:text-lg xl:p-4 xl:text-xl 2xl:p-6 2xl:text-5xl"
+          >
+            {page}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+export default Pagination;
