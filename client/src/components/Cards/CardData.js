@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai"
+import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai";
 import { Pagination3 } from "../Pagination/Pagination3";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 import { TestForm } from "../Create/TestForm";
@@ -40,10 +40,10 @@ export const CardData = () => {
         setSelectedPatientId(_id);
     };
 
-    // Function to clear selected patient ID starts
-    const handleCloseModal = () => {
-        setSelectedPatientId(null);
-    };
+  // Function to clear selected patient ID starts
+  const handleCloseModal = () => {
+    setSelectedPatientId(null);
+  };
 
     return (
         <>

@@ -8,51 +8,38 @@ export const Search = () => {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const [filtered, setFilterd] = useState([]);
-
   const [currentPage, setcurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(16);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:9000/api/everything"
-        );
-        console.log(res.data);
-        // setData(res.data.exams);
-        setData(res.data)
-        // setFilterd(res.data.exams);
-        setFilterd(data)
+        const res = await axios.get("http://localhost:9000/api/everything");
+        setData(res.data);
+        setFilterd(res.data);
       } catch (err) {
         throw new Error(err);
       }
     };
     fetchData();
   }, []);
-
-const results = () => {
-  if (query) {
-    let searchResult = data.filter((record) => {
-      // res.patientId.toLowerCase().includes(query)
-      console.log(`record:`);
-      console.table(record);
-      record._id.includes(query)
-    }
-    );
-    setFilterd(searchResult);
-  } else {
-    return
-  }
-}
+  //   useEffect(() => {
+  //     fetch("http://localhost:9000/api/everything")
+  //       .then((res) => res.json())
+  //       .then((res) => setData(res))
+  //       .catch((error) => console.error("Error:", error));
+  //   }, []);
 
   useEffect(() => {
-    // const results = filtered.filter((res) =>
-    //   res.patientId.toLowerCase().includes(query)
-    // );
-    // setData(results);
-    results()
-  }, [query]);
+   const results = filtered.filter((res) =>
+      res._id.toLowerCase().includes(query)
+    );
+    setData(results) 
+  }, [query, filtered]);
+
   
+
+
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPost = data.slice(firstPostIndex, lastPostIndex);
