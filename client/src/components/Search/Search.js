@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import PatientList from "../PatientList/patientsList";
-import PaginatePage from "../Pagination/Pagination";
+import Pagination from "../Pagination/Pagination";
 import axios from "axios";
+import { CardData } from "../Cards/CardData";
 
 export const Search = () => {
   const [query, setQuery] = useState("");
@@ -23,12 +24,6 @@ export const Search = () => {
     };
     fetchData();
   }, []);
-  //   useEffect(() => {
-  //     fetch("http://localhost:9000/api/everything")
-  //       .then((res) => res.json())
-  //       .then((res) => setData(res))
-  //       .catch((error) => console.error("Error:", error));
-  //   }, []);
 
   useEffect(() => {
    const results = filtered.filter((res) =>
@@ -36,9 +31,6 @@ export const Search = () => {
     );
     setData(results) 
   }, [query, filtered]);
-
-  
-
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -71,12 +63,12 @@ export const Search = () => {
             </button>
           </div>
         </form>
-        {/* <PatientList data={currentPost} /> */}
-        {/* <PaginatePage
+        <CardData data={currentPost} />
+        <Pagination
           totalPosts={data.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setcurrentPage}
-        /> */}
+        />
       </div>
     </>
   );
