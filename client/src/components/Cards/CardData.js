@@ -33,7 +33,7 @@ export const CardData = ({data}) => {
 
     return (
         <>
-            <div className="grid w-full grid-cols-1 px-2 py-4 gap-1.5 md:grid-cols-2 md:px-4 md:py-4 md:gap-3 lg:grid-cols-4 lg:px-6 lg:py-5 lg:gap-3 xl:px-8 xl:py-10 xl:gap-4 2xl:px-20 2xl:py-16 2xl:gap-8">
+            <div className="grid w-full grid-cols-1 px-2 py-4 gap-1.5 md:grid-cols-2 md:px-4 md:py-5 md:gap-3 lg:grid-cols-4 lg:px-6 lg:py-6 lg:gap-3 xl:px-8 xl:py-10 xl:gap-4 2xl:px-20 2xl:py-16 2xl:gap-8">
                 {Object.entries(groupedData).map(([_id, exams]) => (
                     <button
                         key={_id}
