@@ -33,25 +33,25 @@ export const CardData = ({data}) => {
 
     return (
         <>
-            <div className=" grid grid-cols-1 gap-4 mt-6 px-4 sm:grid-cols-1 md:grid-cols-2 md:px-6 lg:grid-cols-4 lg:w-full lg:px-6 lg:gap-6 xl:grid-cols-4 2xl:px-20 2xl:gap-8">
+            <div className="grid w-full grid-cols-1 px-2 py-4 gap-1.5 md:grid-cols-2 md:px-4 md:py-4 md:gap-3 lg:grid-cols-4 lg:px-6 lg:py-5 lg:gap-3 xl:px-8 xl:py-10 xl:gap-4 2xl:px-20 2xl:py-16 2xl:gap-8">
                 {Object.entries(groupedData).map(([_id, exams]) => (
                     <button
                         key={_id}
-                        className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-24  md:h-28 lg:h-36 2xl:h-60"
+                        className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-24 md:h-24 lg:h-28 xl:h-36 2xl:h-60"
                         onClick={() => handleButtonClick(_id)}
                     >
 
                         <table className="flex flex-col items-center">
                             <thead className="">
                                 <tr className="mb-2 lg:mb-1 xl:mb-2 2xl:mb-6">
-                                    <th className="text-base font-bold text-gray-900 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
+                                    <th className="text-base font-bold text-gray-900 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                     Patient ID
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-base xl:text-lg 2xl:text-4xl">
+                                    <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-sm xl:text-lg 2xl:text-4xl">
                                     {_id}
                                     </td>
                                 </tr>
@@ -63,16 +63,16 @@ export const CardData = ({data}) => {
             </div>
             {/* Modal window */}
             {selectedPatientId && (
-                <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm flex justify-center items-center lg:px-16 xl:px-16 2xl:px-20">
+                <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
                     <div className=" bg-white rounded-xl shadow-md p-4 w-full h-1/2 overflow-y-auto">
-                        <div className="flex items-center justify-between  md:px-4 md:pt-4">
-                            <button
-                                className=" "
+                        <div className="flex items-center justify-end  md:px-4 md:pt-4">
+                            {/* <button */}
+                                {/* className=" "
                                 onClick={() => setSelectedPatientId(null)}
-                            >
-                                <AiOutlineEdit className="text-gray-500 font-medium hover:text-gray-800 focus:outline-none text-base md:text-2xl xl:text-2xl 2xl:text-5xl" /> */}
+                            > */}
+                                {/* <AiOutlineEdit className="text-gray-500 font-medium hover:text-gray-800 focus:outline-none text-base md:text-2xl xl:text-2xl 2xl:text-5xl" /> */}
                                 {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
-                           </button>
+                           {/* </button> */}
                             <button
                                 className=""
                                 onClick={() => setSelectedPatientId(null)}
@@ -83,13 +83,13 @@ export const CardData = ({data}) => {
 
                         <div className="flex justify-center items-center  px-10  2xl:h-1/5">
                             <table className="flex flex-col justify-center items-center px-10  my-4 xl:gap-y-2 2xl:mb-10 2xl:gap-y-4 2xl:h-1/5">
-                            <thead>
-                                <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
-                                    <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                        Patient ID
-                                    </th>
-                                </tr>
-                            </thead>
+                                <thead>
+                                    <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
+                                        <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                            Patient ID
+                                        </th>
+                                    </tr>
+                                </thead>
                             <tbody className="">
                                 <tr className="">
                                     <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
