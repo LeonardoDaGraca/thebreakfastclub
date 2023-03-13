@@ -30,15 +30,15 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                     <div className="flex items-center justify-between xl:p-2 2xl:p-6">
                         <button
                             onClick={() => {setShowUpdatePopUp(true)}}
-                            className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={() => (null)} >
+                            className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-2 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={() => (null)} >
                             <GrEdit className="" />
                                     {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
                         </button>
-                        <button className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={onClose}>
+                        <button className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-2 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={onClose}>
                             <GrClose className=""  />
                         </button>
                     </div>
-                    <div className="flex justify-center items-center w-full 2xl:h-1/5">
+                    <div className="flex justify-center items-center w-full 2xl:h-1/5 ">
                         <table className="flex flex-col justify-center items-center px-10  my-4 xl:gap-y-2 2xl:mb-10 2xl:gap-y-4 2xl:h-1/5">
                             <thead>
                                 <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
@@ -56,35 +56,60 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                             </tbody>
                         </table>
                     </div>
-                    <div className="flex h-full border-2">
-                        <div className="" style={{ display: 'none'}}>
-                            <h1 className="">Exam ID</h1>
-                            <p className="">{exam._id}</p>
+                    <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2 border-2">
+                        <div className="border-gray-200 h-full w-full" >
+                            <div className="w-full 2xl:mb-16">
+                                <table className="flex flex-col items-center border-2 ">
+                                    <thead className="w-full mb-1 lg:mb-0.5 xl:mb-2 2xl:mb-6">
+                                        <tr className="grid grid-cols-4 text-center w-full ">
+                                            <th className=" font-medium text-gray-900 text-xs md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
+                                                Exam ID
+                                            </th>
+                                            <th className="font-medium text-gray-900 text-xs md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
+                                                Dx to Img Study (days)
+                                            </th>
+                                            <th className="font-medium text-gray-900 text-xs md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
+                                                Dx to Imgaging Time (hrs)
+                                            </th>
+                                            <th className="font-medium text-gray-900 text-xs md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
+                                                Study Modality
+                                            </th>
+                                            {/* <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-2xl xl:text-3xl 2xl:text-6xl">
+                                                Image Study Description
+                                            </th>
+                                            <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-2xl xl:text-3xl 2xl:text-6xl">
+                                                Radiologist Key Findings
+                                            </th> */}
+                                        </tr>
+                                    </thead>    
+                                </table>
+                            </div>
                         </div>
-                        <div className="">
-                            <h1 className="">Exam ID</h1>
+                        {/* <div className="">
+                            
+                            <p className="">{exam._id}</p>
                             <p className="  ">{examNum}</p>
                         </div>
                         <div className="">
-                            <h1 className="">Dx to Img Study (days)</h1>
+                            
                             <p className="  ">{exam.daysImageDiagnosos}</p>
                         </div>
                         <div className="">
-                            <h1 className="">Dx to Imgaging Time (hrs)</h1>
+                            
                             <p className="  ">{exam.hrsImageDiagnosis}</p>
                         </div>
                         <div className="">
-                            <h1 className="">Study Modality</h1>
+                            
                             <p className="  ">{exam.modality}</p>
                         </div>
                         <div className="">
-                            <h1 className="">Image Study Description</h1>
+                            
                             <p className="  ">{exam.imageDescription}</p>
                         </div>
                         <div className="">
-                            <h1 className="">Radiologist Key Findings</h1>
+                            
                             <p className=" ">{exam.findings}</p>
-                        </div>
+                        </div> */}
                     </div>  
                     <Link onClick={() => {setShowUpdatePopUp(true)}}>
                         <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Update</p>
