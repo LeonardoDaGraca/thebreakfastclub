@@ -102,7 +102,7 @@ export const CardData = ({data}) => {
 
                         <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2">
                             {groupedData[selectedPatientId].map((exams) => (
-                                <div key={exams._id} className=" border-gray-200 h-full w-full border-2">
+                                <div key={exams._id} className=" border-gray-200 h-full w-full ">
                                     <div className="w-full 2xl:mb-16">
                                         <table className="flex flex-col items-center ">
                                             <thead className="w-full mb-1 lg:mb-0.5 xl:mb-2 2xl:mb-6">
