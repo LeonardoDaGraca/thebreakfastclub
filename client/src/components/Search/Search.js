@@ -38,7 +38,7 @@ export const Search = () => {
 
   return (
     <>
-      <div className="flex flex-col w-auto items-center mt-3 md:mt-4 lg:mt-5 xl:mt-10 2xl:mt-24 border-2 border-black">
+      <div className="flex flex-col w-auto items-center mt-3 md:mt-4 lg:mt-5 xl:mt-10 2xl:mt-24">
         <form action="" className="flex flex-col justify-center w-1/2">
           <label
             htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white lg:text-xl xl:text-3xl 2xl:text-6xl "

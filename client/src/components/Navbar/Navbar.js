@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBars, FaTimes} from 'react-icons/fa';
-import { SearchMobile } from '../Search/SearchMobile';
+
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ export const Navbar = () => {
                 MedBay
               </NavLink>
             </div>
-            <SearchMobile/>
+            
             <div className=" flex border-2 rounded-lg md:hidden">
               <button
                   onClick={handleToggle}
