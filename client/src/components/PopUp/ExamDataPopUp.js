@@ -25,7 +25,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
 
     return (
         <>
-            <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full  lg:px-16 xl:px-16 2xl:px-20">
+            <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
                 <div className="bg-white rounded-xl shadow-lg p-4 overflow-y-auto w-11/12 lg:w-full h-1/2">
                     <div className="flex items-center justify-between xl:p-2 2xl:p-6">
                         <button
