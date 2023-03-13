@@ -25,9 +25,9 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
 
     return (
         <>
-                    <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm p-2 black-font">
-                        <div className='bg-white p-3 rounded-lg w-full space-y-2 shadow-xl h-auto'>
-                    <div className="flex items-center justify-between xl:p-2 2xl:p-6">
+                    <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
+                        <div className="bg-white rounded-xl shadow-lg p-4 overflow-y-auto w-11/12 lg:w-full h-1/2">
+                            <div className="flex items-center justify-between xl:p-2 2xl:p-6">
                                 <button
                                     onClick={() => {setShowUpdatePopUp(true)}}
                                     className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={() => (null)} >
@@ -38,38 +38,38 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     <GrClose className=""  />
                                 </button>
                             </div>
-                            <div className=' h-auto space-y-2'>
-                                <div className='flex items-center px-4 ' style={{ display: 'none'}}>
-                                    <h1 className="text-base font-bold   w-24">Exam ID</h1>
-                                    <p className="text-base font-medium text-blue-600 hover:font-bold hover:underline ">{exam._id}</p>
+                            <div className="flex h-full border-2">
+                                <div className="" style={{ display: 'none'}}>
+                                    <h1 className="">Exam ID</h1>
+                                    <p className="">{exam._id}</p>
                                 </div>
-                                <div className='flex items-center px-4 '>
-                                    <h1 className="text-base font-bold   w-24">Patient ID</h1>
-                                    <p className="text-base font-medium text-blue-600 hover:font-bold hover:underline ">{exam.patientId}</p>
+                                <div className="">
+                                    <h1 className="">Patient ID</h1>
+                                    <p className="">{exam.patientId}</p>
                                 </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Exam ID</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{examNum}</p>
+                                <div className="">
+                                    <h1 className="">Exam ID</h1>
+                                    <p className="  ">{examNum}</p>
                                 </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Dx to Img Study (days)</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{exam.daysImageDiagnosos}</p>
+                                <div className="">
+                                    <h1 className="">Dx to Img Study (days)</h1>
+                                    <p className="  ">{exam.daysImageDiagnosos}</p>
                                 </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Dx to Imgaging Time (hrs)</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{exam.hrsImageDiagnosis}</p>
+                                <div className="">
+                                    <h1 className="">Dx to Imgaging Time (hrs)</h1>
+                                    <p className="  ">{exam.hrsImageDiagnosis}</p>
                                 </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Study Modality</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{exam.modality}</p>
+                                <div className="">
+                                    <h1 className="">Study Modality</h1>
+                                    <p className="  ">{exam.modality}</p>
                                 </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Image Study Description</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{exam.imageDescription}</p>
+                                <div className="">
+                                    <h1 className="">Image Study Description</h1>
+                                    <p className="  ">{exam.imageDescription}</p>
                                 </div>
-                                <div className='flex items-center px-4'>
-                                    <h1 className="text-base font-bold  w-24">Radiologist Key Findings</h1>
-                                    <p className="text-base font-semibold text-blue-600 hover:font-bold hover:underline  ">{exam.findings}</p>
+                                <div className="">
+                                    <h1 className="">Radiologist Key Findings</h1>
+                                    <p className=" ">{exam.findings}</p>
                                 </div>
                             </div>  
                             <Link onClick={() => {setShowUpdatePopUp(true)}}>
