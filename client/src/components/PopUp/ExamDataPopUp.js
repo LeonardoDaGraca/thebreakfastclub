@@ -28,9 +28,11 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                     <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm p-2 black-font">
                         <div className='bg-white p-3 rounded-lg w-full space-y-2 shadow-xl h-auto'>
                     <div className="flex items-center justify-between xl:p-2 2xl:p-6">
-                                <button className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={() => (null)} >
+                                <button
+                                    onClick={() => {setShowUpdatePopUp(true)}}
+                                    className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={() => (null)} >
                                     <GrEdit className="" />
-                                    {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
+                                            {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
                                 </button>
                                 <button className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={onClose}>
                                     <GrClose className=""  />
