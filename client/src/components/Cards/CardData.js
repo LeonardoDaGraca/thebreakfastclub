@@ -85,14 +85,14 @@ export const CardData = ({data}) => {
                             <table className="flex flex-col justify-center items-center px-10  my-4 xl:gap-y-2 2xl:mb-10 2xl:gap-y-4 2xl:h-1/5">
                                 <thead>
                                     <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
-                                        <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                        <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                             Patient ID
                                         </th>
                                     </tr>
                                 </thead>
                             <tbody className="">
                                 <tr className="">
-                                    <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                    <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                         {selectedPatientId}
                                     </td>
                                 </tr>
@@ -103,65 +103,67 @@ export const CardData = ({data}) => {
                         <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2">
                             {groupedData[selectedPatientId].map((exams) => (
                                 <div key={exams._id} className=" border-gray-200 h-full w-full">
-                                    <div className="w-full  mb-6 2xl:mb-16">
-                                        <table className="flex flex-col items-center xl:gap-y-2 2xl:gap-y-4 2xl:mb-6">
-                                            <thead className="w-full">
-                                                <tr className="grid grid-cols-6 text-center w-full mb-2">
-                                                    <th className="text-sm  font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                    <div className="w-full  mb-6 2xl:mb-16 border-2">
+                                        <table className="flex flex-col items-center ">
+                                            <thead className="w-full 2xl:mb-6">
+                                                <tr className="grid grid-cols-6 text-center w-full ">
+                                                    <th className="text-sm  font-medium text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                                         Exams
                                                     </th>
-                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                                         Age
                                                     </th>
-                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                                         Sex
                                                     </th>
-                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                                         Zip Code
                                                     </th>
-                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                                         Weight
                                                     </th>
-                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
+                                                    <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-3xl 2xl:text-6xl">
                                                         BMI
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody className="w-full">
                                             <tr className=" grid grid-cols-6 text-center w-full whitespace-normal break-words">
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
-                                                {exams.exams.sort().map(function (exam, index) {
-                                                    return (
-                                                        <>
-                                                        <Link onClick={() => setShowExamDataPopUp(true)}>
-                                                            <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Exam {index+1}</p>
-                                                        </Link>
-                                                        <ExamDataPopUp 
-                                                            key={exam._id} 
-                                                            exam={exam} 
-                                                            examNum={index+1} 
-                                                            onClose={handleExamDataClose}
-                                                            visible={showExamDataPopUp}
-                                                            // closePatientCard={handleClosePatientCard}
-                                                        />
-                                                        </>
-                                                    )
+                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
+                                                    {exams.exams.sort().map(function (exam, index) {
+                                                        return (
+                                                            <>
+                                                                <Link onClick={() => setShowExamDataPopUp(true)}>
+                                                              
+                                                                    <p className="text-sm text-blue-600 hover:font-bold hover:underline font-medium  md:text-lg lg:text-lg xl:text-2xl 2xl:mb-5 2xl:text-5xl">Exam {index+1}</p>
+                                                             
+                                                                </Link>
+                                                                <ExamDataPopUp 
+                                                                    key={exam._id} 
+                                                                    exam={exam} 
+                                                                    examNum={index+1} 
+                                                                    onClose={handleExamDataClose}
+                                                                    visible={showExamDataPopUp}
+                                                                    // closePatientCard={handleClosePatientCard}
+                                                                />
+                                                            </>
+                                                        )
                                                     })
                                                 }  
                                                 </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                                     {exams.age}
                                                 </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                                     {exams.sex}
                                                 </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                                     {exams.zip}
                                                 </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                                     {exams.weight}
                                                 </td>
-                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl">
+                                                <td className="text-sm font-medium text-gray-500 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
                                                     {exams.bmi}
                                                 </td>
                                             </tr>
