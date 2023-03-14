@@ -91,7 +91,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     <tr className="grid grid-cols-3 text-center w-full ">
                                         <tr className="grid grid-cols-1">
                                             <td className="text-sm font-medium text-blue-600 mb-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-4  ">Exam-{examNum}</td>
-                                            <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl  ">{exam._id}</td>   
+                                            {/* <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl  ">{exam._id}</td>    */}
                                         </tr>
                                         <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{exam.daysImageDiagnosos}</td>
                                         <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{exam.hrsImageDiagnosis}</td>
