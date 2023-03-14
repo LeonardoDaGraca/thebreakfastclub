@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const image = new Schema(
+const ImageSchema = new Schema(
     {
       _id: {
           type: Schema.Types.ObjectId, //uses MongoDB ID object as ID
@@ -40,13 +40,4 @@ const image = new Schema(
     {collection: "images"}
 );
 
-function newId()
-{
-  return new mongoose.Types.ObjectId();
-}
-const images = mongoose.model('Image', image);
-
-module.exports = {
-  images,
-  newId
-};
+module.exports = mongoose.model('Image', ImageSchema);;

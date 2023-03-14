@@ -53,6 +53,7 @@ router.get("/exams/:id", UserController.getExamByID);
 router.post("/exams", UserController.createExam);
 router.put("/exams/:id", UserController.updateExam);
 router.delete("/exams/:id", UserController.deleteExam);
+router.delete("/patients/:patientId/exams", UserController.deletePatientExams);
 //other routers
 router.get("/everything", UserController.getEverything);
 

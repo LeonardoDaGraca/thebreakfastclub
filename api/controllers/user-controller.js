@@ -10,8 +10,8 @@ const asyncHandler = require("express-async-handler"); //facilitates error hande
 const relativePath = "../models/";
 //models of the objects stored in the database: two collections for patients and exams
 const patients = require(`${relativePath}patient-model.js`);
-const images = require(`${relativePath}exam-model.js`).images;
-//const images = imagesCollectionUtilities.images;
+const images = require(`${relativePath}exam-model.js`);
+const db = require("../db/database.js"); //to bypass mongoose schema if necesary
 
 /*const getUser = async (req, res) => {
   return res.status(200).json({
@@ -142,7 +142,7 @@ getExamsOfPatient = asyncHandler( async (req, res) =>
   res.status(200).json(test);*/
 });
 
-/**@desc gets an exam from a patient using a provided ID and index.
+/**@desc gets an exam from a patient using a provided ID.
 */
 getExamByID = asyncHandler( async (req, res) =>
 {
@@ -174,7 +174,7 @@ createExam = asyncHandler( async (req, res) =>
   if (!patient)
   {
     res.status(400);
-    throw new Error(`patient with given ID ${body.patientId} does not exist
+    throw new Error(`patient with given ID ${body.patientId} does not exist.
                      Only exams can be created for already existing patients.`);
   }
   //end of validation
@@ -243,6 +243,23 @@ deleteExam = asyncHandler( async (req, res) =>
   res.status(200).json({_id: req.params["id"]}); //just return the id back
 });
 
+/**@desc deletes all the exams related to a patient*/
+deletePatientExams = asyncHandler( async (req, res) => {
+  const givenPatientId = req.params.patientId;
+  const exams = await images.find({patientId: givenPatientId});
+  //console.log(exams);
+  if (!exams || !exams.length)
+  {
+    res.status(400);
+    throw new Erro(`Exams for given patient with id ${givenPatientId} not found.`);
+  }
+
+  let deletedExams = await images.deleteMany({patientId: givenPatientId}); //returns the count of objects deleted but not the objects themselves
+  deletedExams = {...deletedExams, exams: exams}; //spread to include the exams that were deleted
+
+  res.status(200).json(deletedExams);
+});
+
 //other controllers (unification of the two databases)
 
 /**@desc gets the union between patients and images data, each patient will have their corresponding exams, uses mongodb aggregation to make the untion*/
@@ -274,5 +291,6 @@ module.exports = {
   createExam,
   updateExam,
   deleteExam,
+  deletePatientExams,
   getEverything
 };
