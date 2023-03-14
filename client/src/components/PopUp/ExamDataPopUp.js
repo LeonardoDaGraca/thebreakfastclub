@@ -27,8 +27,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
     return (
         <>
             <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
-                <div className="bg-white rounded-xl shadow-lg p-2 overflow-y-auto w-11/12 lg:w-full md:h-2/4 xl:h-2/3">
-                    <div className="flex items-center justify-between xl:p-2 2xl:p-6">
+                <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto w-11/12 lg:w-full md:h-2/4 xl:h-2/3">
+                    <div className="flex items-center justify-between  xl:p-2 2xl:p-6">
                         <button
                             onClick={() => {setShowUpdatePopUp(true)}}
                             className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
@@ -40,7 +40,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                             onClick={(e, id) => handleDeleteExam(e, exam._id)}
                             className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
                         >   
-                            
+
                         <RiDeleteBin7Line/>
                         </button>
                         <button
@@ -50,7 +50,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                             <GrClose className=""  />
                         </button>
                     </div>
-                    <div className="flex justify-center items-center w-full md:mb-2 xl:mb-6 2xl:h-auto border-2">
+                    <div className="flex justify-center items-center w-full pt-6 md:mb-2 xl:mb-6 2xl:h-auto ">
                         <table className="flex flex-col justify-center items-center  mt-2 xl:gap-y-2 2xl:mb-10 2xl:gap-y-4 ">
                             <thead className="">
                                 <tr className="flex flex-col items-center ">
@@ -68,9 +68,9 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                             </tbody>
                         </table>
                     </div>
-                    <div className="flex h-auto p-2 items-center border-2 border-red-500">
+                    <div className="flex h-auto p-2 items-center ">
                         
-                            <div className="w-full items-center   border-2 border-green-800">
+                            <div className="w-full items-center   ">
                                 <table className="flex flex-col items-center mb-4 2xl:mb-8 2xl:h-auto">
                                     <thead className="w-full mb-1 lg:mb-0.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
                                         <tr className="grid grid-cols-3  text-center w-full ">
