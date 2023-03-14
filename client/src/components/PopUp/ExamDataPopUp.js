@@ -74,7 +74,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                         
                         <div className="w-full items-center   ">
                             <table className="flex flex-col items-center mb-10 md:mb-2 2xl:mb-8 2xl:h-auto">
-                                <thead className="w-full mb-1 lg:mb-0.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
+                                <thead className="w-full mb-1 lg:mb-1.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
                                     <tr className="grid grid-cols-3  text-center w-full ">
                                         <th className=" font-medium text-gray-900 text-xs md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
                                             Exam ID
@@ -87,7 +87,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                         </th>  
                                     </tr>
                                 </thead>
-                                <tbody className="w-full  lg:mb-0.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
+                                <tbody className="w-full  lg:mb-1.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
                                     <tr className="grid grid-cols-3 text-center w-full ">
                                         <tr className="grid grid-cols-1">
                                             <td className="text-sm font-medium text-blue-600 mb-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-4  ">Exam-{examNum}</td>
@@ -99,7 +99,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                 </tbody>
                             </table>
                             <table className="flex flex-col items-center  2xl:h-auto">
-                                <thead className="w-full mb-1 lg:mb-0.5 xl:mb-2 2xl:mb-4 ">
+                                <thead className="w-full mb-1 lg:mb-1.5 xl:mb-2 2xl:mb-4 ">
                                     <tr className="grid grid-cols-4    w-full ">
                                         <th className="font-medium text-gray-900 text-xs order-1 col-span-2 md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
                                             Study Modality
@@ -110,7 +110,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                         
                                     </tr>
                                 </thead>
-                                <tbody className="w-full mb-10 md:mb-2 lg:mb-0.5 xl:mb-2 2xl:mb-8">
+                                <tbody className="w-full mb-10 md:mb-2 lg:mb-1.5 xl:mb-2 2xl:mb-8">
                                         <tr className="grid grid-cols-4 w-full ">
                                             <td className="text-sm font-medium text-gray-500 order-1 col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2 ">{exam.modality}</td>
                                             <td className=" text-sm font-medium text-gray-500 order-2  col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2  ">{exam.imageDescription}</td>
@@ -118,7 +118,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                         </tr>
                                 </tbody>
                                 
-                                <thead className="w-full mb-1 lg:mb-0.5 xl:mb-2 2xl:mb-4 ">
+                                <thead className="w-full mb-1 lg:mb-1.5 xl:mb-2 2xl:mb-4 ">
                                     <tr className="grid grid-cols-4  w-full ">
                                         
                                         <th className="font-medium text-gray-900 text-xs order-3 col-span-4 md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
@@ -127,9 +127,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     </tr>
                                 </thead>
                                 
-                                <tbody className="w-full mb-1 lg:mb-6  xl:mb-2 2xl:mb-6">
-                                    <tr className="grid grid-cols-4    w-full ">
-                                        
+                                <tbody className="w-full mb-1 lg:px-3.5 lg:mb-6 xl:mb-2 2xl:mb-6">
+                                    <tr className="grid grid-cols-4 w-full ">
                                         <td className=" text-sm font-medium text-gray-500 order-3 col-span-4  md:text-sm  lg:text-base  xl:text-2xl 2xl:text-5xl  ">{exam.findings}</td>
                                     </tr>
                                 </tbody>
