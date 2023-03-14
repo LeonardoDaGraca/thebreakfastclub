@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import {GrClose, GrEdit} from "react-icons/gr"
+import { GrClose, GrEdit } from "react-icons/gr"
+import {RiDeleteBin7Line} from "react-icons/ri"
 import { Update } from "../Update/Update";
 
 
@@ -30,11 +31,22 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                     <div className="flex items-center justify-between xl:p-2 2xl:p-6">
                         <button
                             onClick={() => {setShowUpdatePopUp(true)}}
-                            className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={() => (null)} >
+                            className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
+                        >
                             <GrEdit className="" />
                                     {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
                         </button>
-                        <button className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6" onClick={onClose}>
+                        <button
+                            onClick={(e, id) => handleDeleteExam(e, exam._id)}
+                            className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
+                        >   
+                            
+                        <RiDeleteBin7Line/>
+                        </button>
+                        <button
+                            onClick={onClose}
+                            className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
+                        >
                             <GrClose className=""  />
                         </button>
                     </div>
@@ -111,8 +123,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                     </div>  
                     {/* <Link onClick={() => {setShowUpdatePopUp(true)}}>
                         <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Update</p>
-                    </Link>           
-                    <button onClick={(e, id) => handleDeleteExam(e, exam._id)}>Delete</button>                  */}
+                    </Link> */}          
+                    
                 </div>
                 {/* <Update key={exam._id} exam={exam} onClose={handleUpdateClose} visible={showUpdatePopUp} isVisible={setShowUpdatePopUp}/> */}
             </div>
