@@ -75,24 +75,26 @@ export const CardData = ({data}) => {
                             </button>
                         </div>
 
-                        <div className="flex justify-center items-center w-full 2xl:h-1/5">
-                            <table className="flex flex-col justify-center items-center px-10  my-4 xl:gap-y-2 2xl:mb-10 2xl:gap-y-4 2xl:h-1/5">
-                                <thead>
-                                    <tr className="flex flex-col items-center 2xl:mb-4 2xl:gap-4">
+                        <div className="flex justify-center items-center w-full pt-6 mb-3 md:pt-2 md:mb-3 lg:mb-4 xl:mb-6 2xl:mb-10 2xl:h-auto ">
+                            <table className="flex flex-col w-full justify-center items-center mt-2 xl:gap-y-2  2xl:gap-y-4 ">
+                                <thead className="">
+                                    <tr className="flex flex-col items-center ">
                                         <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-2xl xl:text-3xl 2xl:text-6xl">
                                             Patient ID
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="w-full">
-                                    <tr className="w-full">
+                                <tbody className="flex flex-col justify-center items-center w-full ">
+                                    <tr className="">
                                         <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
                                             {selectedPatientId}
                                         </td>
                                     </tr>
+                                    <hr className="border-b-2 2xl:border-b-4 border-gray-200 w-11/12 mt-2 2xl:mt-6" />
                                 </tbody>
+                            
                             </table>
-                        </div>
+                    </div>
 
                         <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2">
                             {groupedData[selectedPatientId].map((exams) => (
