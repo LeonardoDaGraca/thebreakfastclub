@@ -73,8 +73,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                     <div className="flex h-auto p-2 items-center md:px-6 lg:px-4 2xl:px-14">
                         
                         <div className="w-full items-center   ">
-                            <table className="flex flex-col items-center mb-10 md:mb-2 2xl:mb-8 2xl:h-auto">
-                                <thead className="w-full mb-2 lg:mb-1.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
+                            <table className="flex flex-col items-center mb-10 md:mb-4 xl:mb-6 2xl:mb-10 2xl:h-auto">
+                                <thead className="w-full mb-2  2xl:mb-7  ">
                                     <tr className="grid grid-cols-3  text-center w-full ">
                                         <th className=" font-medium text-gray-900 text-xs md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
                                             Exam ID
@@ -87,7 +87,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                         </th>  
                                     </tr>
                                 </thead>
-                                <tbody className="w-full  lg:mb-1.5 md:mb-0 xl:mb-2 2xl:mb-4 ">
+                                <tbody className="w-full md:mb-0 lg:mb-4 xl:mb-2 2xl:mb-16 ">
                                     <tr className="grid grid-cols-3 text-center w-full ">
                                         <tr className="grid grid-cols-1">
                                             <td className="text-sm font-medium text-blue-600 mb-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-4  ">Exam-{examNum}</td>
@@ -98,8 +98,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <table className="flex flex-col items-center  2xl:h-auto">
-                                <thead className="w-full mb-2 lg:mb-1.5 xl:mb-2 2xl:mb-4 ">
+                            <table className="flex flex-col items-center mb-10 md:mb-2 xl:mb-6 2xl:mb-10 2xl:h-auto">
+                                <thead className="w-full mb-2  2xl:mb-7  ">
                                     <tr className="grid grid-cols-4    w-full ">
                                         <th className="font-medium text-gray-900 text-xs order-1 col-span-2 md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
                                             Study Modality
@@ -110,7 +110,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                         
                                     </tr>
                                 </thead>
-                                <tbody className="w-full mb-10 md:mb-2 lg:mb-1.5 xl:mb-2 2xl:mb-8">
+                                <tbody className="w-full mb-10 md:mb-6 lg:mb-6 xl:mb-10 2xl:mb-16">
                                         <tr className="grid grid-cols-4 w-full ">
                                             <td className="text-sm font-medium text-gray-500 order-1 col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2 ">{exam.modality}</td>
                                             <td className=" text-sm font-medium text-gray-500 order-2  col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2  ">{exam.imageDescription}</td>
@@ -118,7 +118,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                         </tr>
                                 </tbody>
                                 
-                                <thead className="w-full mb-2 lg:mb-1.5 xl:mb-2 2xl:mb-4 ">
+                                <thead className="w-full mb-2 2xl:mb-7  ">
                                     <tr className="grid grid-cols-4  w-full ">
                                         
                                         <th className="font-medium text-gray-900 text-xs order-3 col-span-4 md:text-base lg:text-base xl:text-2xl 2xl:text-5xl">
