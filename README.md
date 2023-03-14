@@ -46,15 +46,15 @@ The pattern is designed to start from more general to more specific access: coll
 **Examples:**<br>
 "/patients" would be used to get all patients or to create a new patient <br>
 "/patients/COVID-19-AR-16439216" would be used to get a specific patient or to delete that specific patient with id "COVID-19-AR-16439216"<br>
-"/patients/COVID-19-AR-16439216/exams" would be used to get an array of the exams that correspond to patient with id "COVID-19-AR-16439216"<br>
+"/patients/COVID-19-AR-16439216/exams" would be used to get an array of the exams that correspond to patient with id "COVID-19-AR-16439216" or to delete said exams at once<br>
 "/exams/63fc2cb04023e75756e802e3" would be used to get the specific exam with id "63fc2cb04023e75756e802e3" or to delete it<br>
 
 **NOTE:**<br>
-(an error is thrown by the server if the next is not considered)<br>
-You **can only** delete specific items by giving its *id* and you can only create a new item by accessing either collection ("/patients/\<id\>/exams" cannot be used to create a new exam for patient with *id*)<br>
+(an error may be thrown by the server if the next is not considered)<br>
+You **can** delete a specific patient or exam by giving their respective *id*, but **you can also** delete all the exams of a patient at once (use pattern "/patients/\<id\>/exams"), and you **can only** create a new item by accessing either collection ("/patients/\<id\>/exams" **cannot** be used to create a new exam for patient with *id*)<br>
 **To avoid the anomaly** of having exams that belong to no patient on the database:<br>
-You **cannot** create exams if patient does not exit<br>
-You **cannot** delete a patient when there are exams associated with them (those exams **need to** be deleted first)<br>
+You **cannot** create exams if patient does not exit for them<br>
+You **cannot** delete a patient when there are exams associated with them (those exams **need to** be deleted first, the API facilitates this)<br>
 You **cannot** create new patients or exams without defining the required properties for each object:<br>
 For patient: `_id`, `age`, `sex`<br>
 For exam: `patientId` (technically also `_id`, but this one is automatically taken care of by the back end, so that field **should not** be defined by anybody), `patientId` **should be** the ID of an existing patient
