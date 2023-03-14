@@ -68,7 +68,7 @@ export const CardData = ({data}) => {
                     <div className=" bg-white rounded-xl shadow-lg p-4 overflow-y-auto w-11/12 lg:w-full h-1/2">
                         <div className="flex items-center justify-end xl:p-2 2xl:p-6">
                             <button
-                                className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-base md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
+                                className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
                                 onClick={() => setSelectedPatientId(null)}
                             >
                                 <GrClose className="" />
@@ -96,7 +96,7 @@ export const CardData = ({data}) => {
                             </table>
                     </div>
 
-                        <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2">
+                        <div className="flex justify-center items-center px-3 md:px-1 2xl:mt-4 2xl:h-1/2">
                             {groupedData[selectedPatientId].map((exams) => (
                                 <div key={exams._id} className=" border-gray-200 h-full w-full ">
                                     <div className="w-full 2xl:mb-16">
