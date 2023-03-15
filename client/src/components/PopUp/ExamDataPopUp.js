@@ -6,7 +6,7 @@ import {RiDeleteBin7Line} from "react-icons/ri"
 import { Update } from "../Update/Update";
 
 
-export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
+export const ExamDataPopUp = ({currentExam, visible, onClose, examNum}) => {
 
   const [showUpdatePopUp, setShowUpdatePopUp] = useState(false);
   const handleUpdateClose = () => setShowUpdatePopUp(false);
@@ -25,7 +25,10 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
   if (!visible) return null;
 
     return (
+
         <>
+
+{/* {console.log(`from popup: ${exam._id}, ${examNum}`)} */}
             <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
                 <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto h-3/4 w-11/12 md:h-3/5 lg:h-3/5 lg:w-full  xl:h-2/3">
                     <div className="flex items-center justify-between  xl:p-2 2xl:p-6">
@@ -37,7 +40,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
                         </button>
                         <button
-                            onClick={(e, id) => handleDeleteExam(e, exam._id)}
+                            onClick={(e, id) => handleDeleteExam(e, currentExam.exam._id)}
                             className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
                         >   
 
@@ -62,7 +65,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                             <tbody className="flex flex-col justify-center items-center w-full ">
                                 <tr className="">
                                     <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl">
-                                        {exam.patientId}
+                                        {currentExam.exam.patientId}
                                     </td>
                                 </tr>
                                 <hr className="border-b-2 2xl:border-b-4 border-gray-200 w-11/12 mt-2 2xl:mt-6" />
@@ -91,10 +94,10 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                     <tr className="grid grid-cols-3 text-center w-full ">
                                         <tr className="grid grid-cols-1">
                                             <td className="text-sm font-medium text-blue-600 mb-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-4  ">Exam-{examNum}</td>
-                                            {/* <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl  ">{exam._id}</td>    */}
+                                            {/* <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl  ">{currentExam.exam._id}</td>    */}
                                         </tr>
-                                        <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{exam.daysImageDiagnosos}</td>
-                                        <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{exam.hrsImageDiagnosis}</td>
+                                        <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{currentExam.exam.daysImageDiagnosos}</td>
+                                        <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{currentExam.exam.hrsImageDiagnosis}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -112,8 +115,8 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                 </thead>
                                 <tbody className="w-full mb-10 md:mb-6 lg:mb-6 xl:mb-10 2xl:mb-16">
                                         <tr className="grid grid-cols-4 w-full ">
-                                            <td className="text-sm font-medium text-gray-500 order-1 col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2 ">{exam.modality}</td>
-                                            <td className=" text-sm font-medium text-gray-500 order-2  col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2  ">{exam.imageDescription}</td>
+                                            <td className="text-sm font-medium text-gray-500 order-1 col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2 ">{currentExam.exam.modality}</td>
+                                            <td className=" text-sm font-medium text-gray-500 order-2  col-span-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-2  ">{currentExam.exam.imageDescription}</td>
                                             
                                         </tr>
                                 </tbody>
@@ -129,7 +132,7 @@ export const ExamDataPopUp = ({exam, visible, onClose, examNum}) => {
                                 
                                 <tbody className="w-full mb-1 lg:px-6 lg:mb-1.5 xl:mb-2 2xl:mb-6">
                                     <tr className="grid grid-cols-4 w-full ">
-                                        <td className=" text-sm font-medium text-gray-500 order-3 col-span-4  md:text-sm  lg:text-base  xl:text-2xl 2xl:text-5xl  ">{exam.findings}</td>
+                                        <td className=" text-sm font-medium text-gray-500 order-3 col-span-4  md:text-sm  lg:text-base  xl:text-2xl 2xl:text-5xl  ">{currentExam.exam.findings}</td>
                                     </tr>
                                 </tbody>
                             </table>

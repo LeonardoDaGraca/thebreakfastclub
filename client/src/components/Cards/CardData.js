@@ -9,6 +9,7 @@ import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 export const CardData = ({data}) => {
     const [selectedPatientId, setSelectedPatientId] = useState(null);
     const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
+    const [currentExam, setCurrentExam] = useState({});
     const handleExamDataClose = () => setShowExamDataPopUp(false);
 
     // Function to group data by patient ID starts
@@ -129,15 +130,22 @@ export const CardData = ({data}) => {
                                                         {exams.exams.sort().map(function (exam, index) {
                                                             return (
                                                                 <>
-                                                                    <Link onClick={() => setShowExamDataPopUp(true)}>
+                                                                {/* {console.log(exam, index)} */}
+                                                                {/* when the link for a specific exam is clicked - the pop up matching that exam is opened - we need to send the pop up ONLY the info for that specific exam */}
+                                                                    <Link onClick={() => {setShowExamDataPopUp(true);
+                                                                        // ; console.log(`clicked: ${exam._id}`)
+                                                                        setCurrentExam({exam: exam, index});
+                                                                        // console.log(`current: `);
+                                                                        // console.table(currentExam.exam._id, currentExam.index);
+                                                                        }}>
                                                                 
                                                                         <p className="text-sm text-blue-600 hover:font-bold hover:underline font-medium  md:text-lg lg:text-xl xl:text-2xl 2xl:mb-5 2xl:text-5xl">Exam {index + 1}</p>
-                                                                
+
                                                                     </Link>
                                                                     <ExamDataPopUp
-                                                                        key={exam._id}
-                                                                        exam={exam}
-                                                                        examNum={index + 1}
+                                                                        key={currentExam._id}
+                                                                        currentExam={currentExam}
+                                                                        examNum={currentExam.index + 1}
                                                                         onClose={handleExamDataClose}
                                                                         visible={showExamDataPopUp}
                                                                     // closePatientCard={handleClosePatientCard}
