@@ -58,31 +58,31 @@ export const CreateExam = ({patientId}) => {
                     <hr className="border-b border-gray-400 mb-3.5 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-16" />   
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-5 lg:gap-7 xl:gap-10 2xl:gap-24">
                             <div className="flex items-center xl: 2xl:justify-between" >
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="patientId">Patient ID</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="patientId">Patient ID</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="patientId" id="patientId" value={patientId} onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="daysImageDiagnosos">Days Since Dx</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="daysImageDiagnosos">Days Since Dx</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="daysImageDiagnosos" id="daysImageDiagnosos" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="hrsImageDiagnosis">Hrs Since Dx</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="hrsImageDiagnosis">Hrs Since Dx</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="hrsImageDiagnosis" id="hrsImageDiagnosis" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="imageDescription">Decribe Image</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="imageDescription">Decribe Image</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="imageDescription" id="imageDescription" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="findings">Key Findings</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="findings">Key Findings</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="findings" id="findings" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="modality">Modality</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="modality">Modality</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="modality" id="modality" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
-                                <label className="w-1/2 text-base md:w-1/3 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="fio">Fio</label>
+                                <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="fio">Fio</label>
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="fio" id="fio" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                         </div>
