@@ -51,7 +51,6 @@ export const CreateExam = ({patientId}) => {
     return (
         <>     
             <Navbar />  
-            
             <div className="flex justify-center p-3 mt-28 md:p-4 md:mt-32 lg:p-6 lg:mt-24 xl:p-10 xl:mt-28 2xl:p-20 2xl:mt-36">
                 <form className="rounded-2xl shadow-2xl border-2 shadow-blue-900 bg-gray-100 w-full p-4 md:w-full md:p-6 lg:p-8 lg:w-full xl:p-10 2xl:p-16 2xl:w-full" action="" onSubmit={handleCreateExamSubmit}>
                     <h1 className=" text-black font-bold text-base mb-2.5 md:text-xl md:mb-2 lg:text-2xl lg:mb-2 xl:text-3xl xl:mb-3 2xl:text-7xl 2xl:mb-8">Create Exam</h1>
@@ -94,12 +93,9 @@ export const CreateExam = ({patientId}) => {
                                 Submit
                             </button>
                         </div>
-                </form>
-                
+                </form>  
             </div>
-            <Footer/>
-            
-        </>    
-        
+            <Footer/>  
+        </>      
     )
 }
