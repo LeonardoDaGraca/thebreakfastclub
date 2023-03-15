@@ -27,8 +27,6 @@ export const ExamDataPopUp = ({currentExam, visible, onClose, examNum}) => {
     return (
 
         <>
-
-{/* {console.log(`from popup: ${exam._id}, ${examNum}`)} */}
             <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
                 <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto h-3/4 w-11/12 md:h-3/5 lg:h-3/5 lg:w-full  xl:h-2/3">
                     <div className="flex items-center justify-between  xl:p-2 2xl:p-6">

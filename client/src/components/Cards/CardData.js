@@ -130,13 +130,8 @@ export const CardData = ({data}) => {
                                                         {exams.exams.sort().map(function (exam, index) {
                                                             return (
                                                                 <>
-                                                                {/* {console.log(exam, index)} */}
-                                                                {/* when the link for a specific exam is clicked - the pop up matching that exam is opened - we need to send the pop up ONLY the info for that specific exam */}
                                                                     <Link onClick={() => {setShowExamDataPopUp(true);
-                                                                        // ; console.log(`clicked: ${exam._id}`)
                                                                         setCurrentExam({exam: exam, index});
-                                                                        // console.log(`current: `);
-                                                                        // console.table(currentExam.exam._id, currentExam.index);
                                                                         }}>
                                                                 
                                                                         <p className="text-sm text-blue-600 hover:font-bold hover:underline font-medium  md:text-lg lg:text-xl xl:text-2xl 2xl:mb-5 2xl:text-5xl">Exam {index + 1}</p>
