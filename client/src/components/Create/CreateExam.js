@@ -59,38 +59,38 @@ export const CreateExam = ({patientId}) => {
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-5 lg:gap-7 xl:gap-10 2xl:gap-24">
                             <div className="flex items-center xl: 2xl:justify-between" >
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="patientId">Patient ID</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="patientId" id="patientId" value={patientId} onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="patientId" id="patientId" value={patientId} onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="daysImageDiagnosos">Days Since Dx</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="daysImageDiagnosos" id="daysImageDiagnosos" onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="daysImageDiagnosos" id="daysImageDiagnosos" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="hrsImageDiagnosis">Hrs Since Dx</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="hrsImageDiagnosis" id="hrsImageDiagnosis" onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="hrsImageDiagnosis" id="hrsImageDiagnosis" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="imageDescription">Decribe Image</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="imageDescription" id="imageDescription" onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="imageDescription" id="imageDescription" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="findings">Key Findings</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="findings" id="findings" onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="findings" id="findings" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="modality">Modality</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="modality" id="modality" onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="modality" id="modality" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                             <div className="flex items-center 2xl:justify-between">
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="fio">Fio</label>
-                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="fio" id="fio" onChange={(e) => handleInputChanges(e)}/>
+                                <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="fio" id="fio" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                         </div>
-                        <div className="flex justify-end pb-1 pt-8 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-2 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
-                            <button type="reset" className="bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
+                        <div className="flex justify-end pb-1 pt-8 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-3 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
+                            <button type="reset" className="bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
                                 Cancel
                             </button>
-                            <button type="submit" className="bg-blue-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl">
+                            <button type="submit" className="bg-blue-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl">
                                 Submit
                             </button>
                         </div>
