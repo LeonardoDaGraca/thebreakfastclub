@@ -52,7 +52,7 @@ export const CreateExam = ({patientId}) => {
         <>     
             <Navbar />  
             
-            <div className="flex justify-center  lg:p-10 lg:mt-28 2xl:p-20 2xl:mt-48">
+            <div className="flex justify-center  lg:p-10 lg:mt-36 2xl:p-20 2xl:mt-48">
                 <form className="rounded-2xl shadow-2xl p-4  border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5 lg:w-full 2xl:p-20 2xl:w-full " action="" onSubmit={handleCreateExamSubmit}>
                     <h1 className="mb-2 text-black text-base font-bold md:text-xl lg:text-2xl xl:text-3xl 2xl:text-7xl">Create Exam</h1>
                         <br />
