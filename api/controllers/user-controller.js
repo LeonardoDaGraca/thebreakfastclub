@@ -30,14 +30,14 @@ const images = require(`${relativePath}exam-model.js`).images;
 }*/
 
 /**@desc it's just a test for the api
-// */
-// getTest = asyncHandler( async (req, res) => {
-//   let payload = {
-//     success: true,
-//     message: "API is working (test)"
-//   }
-//   res.status(200).json(payload);
-// });
+*/
+getTest = asyncHandler( async (req, res) => {
+  let payload = {
+    success: true,
+    message: "API is working (test)"
+  }
+  res.status(200).json(payload);
+});
 
 //CONTROLERS for patients:
 /**@desc gets all the patients from the database
@@ -118,7 +118,6 @@ deletePatient = asyncHandler( async (req, res) => {
 
 /**@desc gets all the exams
 */
-
 getExams = asyncHandler( async (req, res) => {
   const allExams = await images.find({}); //passed empty object returns all member of the set
   res.status(200).json(allExams);

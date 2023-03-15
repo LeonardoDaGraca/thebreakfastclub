@@ -9,13 +9,13 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage }) => {
   }
   return (
     
-    <div className="flex items-center w-96 ">
+    <div className="flex justify-center w-full">
       {pages.map((page, index) => {
         return (
           <button
             key={index}
             onClick={() => setCurrentPage(page)}
-            className="rounded-xl px-1 py-1 bg-blue-900 text-white focus:ring hover:bg-blue-800 md:p-2 md:text-xs lg:p-2 lg:text-lg xl:p-4 xl:text-xl 2xl:p-6 2xl:text-5xl"
+            className="text-white focus:ring bg-blue-900 hover:bg-blue-800 rounded-lg mx-0.5 px-3 py-1 text-sm md:mx-1 md:px-3 md:py-1 md:text-lg lg:mx-1 lg:px-3 lg:py-1 lg:text-xl xl:mx-1 xl:px-3.5 xl:py-1.5 xl:text-3xl 2xl:mx-2 2xl:px-8 2xl:py-4 2xl:text-5xl"
           >
             {page}
           </button>
