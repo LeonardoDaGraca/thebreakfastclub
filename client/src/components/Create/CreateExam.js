@@ -52,10 +52,10 @@ export const CreateExam = ({patientId}) => {
         <>     
             <Navbar />  
             
-            <div className="flex justify-center p-3 mt-28 md:p-4 md:mt-36 lg:p-6 lg:mt-32 xl:p-10 xl:mt-36 2xl:p-20 2xl:mt-36">
+            <div className="flex justify-center p-3 mt-28 md:p-4 md:mt-32 lg:p-6 lg:mt-24 xl:p-10 xl:mt-28 2xl:p-20 2xl:mt-36">
                 <form className="rounded-2xl shadow-2xl border-2 shadow-blue-900 bg-gray-100 w-full p-4 md:w-full md:p-6 lg:p-8 lg:w-full xl:p-10 2xl:p-16 2xl:w-full" action="" onSubmit={handleCreateExamSubmit}>
                     <h1 className=" text-black font-bold text-base mb-2.5 md:text-xl md:mb-2 lg:text-2xl lg:mb-2 xl:text-3xl xl:mb-3 2xl:text-7xl 2xl:mb-8">Create Exam</h1>
-                    <hr className="border-b border-gray-300 2xl:border-b-4 lg:mb-5 xl:mb-6 2xl:mb-16" />   
+                    <hr className="border-b border-gray-300 mb-3.5 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-16" />   
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-5 lg:gap-7 xl:gap-10 2xl:gap-24">
                             <div className="flex items-center xl: 2xl:justify-between" >
                                 <label className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl" htmlFor="patientId">Patient ID</label>
@@ -86,7 +86,7 @@ export const CreateExam = ({patientId}) => {
                                 <input className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300" type="text" name="fio" id="fio" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                         </div>
-                        <div className="flex justify-end pb-1 pt-8 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-3 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
+                        <div className="flex justify-end pb-1 pt-6 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-3 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
                             <button type="reset" className="bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
                                 Cancel
                             </button>
