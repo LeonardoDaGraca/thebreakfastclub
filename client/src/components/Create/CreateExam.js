@@ -52,11 +52,11 @@ export const CreateExam = ({patientId}) => {
         <>     
             <Navbar />  
             
-            <div className="flex justify-center  lg:p-6 lg:mt-32 xl:p-10 xl:mt-36 2xl:p-20 2xl:mt-48">
-                <form className="rounded-2xl shadow-2xl p-4  border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5 lg:p-4 xl:p-6 lg:w-full 2xl:p-14 2xl:w-full " action="" onSubmit={handleCreateExamSubmit}>
-                    <h1 className=" text-black text-base font-bold md:text-xl lg:text-2xl lg:mb-2 xl:text-3xl xl:mb-4 2xl:text-7xl 2xl:mb-8">Create Exam</h1>
+            <div className="flex justify-center md:p-4 md:mt-24 lg:p-6 lg:mt-32 xl:p-10 xl:mt-36 2xl:p-20 2xl:mt-48">
+                <form className="rounded-2xl shadow-2xl p-4 border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-full md:p-5 lg:p-4 lg:w-full xl:p-6 2xl:p-14 2xl:w-full " action="" onSubmit={handleCreateExamSubmit}>
+                    <h1 className=" text-black text-base font-bold md:text-xl md:mb-2 lg:text-2xl lg:mb-2 xl:text-3xl xl:mb-4 2xl:text-7xl 2xl:mb-8">Create Exam</h1>
                        
-                        <div className="grid grid-cols-2 lg:gap-6 xl:gap-10 2xl:gap-20 border-2 ">
+                        <div className="grid grid-cols-2 md:gap-4 lg:gap-6 xl:gap-10 2xl:gap-20 border-2 ">
                             <div className="flex items-center xl: 2xl:justify-between" >
                                 <label className="text-sm  md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl border-2 " htmlFor="patientId">Patient ID</label>
                                 <input className="lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="patientId" id="patientId" value={patientId} onChange={(e) => handleInputChanges(e)}/>
@@ -86,11 +86,11 @@ export const CreateExam = ({patientId}) => {
                                 <input className="lg:text-xl xl:text-2xl 2xl:text-6xl" type="text" name="fio" id="fio" onChange={(e) => handleInputChanges(e)}/>
                             </div>
                         </div>
-                        <div className="flex justify-end lg:pb-2 lg:pt-5 lg:gap-2 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
-                            <button type="reset" className="  bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg px-3 py-1 lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
+                        <div className="flex justify-end md:pb-1 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-2 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
+                            <button type="reset" className="  bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg md:p-1.5 md:text-base lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
                                 Cancel
                             </button>
-                            <button type="submit" className=" bg-blue-600 text-zinc-50 font-bold shadow-lg px-3 py-1 rounded-lg lg:p-2 lg:text-lg-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl">
+                            <button type="submit" className=" bg-blue-600 text-zinc-50 font-bold shadow-lg rounded-lg md:p-1.5 md:text-base lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl">
                                 Submit
                             </button>
                         </div>
