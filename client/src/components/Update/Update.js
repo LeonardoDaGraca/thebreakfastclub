@@ -213,7 +213,7 @@ export const Update = ({ exam, onClose, visible, isVisible }) => {
           </div>
         </form>
       </div>
-      <Footer />
+     
     </>
   );
 };
