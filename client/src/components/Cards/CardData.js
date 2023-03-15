@@ -164,52 +164,8 @@ export const CardData = ({ data }) => {
                           </td>
                         </tr>
                       </tbody>
-                      <tfoot>
-                        {/* <Link onClick={setShowCreateExam(true)}>
-                                                <button className="text-sm text-blue-600 hover:font-bold hover:underline ">Create Exam</button>
-                                            </Link>  
-                                                
-
-                                            <TestForm patientId={exams.patientId} visible={showCreateExam}/> */}
-                      </tfoot>
                     </table>
                   </div>
-                  {/* <div className="w-full h-3/4 ">
-                                        <table className="flex flex-col  items-center xl:gap-y-2 2xl:gap-y-6">
-                                            <thead className="w-full">
-                                            <tr className="grid grid-cols-2 text-center w-full mb-2">
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Key Findings
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    ICU Admission
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Number of ICU Admissions
-                                                </th>
-                                                <th className="text-sm font-medium text-gray-900 md:text-xl lg:text-xl xl:text-2xl 2xl:text-6xl">
-                                                    Mortality
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody className="w-full h-auto">
-                                            <tr className=" grid grid-cols-2 text-center w-full ">
-                                                <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.findings}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.icuAdmit}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.numIcuAdmit}
-                                                </td>
-                                                <td className="text-sm font-medium text-gray-500 whitespace-normal break-words md:text-lg lg:text-lg xl:text-xl 2xl:text-5xl lg:mx-1.5 xl:mx-10 2xl:mx-10">
-                                                    {exams.mortality}
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div> */}
                 </div>
               ))}
             </div>
