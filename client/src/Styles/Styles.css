@@ -1,18 +1,17 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer utilities {
-    .grid-custom {
-        grid-template-colums: repeat(3, minmax(0, max-content));
-    }
+  .grid-custom {
+    grid-template-colums: repeat(3, minmax(0, max-content));
+  }
 
-    .text-shadow {
-        text-shadow: 3px 1px 10px  rgb(28, 33, 104) ;
-    }
+  .text-shadow {
+    text-shadow: 3px 1px 10px rgb(28, 33, 104);
+  }
 
-    .text-border {
-        -webkit-text-stroke: 0.09px white;
-    }
-
+  .text-border {
+    -webkit-text-stroke: 0.09px white;
+  }
 }

@@ -51,4 +51,4 @@ function EditExam({ initialExamId, onSave }) {
       )}
     </div>
   );
-};
+}

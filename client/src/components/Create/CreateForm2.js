@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export const CreateForm = ({ handleShowForm }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    field1: '',
-    field2: '',
+    name: "",
+    field1: "",
+    field2: "",
     // ...add as many fields as necessary
   });
 
@@ -22,10 +22,7 @@ export const CreateForm = ({ handleShowForm }) => {
   return (
     <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
       <div className="mb-4">
-        <label
-          htmlFor="name"
-          className="block text-gray-700 font-medium mb-2"
-        >
+        <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
           Name:
         </label>
         <input

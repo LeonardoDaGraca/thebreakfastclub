@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CreateForm } from './CreateForm2';
+import React, { useState } from "react";
+import { CreateForm } from "./CreateForm2";
 import { CreateBtn } from "./CreateBtn";
 
 export const CreateExam = () => {
@@ -7,18 +7,18 @@ export const CreateExam = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log('create form btn clicked');
+    console.log("create form btn clicked");
     setShowForm(true);
   };
 
   const handleShowForm = () => {
     setShowForm(false);
-  }
+  };
 
   return (
     <div className="p-10">
       {showForm ? (
-        <CreateForm handleShowForm={handleShowForm}/>
+        <CreateForm handleShowForm={handleShowForm} />
       ) : (
         <CreateBtn handleClick={handleClick} />
       )}

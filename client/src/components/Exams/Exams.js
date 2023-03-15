@@ -147,7 +147,6 @@ export const Exams = () => {
               </button>
         </div>
       </div> */}
-     
     </>
   );
 };
