@@ -87,10 +87,10 @@ export const CreateExam = ({patientId}) => {
                             </div>
                         </div>
                         <div className="flex justify-end pb-1 pt-8 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-3 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
-                            <button type="reset" className="bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
+                            <button type="reset" className="bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl" onClick={redirectHome}>
                                 Cancel
                             </button>
-                            <button type="submit" className="bg-blue-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:p-2 lg:text-lg xl:p-2.5 xl:text-xl 2xl:p-6 2xl:text-5xl 2xl:rounded-xl">
+                            <button type="submit" className="bg-blue-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl">
                                 Submit
                             </button>
                         </div>
