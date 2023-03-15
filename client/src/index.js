@@ -5,9 +5,10 @@ import { CreateExamForm } from './components/Create/CreateExamForm';
 import { Edit } from './components/Edit/Edit';
 import reportWebVitals from './reportWebVitals';
 import { Exams } from './components/Exams/Exams';
-import {TestForm} from '../src/components/Create/TestForm'
+import { CreateExam } from './components/Create/CreateExam';
 import './index.css';
 import App from './App';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +34,7 @@ const router = createBrowserRouter(
       //   //   }}
       //     >
       // </Route> */}
-      <Route path="create-exam" element={<TestForm />}></Route>
+      <Route path="create-exam" element={<CreateExam />}></Route>
    </>
     )
   );
