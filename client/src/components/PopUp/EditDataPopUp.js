@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export const EditData = ({ data, onClose }) => {
   const [editedData, setEditedData] = useState(data);
@@ -43,4 +43,4 @@ export const EditData = ({ data, onClose }) => {
       <button onClick={handleClose}>Close</button>
     </div>
   );
-}
+};

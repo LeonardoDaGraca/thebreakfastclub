@@ -26,10 +26,10 @@ export const Search = () => {
   }, []);
 
   useEffect(() => {
-   const results = filtered.filter((res) =>
+    const results = filtered.filter((res) =>
       res._id.toLowerCase().includes(query)
     );
-    setData(results) 
+    setData(results);
   }, [query, filtered]);
 
   const lastPostIndex = currentPage * postsPerPage;
@@ -41,7 +41,8 @@ export const Search = () => {
       <div className="flex flex-col w-full items-center mt-4 md:mt-5 lg:mt-6 xl:mt-10 2xl:mt-16">
         <form action="" className="flex flex-col justify-center w-3/4 md:w-1/2">
           <label
-            htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white lg:text-xl xl:text-3xl 2xl:text-6xl "
+            htmlFor="default-search"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white lg:text-xl xl:text-3xl 2xl:text-6xl "
           >
             Search
           </label>
@@ -62,10 +63,7 @@ export const Search = () => {
             </button> */}
           </div>
         </form>
-        <CardData
-          data={currentPost} 
-          className=""
-          />
+        <CardData data={currentPost} className="" />
         <Pagination
           totalPosts={data.length}
           postsPerPage={postsPerPage}

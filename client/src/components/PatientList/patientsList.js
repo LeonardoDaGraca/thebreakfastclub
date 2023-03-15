@@ -92,7 +92,6 @@ const PatientList = ({ data }) => {
             <div className="flex justify-center items-center 2xl:mt-4 2xl:h-1/2">
               {groupedData[selectedPatientId].map((exams) => (
                 <div key={exams._id} className=" border-gray-200 h-full w-full">
-                  
                   <div className="w-full  mb-6 2xl:mb-16">
                     <table className="flex flex-col items-center xl:gap-y-2 2xl:gap-y-4 2xl:mb-6">
                       <thead className="w-full">

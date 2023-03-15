@@ -1,8 +1,8 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { GrClose, GrEdit } from "react-icons/gr"
-import {RiDeleteBin7Line} from "react-icons/ri"
+import { GrClose, GrEdit } from "react-icons/gr";
+import { RiDeleteBin7Line } from "react-icons/ri";
 import { Update } from "../Update/Update";
 
 
@@ -11,21 +11,23 @@ export const ExamDataPopUp = ({currentExam, visible, onClose, examNum}) => {
   const [showUpdatePopUp, setShowUpdatePopUp] = useState(false);
   const handleUpdateClose = () => setShowUpdatePopUp(false);
 
-
   const handleDeleteExam = (e, id) => {
-    console.log(id)
+    console.log(id);
     fetch(`http://localhost:9000/api/exams/${id}`, {
-        method: 'DELETE', 
-        body:  id,
+      method: "DELETE",
+      body: id,
     })
-    .then(res => { if(res.status === 200) {onClose()}})
-    .catch(err => console.error(err))
-  }
+      .then((res) => {
+        if (res.status === 200) {
+          onClose();
+        }
+      })
+      .catch((err) => console.error(err));
+  };
 
   if (!visible) return null;
 
     return (
-
         <>
             <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
                 <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto h-3/4 w-11/12 md:h-3/5 lg:h-3/5 lg:w-full  xl:h-2/3">
@@ -92,7 +94,7 @@ export const ExamDataPopUp = ({currentExam, visible, onClose, examNum}) => {
                                     <tr className="grid grid-cols-3 text-center w-full ">
                                         <tr className="grid grid-cols-1">
                                             <td className="text-sm font-medium text-blue-600 mb-2 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl 2xl:mb-4  ">Exam-{examNum}</td>
-                                            {/* <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl  ">{currentExam.exam._id}</td>    */}
+                                            {/* <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl  ">{exam._id}</td>    */}
                                         </tr>
                                         <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{currentExam.exam.daysImageDiagnosos}</td>
                                         <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-base xl:text-2xl 2xl:text-5xl   ">{currentExam.exam.hrsImageDiagnosis}</td>
@@ -139,14 +141,10 @@ export const ExamDataPopUp = ({currentExam, visible, onClose, examNum}) => {
                     </div>  
                     {/* <Link onClick={() => {setShowUpdatePopUp(true)}}>
                         <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Update</p>
-                    </Link> */}          
-                    
-                </div>
-                {/* <Update key={exam._id} exam={exam} onClose={handleUpdateClose} visible={showUpdatePopUp} isVisible={setShowUpdatePopUp}/> */}
-            </div>
-        </>
-        
-    )     
-            
-}
-
+                    </Link> */}
+        </div>
+        {/* <Update key={exam._id} exam={exam} onClose={handleUpdateClose} visible={showUpdatePopUp} isVisible={setShowUpdatePopUp}/> */}
+      </div>
+    </>
+  );
+};
