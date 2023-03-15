@@ -7,7 +7,7 @@ export const CreateExamForm = () => {
         <>
             <Navbar/>
             
-            <div className="flex justify-center p-2 mt-10 md:mt-36 md:my-10  md:mx-auto ">
+            <div className="flex justify-center items-center p-2 mt-10 md:mt-36 md:my-10  md:mx-auto ">
                 <form className="p-4 space-y-4 rounded-lg shadow-2xl border-2 md:border md:shadow-blue-900 bg-gray-100 md:w-3/4 md:p-5" action="">
                     <h1 className="mb-2 text-black text-base md:text-xl lg:text-2xl font-bold ">Create Exam</h1>
 
