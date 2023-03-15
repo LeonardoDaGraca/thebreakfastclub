@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
-// import { AiOutlineEdit, AiOutlineClose } from "react-icons/ai";
 import Pagination from "../Pagination/Pagination";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 
