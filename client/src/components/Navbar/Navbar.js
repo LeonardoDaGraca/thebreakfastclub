@@ -29,12 +29,18 @@ export const Navbar = () => {
           <div className=" flex border-2 rounded-lg md:hidden">
             <button
               onClick={handleToggle}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               {isOpen ? (
-                <FaTimes onClick={handleToggle} />
+                <FaTimes
+                  onClick={handleToggle} 
+                  className=""
+                />
               ) : (
-                <FaBars onClick={handleToggle} />
+                  <FaBars
+                    onClick={handleToggle} 
+                    
+                  />
               )}
             </button>
           </div>
@@ -53,26 +59,12 @@ export const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden absolute top-0 right-0 w-full h-full z-10">
-          <div className="flex flex-col items-end mt-16 mr-4">
-            <NavLink
-              to="/exams"
-              onClick={handleMenuClick}
-              className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium mt-2"
-            >
-              Exam
-            </NavLink>
-            <NavLink
-              to="/admin"
-              onClick={handleMenuClick}
-              className="text-gray-500 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Admin
-            </NavLink>
+        <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10 ">
+          <div className="flex flex-col items-end p-5 bg-gray-900 bg-opacity-80 backdrop-blur-md backdrop-brightness-150">
             <NavLink
               to="/create-exam"
               onClick={handleMenuClick}
-              className="text-zinc-100 hover:text-gray-700  block px-3 py-2 rounded-md text-base font-medium"
+              className="block px-3 py-2 rounded-md text-zinc-50 text-base font-medium  transform transition hover:-translate-y-1 hover:scale-110 hover:font-bold"
             >
               Create Exam
             </NavLink>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { GrClose, GrEdit } from "react-icons/gr";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { Update } from "../Update/Update";

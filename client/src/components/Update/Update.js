@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Footer } from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 
 export const Update = ({ exam, onClose, visible, isVisible }) => {

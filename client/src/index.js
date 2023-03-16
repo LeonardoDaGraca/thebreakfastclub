@@ -7,7 +7,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { CreateExamForm } from "./components/Create/CreateExamForm";
-import { Edit } from "./components/Edit/Edit";
+import { Edit } from "./components/EditPopUp/EditPopUp";
 import reportWebVitals from "./reportWebVitals";
 import { Exams } from "./components/Exams/Exams";
 import { CreateExam } from "./components/Create/CreateExam";
