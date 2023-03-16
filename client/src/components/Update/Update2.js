@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import EditPopUp from "./EditPopUp/EditPopUp"
+import {EditPopUp} from "./EditPopUp/EditPopUp"
 
 export const Update2 = ({ exam, onClose, visible, isVisible }) => {
   const [updateFormData, setUpdateFormData] = useState({
