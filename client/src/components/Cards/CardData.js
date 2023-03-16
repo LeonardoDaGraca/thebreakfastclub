@@ -38,7 +38,7 @@ export const CardData = ({data}) => {
                 {Object.entries(groupedData).map(([_id, exams]) => (
                 <button
                     key={_id}
-                    className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-24 md:h-24 lg:h-28 xl:h-36 2xl:h-60"
+                    className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-20 lg:h-32 xl:h-36 2xl:h-60"
                     onClick={() => handleButtonClick(_id)}
                 >
                     <table className="flex flex-col items-center">
