@@ -63,7 +63,7 @@ export const CreateExam = ({ patientId }) => {
           </h1>
           <hr className="border-b border-gray-400 mb-3.5 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-16" />
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-5 lg:gap-7 xl:gap-10 2xl:gap-24">
-            <div className="flex items-center xl: 2xl:justify-between">
+            <div className="flex items-center 2xl:justify-between">
               <label
                 className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl"
                 htmlFor="patientId"
