@@ -60,9 +60,9 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                         <GrClose className=""  />
                      </button>
                 </div>
-                <div className="border-2 h-5/6   md:py-2 lg:px-6 lg:py-4">
+                <div className="border-2 h-5/6 pt-2  md:py-2 lg:px-6 lg:py-4">
                     <div className="border-2 border-blue-500 mb-2">
-                        <h1 className="text-black font-bold text-base py-2 lg:text-xl lg:py-2 xl:text-4xl xl:py-3 2xl:text-7xl 2xl:py-4">
+                        <h1 className="text-black font-bold text-base py-2 md:text-lg lg:text-xl lg:py-2 xl:text-4xl xl:py-3 2xl:text-7xl 2xl:py-4">
                             Edit Exam
                         </h1>
                             <hr className="border-b border-gray-400 " />
@@ -74,15 +74,15 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                             onSubmit={handleCreateExamSubmit}
                         >
                             <div className="border-2 border-red-500 grid justify-items-start items-center grid-cols-1 h-5/6 md:grid-cols-2  lg:gap-6 xl:gap-8 2xl:gap-10">
-                                <div className="border-2 flex justify-between  w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="patientId"
                                     >
                                         Patient ID
                                     </label>
                                     <input
-                                        className="border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="patientId"
                                         id="patientId"
@@ -90,90 +90,90 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                         onChange={(e) => handleInputChanges(e)}
                                     />
                                 </div>
-                                <div className="flex justify-between border-2 w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="daysImageDiagnosos"
                                     >
                                         Days Since Dx
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="daysImageDiagnosos"
                                         id="daysImageDiagnosos"
                                         onChange={(e) => handleInputChanges(e)}
                                     />
                                 </div>
-                                <div className="flex justify-between border-2 w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="hrsImageDiagnosis"
                                     >
                                         Hrs Since Dx
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="hrsImageDiagnosis"
                                         id="hrsImageDiagnosis"
                                         onChange={(e) => handleInputChanges(e)}
                                     />
                                 </div>
-                                <div className="flex justify-between border-2 w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="imageDescription"
                                     >
                                         Decribe Image
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="imageDescription"
                                         id="imageDescription"
                                         onChange={(e) => handleInputChanges(e)}
                                     />
                                 </div>
-                                <div className="flex justify-between border-2 w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="findings"
                                     >
                                         Key Findings
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="findings"
                                         id="findings"
                                         onChange={(e) => handleInputChanges(e)}
                                     />
                                 </div>
-                                <div className="flex justify-between border-2 w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="modality"
                                     >
                                         Modality
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="modality"
                                         id="modality"
                                         onChange={(e) => handleInputChanges(e)}
                                     />
                                 </div>
-                                <div className="flex justify-between border-2 w-full">
+                                <div className="flex justify-between items-center border-2 w-full">
                                     <label
-                                        className="lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         htmlFor="fio"
                                     >
                                         Fio
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl xl:text-3xl 2xl:text-6xl"
+                                        className="border border-gray-300 text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                                         type="text"
                                         name="fio"
                                         id="fio"
