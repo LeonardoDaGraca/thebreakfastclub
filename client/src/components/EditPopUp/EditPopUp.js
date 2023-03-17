@@ -61,28 +61,28 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                      </button>
                 </div>
                 <div className="border-2 h-5/6 lg:mx-6 lg:my-4">
-                    <div className="border-2 mb-2">
-                        <h1 className="text-black font-bold text-base py-2 lg:text-xl lg:py-2 ">
+                    <div className="border-2 border-blue-500 mb-2">
+                        <h1 className="text-black font-bold text-base py-2 lg:text-xl lg:py-2 2xl:text-7xl">
                             Edit Exam
                         </h1>
                             <hr className="border-b border-gray-400 " />
                     </div>
-                    <div className="border-2 h-5/6">
+                    <div className="border-2 border-green-500 h-5/6">
                         <form
-                            className="border-2 p-2"
+                            className="border-2 border-purple-500 p-2 h-full"
                             action=""
                             onSubmit={handleCreateExamSubmit}
                         >
-                            <div className="border-2 grid justify-items-start items-center grid-cols-1 md:grid-cols-2 h-4/6">
-                                <div className="flex justify-between border-2 w-full">
+                            <div className="border-2 border-red-500 grid justify-items-start items-center grid-cols-1 h-5/6 md:grid-cols-2  lg:gap-6">
+                                <div className="border-2 border-yellow-500 flex justify-between  w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="patientId"
                                     >
                                         Patient ID
                                     </label>
                                     <input
-                                        className="border border-gray-300 lg:text-xl"
+                                        className="border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="patientId"
                                         id="patientId"
@@ -92,13 +92,13 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 </div>
                                 <div className="flex justify-between border-2 w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="daysImageDiagnosos"
                                     >
                                         Days Since Dx
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl"
+                                        className=" border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="daysImageDiagnosos"
                                         id="daysImageDiagnosos"
@@ -107,13 +107,13 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 </div>
                                 <div className="flex justify-between border-2 w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="hrsImageDiagnosis"
                                     >
                                         Hrs Since Dx
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl"
+                                        className=" border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="hrsImageDiagnosis"
                                         id="hrsImageDiagnosis"
@@ -122,13 +122,13 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 </div>
                                 <div className="flex justify-between border-2 w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="imageDescription"
                                     >
                                         Decribe Image
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl"
+                                        className=" border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="imageDescription"
                                         id="imageDescription"
@@ -137,13 +137,13 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 </div>
                                 <div className="flex justify-between border-2 w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="findings"
                                     >
                                         Key Findings
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl"
+                                        className=" border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="findings"
                                         id="findings"
@@ -152,13 +152,13 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 </div>
                                 <div className="flex justify-between border-2 w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="modality"
                                     >
                                         Modality
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl"
+                                        className=" border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="modality"
                                         id="modality"
@@ -167,13 +167,13 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 </div>
                                 <div className="flex justify-between border-2 w-full">
                                     <label
-                                        className="lg:text-xl"
+                                        className="lg:text-xl 2xl:text-6xl"
                                         htmlFor="fio"
                                     >
                                         Fio
                                     </label>
                                     <input
-                                        className=" border border-gray-300 lg:text-xl"
+                                        className=" border border-gray-300 lg:text-xl 2xl:text-6xl"
                                         type="text"
                                         name="fio"
                                         id="fio"
@@ -181,7 +181,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex justify-end pb-1 pt-6 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-3 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-16 2xl:gap-8 ">
+                            <div className="flex justify-end pb-1 pt-6 gap-1.5 md:pb-1.5 md:pt-5 md:gap-2 lg:pb-2 lg:pt-5 lg:gap-3 xl:pb-2 xl:pt-10 xl:gap-4 2xl:pt-12 2xl:gap-8 ">
                                 <button
                                     type="reset"
                                     className="bg-red-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl"
@@ -193,7 +193,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                     type="submit"
                                     className="bg-blue-600 text-zinc-50 font-bold shadow-lg rounded-lg text-sm px-2 p-1.5 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl"
                                 >
-                                    Submit
+                                    Update
                                 </button>
                             </div>
                         </form>
