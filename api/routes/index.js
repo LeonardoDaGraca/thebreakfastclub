@@ -30,7 +30,7 @@ requires importing mongodb models for patients and exams
 requires express-async-handler
 */
 
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 const UserController = require("../controllers/user-controller");
@@ -41,11 +41,11 @@ const UserController = require("../controllers/user-controller");
 });*/
 //router for patients
 // router.get('/test', UserController.getTest);
-router.get('/patients', UserController.getPatients);
-router.get('/patients/:id', UserController.getPatientByID);
-router.post('/patients', UserController.createPatient);
-router.put('/patients/:id', UserController.updatePatient);
-router.delete('/patients/:id', UserController.deletePatient);
+router.get("/patients", UserController.getPatients);
+router.get("/patients/:id", UserController.getPatientByID);
+router.post("/patients", UserController.createPatient);
+router.put("/patients/:id", UserController.updatePatient);
+router.delete("/patients/:id", UserController.deletePatient);
 //rouers for exams
 router.get("/exams", UserController.getExams);
 router.get("/patients/:patientId/exams", UserController.getExamsOfPatient);
