@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
-import Pagination from "../Pagination/Pagination";
+import Pagination from "../Pagination/Pagination"
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 
 
@@ -169,7 +169,7 @@ export const CardData = ({data}) => {
                             ))}
                         </div>
                     </div>
-                        <Pagination />
+                    <Pagination />
                 </div>
             )}
         </>

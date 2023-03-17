@@ -11,6 +11,8 @@ export const Search = () => {
   const [filtered, setFilterd] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(16);
+  const [numRows, setNumRows] = useState(4);
+  const [numCols, setNumCols] = useState(4);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +37,27 @@ export const Search = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPost = data.slice(firstPostIndex, lastPostIndex);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setNumRows(7);
+        setNumCols(1);
+      } else if (window.innerWidth < 768) {
+        setNumRows(7);
+        setNumCols(2);
+      } else {
+        setNumRows(4);
+        setNumCols(4);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
