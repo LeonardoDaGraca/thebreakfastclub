@@ -60,8 +60,8 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                         <GrClose className=""  />
                      </button>
                 </div>
-                <div className="h-5/6 pt-2  md:py-2 lg:px-3 lg:py-4 2xl:px-8">
-                    <div className="mb-2">
+                <div className="h-5/6 pt-2 md:py-2 lg:px-3 lg:py-4 2xl:px-8">
+                    <div className="mb-2 md:mb-4 ">
                         <h1 className="text-black font-bold text-base py-2 md:text-lg lg:text-xl lg:py-2 xl:text-4xl xl:py-3 2xl:text-7xl 2xl:py-4">
                             Edit Exam
                         </h1>
@@ -73,7 +73,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                             action=""
                             onSubmit={handleCreateExamSubmit}
                         >
-                            <div className="grid justify-items-start items-center grid-cols-1 h-5/6 gap-y-10 md:grid-cols-2 md:gap-3 lg:gap-6 xl:gap-8 2xl:gap-10">
+                            <div className="grid justify-items-start items-center grid-cols-1 h-5/6 gap-y-10 md:grid-cols-2 md:gap-3 md:gap-y-16 lg:gap-6 xl:gap-8 2xl:gap-10">
                                 <div className="flex justify-between items-center w-full">
                                     <label
                                         className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
