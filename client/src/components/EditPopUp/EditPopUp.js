@@ -73,7 +73,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                             action=""
                             onSubmit={handleCreateExamSubmit}
                         >
-                            <div className="grid justify-items-start items-center grid-cols-1 h-5/6 md:grid-cols-2 md:gap-3 lg:gap-6 xl:gap-8 2xl:gap-10">
+                            <div className="grid justify-items-start items-center grid-cols-1 h-5/6 gap-y-10 md:grid-cols-2 md:gap-3 lg:gap-6 xl:gap-8 2xl:gap-10">
                                 <div className="flex justify-between items-center w-full">
                                     <label
                                         className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
@@ -181,7 +181,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex justify-end pb-1 pt-6 gap-1.5 md:pb-1.5 md:pt-24 md:gap-2 lg:pb-2 lg:pt-24 lg:gap-3 xl:pb-2 xl:pt-28 xl:gap-4 2xl:pt-36 2xl:gap-8 ">
+                            <div className="flex justify-end pb-1 pt-32 gap-1.5 md:pb-1.5 md:pt-24 md:gap-2 lg:pb-2 lg:pt-24 lg:gap-3 xl:pb-2 xl:pt-28 xl:gap-4 2xl:pt-36 2xl:gap-8 ">
                                 <button
                                     type="reset"
                                     className="bg-red-600 text-zinc-50 font-bold shadow-xl rounded-lg text-sm px-2 p-1.5 transform transition hover:translate-y-1 hover:scale-105 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl"
