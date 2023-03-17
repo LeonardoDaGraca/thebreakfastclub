@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 
-export const EditPopUp = ({open, onClose, patientId}) => {
-    const [formData, setFormData] = useState({
+export const EditPopUp = ({exam, onClose, visible, isVisible, open, patientId}) => {
+    const [updateFormData, setUpdateFormData] = useState({
         patientId: "",
         daysImageDiagnosos: "",
         hrsImageDiagnosis: "",
@@ -23,30 +23,43 @@ export const EditPopUp = ({open, onClose, patientId}) => {
       const handleInputChanges = (e) => {
         // with multiple entries in a form, e.target = []
         console.log(`${e.target.name}: ${e.target.value}`);
-        setFormData({
-          ...formData,
+        setUpdateFormData({
+          ...updateFormData,
           [e.target.name]: e.target.value,
         });
       };
     
-      const handleCreateExamSubmit = (e) => {
+      const handleUpdateSubmit = (e, id) => {
         e.preventDefault();
-        console.log(formData);
-        fetch(`http://localhost:9000/api/exams`, {
-          method: "POST",
-          headers: {
+        fetch(`http://localhost:9000/api/exams/${id}`, {
+        method: "PUT",
+        headers: {
             "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+        },
+        body: JSON.stringify(updateFormData),
         })
-          .then((res) => {
+        // .then((res) => console.log(res))
+        .then((res) => {
             if (res.status === 200) {
-              console.log(res.status);
-              redirectHome();
+            console.log(res.status);
+            isVisible(false);
+            } else {
+            console.error("Form Submission Not Successful");
             }
-          })
-          .catch((err) => console.error(err));
-      };
+        })
+        // .then(redirectHome())
+        // .then(() => setFormData({
+        //     patientId: '',
+        //     daysImageDiagnosos: '',
+        //     hrsImageDiagnosis: '',
+        //     imageDescription: '',
+        //     findings: '',
+        //     modality: '',
+        //     fio: '',
+        // }))
+        .catch((err) => console.error(err));
+    };
+    //   if (!visible) return null;
       if (!open) return null;
 
     return (
@@ -71,7 +84,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                         <form
                             className="p-2 h-full"
                             action=""
-                            onSubmit={handleCreateExamSubmit}
+                            onSubmit={(e, id) => { handleUpdateSubmit(e, exam._id); } }
                         >
                             <div className="grid justify-items-start items-center grid-cols-1 h-5/6 gap-y-10 md:grid-cols-2 md:gap-3 md:gap-y-16 lg:gap-6 xl:gap-8 2xl:gap-10">
                                 <div className="flex justify-between items-center w-full">
@@ -185,7 +198,7 @@ export const EditPopUp = ({open, onClose, patientId}) => {
                                 <button
                                     type="reset"
                                     className="bg-red-600 text-zinc-50 font-bold shadow-xl rounded-lg text-sm px-2 p-1.5 transform transition hover:translate-y-1 hover:scale-105 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl"
-                                    onClick={redirectHome}
+                                    onClick={onClose}
                                 >
                                     Cancel
                                 </button>

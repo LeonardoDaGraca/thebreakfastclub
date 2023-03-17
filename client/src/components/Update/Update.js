@@ -13,57 +13,57 @@ export const Update = ({ exam, onClose, visible, isVisible, open }) => {
     fio: "",
   });
 
-  // redirect to the home page on cancellation/submission of create exam
-  let navigate = useNavigate();
-  const redirectHome = () => {
-    let path = `/`;
-    navigate(path);
-  };
+    // redirect to the home page on cancellation/submission of create exam
+    let navigate = useNavigate();
+    const redirectHome = () => {
+        let path = `/`;
+        navigate(path);
+    };
 
-    if (!visible) return null;
-    if (!open) return null;
+        if (!visible) return null;
+        if (!open) return null;
 
-  const handleInputChanges = (e) => {
-    // with multiple entries in a form, e.target = []
-    console.log(`${e.target.name}: ${e.target.value}`);
-    setUpdateFormData({
-      ...updateFormData,
-      [e.target.name]: e.target.value,
-    });
-  };
+    const handleInputChanges = (e) => {
+        // with multiple entries in a form, e.target = []
+        console.log(`${e.target.name}: ${e.target.value}`);
+        setUpdateFormData({
+        ...updateFormData,
+        [e.target.name]: e.target.value,
+        });
+    };
 
-  // need an update component to render to accept input to update the appropriate fields***
+    // need an update component to render to accept input to update the appropriate fields***
 
-  const handleUpdateSubmit = (e, id) => {
-    e.preventDefault();
-    fetch(`http://localhost:9000/api/exams/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateFormData),
-    })
-      // .then((res) => console.log(res))
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.status);
-          isVisible(false);
-        } else {
-          console.error("Form Submission Not Successful");
-        }
-      })
-      // .then(redirectHome())
-      // .then(() => setFormData({
-      //     patientId: '',
-      //     daysImageDiagnosos: '',
-      //     hrsImageDiagnosis: '',
-      //     imageDescription: '',
-      //     findings: '',
-      //     modality: '',
-      //     fio: '',
-      // }))
-      .catch((err) => console.error(err));
-  };
+    const handleUpdateSubmit = (e, id) => {
+        e.preventDefault();
+        fetch(`http://localhost:9000/api/exams/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateFormData),
+        })
+        // .then((res) => console.log(res))
+        .then((res) => {
+            if (res.status === 200) {
+            console.log(res.status);
+            isVisible(false);
+            } else {
+            console.error("Form Submission Not Successful");
+            }
+        })
+        // .then(redirectHome())
+        // .then(() => setFormData({
+        //     patientId: '',
+        //     daysImageDiagnosos: '',
+        //     hrsImageDiagnosis: '',
+        //     imageDescription: '',
+        //     findings: '',
+        //     modality: '',
+        //     fio: '',
+        // }))
+        .catch((err) => console.error(err));
+    };
 
     return (
         <>
