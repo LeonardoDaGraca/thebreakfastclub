@@ -63,7 +63,7 @@ export const Search2 = () => {
 
   return (
     <>
-      <div className="flex flex-col relative w-full items-center md:py-12 lg:py-14 xl:py-16 2xl:py-24">
+      <div className="flex flex-col relative w-full items-center py-6 md:py-12 lg:py-14 xl:py-16 2xl:py-24">
         <form action="" className="flex flex-col justify-center w-3/4 md:w-1/2">
           <label
             htmlFor="default-search"
@@ -76,7 +76,7 @@ export const Search2 = () => {
               type="search"
               id="default-search"
               onChange={(e) => setQuery(e.target.value)}
-              className="block w-full rounded-lg md:py-1 md:pl-4 md:text-lg lg:py-1 lg:pl-5 lg:text-xl xl:pl-6 xl:py-2 xl:text-2xl 2xl:pl-12 2xl:py-3 2xl:text-3xl text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full rounded-lg pl-3 py-0.5 text-base md:py-1 md:pl-4 md:text-lg lg:py-1 lg:pl-5 lg:text-xl xl:pl-6 xl:py-2 xl:text-2xl 2xl:pl-12 2xl:py-3 2xl:text-3xl text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search Exams..."
               required
             />

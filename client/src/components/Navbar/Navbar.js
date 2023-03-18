@@ -14,7 +14,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-gray-900 w-screen p-6">
+    <header className="bg-gray-900 w-screen p-3 md:p-6">
         <nav className="flex items-center justify-between ">
           <div>
             <NavLink
