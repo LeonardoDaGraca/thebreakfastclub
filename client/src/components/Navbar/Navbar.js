@@ -14,7 +14,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-gray-900 w-screen p-3 md:p-6">
+    <header className="bg-gray-900 w-screen py-5 px-4 md:p-6">
         <nav className="flex items-center justify-between ">
           <div>
             <NavLink
@@ -28,7 +28,7 @@ export const Navbar = () => {
           <div className=" flex border-2 rounded-lg md:hidden">
             <button
               onClick={handleToggle}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className="inline-flex items-center justify-center p-1 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             >
               {isOpen ? (
                 <FaTimes onClick={handleToggle} className="" />
@@ -56,7 +56,7 @@ export const Navbar = () => {
             <NavLink
               to="/create-exam"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-zinc-50 text-base font-medium  transform transition hover:-translate-y-1 hover:scale-110 hover:font-bold"
+              className="block px-3 py-2 rounded-md text-zinc-50 text-sm font-medium  transform transition hover:-translate-y-1 hover:scale-110 hover:font-bold"
             >
               Create Exam
             </NavLink>
