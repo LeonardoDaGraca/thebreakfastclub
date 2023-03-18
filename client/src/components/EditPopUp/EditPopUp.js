@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 
 export const EditPopUp = ({
-  exam,
+  currentExam,
   onClose,
   visible,
   isVisible,
   open,
+  isOpen,
   patientId,
 }) => {
   const [updateFormData, setUpdateFormData] = useState({
-    patientId: "",
     daysImageDiagnosos: "",
     hrsImageDiagnosis: "",
     imageDescription: "",
@@ -49,21 +49,11 @@ export const EditPopUp = ({
       .then((res) => {
         if (res.status === 200) {
           console.log(res.status);
-          isVisible(false);
+          isOpen(false);
         } else {
           console.error("Form Submission Not Successful");
         }
       })
-      // .then(redirectHome())
-      // .then(() => setFormData({
-      //     patientId: '',
-      //     daysImageDiagnosos: '',
-      //     hrsImageDiagnosis: '',
-      //     imageDescription: '',
-      //     findings: '',
-      //     modality: '',
-      //     fio: '',
-      // }))
       .catch((err) => console.error(err));
   };
   //   if (!visible) return null;
@@ -92,7 +82,7 @@ export const EditPopUp = ({
               className="p-2 h-full"
               action=""
               onSubmit={(e, id) => {
-                handleUpdateSubmit(e, exam._id);
+                handleUpdateSubmit(e, currentExam._id);
               }}
             >
               <div className="grid justify-items-start items-center grid-cols-1 h-5/6 gap-y-10 md:grid-cols-2 md:gap-3 md:gap-y-16 lg:gap-6 xl:gap-8 2xl:gap-10">
