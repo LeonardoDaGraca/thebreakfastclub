@@ -76,7 +76,7 @@ export const Search2 = () => {
               type="search"
               id="default-search"
               onChange={(e) => setQuery(e.target.value)}
-              className="block w-full rounded-lg xl:pl-6 xl:py-2 xl:text-2xl 2xl:pl-12 2xl:py-3 2xl:text-4xl text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full rounded-lg xl:pl-6 xl:py-2 xl:text-2xl 2xl:pl-12 2xl:py-3 2xl:text-3xl text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search Exams..."
               required
             />
