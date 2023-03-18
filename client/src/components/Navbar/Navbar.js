@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -21,6 +21,7 @@ export const Navbar = () => {
             <NavLink
               to="/"
               className="text-white font-bold text-lg md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-7xl"
+              reloadDocument
             >
               MedBay
             </NavLink>

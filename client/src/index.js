@@ -17,26 +17,7 @@ import App from "./App";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route
-        path="/"
-        element={<App />}
-        // loader={() => {
-        //   return fetch("http://localhost:9000/api/everything")
-        //     .then(res => res.json())
-        //     .catch((error) => console.error("Error:", error));
-        //   }}
-      ></Route>
-      {/* // <Route 
-      //   path="exams" 
-      //   element={<Exams />}
-      //   // loader={() => {
-      //   //   return fetch("http://localhost:9000/api/everything")
-      //   //     .then(res => res.json())
-      //   //     // .then(res => console.log(res))
-      //   //     .catch((error) => console.error("Error:", error));
-      //   //   }}
-      //     >
-      // </Route> */}
+      <Route path="/" element={<App />}></Route>
       <Route path="create-exam" element={<CreateExam />}></Route>
     </>
   )
