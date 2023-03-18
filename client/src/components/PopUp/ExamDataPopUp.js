@@ -149,6 +149,7 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
           <EditPopUp
             open={editPopUpModal}
             onClose={() => setEditPopUpModal(false)}
+            patientId={currentExam.exam.patientId}
           />
           {/* <Link onClick={() => {setShowUpdatePopUp(true)}}>
                             <p className="text-sm text-blue-600 hover:font-bold hover:underline ">Update</p>

@@ -14,13 +14,12 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900">
-      <div className=" max-w-full mx-auto px-4 sm:px-6 lg:px-8 2xl:px-20">
-        <div className="flex items-center justify-between h-16  md:h-20  2xl:h-48">
+    <header className="bg-gray-900 w-screen p-6">
+        <nav className="flex items-center justify-between ">
           <div>
             <NavLink
               to="/"
-              className="text-white font-bold text-lg md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-7xl"
+              className="text-white font-bold text-lg md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl"
             >
               MedBay
             </NavLink>
@@ -44,14 +43,13 @@ export const Navbar = () => {
               <NavLink
                 to="/create-exam"
                 onClick={handleMenuClick}
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium md:text-lg lg:text-xl xl:text-2xl 2xl:text-5xl"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl"
               >
                 Create Exam
               </NavLink>
             </div>
           </div>
-        </div>
-      </div>
+        </nav>
       {isOpen && (
         <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10 ">
           <div className="flex flex-col items-end p-5 bg-gray-900 bg-opacity-80 backdrop-blur-md backdrop-brightness-150">
@@ -66,6 +64,6 @@ export const Navbar = () => {
         </div>
       )}
       <Outlet />
-    </nav>
+    </header>
   );
 };

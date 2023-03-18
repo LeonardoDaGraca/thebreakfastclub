@@ -7,7 +7,7 @@ import { Search2 } from "./components/Search/Search2";
 const App = () => {
   return (
     <>
-      <div className="App">
+      <div className="App ">
         <Navbar />
         <Search2 />
 

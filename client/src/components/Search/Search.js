@@ -38,27 +38,6 @@ export const Search = () => {
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPost = data.slice(firstPostIndex, lastPostIndex);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setNumRows(7);
-        setNumCols(1);
-      } else if (window.innerWidth < 768) {
-        setNumRows(7);
-        setNumCols(2);
-      } else {
-        setNumRows(4);
-        setNumCols(4);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <>
       <div className="flex flex-col w-full items-center mt-4 md:mt-5 lg:mt-6 xl:mt-10 2xl:mt-16">

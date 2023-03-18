@@ -33,24 +33,24 @@ export const CardData = ({ data }) => {
 
   return (
     <>
-      <div className="grid w-full grid-cols-1 px-2 py-4 gap-1.5 md:grid-cols-2 md:px-4 md:py-5 md:gap-3 lg:grid-cols-4 lg:px-6 lg:py-6 lg:gap-3 xl:px-8 xl:py-10 xl:gap-4 2xl:px-20 2xl:py-16 2xl:gap-8">
+      <div className="grid w-full grid-cols-1 px-2 py-4 gap-1.5 md:grid-cols-2 md:px-4 md:py-5 md:gap-3 lg:grid-cols-4 2xl:px-10 2xl:pt-12">
         {Object.entries(groupedData).map(([_id, exams]) => (
           <button
             key={_id}
-            className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-20 lg:h-32 xl:h-36 2xl:h-60"
+            className=" flex items-center justify-center border-2 border-zinc-200 bg-zinc-100 rounded-lg shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 h-20 lg:h-32 xl:h-36 "
             onClick={() => handleButtonClick(_id)}
           >
             <table className="flex flex-col items-center">
               <thead className="">
                 <tr className="mb-2 lg:mb-1 xl:mb-2 2xl:mb-6">
-                  <th className="text-base font-bold text-gray-900 md:text-lg lg:text-lg xl:text-2xl 2xl:text-5xl">
+                  <th className="text-base font-bold text-gray-900 md:text-lg lg:text-lg xl:text-2xl 2xl:text-3xl">
                     Patient ID
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-sm xl:text-lg 2xl:text-4xl">
+                  <td className="text-sm font-medium text-gray-90 md:text-sm lg:text-sm xl:text-lg 2xl:text-2xl">
                     {_id}
                   </td>
                 </tr>
