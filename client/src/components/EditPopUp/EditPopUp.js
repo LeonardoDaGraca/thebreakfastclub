@@ -104,7 +104,7 @@ export const EditPopUp = ({
                         Patient ID
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="patientId"
                         id="patientId"
@@ -120,7 +120,7 @@ export const EditPopUp = ({
                         Days Since Dx
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="daysImageDiagnosos"
                         id="daysImageDiagnosos"
@@ -135,7 +135,7 @@ export const EditPopUp = ({
                         Hrs Since Dx
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="hrsImageDiagnosis"
                         id="hrsImageDiagnosis"
@@ -150,7 +150,7 @@ export const EditPopUp = ({
                         Decribe Image
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="imageDescription"
                         id="imageDescription"
@@ -166,7 +166,7 @@ export const EditPopUp = ({
                         Modality
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="modality"
                         id="modality"
@@ -181,7 +181,7 @@ export const EditPopUp = ({
                         Fio
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="fio"
                         id="fio"
@@ -196,7 +196,7 @@ export const EditPopUp = ({
                         Key Findings
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                         type="text"
                         name="findings"
                         id="findings"
