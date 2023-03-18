@@ -71,7 +71,7 @@ export const CreateExam = ({ patientId }) => {
                 Patient ID
               </label>
               <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                 type="text"
                 name="patientId"
                 id="patientId"
@@ -87,7 +87,7 @@ export const CreateExam = ({ patientId }) => {
                 Days Since Dx
               </label>
               <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                 type="text"
                 name="daysImageDiagnosos"
                 id="daysImageDiagnosos"
@@ -102,7 +102,7 @@ export const CreateExam = ({ patientId }) => {
                 Hrs Since Dx
               </label>
               <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                 type="text"
                 name="hrsImageDiagnosis"
                 id="hrsImageDiagnosis"
@@ -117,25 +117,10 @@ export const CreateExam = ({ patientId }) => {
                 Decribe Image
               </label>
               <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                 type="text"
                 name="imageDescription"
                 id="imageDescription"
-                onChange={(e) => handleInputChanges(e)}
-              />
-            </div>
-            <div className="flex items-center 2xl:justify-between">
-              <label
-                className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl"
-                htmlFor="findings"
-              >
-                Key Findings
-              </label>
-              <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
-                type="text"
-                name="findings"
-                id="findings"
                 onChange={(e) => handleInputChanges(e)}
               />
             </div>
@@ -147,7 +132,7 @@ export const CreateExam = ({ patientId }) => {
                 Modality
               </label>
               <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                 type="text"
                 name="modality"
                 id="modality"
@@ -162,10 +147,25 @@ export const CreateExam = ({ patientId }) => {
                 Fio
               </label>
               <input
-                className="md:text-base lg:text-xl xl:text-2xl 2xl:text-6xl border border-gray-300"
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
                 type="text"
                 name="fio"
                 id="fio"
+                onChange={(e) => handleInputChanges(e)}
+              />
+            </div>
+            <div className="flex items-center 2xl:justify-between">
+              <label
+                className="w-1/2 text-base md:w-1/2 md:text-base lg:w-1/3 lg:text-xl xl:w-1/3 xl:text-2xl 2xl:w-1/2 2xl:text-6xl"
+                htmlFor="findings"
+              >
+                Key Findings
+              </label>
+              <input
+                className="border border-gray-300 w-4/6 pl-1.5 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                type="text"
+                name="findings"
+                id="findings"
                 onChange={(e) => handleInputChanges(e)}
               />
             </div>
