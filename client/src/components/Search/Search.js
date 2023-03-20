@@ -77,7 +77,7 @@ export const Search = () => {
           >
             Search
           </label>
-          <div className="relative shadow-lg">
+          <div className="relative shadow-lg shadow-cyan-600">
             <input
               type="search"
               id="default-search"
@@ -86,12 +86,6 @@ export const Search = () => {
               placeholder="Search Exams..."
               required
             />
-            {/* <button
-                type="submit"
-                className="text-white absolute right-1.5 bottom-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Search
-              </button> */}
           </div>
         </form>
         <CardData data={displayedData} />
