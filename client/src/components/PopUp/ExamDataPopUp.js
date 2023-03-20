@@ -76,7 +76,7 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
             </table>
           </div>
           <div className="flex h-auto p-2 items-center ">
-            <div className="w-full items-center  md:px-3.5 lg:px-10">
+            <div className="w-full items-center  md:px-8 lg:px-10">
               <table className="flex flex-col  h-auto md:mb-3 lg:mb-2.5">
                 <thead className="w-full ">
                   <tr className="grid grid-cols-3   w-full ">
