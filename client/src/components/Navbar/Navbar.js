@@ -56,7 +56,7 @@ export const Navbar = () => {
             <NavLink
               to="/create-exam"
               onClick={handleMenuClick}
-              className="block px-2.5 py-1 rounded-md bg-[#ffffff] text-[#87D2E2] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
+              className="block px-2.5 py-1 rounded-md shadow-lg shadow-cyan-600 bg-[#ffffff] text-[#87D2E2] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
             >
               Create Exam
             </NavLink>

@@ -15,7 +15,7 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage }) => {
             <button
               key={index}
               onClick={() => setCurrentPage(page)}
-              className="font-bold text-[#FFFFFF] bg-[#87D2E2] border borderbg-[#87D2E2] shadow-xl shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none hover:bg-[#9CD7ED] rounded mx-0.5  md:mx-1 md:px-2 md:py-1 md:text-lg lg:mx-1.5 lg:px-3 lg:py-1 lg:text-lg xl:mx-2 xl:px-2.5 xl:py-1.5 xl:text-xl 2xl:mx-2 2xl:rounded-lg 2xl:px-4 2xl:py-2 2xl:text-2xl"
+              className="font-bold text-[#FFFFFF] bg-[#87D2E2] border-2 border-[#87D2E2] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none hover:bg-[#9CD7ED] rounded mx-0.5  md:mx-1 md:px-2 md:py-1 md:text-lg lg:mx-1.5 lg:px-3 lg:py-1 lg:text-lg xl:mx-2 xl:px-2.5 xl:py-1.5 xl:text-xl 2xl:mx-2 2xl:rounded-lg 2xl:px-4 2xl:py-2 2xl:text-2xl"
             >
               {page}
             </button>
