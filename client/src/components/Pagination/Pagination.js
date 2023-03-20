@@ -9,7 +9,7 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage }) => {
   }
   return (
     <>
-      <div className="flex justify-center w-full py-6">
+      <div className="flex justify-center w-full mt-4 md:mt-8 py-6">
         {pages.map((page, index) => {
           return (
             <button

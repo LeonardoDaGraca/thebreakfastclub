@@ -13,7 +13,7 @@ export const Footer = () => {
       <div className="flex w-full justify-start pl-8">
         <div className="  flex items-center w-3/4 ">
           <span
-            className="font-bold text-[#ffffff] text-center md:text-start text-xs md:text-base lg:text-base xl:text-xl 2xl:text-base"
+            className="font-bold text-[#060957] text-center md:text-start text-xs md:text-base lg:text-base xl:text-xl 2xl:text-base"
           >
             © {year} All Rights Reserved.
           </span>

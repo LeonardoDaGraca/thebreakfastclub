@@ -14,7 +14,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className=" py-2 md:py-4 xl:py-6 2xl:py-4 " id="header">
+    <header className=" py-2 md:py-4 xl:py-6 2xl:py-4 shadow-lg shadow-cyan-600 rounded-b-lg" id="header">
         <nav className=" flex items-center justify-between  py-2 px-3 md:py-3 md:px-6 xl:py-3 xl:px-8 2xl:py-4 2xl:px-12">
           <div className="flex items-center">
             <NavLink
@@ -52,7 +52,7 @@ export const Navbar = () => {
         </nav>
       {isOpen && (
         <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10">
-          <div className="flex flex-col items-end p-5 bg-[#87D2E2] bg-opacity-30 backdrop-blur-lg  ">
+          <div className="flex flex-col items-end p-5 shadow-lg shadow-cyan-600 bg-[#87D2E2] bg-opacity-30 backdrop-blur-lg  ">
             <NavLink
               to="/create-exam"
               onClick={handleMenuClick}
