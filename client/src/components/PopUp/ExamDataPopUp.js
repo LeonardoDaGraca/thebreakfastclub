@@ -38,20 +38,20 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
               onClick={() => {
                 setEditPopUpModal(true);
               }}
-              className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-lg 2xl:font-bold 2xl:p-2"
+              className=" transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-base 2xl:font-bold 2xl:p-2"
             >
               <GrEdit className="" />
               {/* <EditExam patientId={selectedPatientId} onClose={() => setSelectedPatientId(null)} /> */}
             </button>
             <button
               onClick={(e, id) => handleDeleteExam(e, currentExam.exam._id)}
-              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-lg 2xl:font-bold 2xl:p-2"
+              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-base 2xl:font-bold 2xl:p-2"
             >
               <RiDeleteBin7Line />
             </button>
             <button
               onClick={onClose}
-              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-lg 2xl:font-bold 2xl:p-2"
+              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-base 2xl:font-bold 2xl:p-2"
             >
               <GrClose className="" />
             </button>
