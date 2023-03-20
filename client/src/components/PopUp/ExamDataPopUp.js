@@ -32,7 +32,7 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
     <>
       {/* <EditPopUp  visible={visible} onClose={() => setVisible(false)}/> */}
       <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
-        <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto lg:h-1/2 ">
+        <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto md:h-1/2 ">
           <div className="flex items-center justify-between  xl:p-2 2xl:p-2">
             <button
               onClick={() => {
@@ -76,17 +76,17 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
             </table>
           </div>
           <div className="flex h-auto p-2 items-center ">
-            <div className="w-full items-center  lg:px-10">
-              <table className="flex flex-col  2xl:h-auto lg:mb-2.5">
+            <div className="w-full items-center  md:px-3.5 lg:px-10">
+              <table className="flex flex-col  h-auto md:mb-3 lg:mb-2.5">
                 <thead className="w-full ">
                   <tr className="grid grid-cols-3   w-full ">
-                    <th className="text-lg font-semibold   text-[#393939] md:text-xl lg:text-xl  2xl:text-xl">
+                    <th className="text-lg font-semibold   text-[#393939] md:text-lg lg:text-xl  2xl:text-xl">
                       Exam ID
                     </th>
-                    <th className="text-lg font-semibold  text-[#393939] md:text-xl lg:text-xl  2xl:text-xl">
+                    <th className="text-lg font-semibold  text-[#393939] md:text-lg lg:text-xl  2xl:text-xl">
                       Dx to Img Study (days)
                     </th>
-                    <th className="text-lg font-semibold  text-[#393939] md:text-xl lg:text-xl  2xl:text-xl">
+                    <th className="text-lg font-semibold  text-[#393939] md:text-lg lg:text-xl  2xl:text-xl">
                       Dx to Imgaging Time (hrs)
                     </th>
                   </tr>
@@ -94,37 +94,37 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
                 <tbody className="w-full  ">
                   <tr className="grid grid-cols-3 text-center w-full ">
                     <tr className="grid grid-cols-1">
-                      <td className="text-sm font-medium text-blue-600 mb-2 md:text-sm lg:text-lg   2xl:mb-2  ">
+                      <td className="text-sm font-medium text-blue-600 mb-2 md:text-base lg:text-lg   2xl:mb-2  ">
                         Exam-{examNum}
                       </td>
                       {/* <td className="text-sm font-medium text-gray-500 md:text-sm lg:text-lg  2xl:text-5xl  ">{exam._id}</td>    */}
                     </tr>
-                    <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-lg     ">
+                    <td className=" text-sm font-medium text-gray-500 md:text-base lg:text-lg     ">
                       {currentExam.exam.daysImageDiagnosos}
                     </td>
-                    <td className=" text-sm font-medium text-gray-500 md:text-sm lg:text-lg     ">
+                    <td className=" text-sm font-medium text-gray-500 md:text-base lg:text-lg     ">
                       {currentExam.exam.hrsImageDiagnosis}
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <table className="flex flex-col items-center  2xl:h-auto lg:mb-4">
+              <table className="flex flex-col items-center h-auto md:mb-6 lg:mb-4">
                 <thead className="w-full  ">
                   <tr className="grid grid-cols-4 w-full ">
-                    <th className="font-medium text-[#393939] text-xs order-1 col-span-2 md:text-base lg:text-xl">
+                    <th className="font-medium text-[#393939] text-xs order-1 col-span-2 md:text-lg lg:text-xl">
                       Study Modality
                     </th>
-                    <th className="font-medium text-[#393939] text-xs order-2 col-span-2 md:text-base lg:text-xl">
+                    <th className="font-medium text-[#393939] text-xs order-2 col-span-2 md:text-lg lg:text-xl">
                       Image Study Description
                     </th>
                   </tr>
                 </thead>
                 <tbody className="w-full ">
                   <tr className="grid grid-cols-4 w-full ">
-                    <td className="text-sm font-medium text-gray-500 order-1 col-span-2 md:text-sm lg:text-lg  ">
+                    <td className="text-sm font-medium text-gray-500 order-1 col-span-2 md:text-base lg:text-lg  ">
                       {currentExam.exam.modality}
                     </td>
-                    <td className=" text-sm font-medium text-gray-500 order-2  col-span-2 md:text-sm lg:text-lg  ">
+                    <td className=" text-sm font-medium text-gray-500 order-2  col-span-2 md:text-base lg:text-lg  ">
                       {currentExam.exam.imageDescription}
                     </td>
                   </tr>
@@ -133,14 +133,14 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
               <table className="flex flex-col items-center">
                 <thead className="w-full 2xl:mb-2  ">
                   <tr className="grid grid-cols-4  w-full ">
-                    <th className="font-medium text-gray-900 text-xs order-3 col-span-4 md:text-base lg:text-xl ">
+                    <th className="font-medium text-[#393939] text-xs order-3 col-span-4 md:text-lg lg:text-xl ">
                       Radiologist Key Findings
                     </th>
                   </tr>
                 </thead>
                 <tbody className="w-full mb-1 lg:px-6 lg:mb-1.5 xl:mb-2 ">
                   <tr className="grid grid-cols-4 w-full ">
-                    <td className=" text-sm font-medium text-gray-500 order-3 col-span-4  md:text-sm  lg:text-lg   ">
+                    <td className=" text-sm font-medium text-gray-500 order-3 col-span-4  md:text-base  lg:text-lg   ">
                       {currentExam.exam.findings}
                     </td>
                   </tr>
