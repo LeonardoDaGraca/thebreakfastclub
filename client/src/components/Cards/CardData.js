@@ -78,7 +78,7 @@ export const CardData = ({ data }) => {
               <table className="flex flex-col w-full justify-center items-center mt-2 xl:gap-y-2  2xl:gap-y-4 ">
                 <thead className="">
                   <tr className="flex flex-col items-center ">
-                    <th className="text-lg font-semibold  text-gray-900 md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl">
+                    <th className="text-lg font-semibold  text-[#393939] md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl">
                       Patient ID
                     </th>
                   </tr>

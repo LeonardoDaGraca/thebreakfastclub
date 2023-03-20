@@ -21,7 +21,7 @@ export default function DataPopUp({
         <div className="bg-white p-3 rounded-lg w-full space-y-2 shadow-xl h-auto">
           <div className="flex justify-end">
             <button
-              className="border rounded-full p-2 shadow-md"
+              className="border rounded-full p-2 shadow-md "
               onClick={onClose}
             >
               <GrClose className="text-gray-600 font-bold" />
