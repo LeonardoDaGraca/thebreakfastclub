@@ -9,7 +9,7 @@ import { Search } from "./components/Search/Search";
 const App = () => {
   return (
     <>
-            <div className=" flex flex-col h-screen w-screen justify-between bg-[#87D2E2] border-4 border-red-700" >
+            <div className=" flex flex-col h-screen w-screen justify-between bg-[#87D2E2]" >
                 <div
                     id="header"
                     className=""

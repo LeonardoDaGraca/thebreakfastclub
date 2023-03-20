@@ -69,15 +69,15 @@ export const Search = () => {
   
   return (
     <>
-      <div className="border-4  border-yellow-500 grid items-center md:mx-8 ">
-        <form action="" className="flex flex-col justify-center w-3/4 md:w-1/2 mx-auto border-2 border-purple-800 py-8 ">
+      <div className="grid items-center md:mx-8 ">
+        <form action="" className="flex flex-col justify-center w-3/4 md:w-1/2 mx-auto  py-8 ">
           <label
             htmlFor="default-search"
             className="text-gray-900 sr-only dark:text-white font-medium 2xl:text-2xl"
           >
             Search
           </label>
-          <div className="relative shadow-xl">
+          <div className="relative shadow-lg">
             <input
               type="search"
               id="default-search"
