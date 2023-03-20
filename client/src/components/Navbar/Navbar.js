@@ -14,12 +14,12 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="bg-gray-900 w-screen py-5 px-4 md:p-6">
-        <nav className="flex items-center justify-between ">
-          <div>
+    <header className=" py-2 md:py-4 xl:py-6 2xl:py-4 " id="header">
+        <nav className=" flex items-center justify-between  py-2 px-3 md:py-3 md:px-6 xl:py-3 xl:px-8 2xl:py-4 2xl:px-12">
+          <div className="flex items-center">
             <NavLink
               to="/"
-              className="text-white font-bold text-lg md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl"
+              className="text-[#87D2E2] bg-[#ffffff] font-bold rounded-md shadow-lg transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-base md:text-lg py-1 px-2 lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:py-2 2xl:px-3"
             >
               MedBay
             </NavLink>
@@ -28,7 +28,7 @@ export const Navbar = () => {
           <div className=" flex border-2 rounded-lg md:hidden">
             <button
               onClick={handleToggle}
-              className="inline-flex items-center justify-center p-1 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className="inline-flex items-center justify-center p-1 rounded-md text-[#ffffff] hover:text-white hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-offset-1  focus:ring-white"
             >
               {isOpen ? (
                 <FaTimes onClick={handleToggle} className="" />
@@ -39,11 +39,11 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-4 flex items-center space-x-2 ">
+            <div className="flex items-center">
               <NavLink
                 to="/create-exam"
                 onClick={handleMenuClick}
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl"
+                className="text-[#ffffff] font-bold  transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
               >
                 Create Exam
               </NavLink>
@@ -51,12 +51,12 @@ export const Navbar = () => {
           </div>
         </nav>
       {isOpen && (
-        <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10 ">
-          <div className="flex flex-col items-end p-5 bg-gray-900 bg-opacity-80 backdrop-blur-md backdrop-brightness-150">
+        <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10">
+          <div className="flex flex-col items-end p-5 bg-[#87D2E2] bg-opacity-30 backdrop-blur-lg  ">
             <NavLink
               to="/create-exam"
               onClick={handleMenuClick}
-              className="block px-3 py-2 rounded-md text-zinc-50 text-sm font-medium  transform transition hover:-translate-y-1 hover:scale-110 hover:font-bold"
+              className="block px-2.5 py-1 rounded-md bg-[#ffffff] text-[#87D2E2] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
             >
               Create Exam
             </NavLink>

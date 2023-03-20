@@ -2,18 +2,36 @@ import React from "react";
 import "./Styles/Styles.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
-import { Search2 } from "./components/Search/Search2";
+import { Search } from "./components/Search/Search";
+// import { Main } from "./components/Main/Main"
+// import { CardData } from "./components/Cards/CardData";
 
 const App = () => {
   return (
     <>
-      <div className="App ">
-        <Navbar />
-        <Search2 />
+            <div className=" flex flex-col h-screen w-screen justify-between bg-[#87D2E2] border-4 border-red-700" >
+                <div
+                    id="header"
+                    className=""
+                >
+                    <Navbar />
+                </div>
 
-        <Footer />
-      </div>
-    </>
+                <div
+                    id="search"
+                    className=""
+                >
+                    <Search/>
+                </div>
+
+                <div
+                    id="footer"
+                    className=""
+                >
+                    <Footer />
+                </div>
+            </div>
+        </>
   );
 };
 

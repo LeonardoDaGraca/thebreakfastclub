@@ -9,13 +9,13 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage }) => {
   }
   return (
     <>
-      <div className="flex justify-center w-full p-2 lg:pt-4 xl:pt-4 2xl:pt-6">
+      <div className="flex justify-center w-full py-6">
         {pages.map((page, index) => {
           return (
             <button
               key={index}
               onClick={() => setCurrentPage(page)}
-              className="text-white shadow-xl transform transition hover:translate-y-1 hover:scale-100 focus:ring bg-blue-900 hover:bg-blue-800 rounded mx-0.5 px-1 py-0.5 text-sm md:mx-1 md:px-2 md:py-1 md:text-lg lg:mx-1.5 lg:px-3 lg:py-1 lg:text-lg xl:mx-2 xl:px-2.5 xl:py-1.5 xl:text-xl 2xl:mx-2 2xl:rounded-lg 2xl:px-4 2xl:py-2 2xl:text-2xl"
+              className="font-bold text-[#FFFFFF] bg-bg-[#87D2E2] border borderbg-[#87D2E2] shadow-xl transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none hover:bg-[#9CD7ED] rounded mx-0.5  md:mx-1 md:px-2 md:py-1 md:text-lg lg:mx-1.5 lg:px-3 lg:py-1 lg:text-lg xl:mx-2 xl:px-2.5 xl:py-1.5 xl:text-xl 2xl:mx-2 2xl:rounded-lg 2xl:px-4 2xl:py-2 2xl:text-2xl"
             >
               {page}
             </button>

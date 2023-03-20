@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// import {Route, createBrowserRouter, RouterProvider, createRoutesFromElements,} from "react-router-dom";
 import {
-  Route,
   createBrowserRouter,
   RouterProvider,
-  createRoutesFromElements,
 } from "react-router-dom";
 import { CreateExamForm } from "./components/Create/CreateExamForm";
 import { Edit } from "./components/EditPopUp/EditPopUp";
@@ -13,34 +12,48 @@ import { Exams } from "./components/Exams/Exams";
 import { CreateExam } from "./components/Create/CreateExam";
 import "./index.css";
 import App from "./App";
+// import Main from "./components/Main/Main" 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route
-        path="/"
-        element={<App />}
-        // loader={() => {
-        //   return fetch("http://localhost:9000/api/everything")
-        //     .then(res => res.json())
-        //     .catch((error) => console.error("Error:", error));
-        //   }}
-      ></Route>
-      {/* // <Route 
-      //   path="exams" 
-      //   element={<Exams />}
-      //   // loader={() => {
-      //   //   return fetch("http://localhost:9000/api/everything")
-      //   //     .then(res => res.json())
-      //   //     // .then(res => console.log(res))
-      //   //     .catch((error) => console.error("Error:", error));
-      //   //   }}
-      //     >
-      // </Route> */}
-      <Route path="create-exam" element={<CreateExam />}></Route>
-    </>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+  {
+    path: "create-exam",
+    element: <CreateExam/>,
+  },
+]);
+
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <>
+//       <Route
+//         path="/"
+//         element={<App />}
+//         // loader={() => {
+//         //   return fetch("http://localhost:9000/api/everything")
+//         //     .then(res => res.json())
+//         //     .catch((error) => console.error("Error:", error));
+//         //   }}
+//       >
+        
+//       </Route>
+//       {/* // <Route 
+//       //   path="exams" 
+//       //   element={<Exams />}
+//       //   // loader={() => {
+//       //   //   return fetch("http://localhost:9000/api/everything")
+//       //   //     .then(res => res.json())
+//       //   //     // .then(res => console.log(res))
+//       //   //     .catch((error) => console.error("Error:", error));
+//       //   //   }}
+//       //     >
+//       // </Route> */}
+//       <Route path="create-exam" element={<CreateExam />}></Route>
+//     </>
+//   )
+// );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
