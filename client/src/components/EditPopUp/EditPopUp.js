@@ -204,17 +204,17 @@ export const EditPopUp = ({
                     />
                 </div>
               </div>
-              <div className="flex justify-end md:gap-x-2 lg:gap-x-4 mt-16">
+              <div className="flex justify-end gap-x-1 md:gap-x-2 lg:gap-x-4 mt-16">
                 <button
                   type="reset"
-                  className="bg-red-600 text-zinc-50 font-bold shadow-xl rounded-lg md:text-xl md:px-2 md:py-1 lg:text-2xl "
+                  className="bg-red-600 text-zinc-50 font-bold shadow-xl rounded-lg px-1.5 py-1 text-sm md:text-xl md:px-2 md:py-1 lg:text-2xl "
                   onClick={onClose}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-600 text-zinc-50 font-bold shadow-xl rounded-lg md:text-xl md:px-2 md:py-1 lg:text-2xl"
+                  className="bg-blue-600 text-zinc-50 font-bold shadow-xl rounded-lg px-1.5 py-1 text-sm md:text-xl md:px-2 md:py-1 lg:text-2xl"
                 >
                   Update
                 </button>
