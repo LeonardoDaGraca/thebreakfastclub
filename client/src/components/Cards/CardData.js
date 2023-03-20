@@ -35,7 +35,7 @@ export const CardData = ({ data }) => {
   return (
       <>
         
-      <div className="bg-[#9CD7E5] shadow-xl shadow-cyan-600 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-12 md:px-6">
+      <div className="bg-gradient-to-tl from-[#68a6d8] via-[#9bbeed] to-[#8fb7f9] shadow-xl shadow-cyan-600 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-12 md:px-6">
         {Object.entries(groupedData).map(([_id, exams]) => (
           <button
             key={_id}
