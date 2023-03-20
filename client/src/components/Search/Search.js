@@ -82,7 +82,7 @@ export const Search = () => {
               type="search"
               id="default-search"
               onChange={(e) => setQuery(e.target.value)}
-              className=" block w-full rounded-md text-[#393939] border border-gray-300  bg-[#FFFFFF] focus:outline-none pl-3 py-1 text-sm 2xl:pl-6 2xl:py-2 2xl:text-xl  "
+              className=" block w-full rounded-md text-[#393939] border border-gray-300  bg-[#FFFFFF] focus:outline-none pl-3 py-1 text-sm md:py-1.5 md:pl-4 md:text-base 2xl:pl-6 2xl:py-2 2xl:text-xl  "
               placeholder="Search Exams..."
               required
             />
