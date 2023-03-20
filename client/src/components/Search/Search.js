@@ -13,6 +13,7 @@ export const Search = () => {
   const [numRows, setNumRows] = useState(4);
   const [numCols, setNumCols] = useState(4);
   const [displayedData, setDisplayedData] = useState([]);
+  const [selectedPatientId, setSelectedPatientId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -94,12 +95,16 @@ export const Search = () => {
               </button> */}
           </div>
         </form>
-        <CardData data={displayedData} />
-        <Pagination
+        <CardData 
+          data={displayedData}
+          selectedPatientId={selectedPatientId}
+          setSelectedPatientId={setSelectedPatientId}
+        />
+        {!selectedPatientId && <Pagination
           totalPosts={data.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}
-        />
+        />}
       </div>
     </>
   );

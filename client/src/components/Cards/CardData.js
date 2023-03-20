@@ -5,8 +5,8 @@ import Pagination from "../Pagination/Pagination";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 import { Navbar } from "../Navbar/Navbar";
 
-export const CardData = ({ data }) => {
-  const [selectedPatientId, setSelectedPatientId] = useState(null);
+export const CardData = ({ data, selectedPatientId, setSelectedPatientId }) => {
+
   const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
   const [currentExam, setCurrentExam] = useState({});
   const handleExamDataClose = () => setShowExamDataPopUp(false);
