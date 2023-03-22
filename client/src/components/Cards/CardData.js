@@ -36,7 +36,7 @@ export const CardData = ({ data, open }) => {
     return (
       
       <>  
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-12 md:px-6 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-8 md:px-6 ">
         {Object.entries(groupedData).map(([_id, exams]) => (
           <button
             key={_id}
@@ -67,17 +67,17 @@ export const CardData = ({ data, open }) => {
       {selectedPatientId && (
         <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm ">
     
-          <div className=" relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
-            <div className="flex items-center justify-end 2xl:p-3">
+          <div className=" relative bg-white rounded-xl shadow-lg overflow-y-auto h-3/5 md:h-2/5 w-5/6 2xl:w-3/4 ">
+            <div className="flex items-center justify-end p-3">
               <button
-                className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-lg 2xl:font-bold 2xl:p-2"
+                className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 p-1.5 md:p-2 text-xs font-bold lg:text-sm 2xl:text-base"
                 onClick={() => setSelectedPatientId(null)}
               >
                 <GrClose className="" />
               </button>
             </div>
 
-            <div className="flex justify-center items-center w-full pt-6 mb-3 md:pt-2 md:mb-3 lg:mb-4 xl:mb-6 2xl:mb-10 2xl:h-auto ">
+            <div className="flex justify-center items-center w-full pt-3 mb-3 md:pt-2 md:mb-3 lg:mb-4 xl:mb-6 2xl:mb-10 2xl:h-auto ">
               <table className="flex flex-col w-full justify-center items-center mt-2 xl:gap-y-2  2xl:gap-y-4 ">
                 <thead className="">
                   <tr className="flex flex-col items-center ">
@@ -97,7 +97,7 @@ export const CardData = ({ data, open }) => {
               </table>
             </div>
 
-            <div className="flex justify-center items-center 2xl:px-6 2xl:h-1/2">
+            <div className="flex justify-center items-center px-2 2xl:px-6 2xl:h-1/2">
               {groupedData[selectedPatientId].map((exams) => (
                 <div
                   key={exams._id}
