@@ -57,14 +57,14 @@ export const CreateExam = ({ patientId, open, onClose }) => {
           <div className="flex items-center justify-end p-3">
             <button
               onClick={onClose}
-              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 p-2 text-xs font-bold md:text-sm lg:text-xs 2xl:text-base"
+              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 p-2 text-xs font-bold md:text-xs lg:text-xs 2xl:text-base"
             >
               <GrClose className="" />
             </button>
           </div>
           <div className="flex justify-center items-center w-full h-auto ">
             <form
-              className="w-full lg:p-4 xl:p-4 2xl:p-6"
+              className="w-full md:p-3 lg:p-4 xl:p-4 2xl:p-6"
               action=""
               onSubmit={handleCreateExamSubmit}
             >
@@ -72,7 +72,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                 Create Exam
               </h1>
               <hr className="" />
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-6 lg:py-6 xl:py-6 xl:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 md:py-4 lg:gap-6 lg:py-6 xl:py-6 xl:gap-6">
                 <div className="flex items-center justify-between ">
                   <label
                     className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
@@ -180,17 +180,17 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                   />
                 </div>
               </div>
-              <div className="flex justify-end lg:gap-2 xl:gap-3 2xl:gap-4">
+              <div className="flex justify-end py-2 md:gap-2 lg:gap-2 xl:gap-3 2xl:gap-4">
                 <button
                   type="reset"
-                  className="bg-red-600 shadow-lg rounded-lg font-bold text-[#ffffff] lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
+                  className="bg-red-600 shadow-lg rounded-lg font-bold text-[#ffffff] md:px-2.5 md:py-0.5 md:text-base lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
                   onClick={redirectHome}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-600 shadow-lg rounded-lg font-bold text-[#ffffff] lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
+                  className="bg-blue-600 shadow-lg rounded-lg font-bold text-[#ffffff] md:px-2.5 md:py-0.5 md:text-base lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
                 >
                   Submit
                 </button>
