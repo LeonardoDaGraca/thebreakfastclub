@@ -28,6 +28,17 @@ app.use('/api', indexRouter);
 //listen for port 9000 for api
 //app.listen(apiPort, () => {console.log(`Server running on port ${apiPort}`)});
 
+app.use(passport.initialize());
+
+require('./authenticate');
+
+app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+  //res.redirect('/');
+  res.end('Logged in!');
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
