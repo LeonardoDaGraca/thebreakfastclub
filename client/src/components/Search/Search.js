@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import Pagination2 from "../Pagination/Pagination2";
 import Pagination from "../Pagination/Pagination";
 import axios from "axios";
 import { CardData } from "../Cards/CardData";

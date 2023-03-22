@@ -1,0 +1,110 @@
+import React, { useState, useEffect } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+
+const Pagination = ({ totalPosts, postsPerPage, currentPage, setCurrentPage }) => {
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsSmallScreen(window.innerWidth < 760);
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const condensedPagination = (
+    <div className="flex items-center space-x-2">
+      <button
+        onClick={() => setCurrentPage(currentPage - 1)}
+        className={`font-bold text-[#060957] ${currentPage === 1
+          ? "bg-gray-400 cursor-not-allowed"
+          : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
+          } border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-md px-2 py-1 text-lg`}
+        disabled={currentPage === 1}
+      >
+        <AiOutlineLeft className="inline-block align-middle" />
+      </button>
+      <div className="font-bold text-[#060957] bg-[#87D2E2] py-1 px-2 rounded-md">
+        {currentPage}
+      </div>
+      <button
+        onClick={() => setCurrentPage(currentPage + 1)}
+        className={`font-bold text-[#060957] ${currentPage === totalPages
+          ? "bg-gray-400 cursor-not-allowed"
+          : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
+          } border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-md px-2 py-1 text-lg`}
+        disabled={currentPage === totalPages}
+      >
+        <AiOutlineRight className="inline-block align-middle" />
+      </button>
+    </div>
+  );
+
+  const fullPagination = (() => {
+    const start = currentPage - 2 > 1 ? currentPage - 2 : 1;
+    const end = currentPage + 2 < totalPages ? currentPage + 2 : totalPages;
+
+    const condensedPages = [1];
+    if (start > 2) condensedPages.push(null);
+    for (let i = start; i <= end; i++) {
+      condensedPages.push(i);
+    }
+    if (end < totalPages - 1) condensedPages.push(null);
+    condensedPages.push(totalPages);
+
+    return condensedPages.map((page, index) => {
+      if (page === null) {
+        return (
+          <span
+            key={index}
+            className="font-bold text-[#060957] bg-gray-400 py-1 px-2 rounded-md"
+          >
+            ...
+          </span>
+        );
+      }
+
+      return (
+        <button
+          key={index}
+          onClick={() => setCurrentPage(page)}
+          className={`font-bold text-[#060957] ${currentPage === page ? "bg-[#87D2E2] cursor-not-allowed" : "bg-gray-400 hover:bg-[#9CD7ED]"} border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-md px-2 py-1 text-lg`}
+            disabled={currentPage === page}
+        >
+            {page}
+        </button>
+      );
+    });
+
+
+    return (
+        <div className="flex justify-center items-center space-x-2">
+        <button
+        onClick={() => setCurrentPage(currentPage - 1)}
+        className={`font-bold text-[#060957] ${currentPage === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-[#87D2E2] hover:bg-[#9CD7ED]" } border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-md px-2 py-1 text-lg`}
+        disabled={currentPage === 1}
+        >
+        <AiOutlineLeft className="inline-block align-middle" />
+        </button>
+          {showCondensedPagination()}
+
+        <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            className={`font-bold text-[#060957] ${currentPage === totalPages
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
+            } border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-md px-2 py-1 text-lg`}
+            disabled={currentPage === totalPages}
+        >
+            <AiOutlineRight className="inline-block align-middle" />
+        </button>
+        </div>
+    );
+  }
+};  
+export default Pagination;

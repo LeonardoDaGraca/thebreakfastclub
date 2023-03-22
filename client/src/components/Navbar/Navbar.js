@@ -28,14 +28,14 @@ export const Navbar = ({ patientId, open }) => {
 
   return (
     <header
-      className=" py-2 md:py-4 xl:py-6 2xl:py-4 shadow-lg  bg-[#87D2E2] bg-opacity-75"
+      className=" py-2 md:py-4 xl:py-6 2xl:py-4 shadow-lg  bg-[#060957]"
       id="header"
     >
       <nav className=" flex items-center justify-between  py-2 px-3 md:py-3 md:px-6 xl:py-3 xl:px-8 2xl:py-4 2xl:px-12">
         <div className="flex items-center">
           <NavLink
             to="/"
-            className="text-[#060957] bg-[#ffffff] font-extrabold font-ubuntu  rounded-md shadow-lg shadow-cyan-600 transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-base md:text-lg py-1 px-2 lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:py-2 2xl:px-3"
+            className="text-[#060957] bg-[#ffffff] font-extrabold font-ubuntu  rounded-md shadow-lg  transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-base md:text-lg py-1 px-2 lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:py-2 2xl:px-3"
           >
             MedBay
           </NavLink>
@@ -58,7 +58,7 @@ export const Navbar = ({ patientId, open }) => {
           <div className="flex items-center">
             <button
               onClick={handleOpenCreateExamModal}
-              className="text-[#060957] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
+              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
             >
               Create Exam
             </button>
