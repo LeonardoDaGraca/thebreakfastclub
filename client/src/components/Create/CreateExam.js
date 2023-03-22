@@ -64,7 +64,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
           </div>
           <div className="flex justify-center items-center w-full h-auto ">
             <form
-              className="w-full xl:p-4 2xl:p-6"
+              className="w-full lg:p-4 xl:p-4 2xl:p-6"
               action=""
               onSubmit={handleCreateExamSubmit}
             >
@@ -72,16 +72,16 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                 Create Exam
               </h1>
               <hr className="" />
-              <div className="grid grid-cols-1 md:grid-cols-3 xl:py-6 gap-6">
-                <div className="flex items-center ">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-6 lg:py-6 xl:py-6 xl:gap-6">
+                <div className="flex items-center justify-between ">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3"
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
                     htmlFor="patientId"
                   >
                     Patient ID
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="patientId"
                     id="patientId"
@@ -89,90 +89,90 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     onChange={(e) => handleInputChanges(e)}
                   />
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center justify-between">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3"
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
                     htmlFor="daysImageDiagnosos"
                   >
                     Days Since Dx
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="daysImageDiagnosos"
                     id="daysImageDiagnosos"
                     onChange={(e) => handleInputChanges(e)}
                   />
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center justify-between">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3"
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
                     htmlFor="hrsImageDiagnosis"
                   >
                     Hrs Since Dx
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="hrsImageDiagnosis"
                     id="hrsImageDiagnosis"
                     onChange={(e) => handleInputChanges(e)}
                   />
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center justify-between">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3"
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
                     htmlFor="imageDescription"
                   >
                     Decribe Image
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="imageDescription"
                     id="imageDescription"
                     onChange={(e) => handleInputChanges(e)}
                   />
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center justify-between">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3"
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
                     htmlFor="modality"
                   >
                     Modality
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="modality"
                     id="modality"
                     onChange={(e) => handleInputChanges(e)}
                   />
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center justify-between">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3"
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3"
                     htmlFor="fio"
                   >
                     Fio
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="fio"
                     id="fio"
                     onChange={(e) => handleInputChanges(e)}
                   />
                 </div>
-                <div className="flex items-center ">
+                <div className="flex items-center justify-between">
                   <label
-                    className="xl:text-xl 2xl:text-2xl xl:w-1/2 2xl:w-1/3 "
+                    className="lg:text-base xl:text-xl 2xl:text-2xl  2xl:w-1/3 "
                     htmlFor="findings"
                   >
                     Key Findings
                   </label>
                   <input
-                    className="border xl:text-xl 2xl:text-2xl"
+                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="findings"
                     id="findings"
@@ -180,17 +180,17 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                   />
                 </div>
               </div>
-              <div className="flex justify-end xl:gap-3 2xl:gap-4">
+              <div className="flex justify-end lg:gap-2 xl:gap-3 2xl:gap-4">
                 <button
                   type="reset"
-                  className="bg-red-600 shadow-lg rounded-lg font-bold text-[#ffffff] xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
+                  className="bg-red-600 shadow-lg rounded-lg font-bold text-[#ffffff] lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
                   onClick={redirectHome}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-600 shadow-lg rounded-lg font-bold text-[#ffffff] xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
+                  className="bg-blue-600 shadow-lg rounded-lg font-bold text-[#ffffff] lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
                 >
                   Submit
                 </button>
