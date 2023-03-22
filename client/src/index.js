@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import {Route, createBrowserRouter, RouterProvider, createRoutesFromElements,} from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import App from "./App";
-// import Main from "./components/Main/Main"
 
 const router = createBrowserRouter([
   {
@@ -13,36 +11,6 @@ const router = createBrowserRouter([
     element: <App />,
   },
 ]);
-
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <>
-//       <Route
-//         path="/"
-//         element={<App />}
-//         // loader={() => {
-//         //   return fetch("http://localhost:9000/api/everything")
-//         //     .then(res => res.json())
-//         //     .catch((error) => console.error("Error:", error));
-//         //   }}
-//       >
-
-//       </Route>
-//       {/* // <Route
-//       //   path="exams"
-//       //   element={<Exams />}
-//       //   // loader={() => {
-//       //   //   return fetch("http://localhost:9000/api/everything")
-//       //   //     .then(res => res.json())
-//       //   //     // .then(res => console.log(res))
-//       //   //     .catch((error) => console.error("Error:", error));
-//       //   //   }}
-//       //     >
-//       // </Route> */}
-//       <Route path="create-exam" element={<CreateExam />}></Route>
-//     </>
-//   )
-// );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

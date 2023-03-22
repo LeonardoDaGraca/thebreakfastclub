@@ -148,7 +148,10 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
             </div>
           </div>
           <EditPopUp
+            currentExam={currentExam.exam}
+            patientId={currentExam.exam.patientId}
             open={editPopUpModal}
+            isOpen={setEditPopUpModal}
             onClose={() => setEditPopUpModal(false)}
             patientId={currentExam.exam.patientId}
           />
