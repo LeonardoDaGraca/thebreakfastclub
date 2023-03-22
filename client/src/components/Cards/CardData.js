@@ -67,7 +67,7 @@ export const CardData = ({ data, open }) => {
       {selectedPatientId && (
         <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm ">
     
-          <div className=" bg-white rounded-xl shadow-lg overflow-y-auto  ">
+          <div className=" relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
             <div className="flex items-center justify-end 2xl:p-3">
               <button
                 className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-lg 2xl:font-bold 2xl:p-2"
