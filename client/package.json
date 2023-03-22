@@ -26,7 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tw": "npx tailwindcss -i ./src/Styles/Styles.css -o ./public/build/tailwind.css",
-    "prod": "NODE_ENV=production postcss ailwindcss -i ./src/Styles/Styles.css -o ./public/build/tailwind.css",
+    "prod": "NODE_ENV=production postcss ./src/Styles/Styles.css -o ./public/build/tailwind.css",
     "prettier": "npx prettier --write ."
   },
   "eslintConfig": {

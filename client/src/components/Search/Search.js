@@ -92,16 +92,18 @@ export const Search = () => {
             />
           </div>
         </form>
-        <CardData 
+        <CardData
           data={displayedData}
           selectedPatientId={selectedPatientId}
           setSelectedPatientId={setSelectedPatientId}
         />
-        {!selectedPatientId && <Pagination
-          totalPosts={data.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-        />}
+        {!selectedPatientId && (
+          <Pagination
+            totalPosts={data.length}
+            postsPerPage={postsPerPage}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </div>
     </>
   );
