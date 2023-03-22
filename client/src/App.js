@@ -8,7 +8,7 @@ import { CreateExam } from "./components/Create/CreateExam";
 // import { CardData } from "./components/Cards/CardData";
 
 const App = () => {
-  const [openCreateExam, setOpenCreateExam] = useState();
+  
 
   return (
     <>
