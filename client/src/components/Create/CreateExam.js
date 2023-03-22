@@ -190,7 +190,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-600 shadow-lg rounded-lg font-bold text-[#ffffff] px-2 py-1 text-sm md:px-2.5 md:py-0.5 md:text-base lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
+                  className="bg-[#060957] shadow-lg rounded-lg font-bold text-[#ffffff] px-2 py-1 text-sm md:px-2.5 md:py-0.5 md:text-base lg:px-2 lg:py-0.5 lg:text-lg xl:px-2.5 xl:py-1 xl:text-xl 2xl:px-2.5 2xl:py-1.5 2xl:text-2xl"
                 >
                   Submit
                 </button>
