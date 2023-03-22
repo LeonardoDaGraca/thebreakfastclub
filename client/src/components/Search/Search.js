@@ -78,7 +78,7 @@ export const Search = () => {
           >
             Search
           </label>
-          <div className="relative shadow-lg shadow-cyan-600">
+          <div className="relative shadow-lg shadow-stone-600">
             <input
               type="search"
               id="default-search"

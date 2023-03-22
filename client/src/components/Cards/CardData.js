@@ -34,12 +34,13 @@ export const CardData = ({ data, selectedPatientId, setSelectedPatientId }) => {
 
   return (
       <>
-        
-      <div className="bg-gradient-to-tl from-[#68a6d8] via-[#9bbeed] to-[#8fb7f9] shadow-xl shadow-cyan-600 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-12 md:px-6">
+        {/* bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] */}
+      {/* <div className="bg-gradient-to-tl from-[#68a6d8] via-[#9bbeed] to-[#8fb7f9] shadow-xl shadow-cyan-600 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-12 md:px-6"> */}
+      <div className="bg-gradient-to-b from-[#a6dde9] via-[#96c9d4] to-[#a6dde9] shadow-lg shadow-stone-600 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-12 md:px-6">
         {Object.entries(groupedData).map(([_id, exams]) => (
           <button
             key={_id}
-            className=" flex items-center justify-center border-2 border-[#d1e1f3] bg-[#fefefd]  rounded-lg shadow-md shadow-cyan-600 hover:shadow-md hover:shadow-cyan-400 h-14 mx-2 md:h-20 lg:h-24 xl:h-28 2xl:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 "
+            className=" flex items-center justify-center border-2 border-[#d1e1f3] bg-[#fefefd]  rounded-lg shadow-md shadow-stone-600 hover:shadow-md hover:shadow-stone-400 h-14 mx-2 md:h-20 lg:h-24 xl:h-28 2xl:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition hover:-translate-y-1 hover:scale-105 "
             onClick={() => handleButtonClick(_id)}
           >
             <table className="flex flex-col items-center w-full mx-2">
