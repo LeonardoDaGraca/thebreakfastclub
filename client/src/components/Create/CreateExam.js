@@ -81,7 +81,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Patient ID
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="patientId"
                     id="patientId"
@@ -97,7 +97,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Days Since Dx
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="daysImageDiagnosos"
                     id="daysImageDiagnosos"
@@ -112,7 +112,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Hrs Since Dx
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="hrsImageDiagnosis"
                     id="hrsImageDiagnosis"
@@ -127,7 +127,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Decribe Image
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="imageDescription"
                     id="imageDescription"
@@ -142,7 +142,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Modality
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="modality"
                     id="modality"
@@ -157,7 +157,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Fio
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="fio"
                     id="fio"
@@ -172,7 +172,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
                     Key Findings
                   </label>
                   <input
-                    className="border lg:text-base xl:text-xl 2xl:text-2xl"
+                    className="border-2 lg:text-base xl:text-xl 2xl:text-2xl"
                     type="text"
                     name="findings"
                     id="findings"
