@@ -92,7 +92,7 @@ export const CardData = ({ data, open }) => {
               </table>
             </div>
 
-            <div className="flex justify-center items-center px-2 2xl:px-6 2xl:h-1/2">
+            <div className="flex justify-center items-center px-2 2xl:px-6 2xl:h-1/3">
               {groupedData[selectedPatientId].map((exams) => (
                 <div
                   key={exams._id}
