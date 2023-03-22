@@ -65,7 +65,7 @@ export const CardData = ({ data, open }) => {
           <div className=" relative bg-white rounded-xl shadow-lg overflow-y-auto h-3/5 md:h-2/5 w-5/6 2xl:w-3/4 ">
             <div className="flex items-center justify-end p-3">
               <button
-                className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 p-1.5 md:p-2 text-xs font-bold lg:text-sm 2xl:text-base"
+                className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 p-1.5 md:p-2 text-xs font-bold lg:text-sm 2xl:text-base"
                 onClick={() => setSelectedPatientId(null)}
               >
                 <GrClose className="" />

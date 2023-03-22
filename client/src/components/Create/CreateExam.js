@@ -56,7 +56,7 @@ export const CreateExam = ({ patientId, open, onClose }) => {
           <div className="flex items-center justify-end p-3">
             <button
               onClick={onClose}
-              className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 p-1.5 md:p-2 text-xs font-bold lg:text-sm 2xl:text-base"
+              className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 p-1.5 md:p-2 text-xs font-bold lg:text-sm 2xl:text-base"
             >
               <GrClose className="" />
             </button>

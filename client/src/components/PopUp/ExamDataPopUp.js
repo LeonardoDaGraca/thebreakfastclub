@@ -30,7 +30,6 @@ export const ExamDataPopUp = ({ currentExam, visible, onClose, examNum }) => {
 
   return (
     <>
-      {/* <EditPopUp  visible={visible} onClose={() => setVisible(false)}/> */}
       <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm ">
         <div className="bg-white rounded-xl shadow-lg overflow-y-auto w-5/6 2xl:w-3/4  h-1/2 ">
           <div className="flex items-center justify-between  xl:p-2 2xl:p-3">
