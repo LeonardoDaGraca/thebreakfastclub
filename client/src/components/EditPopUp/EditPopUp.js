@@ -97,111 +97,111 @@ export const EditPopUp = ({
             >
               <div className="grid justify-items-start items-center grid-cols-1 h-5/6  md:grid-cols-2 gap-4 gap-y-5 md:gap-6 md:gap-y-10 lg:gap-6 xl:gap-10 2xl:gap-12">
                 <div className="flex justify-between items-center w-full">
-                    <label
-                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
-                        htmlFor="patientId"
-                    >
-                        Patient ID
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-base lg:text-xl"
-                        type="text"
-                        name="patientId"
-                        id="patientId"
-                        value={patientId}
-                        onChange={(e) => handleInputChanges(e)}
-                    />
+                  <label
+                    className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
+                    htmlFor="patientId"
+                  >
+                    Patient ID
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-base lg:text-xl"
+                    type="text"
+                    name="patientId"
+                    id="patientId"
+                    value={patientId}
+                    onChange={(e) => handleInputChanges(e)}
+                  />
                 </div>
                 <div className="flex justify-between items-center w-full">
-                    <label
-                        className="text-start w-1/2 text-sm md:text-lg lg:text-2xl"
-                        htmlFor="daysImageDiagnosos"
-                    >
-                        Days Since Dx
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
-                        type="text"
-                        name="daysImageDiagnosos"
-                        id="daysImageDiagnosos"
-                        onChange={(e) => handleInputChanges(e)}
-                    />
+                  <label
+                    className="text-start w-1/2 text-sm md:text-lg lg:text-2xl"
+                    htmlFor="daysImageDiagnosos"
+                  >
+                    Days Since Dx
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
+                    type="text"
+                    name="daysImageDiagnosos"
+                    id="daysImageDiagnosos"
+                    onChange={(e) => handleInputChanges(e)}
+                  />
                 </div>
                 <div className="flex justify-between items-center w-full">
-                    <label
-                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
-                        htmlFor="hrsImageDiagnosis"
-                    >
-                        Hrs Since Dx
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
-                        type="text"
-                        name="hrsImageDiagnosis"
-                        id="hrsImageDiagnosis"
-                        onChange={(e) => handleInputChanges(e)}
-                    />
+                  <label
+                    className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
+                    htmlFor="hrsImageDiagnosis"
+                  >
+                    Hrs Since Dx
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
+                    type="text"
+                    name="hrsImageDiagnosis"
+                    id="hrsImageDiagnosis"
+                    onChange={(e) => handleInputChanges(e)}
+                  />
                 </div>
                 <div className="flex justify-between items-center w-full">
-                    <label
-                        className="text-start w-1/2 text-sm md:text-lg lg:text-2xl"
-                        htmlFor="imageDescription"
-                    >
-                        Decribe Image
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
-                        type="text"
-                        name="imageDescription"
-                        id="imageDescription"
-                        onChange={(e) => handleInputChanges(e)}
-                    />
+                  <label
+                    className="text-start w-1/2 text-sm md:text-lg lg:text-2xl"
+                    htmlFor="imageDescription"
+                  >
+                    Decribe Image
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
+                    type="text"
+                    name="imageDescription"
+                    id="imageDescription"
+                    onChange={(e) => handleInputChanges(e)}
+                  />
                 </div>
-                
+
                 <div className="flex justify-between items-center w-full">
-                    <label
-                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
-                        htmlFor="modality"
-                    >
-                        Modality
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
-                        type="text"
-                        name="modality"
-                        id="modality"
-                        onChange={(e) => handleInputChanges(e)}
-                    />
-                </div>
-                <div className="flex justify-between items-center w-full">
-                    <label
-                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
-                        htmlFor="fio"
-                    >
-                        Fio
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
-                        type="text"
-                        name="fio"
-                        id="fio"
-                        onChange={(e) => handleInputChanges(e)}
-                    />
+                  <label
+                    className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
+                    htmlFor="modality"
+                  >
+                    Modality
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
+                    type="text"
+                    name="modality"
+                    id="modality"
+                    onChange={(e) => handleInputChanges(e)}
+                  />
                 </div>
                 <div className="flex justify-between items-center w-full">
-                    <label
-                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
-                        htmlFor="findings"
-                    >
-                        Key Findings
-                    </label>
-                    <input
-                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
-                        type="text"
-                        name="findings"
-                        id="findings"
-                        onChange={(e) => handleInputChanges(e)}
-                    />
+                  <label
+                    className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
+                    htmlFor="fio"
+                  >
+                    Fio
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
+                    type="text"
+                    name="fio"
+                    id="fio"
+                    onChange={(e) => handleInputChanges(e)}
+                  />
+                </div>
+                <div className="flex justify-between items-center w-full">
+                  <label
+                    className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
+                    htmlFor="findings"
+                  >
+                    Key Findings
+                  </label>
+                  <input
+                    className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
+                    type="text"
+                    name="findings"
+                    id="findings"
+                    onChange={(e) => handleInputChanges(e)}
+                  />
                 </div>
               </div>
               <div className="flex justify-end gap-x-1 md:gap-x-2 lg:gap-x-4 mt-16">

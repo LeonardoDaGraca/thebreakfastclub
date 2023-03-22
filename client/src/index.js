@@ -1,19 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import {Route, createBrowserRouter, RouterProvider, createRoutesFromElements,} from "react-router-dom";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import App from "./App";
-// import Main from "./components/Main/Main" 
+// import Main from "./components/Main/Main"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
 ]);
 
@@ -29,10 +26,10 @@ const router = createBrowserRouter([
 //         //     .catch((error) => console.error("Error:", error));
 //         //   }}
 //       >
-        
+
 //       </Route>
-//       {/* // <Route 
-//       //   path="exams" 
+//       {/* // <Route
+//       //   path="exams"
 //       //   element={<Exams />}
 //       //   // loader={() => {
 //       //   //   return fetch("http://localhost:9000/api/everything")

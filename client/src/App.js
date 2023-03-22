@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Styles/Styles.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
@@ -9,33 +9,24 @@ import { CreateExam } from "./components/Create/CreateExam";
 
 const App = () => {
   const [openCreateExam, setOpenCreateExam] = useState();
-  
+
   return (
     <>
-            <div className=" flex flex-col h-screen w-screen justify-between " >
-                <div
-                    id="header"
-                    className=""
-                >
-                    <Navbar />
-                </div>
+      <div className=" flex flex-col h-screen w-screen justify-between ">
+        <div id="header" className="">
+          <Navbar />
+        </div>
 
-                <div
-                    id="search"
-                    className=""
-                >
-                    <Search/>
-                    <CreateExam/>
-                </div>
+        <div id="search" className="">
+          <Search />
+          <CreateExam />
+        </div>
 
-                <div
-                    id="footer"
-                    className=""
-                >
-                    <Footer />
-                </div>
-            </div>
-        </>
+        <div id="footer" className="">
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -14,15 +14,10 @@ export const CreateExam2 = ({ isOpen, onClose, handleCloseModal }) => {
 
   return (
     <div
-      className={`fixed z-50 inset-0 overflow-y-auto ${
-        isOpen ? "" : "hidden"
-      }`}
+      className={`fixed z-50 inset-0 overflow-y-auto ${isOpen ? "" : "hidden"}`}
     >
       <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div
-          className="fixed inset-0 transition-opacity"
-          aria-hidden="true"
-        >
+        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
 
@@ -87,7 +82,8 @@ export const CreateExam2 = ({ isOpen, onClose, handleCloseModal }) => {
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
               <button
                 type="submit"
-                className="w-full inline-flex justify-center rounded-md border bg-[#060957] font-extrabold font-ubuntu shadow-lg shadow-cyan-600 text-white hover:bg-[#087CA8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#060957] sm:ml-3 sm:w-auto sm:text-sm">
+                className="w-full inline-flex justify-center rounded-md border bg-[#060957] font-extrabold font-ubuntu shadow-lg shadow-cyan-600 text-white hover:bg-[#087CA8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#060957] sm:ml-3 sm:w-auto sm:text-sm"
+              >
                 Create
               </button>
               <button
@@ -104,7 +100,6 @@ export const CreateExam2 = ({ isOpen, onClose, handleCloseModal }) => {
     </div>
   );
 };
-
 
 // export const CreateExam = () => {
 //   const [showForm, setShowForm] = useState(false);

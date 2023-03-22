@@ -1,7 +1,12 @@
 import React from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-const Pagination = ({ totalPosts, postsPerPage, currentPage, setCurrentPage }) => {
+const Pagination = ({
+  totalPosts,
+  postsPerPage,
+  currentPage,
+  setCurrentPage,
+}) => {
   const totalPages = Math.ceil(totalPosts / postsPerPage);
   let pages = [];
 
@@ -13,7 +18,7 @@ const Pagination = ({ totalPosts, postsPerPage, currentPage, setCurrentPage }) =
     if (totalPages > 7 && window.innerWidth >= 640) {
       const start = currentPage - 2 > 1 ? currentPage - 2 : 1;
       const end = currentPage + 2 < totalPages ? currentPage + 2 : totalPages;
-  
+
       const condensedPages = [1];
       if (start > 2) condensedPages.push(null);
       for (let i = start; i <= end; i++) {
@@ -54,25 +59,29 @@ const Pagination = ({ totalPosts, postsPerPage, currentPage, setCurrentPage }) =
 
   return (
     <>
-            <div className="flex justify-center w-full mt-4 md:mt-8 py-6 ">
+      <div className="flex justify-center w-full mt-4 md:mt-8 py-6 ">
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           className={`font-bold text-[#060957] ${
-            currentPage === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
+            currentPage === 1
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
           } border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-l mx-0.5 md:mx-1 md:px-2 md:py-1 md:text-lg lg:mx-1.5 lg:px-3 lg:py-1 lg:text-lg xl:mx-2 xl:px-2.5 xl:py-1.5 xl:text-xl 2xl:mx-2 2xl:rounded-lg 2xl:px-4 2xl:py-2 2xl:text-2xl`}
           disabled={currentPage === 1}
         >
-          <AiOutlineLeft className="inline-block align-middle" /> 
+          <AiOutlineLeft className="inline-block align-middle" />
         </button>
         {showCondensedPagination()}
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           className={`font-bold text-[#060957] ${
-            currentPage === totalPages ? "bg-gray-400 cursor-not-allowed" : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
+            currentPage === totalPages
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-[#87D2E2] hover:bg-[#9CD7ED]"
           } border-2 border-[#9bbeed] shadow-md shadow-cyan-600 transform transition ease-in-out hover:translate-y-1 hover:scale-100 focus:outline-none rounded-r mx-0.5 md:mx-1 md:px-2 md:py-1 md:text-lg lg:mx-1.5 lg:px-3 lg:py-1 lg:text-lg xl:mx-2 xl:px-2.5 xl:py-1.5 xl:text-xl 2xl:mx-2 2xl:rounded-lg 2xl:px-4 2xl:py-2 2xl:text-2xl`}
           disabled={currentPage === totalPages}
         >
-           <AiOutlineRight className="inline-block align-middle" />
+          <AiOutlineRight className="inline-block align-middle" />
         </button>
       </div>
     </>
@@ -80,4 +89,3 @@ const Pagination = ({ totalPosts, postsPerPage, currentPage, setCurrentPage }) =
 };
 
 export default Pagination;
-

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {GrClose} from "react-icons/gr"
+import { GrClose } from "react-icons/gr";
 
 export const CreateExam = ({ patientId, open, onClose }) => {
-
   const [formData, setFormData] = useState({
     patientId: "",
     daysImageDiagnosos: "",

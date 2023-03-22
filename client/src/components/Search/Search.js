@@ -44,7 +44,7 @@ export const Search = () => {
         setPostsPerPage(16);
       }
     };
-    
+
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -67,11 +67,14 @@ export const Search = () => {
     numRows: numRows,
     numCols: numCols,
   };
-  
+
   return (
     <>
       <div className="grid items-center md:mx-8 ">
-        <form action="" className="flex flex-col justify-center w-3/4 md:w-1/2 mx-auto  pt-8 ">
+        <form
+          action=""
+          className="flex flex-col justify-center w-3/4 md:w-1/2 mx-auto  pt-8 "
+        >
           <label
             htmlFor="default-search"
             className="text-[#060957] sr-only dark:text-white font-medium 2xl:text-2xl"

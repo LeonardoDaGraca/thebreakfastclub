@@ -7,8 +7,8 @@ module.exports = {
         righteous: ["Righteous"],
         oswald: ["Oswald"],
         ubuntu: ["Ubuntu"],
-        exo2: ["Exo+2"]
-      }
+        exo2: ["Exo+2"],
+      },
     },
   },
   plugins: [],

@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
 
-
-
 export const CardData = ({ data, open }) => {
   const [selectedPatientId, setSelectedPatientId] = useState(null);
   const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
@@ -33,9 +31,8 @@ export const CardData = ({ data, open }) => {
     setSelectedPatientId(null);
   };
 
-    return (
-      
-      <>  
+  return (
+    <>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-xl gap-3 mx-2 px-2 py-6 md:gap-6 md:py-8 md:px-6 ">
         {Object.entries(groupedData).map(([_id, exams]) => (
           <button
@@ -59,14 +56,12 @@ export const CardData = ({ data, open }) => {
                 </tr>
               </tbody>
             </table>
-               
-          </button>   
+          </button>
         ))}
       </div>
       {/* Modal window */}
       {selectedPatientId && (
         <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm ">
-    
           <div className=" relative bg-white rounded-xl shadow-lg overflow-y-auto h-3/5 md:h-2/5 w-5/6 2xl:w-3/4 ">
             <div className="flex items-center justify-end p-3">
               <button
