@@ -73,16 +73,16 @@ export const Search = () => {
         <form action="" className="flex flex-col justify-center w-3/4 md:w-1/2 mx-auto  py-8 ">
           <label
             htmlFor="default-search"
-            className="text-gray-900 sr-only dark:text-white font-medium 2xl:text-2xl"
+            className="text-[#060957] sr-only dark:text-white font-medium 2xl:text-2xl"
           >
             Search
           </label>
-          <div className="relative shadow-lg shadow-cyan-600">
+          <div className="relative shadow-lg">
             <input
               type="search"
               id="default-search"
               onChange={(e) => setQuery(e.target.value)}
-              className=" block w-full rounded-md text-[#393939] border border-gray-300  bg-[#FFFFFF] focus:outline-none pl-3 py-1 text-sm md:py-1.5 md:pl-4 md:text-base 2xl:pl-6 2xl:py-2 2xl:text-xl  "
+              className=" block w-full rounded-md text-[#060957] border border-[#060957]  bg-[#FFFFFF] focus:outline-none pl-3 py-1 text-sm md:py-1.5 md:pl-4 md:text-base 2xl:pl-6 2xl:py-2 2xl:text-xl  "
               placeholder="Search Exams..."
               required
             />

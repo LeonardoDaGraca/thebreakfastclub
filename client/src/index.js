@@ -5,11 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { CreateExamForm } from "./components/Create/CreateExamForm";
-import { Edit } from "./components/EditPopUp/EditPopUp";
 import reportWebVitals from "./reportWebVitals";
-import { Exams } from "./components/Exams/Exams";
-import { CreateExam } from "./components/Create/CreateExam";
 import "./index.css";
 import App from "./App";
 // import Main from "./components/Main/Main" 
@@ -18,10 +14,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-  },
-  {
-    path: "create-exam",
-    element: <CreateExam/>,
   },
 ]);
 

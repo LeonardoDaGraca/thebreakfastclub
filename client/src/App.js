@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Styles/Styles.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { Search } from "./components/Search/Search";
+import { CreateExam } from "./components/Create/CreateExam";
 // import { Main } from "./components/Main/Main"
 // import { CardData } from "./components/Cards/CardData";
 
 const App = () => {
+  const [openCreateExam, setOpenCreateExam] = useState();
+  
   return (
     <>
-            <div className=" flex flex-col h-screen w-screen justify-between bg-[#87D2E2]" >
+            <div className=" flex flex-col h-screen w-screen justify-between " >
                 <div
                     id="header"
                     className=""
@@ -22,6 +25,7 @@ const App = () => {
                     className=""
                 >
                     <Search/>
+                    <CreateExam/>
                 </div>
 
                 <div

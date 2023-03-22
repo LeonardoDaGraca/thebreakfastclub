@@ -1,25 +1,42 @@
 import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { CreateExam } from "../Create/CreateExam";
 
-export const Navbar = () => {
+
+export const Navbar = ({patientId, open}) => {
+  const [openCreateExam, setOpenCreateExam] = useState(false);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleMenuClick = () => {
+  const handleMenuClick = (event) => {
+    event.preventDefault();
     setIsOpen(false);
+    setOpenCreateExam(true);
   };
 
+  const handleCloseCreateExamModal = () => {
+    setOpenCreateExam(false);
+  };
+
+  const handleOpenCreateExamModal = () => {
+    setOpenCreateExam(true);
+  };
+  
+
+
   return (
-    <header className=" py-2 md:py-4 xl:py-6 2xl:py-4 shadow-lg shadow-cyan-600 rounded-b-lg" id="header">
+    
+    <header className=" py-2 md:py-4 xl:py-6 2xl:py-4 shadow-lg  bg-[#87D2E2] bg-opacity-75" id="header">
         <nav className=" flex items-center justify-between  py-2 px-3 md:py-3 md:px-6 xl:py-3 xl:px-8 2xl:py-4 2xl:px-12">
           <div className="flex items-center">
             <NavLink
               to="/"
-              className="text-[#87D2E2] bg-[#ffffff] font-extrabold font-ubuntu  rounded-md shadow-lg shadow-cyan-600 transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-base md:text-lg py-1 px-2 lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:py-2 2xl:px-3"
+              className="text-[#060957] bg-[#ffffff] font-extrabold font-ubuntu  rounded-md shadow-lg shadow-cyan-600 transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-base md:text-lg py-1 px-2 lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:py-2 2xl:px-3"
             >
               MedBay
             </NavLink>
@@ -40,13 +57,13 @@ export const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="flex items-center">
-              <NavLink
-                to="/create-exam"
-                onClick={handleMenuClick}
+              <button
+                
+                onClick={handleOpenCreateExamModal}
                 className="text-[#060957] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
               >
                 Create Exam
-              </NavLink>
+            </button>
             </div>
           </div>
         </nav>
@@ -54,8 +71,8 @@ export const Navbar = () => {
         <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10">
           <div className="flex flex-col items-end p-5 shadow-lg shadow-cyan-600 bg-[#87D2E2] bg-opacity-30 backdrop-blur-lg  ">
             <NavLink
-              to="/create-exam"
-              onClick={handleMenuClick}
+              
+              onClick={handleOpenCreateExamModal}
               className="block px-2.5 py-1 rounded-md shadow-lg shadow-cyan-600 bg-[#ffffff] text-[#87D2E2] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
             >
               Create Exam
@@ -63,7 +80,20 @@ export const Navbar = () => {
           </div>
         </div>
       )}
+      {openCreateExam && (
+        <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
+            <CreateExam
+              open={openCreateExam}
+              onClose={() => setOpenCreateExam(false)}
+              patientId={patientId}
+            />
+          </div>
+        </div>
+      )}
       <Outlet />
+      
     </header>
+    
   );
 };

@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <footer
       id="footer"
-      className=" bg-transparent  w-full flex items-center justify-between p-4 2xl:p-4 2xl:pt-6"
+      className="  bg-[#87D2E2] w-full flex items-center justify-between p-4 2xl:p-4 2xl:pt-6"
     >
       <div className="flex w-full justify-start pl-8">
         <div className="  flex items-center w-3/4 ">
