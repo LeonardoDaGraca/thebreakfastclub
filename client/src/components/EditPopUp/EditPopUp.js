@@ -61,18 +61,18 @@ export const EditPopUp = ({
 
   return (
     <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm lg:px-16 xl:px-16 2xl:px-20">
-      <div className="bg-white rounded-xl shadow-lg p-2 pt-3 overflow-y-auto h-3/4 w-11/12 md:h-3/5 lg:h-3/5 lg:w-full xl:h-2/3">
-        <div className="flex items-center justify-end xl:p-2 2xl:p-6">
+      <div className="bg-white w-full rounded-xl shadow-lg p-2 pt-3 overflow-y-auto h-1/2  ">
+        <div className="flex items-center justify-end md:p-3 ">
           <button
             onClick={onClose}
-            className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-sm p-1 md:text-sm md:p-1 lg:text-base lg:p-1.5 xl:text-xl xl:font-bold xl:p-2 2xl:text-4xl 2xl:font-bold 2xl:p-6"
+            className="transform transition hover:translate-y-1 hover:scale-105 shadow-lg rounded-full text-gray-800 border-2 text-xs p-1 md:text-sm md:p-1.5 lg:text-base lg:p-1.5  xl:font-bold xl:p-2  2xl:font-bold 2xl:p-2"
           >
             <GrClose className="" />
           </button>
         </div>
-        <div className="h-5/6 pt-2 md:py-2 lg:px-3 lg:py-4 2xl:px-8">
+        <div className="h-5/6 md:py-2 md:px-8 lg:py-4 lg:px-6 ">
           <div className="mb-2 md:mb-4 ">
-            <h1 className="text-black font-bold text-base py-2 md:text-lg lg:text-xl lg:py-2 xl:text-4xl xl:py-3 2xl:text-7xl 2xl:py-4">
+            <h1 className="text-sm font-semibold  text-[#393939] md:text-xl lg:text-xl  2xl:text-3xl">
               Edit Exam
             </h1>
             <hr className="border-b border-gray-400 " />
@@ -85,16 +85,16 @@ export const EditPopUp = ({
                 handleUpdateSubmit(e, currentExam._id);
               }}
             >
-              <div className="grid justify-items-start items-center grid-cols-1 h-5/6 gap-y-10 md:grid-cols-2  md:gap-3 md:gap-y-16 lg:gap-6 xl:gap-8 2xl:gap-10">
+              <div className="grid justify-items-start items-center grid-cols-1 h-5/6  md:grid-cols-2 gap-4 gap-y-5 md:gap-6 md:gap-y-10 lg:gap-6 xl:gap-10 2xl:gap-12">
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
                         htmlFor="patientId"
                     >
                         Patient ID
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-base lg:text-xl"
                         type="text"
                         name="patientId"
                         id="patientId"
@@ -104,13 +104,13 @@ export const EditPopUp = ({
                 </div>
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base  md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="text-start w-1/2 text-sm md:text-lg lg:text-2xl"
                         htmlFor="daysImageDiagnosos"
                     >
                         Days Since Dx
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
                         type="text"
                         name="daysImageDiagnosos"
                         id="daysImageDiagnosos"
@@ -119,13 +119,13 @@ export const EditPopUp = ({
                 </div>
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
                         htmlFor="hrsImageDiagnosis"
                     >
                         Hrs Since Dx
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
                         type="text"
                         name="hrsImageDiagnosis"
                         id="hrsImageDiagnosis"
@@ -134,13 +134,13 @@ export const EditPopUp = ({
                 </div>
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="text-start w-1/2 text-sm md:text-lg lg:text-2xl"
                         htmlFor="imageDescription"
                     >
                         Decribe Image
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
                         type="text"
                         name="imageDescription"
                         id="imageDescription"
@@ -150,13 +150,13 @@ export const EditPopUp = ({
                 
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
                         htmlFor="modality"
                     >
                         Modality
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
                         type="text"
                         name="modality"
                         id="modality"
@@ -165,13 +165,13 @@ export const EditPopUp = ({
                 </div>
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
                         htmlFor="fio"
                     >
                         Fio
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
                         type="text"
                         name="fio"
                         id="fio"
@@ -180,13 +180,13 @@ export const EditPopUp = ({
                 </div>
                 <div className="flex justify-between items-center w-full">
                     <label
-                        className="text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="w-1/2 text-start text-sm md:text-lg lg:text-2xl"
                         htmlFor="findings"
                     >
                         Key Findings
                     </label>
                     <input
-                        className="border border-gray-300 w-4/6 pl-1 text-sm md:text-lg lg:text-xl xl:text-3xl 2xl:text-6xl"
+                        className="border border-gray-300 w-4/6 pl-1 text-xs md:text-lg lg:text-xl"
                         type="text"
                         name="findings"
                         id="findings"
@@ -194,17 +194,17 @@ export const EditPopUp = ({
                     />
                 </div>
               </div>
-              <div className="flex justify-end pb-1 pt-32 gap-1.5 md:pb-1.5 md:pt-24 md:gap-2 lg:pb-2 lg:pt-24 lg:gap-3 xl:pb-2 xl:pt-28 xl:gap-4 2xl:pt-36 2xl:gap-8 ">
+              <div className="flex justify-end gap-x-1 md:gap-x-2 lg:gap-x-4 mt-16">
                 <button
                   type="reset"
-                  className="bg-red-600 text-zinc-50 font-bold shadow-xl rounded-lg text-sm px-2 p-1.5 transform transition hover:translate-y-1 hover:scale-105 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl"
+                  className="bg-red-600 text-zinc-50 font-bold shadow-xl rounded-lg px-1.5 py-1 text-sm md:text-xl md:px-2 md:py-1 lg:text-2xl "
                   onClick={onClose}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-600 text-zinc-50 font-bold shadow-xl rounded-lg text-sm px-2 p-1.5 transform transition hover:translate-y-1 hover:scale-105 md:px-2 md:p-1.5 md:text-base lg:px-2.5 lg:py-1.5 lg:text-lg xl:px-3 xl:py-2.5 xl:text-2xl 2xl:px-5 2xl:py-6 2xl:text-5xl 2xl:rounded-xl"
+                  className="bg-blue-600 text-zinc-50 font-bold shadow-xl rounded-lg px-1.5 py-1 text-sm md:text-xl md:px-2 md:py-1 lg:text-2xl"
                 >
                   Update
                 </button>
