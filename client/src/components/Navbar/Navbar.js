@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CreateExam } from "../Create/CreateExam";
-import { Login2 } from "../Login/Login2";
+import { Login2 } from "../Auth/Login/Login2";
 
 export const Navbar = ({ patientId, open }) => {
   const [openCreateExam, setOpenCreateExam] = useState(false);

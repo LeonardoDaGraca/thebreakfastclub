@@ -2,10 +2,26 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {auth}  from "../firebase"
 
-export const  Login2 = ({patientId, open, onClose}) => {
+export const Login2 = ({ patientId, open, onClose }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const login = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log(userCredential)
+            }).catch((error) => {
+                console.log(error)
+            })
+    }
+   
+
   return (
-    <>
+  
           <div 
             className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full mx-auto bg-[#060957] ">
               <div
@@ -23,7 +39,8 @@ export const  Login2 = ({patientId, open, onClose}) => {
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                         Sign in to your account
                     </h1>
-                    <form 
+                    <form
+                        onSubmit={login} 
                         className="space-y-4 md:space-y-6" 
                         action="#"
                     >
@@ -36,7 +53,9 @@ export const  Login2 = ({patientId, open, onClose}) => {
                             <input 
                                 type="email" 
                                 name="email" 
-                                id="email" 
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} 
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                                 placeholder="name@company.com" 
                                 required=""
@@ -53,6 +72,8 @@ export const  Login2 = ({patientId, open, onClose}) => {
                                 type="password" 
                                 name="password" 
                                 id="password" 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 placeholder="••••••••" 
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""
                                     
@@ -64,22 +85,42 @@ export const  Login2 = ({patientId, open, onClose}) => {
                                     <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""/>
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label for="remember" class="text-gray-500 ">Remember me</label>
+                                    <label 
+                                        for="remember" 
+                                        className="text-[#060957] "
+                                    >
+                                        Remember me
+                                    </label>
                                 </div>
                             </div>
-                            <NavLink href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</NavLink>
+                            <NavLink 
+                                href="#" 
+                                className="text-sm font-medium text-[#060957] hover:underline dark:text-primary-500"
+                            >
+                                Forgot password?
+                            </NavLink>
                         </div>
-                            <button
-                                type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                            Sign in
+                        <button
+                            type="submit" 
+                              className="w-full text-white bg-[#060957]  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+                        >
+                                Sign in
                         </button>
-                        <p className="text-sm font-light text-gray-600 ">
-                            Don’t have an account yet? <NavLink href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</NavLink>
+                        <p 
+                            className="text-sm font-light text-[#060957] "
+                        >
+                                Don’t have an account yet? 
+                            <NavLink 
+                                href="#" 
+                                className="ml-1 font-medium text-primary-600 hover:underline dark:text-primary-500"
+                            >
+                                  Sign up
+                            </NavLink>
                         </p>
                     </form>
                 </div>    
             </div>
         </div>
-    </>
+   
   )
 }
