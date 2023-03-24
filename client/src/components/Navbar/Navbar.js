@@ -2,11 +2,13 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CreateExam } from "../Create/CreateExam";
-import { Login2 } from "../Auth/Login/Login2";
+import { SignIn } from "../Auth/Login/SignIn";
+import { SignUp } from "../Auth/Login/SignUp";
 
 export const Navbar = ({ patientId, open }) => {
   const [openCreateExam, setOpenCreateExam] = useState(false);
-  const [handleLogin, setHandleLogin] = useState();
+  const [handleSignIn, setHandleSignIn] = useState();
+  const [handleSignUp, setHandleSignUp] = useState();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,18 +30,31 @@ export const Navbar = ({ patientId, open }) => {
     setOpenCreateExam(true);
   };
 
-  const handleLoginClick = (event) => {
+  const handleSignInClick = (event) => {
     event.preventDefault();
     setIsOpen(false);
-    setHandleLogin(true);
+    setHandleSignIn(true);
   };
 
-  const handleCloseLoginModal = () => {
-    setHandleLogin(false);
+  const handleCloseSignInModal = () => {
+    setHandleSignIn(false);
   };
 
-  const handleOpenLoginModal = () => {
-    setHandleLogin(true);
+  const handleOpenSignInModal = () => {
+    setHandleSignIn(true);
+  };
+  const handleSignUpClick = (event) => {
+    event.preventDefault();
+    setIsOpen(false);
+    setHandleSignUp(true);
+  };
+
+  const handleCloseSignUpModal = () => {
+    setHandleSignUp(false);
+  };
+
+  const handleOpenSignUpModal = () => {
+    setHandleSignUp(true);
   };
 
   return (
@@ -79,14 +94,22 @@ export const Navbar = ({ patientId, open }) => {
               Create Exam
             </button>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center mr-4">
             <button
-              onClick={handleOpenLoginModal}
+              onClick={handleOpenSignInModal}
               className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
             >
-              Login
+              Sign In
             </button>
           </div>
+          {/* <div className="flex items-center">
+            <button
+              onClick={handleOpenSignUpModal}
+              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
+            >
+              Sign Up
+            </button>
+          </div> */}
         </div>
       </nav>
       {isOpen && (
@@ -99,11 +122,17 @@ export const Navbar = ({ patientId, open }) => {
               Create Exam
             </NavLink>
             <NavLink
-              onClick={handleOpenLoginModal}
+              onClick={handleOpenSignInModal}
               className="block px-2.5 py-1 rounded-md shadow-md shadow-[#060957] bg-[#ffffff] text-[#060957] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
             >
-              Login
+              Sign In
             </NavLink>
+            {/* <NavLink
+              onClick={handleOpenSignUpModal}
+              className="block px-2.5 py-1 rounded-md shadow-md shadow-[#060957] bg-[#ffffff] text-[#060957] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
+            >
+              Sign Uo
+            </NavLink> */}
           </div>
         </div>
       )}
@@ -118,12 +147,22 @@ export const Navbar = ({ patientId, open }) => {
           </div>
         </div>
       )}
-      {handleLogin && (
+      {handleSignIn && (
         <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
           <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
-            <Login2
-              open={handleLogin}
-              onClose={() => setHandleLogin(false)}
+            <SignIn
+              open={handleSignIn}
+              onClose={() => setHandleSignIn(false)}
+            />
+          </div>
+        </div>
+      )}
+      {handleSignUp && (
+        <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
+            <SignUp
+              open={handleSignUp}
+              onClose={() => setHandleSignUp(false)}
             />
           </div>
         </div>
