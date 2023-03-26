@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
+import { ExamDataPopUp2 } from "../PopUp/ExamDatapopUp2";
+import { PatientPopUp } from "../PopUp/PatientPopUp";
 
-export const CardData = ({ data, open }) => {
+export const CardData = ({ data, open, onClose }) => {
   const [selectedPatientId, setSelectedPatientId] = useState(null);
   const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
 
   const [currentExam, setCurrentExam] = useState({});
   const handleExamDataClose = () => setShowExamDataPopUp(false);
+
+  const [handlePatientPopUp, setHandlePatientPopUp] = useState();
+  const [handleExamDataPopUp, setHandleExamDataPopUp] = useState();
+  const [isOpen, setIsOpen] = useState(false);
 
   // Function to group data by patient ID starts
   const groupByPatientId = (data) => {
@@ -18,6 +24,7 @@ export const CardData = ({ data, open }) => {
       return acc;
     }, {});
   };
+  
   const groupedData = groupByPatientId(data);
   // Function to group data by patient ID ends
 
@@ -30,6 +37,38 @@ export const CardData = ({ data, open }) => {
   const handleCloseModal = () => {
     setSelectedPatientId(null);
   };
+
+  // Patient PopUp Starts
+  const handlePatientPopUpClick = (event) => {
+    event.preventDefault();
+    setIsOpen(false);
+    setHandlePatientPopUp(true);
+  };
+
+  const handleClosePatientPopUp = () => {
+    setHandlePatientPopUp(false);
+  };
+
+  const handleOpenPatientPopUp = () => {
+    setHandlePatientPopUp(true);
+  };
+  // Patient PopUp Ends
+
+  // Patient PopUp Starts
+  const handleExamDataPopUpClick = (event) => {
+    event.preventDefault();
+    setIsOpen(false);
+    setHandleExamDataPopUp(true);
+  };
+
+  const handleCloseExamDataPopUp = () => {
+    setHandleExamDataPopUp(false);
+  };
+
+  const handleOpenExamDataPopUp = () => {
+    setHandlePatientPopUp(true);
+  };
+  // Patient PopUp Ends
 
   return (
     <>
@@ -61,6 +100,26 @@ export const CardData = ({ data, open }) => {
       </div>
       {/* Modal window */}
       {selectedPatientId && (
+        <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
+            <PatientPopUp
+              open={selectedPatientId}
+              onClose={() => setSelectedPatientId(false)}
+            />
+          </div>
+        </div>
+      )}
+      { showExamDataPopUp && (
+        <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
+            <ExamDataPopUp2
+              open={showExamDataPopUp}
+              onClose={() => setShowExamDataPopUp(false)}
+            />
+          </div>
+        </div>
+      )}
+      {/* {selectedPatientId && (
         <div className="fixed flex flex-col justify-center items-center top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm ">
           <div className=" relative bg-white rounded-xl shadow-lg overflow-y-auto h-3/5 md:h-2/5 w-5/6 2xl:w-3/4 ">
             <div className="flex items-center justify-end p-3">
@@ -174,7 +233,7 @@ export const CardData = ({ data, open }) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

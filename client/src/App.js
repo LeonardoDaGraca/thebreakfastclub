@@ -18,8 +18,8 @@ const App = () => {
         </div>
 
         <div id="search" className="">
-          {/* <Search />
-          <CreateExam /> */}
+          <Search />
+          {/* <CreateExam /> */}
           {/* <AuthDetails/> */}
         </div>
 

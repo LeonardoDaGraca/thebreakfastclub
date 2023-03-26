@@ -4,11 +4,13 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { CreateExam } from "../Create/CreateExam";
 import { SignIn } from "../Auth/Login/SignIn";
 import { SignUp } from "../Auth/Login/SignUp";
+import { PatientPopUp } from "../PopUp/PatientPopUp";
 
 export const Navbar = ({ patientId, open }) => {
   const [openCreateExam, setOpenCreateExam] = useState(false);
   const [handleSignIn, setHandleSignIn] = useState();
   const [handleSignUp, setHandleSignUp] = useState();
+  const [handlePatientPopUp, setHandlePatientPopUp] = useState();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,6 +18,7 @@ export const Navbar = ({ patientId, open }) => {
     setIsOpen(!isOpen);
   };
 
+  // Create Exam Starts
   const handleMenuClick = (event) => {
     event.preventDefault();
     setIsOpen(false);
@@ -29,7 +32,9 @@ export const Navbar = ({ patientId, open }) => {
   const handleOpenCreateExamModal = () => {
     setOpenCreateExam(true);
   };
+  // Create Exam Ends
 
+  // SignIn Starts
   const handleSignInClick = (event) => {
     event.preventDefault();
     setIsOpen(false);
@@ -43,6 +48,9 @@ export const Navbar = ({ patientId, open }) => {
   const handleOpenSignInModal = () => {
     setHandleSignIn(true);
   };
+  // SignIn Ends
+
+  // SignUp Starts
   const handleSignUpClick = (event) => {
     event.preventDefault();
     setIsOpen(false);
@@ -56,6 +64,23 @@ export const Navbar = ({ patientId, open }) => {
   const handleOpenSignUpModal = () => {
     setHandleSignUp(true);
   };
+  // SignUp Ends
+
+  // // Patient PopUp Starts
+  // const handlePatientPopUpClick = (event) => {
+  //   event.preventDefault();
+  //   setIsOpen(false);
+  //   setHandlePatientPopUp(true);
+  // };
+
+  // const handleClosePatientPopUp = () => {
+  //   setHandlePatientPopUp(false);
+  // };
+
+  // const handleOpenPatientPopUp = () => {
+  //   setHandlePatientPopUp(true);
+  // };
+  // // Patient PopUp Ends
 
   return (
     <header
@@ -89,7 +114,7 @@ export const Navbar = ({ patientId, open }) => {
           <div className="flex items-center mr-4">
             <button
               onClick={handleOpenCreateExamModal}
-              className="text-[#060957] bg-[#ffffff] font-bold font-ubuntu rounded-md shadow-lg transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base md:py-1 md:px-2 lg:text-lg lg:py-1 lg:px-2 2xl:text-xl 2xl:py-1.5 2xl:px-3"
+              className="text-[#060957] bg-[#ffffff] font-bold font-ubuntu rounded-md shadow-lg  transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base md:py-1 md:px-2 lg:text-lg lg:py-1 lg:px-2 2xl:text-xl 2xl:py-1.5 2xl:px-3"
             >
               Create Exam
             </button>
@@ -102,9 +127,17 @@ export const Navbar = ({ patientId, open }) => {
               Sign In
             </button>
           </div>
+          {/* <div className="flex items-center mr-4">
+            <button
+              onClick={handleOpenPatientPopUp}
+              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg 2xl:text-xl"
+            >
+              Patient
+            </button>
+          </div> */}
 
-          <div class="relative w-10 h-10 overflow-hidden  bg-gray-200 rounded-full ">
-              <svg class="absolute w-12 h-12 text-gray-600 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+          <div className="relative w-10 h-10 overflow-hidden  bg-gray-200 rounded-full ">
+              <svg className="absolute w-12 h-12 text-gray-600 -left-1 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
           </div>
 
           {/* <div className="flex items-center">
@@ -168,6 +201,16 @@ export const Navbar = ({ patientId, open }) => {
             <SignUp
               open={handleSignUp}
               onClose={() => setHandleSignUp(false)}
+            />
+          </div>
+        </div>
+      )}
+      {handlePatientPopUp && (
+        <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
+            <PatientPopUp
+              open={handlePatientPopUp}
+              onClose={() => setHandlePatientPopUp(false)}
             />
           </div>
         </div>
