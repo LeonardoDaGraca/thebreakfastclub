@@ -38,7 +38,7 @@ export const CreateExam2 = ({onClose}) => {
                 <div
                     className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-6"
                 >
-                    {/* <div
+                    <div
                         className="relative z-0 w-full mb-1 md:mb-6 group"
                     >
                         <input
@@ -74,7 +74,7 @@ export const CreateExam2 = ({onClose}) => {
                         >
                             Last name
                         </label>
-                    </div> */}
+                    </div>
                     <div
                         className="relative z-0 w-full mb-1 md:mb-6 group"
                     >
