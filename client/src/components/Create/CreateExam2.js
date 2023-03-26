@@ -360,10 +360,17 @@ export const CreateExam2 = ({onClose}) => {
                 <div className="flex justify-end py-2">
                     <button
                         type="submit"
+                        className="mr-2 border text-white bg-red-700 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center font-bold font-ubuntu shadow-xl"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
                         className=" border text-white bg-[#060957] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center font-bold font-ubuntu shadow-xl"
                     >
                         Submit
                     </button>
+                    
                 </div>
             </form>
         </div>
