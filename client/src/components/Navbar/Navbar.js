@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CreateExam } from "../Create/CreateExam";
+import { CreateExam2 } from "../Create/CreateExam2";
 import { SignIn } from "../Auth/Login/SignIn";
 import { SignUp } from "../Auth/Login/SignUp";
 import { PatientPopUp } from "../PopUp/PatientPopUp";
@@ -176,8 +177,8 @@ export const Navbar = ({ patientId, open }) => {
       )}
       {openCreateExam && (
         <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
-          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto  ">
-            <CreateExam
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto w-3/4 ">
+            <CreateExam2
               open={openCreateExam}
               onClose={() => setOpenCreateExam(false)}
               patientId={patientId}
