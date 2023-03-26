@@ -8,18 +8,30 @@ export const CreateExam2 = ({onClose}) => {
             className="border-2 p-3"
         >
             <div
-                className="flex items-center justify-end"
+                className="flex items-center justify-end p-1"
             >
-            <button
-              onClick={onClose}
-              className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 lg:text-sm lg:p-1.5"
-            >
-              <GrClose 
-                className=""  
-              />
-            </button>
+                <button
+                onClick={onClose}
+                className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 lg:text-sm lg:p-1.5"
+                >
+                <GrClose 
+                    className=""  
+                />
+                </button>
             </div>
+            <div
+                className="px-6 py-3"
+            >
+                <h1
+                    className=" text-xl font-bold font-ubuntu"
+                >
+                    Create Exam
+                </h1>
+                <hr
+                    className="mt-4 border-0 border-b-2 border-gray-300"
 
+                />
+            </div>
             <form
                 className="p-6"
             >
@@ -274,7 +286,7 @@ export const CreateExam2 = ({onClose}) => {
                 <div className="flex justify-end py-2">
                     <button
                         type="submit"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center font-bold font-ubuntu"
+                        className=" border text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center font-bold font-ubuntu shadow-xl"
                     >
                         Submit
                     </button>
