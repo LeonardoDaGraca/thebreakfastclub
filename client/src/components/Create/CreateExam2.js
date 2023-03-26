@@ -12,7 +12,7 @@ export const CreateExam2 = ({onClose}) => {
             >
                 <button
                 onClick={onClose}
-                className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 text-xs p-0.5 md:p-1.5"
+                className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 text-xs p-1 md:p-1.5"
                 >
                 <GrClose 
                     className=""  
