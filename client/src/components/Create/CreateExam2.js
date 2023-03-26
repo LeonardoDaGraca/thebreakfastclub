@@ -332,12 +332,12 @@ export const CreateExam2 = ({onClose}) => {
                         type="file"
 
                     />
-                    <div
+                    {/* <div
                         className="mt-1 text-xs md:text-sm text-gray-500 "
                         id="exam_images_help"
                     >
                         A profile picture is useful to confirm your are logged into your account
-                    </div>
+                    </div> */}
 
                     {/* <input
                         type="text"
