@@ -59,14 +59,14 @@ export const Navbar = ({ patientId, open }) => {
 
   return (
     <header
-      className=" py-2 md:py-4 xl:py-6 2xl:py-4 shadow-lg  bg-[#060957]"
+      className=" py-2 md:py-4 lg:py-2 2xl:py-4 shadow-lg  bg-[#060957]"
       id="header"
     >
       <nav className=" flex items-center justify-between  py-2 px-3 md:py-3 md:px-6 xl:py-3 xl:px-8 2xl:py-4 2xl:px-12">
         <div className="flex items-center">
           <NavLink
             to="/"
-            className="text-[#060957] bg-[#ffffff] font-extrabold font-ubuntu  rounded-md shadow-lg  transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-base md:text-lg py-1 px-2 lg:text-xl xl:text-2xl 2xl:text-3xl 2xl:py-2 2xl:px-3"
+            className="text-[#060957] bg-[#ffffff] font-black font-ubuntu rounded md:rounded-md shadow-lg  transition transform ease-in-outease-in-out hover:scale-105 delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 text-sm py-0.5 px-1.5 md:text-base md:py-1 md:px-2 lg:text-lg lg:py-1 lg:px-2 2xl:text-xl 2xl:py-1.5 2xl:px-3"
           >
             TBCHealth
           </NavLink>
@@ -89,7 +89,7 @@ export const Navbar = ({ patientId, open }) => {
           <div className="flex items-center mr-4">
             <button
               onClick={handleOpenCreateExamModal}
-              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
+              className="text-[#060957] bg-[#ffffff] font-bold font-ubuntu rounded-md shadow-lg transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base md:py-1 md:px-2 lg:text-lg lg:py-1 lg:px-2 2xl:text-xl 2xl:py-1.5 2xl:px-3"
             >
               Create Exam
             </button>
@@ -97,11 +97,16 @@ export const Navbar = ({ patientId, open }) => {
           <div className="flex items-center mr-4">
             <button
               onClick={handleOpenSignInModal}
-              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
+              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg 2xl:text-xl"
             >
               Sign In
             </button>
           </div>
+
+          <div class="relative w-10 h-10 overflow-hidden  bg-gray-200 rounded-full ">
+              <svg class="absolute w-12 h-12 text-gray-600 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+          </div>
+
           {/* <div className="flex items-center">
             <button
               onClick={handleOpenSignUpModal}
@@ -113,17 +118,17 @@ export const Navbar = ({ patientId, open }) => {
         </div>
       </nav>
       {isOpen && (
-        <div className="md:hidden absolute top-0 right-0 w-full h-full mt-16 z-10">
-          <div className="flex flex-col items-end p-2 justify-between shadow-lg shadow-[#060957] bg-[#060957] bg-opacity-95 backdrop-blur-lg ">
+        <div className="md:hidden absolute top-0 right-0 w-full h-full mt-14 z-10">
+          <div className="flex flex-col items-end py-4 pr-4 justify-between shadow-lg shadow-[#060957] bg-[#060957] bg-opacity-95 backdrop-blur-lg ">
             <NavLink
               onClick={handleOpenCreateExamModal}
-              className="block mb-3 px-2.5 py-1 rounded-md shadow-md shadow-[#060957] bg-[#ffffff] text-[#060957] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
+              className="block mb-3 px-2.5 py-1 rounded-md shadow-md shadow-[#060957] bg-[#ffffff] text-[#060957] text-xs font-black font-ubuntu  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
             >
               Create Exam
             </NavLink>
             <NavLink
               onClick={handleOpenSignInModal}
-              className="block px-2.5 py-1 rounded-md shadow-md shadow-[#060957] bg-[#ffffff] text-[#060957] text-sm font-bold  transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
+              className="block px-2.5 py-1 rounded-md shadow-md shadow-[#060957] bg-[#ffffff] text-[#060957] text-xs font-black font-ubuntu transition transform ease-in-out hover:scale-105 md:ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 hover:font-bold"
             >
               Sign In
             </NavLink>
