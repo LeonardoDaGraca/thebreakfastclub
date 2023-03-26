@@ -177,7 +177,7 @@ export const Navbar = ({ patientId, open }) => {
       )}
       {openCreateExam && (
         <div className="fixed flex flex-col justify-center items-center z-50 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-30 backdrop-blur-sm">
-          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto w-3/4 ">
+          <div className="relative bg-white rounded-xl shadow-lg overflow-y-auto w-5/6 md:w-3/4 ">
             <CreateExam2
               open={openCreateExam}
               onClose={() => setOpenCreateExam(false)}
