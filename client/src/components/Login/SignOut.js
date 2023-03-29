@@ -17,10 +17,10 @@ export const SignOut = () => {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 max-w-xs md:max-w-xl xl::max-w-2xl 2xl:max-w-3xl xl:p-0 ">
           
         <div className="border p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-[#060957] md:text-2xl ">
+            <h1 className="text-center font-extrabold leading-tight tracking-tight text-[#060957] text-xl md:text-3xl ">
                 Email or Name
             </h1>
-            <h2 className="text-xl text-center font-bold leading-tight tracking-tight text-[#060957] md:text-2xl ">
+            <h2 className="text-center font-bold leading-tight tracking-tight text-[#060957] text-lg md:text-2xl ">
                 Has Signed Out
             </h2>
         </div>   
