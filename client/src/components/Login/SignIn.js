@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import { SignUp } from "./SignUp";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import {auth}  from "../firebase"
+import {auth} from "../Auth/firebase"
 
 export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
     const [email, setEmail] = useState("");
@@ -109,12 +109,12 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                                     </label>
                                 </div>
                             </div>
-                            <NavLink 
+                            <Link 
                                 href="#" 
                                 className="text-sm font-medium text-[#060957] hover:underline dark:text-primary-500"
                             >
                                 Forgot password?
-                            </NavLink>
+                            </Link>
                         </div>
                         <button
                             type="submit" 
@@ -126,13 +126,13 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                             className="text-sm font-light text-[#060957] "
                         >
                                 Don’t have an account yet? 
-                            <NavLink 
+                            <Link 
                                 onClick={handleOpenSignUpModal}
                                 href="sign-up" 
                                 className="ml-1 font-medium text-[#060957] hover:underline dark:text-primary-500"
                             >
                                   Sign up
-                            </NavLink>
+                            </Link>
                         </p>
                     </form>
               </div> 

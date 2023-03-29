@@ -3,8 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CreateExam } from "../Create/CreateExam";
 import { CreateExam2 } from "../Create/CreateExam2";
-import { SignIn } from "../Auth/Login/SignIn";
-import { SignUp } from "../Auth/Login/SignUp";
+import { SignIn } from "../Login/SignIn";
+import { SignUp } from "../Login/SignUp";
 import { PatientPopUp } from "../PopUp/PatientPopUp";
 
 export const Navbar = ({ patientId, open }) => {
@@ -138,7 +138,7 @@ export const Navbar = ({ patientId, open }) => {
           </div> */}
 
           <div className="relative w-10 h-10 overflow-hidden  bg-gray-200 rounded-full ">
-              <svg className="absolute w-12 h-12 text-gray-600 -left-1 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+              <svg className="absolute w-12 h-12 text-gray-600 -left-1 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
           </div>
 
           {/* <div className="flex items-center">

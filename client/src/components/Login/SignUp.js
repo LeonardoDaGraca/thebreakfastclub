@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import { SignIn } from "./SignIn";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {auth}  from "../firebase"
+import {auth} from "../Auth/firebase"
 
 export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
     const [email, setEmail] = useState("");
@@ -53,7 +53,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
               <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 max-w-xs md:max-w-2xl xl::max-w-4xl 2xl:max-w-6xl xl:p-0 ">
                   
                 <div className="border p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                    <h1 className="text-xl font-bold leading-tight tracking-tight text-[#060957] md:text-2xl ">
                         Sign Up for an account
                     </h1>
                     <form
@@ -64,7 +64,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                         <div>
                             <label 
                                 for="email" 
-                                className="block mb-2 text-sm font-medium text-gray-900 ">
+                                className="block mb-2 text-sm font-medium text-[#060957] ">
                                 Your email
                             </label>
                             <input 
@@ -73,7 +73,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)} 
-                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
+                                className="bg-gray-50 border border-gray-300 text-[#060957] sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                                 placeholder="name@company.com" 
                                 required=""
                                 
@@ -82,7 +82,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                         <div>
                             <label 
                                 for="password" 
-                                className="block mb-2 text-sm font-medium text-gray-900 "
+                                className="block mb-2 text-sm font-medium text-[#060957] "
                             >   Password
                             </label>
                             <input 
@@ -92,7 +92,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="••••••••" 
-                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""
+                                className="bg-gray-50 border border-gray-300 text-[#060957] sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""
                                     
                             />
                         </div>
@@ -121,13 +121,13 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                             className="text-sm font-light text-[#060957] "
                         >
                                 Have an account yet? 
-                            <NavLink 
+                            <Link 
                             onClick={handleOpenSignInModal}
                                 href="#" 
                                 className="ml-1 font-medium text-primary-600 hover:underline dark:text-primary-500"
                             >
                                   Sign In
-                            </NavLink>
+                            </Link>
                         </p>
                     </form>
               </div>

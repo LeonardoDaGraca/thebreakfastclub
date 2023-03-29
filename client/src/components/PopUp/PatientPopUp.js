@@ -1,10 +1,71 @@
 import React, { useEffect, useState, } from "react";
 import { Link } from "react-router-dom";
-import { ExamDataPopUp } from "./ExamDataPopUp";
+import {ExamDataPopUp2} from "../PopUp/ExamDataPopUp2"
 import { GrClose } from "react-icons/gr";
 
-export const PatientPopUp = ({ open, onClose }) => {
+export const PatientPopUp = ({ data, open, onClose }) => {
+    const [selectedPatientId, setSelectedPatientId] = useState(null);
+    const [showExamDataPopUp, setShowExamDataPopUp] = useState(false);
+
+    const [currentExam, setCurrentExam] = useState({});
+    const handleExamDataClose = () => setShowExamDataPopUp(false);
+
+    const [handlePatientPopUp, setHandlePatientPopUp] = useState();
+    const [handleExamDataPopUp, setHandleExamDataPopUp] = useState();
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Function to group data by patient ID starts
+    const groupByPatientId = (data) => {
+        return data.reduce((acc, cur) => {
+        acc[cur._id] = acc[cur._id] || [];
+        acc[cur._id].push(cur);
+        return acc;
+        }, {});
+    };
     
+    const groupedData = groupByPatientId(data);
+    // Function to group data by patient ID ends
+
+    // Function to handle button click and set selected patient ID starts
+    const handleButtonClick = (_id) => {
+        setSelectedPatientId(_id);
+    };
+
+    // Function to clear selected patient ID starts
+    const handleCloseModal = () => {
+        setSelectedPatientId(null);
+    };
+
+    // Patient PopUp Starts
+    const handlePatientPopUpClick = (event) => {
+        event.preventDefault();
+        setIsOpen(false);
+        setHandlePatientPopUp(true);
+    };
+
+    const handleClosePatientPopUp = () => {
+        setHandlePatientPopUp(false);
+    };
+
+    const handleOpenPatientPopUp = () => {
+        setHandlePatientPopUp(true);
+    };
+    // Patient PopUp Ends
+
+    // Patient PopUp Starts
+    const handleExamDataPopUpClick = (event) => {
+        event.preventDefault();
+        setIsOpen(false);
+        setHandleExamDataPopUp(true);
+    };
+
+    const handleCloseExamDataPopUp = () => {
+        setHandleExamDataPopUp(false);
+    };
+
+    const handleOpenExamDataPopUp = () => {
+        setShowExamDataPopUp(true);
+    };
     
     if (!open) return null;
 
@@ -14,8 +75,8 @@ export const PatientPopUp = ({ open, onClose }) => {
                 <div className="flex items-center justify-end p-3">
                     <button
                     className="transform transition hover:translate-y-1 hover:scale-105 shadow-md shadow-[#060957] rounded-full text-gray-800 border-2 p-1.5 md:p-2 text-xs font-bold lg:text-sm 2xl:text-base"
-                    // onClick={() => setSelectedPatientId(null)}
-                       onClick={onClose} 
+                    onClick={() => setSelectedPatientId(null)}
+                    //    onClick={onClose} 
                     >
                     <GrClose className="" />
                     </button>
@@ -33,7 +94,7 @@ export const PatientPopUp = ({ open, onClose }) => {
                     <tbody className="flex flex-col justify-center items-center w-full ">
                         <tr className="">
                         <td className="w-full text-center text-sm font-semibold whitespace-normal break-words text-gray-500 md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl">
-                            {/* {selectedPatientId} */}
+                            {selectedPatientId}
                         </td>
                         </tr>
                         <hr className="border-b-2 2xl:border-b-4 border-gray-200 w-11/12 mt-2 2xl:mt-6" />
@@ -42,7 +103,7 @@ export const PatientPopUp = ({ open, onClose }) => {
                 </div>
 
                 <div className="flex justify-center items-center px-2 2xl:px-6 2xl:h-1/3">
-                    {/* {groupedData[selectedPatientId].map((exams) => (
+                    {groupedData[selectedPatientId].map((exams) => (
                     <div
                         key={exams._id}
                         className=" border-gray-200 h-full w-full "
@@ -87,7 +148,7 @@ export const PatientPopUp = ({ open, onClose }) => {
                                             Exam {index + 1}
                                         </p>
                                         </Link>
-                                        <ExamDataPopUp
+                                        <ExamDataPopUp2
                                         key={currentExam._id}
                                         currentExam={currentExam}
                                         examNum={currentExam.index + 1}
@@ -119,7 +180,7 @@ export const PatientPopUp = ({ open, onClose }) => {
                         </table>
                         </div>
                     </div>
-                    ))} */}
+                    ))}
                 </div>
             </div>
         </div> 

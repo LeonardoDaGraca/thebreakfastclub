@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
-import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
-import { ExamDataPopUp2 } from "../PopUp/ExamDatapopUp2";
+// import { ExamDataPopUp } from "../PopUp/ExamDataPopUp";
+import {ExamDataPopUp2} from "../PopUp/ExamDataPopUp2"
 import { PatientPopUp } from "../PopUp/PatientPopUp";
 
 export const CardData = ({ data, open, onClose }) => {
@@ -66,7 +66,7 @@ export const CardData = ({ data, open, onClose }) => {
   };
 
   const handleOpenExamDataPopUp = () => {
-    setHandlePatientPopUp(true);
+    setShowExamDataPopUp(true);
   };
   // Patient PopUp Ends
 

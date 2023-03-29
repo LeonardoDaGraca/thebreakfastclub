@@ -1,34 +1,25 @@
+import React from "react";
 import "./Styles/Styles.css";
-import { Navbar } from "./components/Navbar/Navbar";
-import { Footer } from "./components/Footer/Footer";
-import { Search } from "./components/Search/Search";
-import { CreateExam } from "./components/Create/CreateExam";
-import { SignIn } from "./components/Auth/Login/SignIn";
-import { SignUp } from "./components/Auth/Login/SignUp";
+import { SignIn } from "./components/Login/SignIn";
+import { SignUp } from "./components/Login/SignUp";
 import { AuthDetails } from "./components/Auth/AuthDetails";
-// import { Main } from "./components/Main/Main"
-// import { CardData } from "./components/Cards/CardData";
+import { Route, Routes } from "react-router-dom";
+import { Main } from "./components/Main/Main";
+import { SignOut } from "./components/Login/SignOut";
 
 const App = () => {
-  return (
-    <>
-      <div className=" flex flex-col h-screen w-screen justify-between ">
-        <div id="header" className="">
-          <Navbar />
-        </div>
-
-        <div id="search" className="">
-          <Search />
-          {/* <CreateExam /> */}
-          {/* <AuthDetails/> */}
-        </div>
-
-        <div id="footer" className="">
-          <Footer />
-        </div>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div className="flex flex-col h-screen w-screen justify-between">
+                <Routes>
+                        {/* <Route path="/" element={<SignIn />} />
+                        <Route path="/signup" element={<SignUp />} /> */}
+                        <Route path="/signout" element={<SignOut />} />
+                        {/* <Route path="/main" element={<Main />} /> */}
+                </Routes>
+            </div>
+        </>
+   )
 };
 
 export default App;
