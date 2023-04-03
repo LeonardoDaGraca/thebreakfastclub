@@ -12,10 +12,10 @@ const App = () => {
         <>
             <div className="flex flex-col h-screen w-screen justify-between">
                 <Routes>
-                        {/* <Route path="/" element={<SignIn />} />
-                        <Route path="/signup" element={<SignUp />} /> */}
-                        <Route path="/signout" element={<SignOut />} />
-                        {/* <Route path="/main" element={<Main />} /> */}
+                        {/* <Route path="/" element={<SignIn />} /> */}
+                        {/* <Route path="/signup" element={<SignUp />} /> */}
+                        {/* <Route path="/signout" element={<SignOut />} /> */}
+                        <Route path="/main" element={<Main />} />
                 </Routes>
             </div>
         </>
