@@ -1,6 +1,6 @@
 import React, { useEffect, useState, } from "react";
 import { Link } from "react-router-dom";
-import {ExamDataPopUp2} from "../PopUp/ExamDataPopUp2"
+import { ExamDataPopUp2 } from "./ExamDataPopUp2";
 import { GrClose } from "react-icons/gr";
 
 export const PatientPopUp = ({ data, open, onClose }) => {
