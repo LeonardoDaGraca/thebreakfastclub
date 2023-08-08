@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {UserAuth} from "../context/AuthContext";
 import { SignUp } from "./SignUp";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../Auth/firebase"
@@ -7,17 +8,33 @@ import {auth} from "../Auth/firebase"
 export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [handleSignUp, setHandleSignUp] = useState()
+    const [handleSignUp, setHandleSignUp] = useState();
+    const [error, setError] = useState("")
+    const navigate = useNavigate()
 
-    const login = (e) => {
+    const {signIn} = UserAuth()
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                console.log(userCredential)
-            }).catch((error) => {
-                console.log(error)
-            })
+        setError("");
+        try {
+            await signIn(email, password)
+            navigate("/main")
+        } catch (e) {
+            setError(e.message);
+            console.log(e.message)
+        }
     }
+
+    // const login = (e) => {
+    //     e.preventDefault();
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then((userCredential) => {
+    //             console.log(userCredential)
+    //         }).catch((error) => {
+    //             console.log(error)
+    //         })
+    // }
 
     const handleSignUpClick = (event) => {
         event.preventDefault();
@@ -54,7 +71,7 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                         Sign in to your account
                     </h1>
                     <form
-                        onSubmit={login} 
+                        onSubmit={handleSubmit}
                         className="space-y-4 md:space-y-6" 
                         action="#"
                     >

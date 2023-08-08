@@ -36,7 +36,6 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
       const handleOpenSignInModal = () => {
         setHandleSignIn(true);
       };
-   
 
   return (
   

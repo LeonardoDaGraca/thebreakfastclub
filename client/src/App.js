@@ -6,6 +6,7 @@ import {SignUp} from "./components/Login/SignUp";
 import {Main} from "./components/Main/Main";
 import {AuthContextProvider} from "./components/context/AuthContext";
 import {SignOut} from "./components/Login/SignOut";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const App = () => {
   return (
@@ -15,7 +16,10 @@ const App = () => {
                 <Route path="/" element={<SignIn/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/signout" element={<SignOut/>}/>
-                <Route path="/main" element={<Main/>}/>
+                <Route path="/main" element={
+                    <ProtectedRoute>
+                        <Main/>
+                    </ProtectedRoute>}/>
             </Routes>
         </AuthContextProvider>
     </>
