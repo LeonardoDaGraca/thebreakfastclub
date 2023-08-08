@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import App from "./App";
@@ -9,34 +9,36 @@ import { Main } from "./components/Main/Main";
 import { SignIn } from "./components/Login/SignIn";
 import { SignUp } from "./components/Login/SignUp";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/signout",
-    element: <SignOut />,
-  },
-  {
-    path: "/signin",
-    element: <SignIn />,
-  },
-  {
-    path: "/signup",
-    element: <SignUp />,
-  },
-  {
-    path: "/main",
-    element: <Main />,
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App />,
+//   },
+//   {
+//     path: "/signout",
+//     element: <SignOut />,
+//   },
+//   {
+//     path: "/signin",
+//     element: <SignIn />,
+//   },
+//   {
+//     path: "/signup",
+//     element: <SignUp />,
+//   },
+//   {
+//     path: "/main",
+//     element: <Main />,
+//   },
+// ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

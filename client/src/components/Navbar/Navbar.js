@@ -1,17 +1,32 @@
 import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import {useNavigate, NavLink, Outlet} from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CreateExam } from "../Create/CreateExam";
 import { CreateExam2 } from "../Create/CreateExam2";
 import { SignIn } from "../Login/SignIn";
 import { SignUp } from "../Login/SignUp";
+import {SignOut} from "../Login/SignOut";
 import { PatientPopUp } from "../PopUp/PatientPopUp";
+import {UserAuth} from "../context/AuthContext";
 
 export const Navbar = ({ patientId, open }) => {
   const [openCreateExam, setOpenCreateExam] = useState(false);
   const [handleSignIn, setHandleSignIn] = useState();
   const [handleSignUp, setHandleSignUp] = useState();
   const [handlePatientPopUp, setHandlePatientPopUp] = useState();
+
+  const {logout, user} = UserAuth();
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+      await logout(SignOut)
+      navigate("/signout")
+      console.log("You are logged out")
+    } catch (e) {
+      console.log(e.message)
+    }
+  }
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -122,33 +137,16 @@ export const Navbar = ({ patientId, open }) => {
           </div>
           <div className="flex items-center mr-4">
             <button
-              onClick={handleOpenSignInModal}
+              onClick={handleLogout}
+
               className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg 2xl:text-xl"
             >
-              Sign In
+              Sign Out
             </button>
           </div>
-          {/* <div className="flex items-center mr-4">
-            <button
-              onClick={handleOpenPatientPopUp}
-              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg 2xl:text-xl"
-            >
-              Patient
-            </button>
-          </div> */}
-
           <div className="relative w-10 h-10 overflow-hidden  bg-gray-200 rounded-full ">
               <svg className="absolute w-12 h-12 text-gray-600 -left-1 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
           </div>
-
-          {/* <div className="flex items-center">
-            <button
-              onClick={handleOpenSignUpModal}
-              className="text-[#ffffff] font-bold font-ubuntu transition transform ease-in-out delay-150 hover:-translate-y-1 md:hover:scale-105 2xl:hover:scale-110 duration-300 md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"
-            >
-              Sign Up
-            </button>
-          </div> */}
         </div>
       </nav>
       {isOpen && (

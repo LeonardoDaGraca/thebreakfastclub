@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { GrClose } from "react-icons/gr";
 import { SignUp } from "./SignUp";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../Auth/firebase"
@@ -20,17 +18,17 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                 console.log(error)
             })
     }
-   
+
     const handleSignUpClick = (event) => {
         event.preventDefault();
         setIsOpen(false);
         setHandleSignUp(true);
       };
-    
+
       const handleCloseSignUpModal = () => {
         setHandleSignUp(false);
       };
-    
+
       const handleOpenSignUpModal = () => {
         setHandleSignUp(true);
       };
@@ -61,8 +59,7 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                         action="#"
                     >
                         <div>
-                            <label 
-                                for="email" 
+                            <label
                                 className="block mb-2 text-sm font-medium text-[#060957] ">
                                 Your email
                             </label>
@@ -79,8 +76,7 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                             />
                         </div>
                         <div>
-                            <label 
-                                for="password" 
+                            <label
                                 className="block mb-2 text-sm font-medium text-[#060957] "
                             >   Password
                             </label>
@@ -101,8 +97,7 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                                     <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""/>
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label 
-                                        for="remember" 
+                                    <label
                                         className="text-[#060957] "
                                     >
                                         Remember me
@@ -128,7 +123,7 @@ export const SignIn = ({ patientId, open, onClose, isOpen, setIsOpen }) => {
                                 Don’t have an account yet? 
                             <Link 
                                 onClick={handleOpenSignUpModal}
-                                href="sign-up" 
+                                to="/signup"
                                 className="ml-1 font-medium text-[#060957] hover:underline dark:text-primary-500"
                             >
                                   Sign up

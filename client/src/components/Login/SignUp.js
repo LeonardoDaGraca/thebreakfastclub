@@ -1,36 +1,38 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { GrClose } from "react-icons/gr";
+import { Link, useNavigate } from "react-router-dom";
 import { SignIn } from "./SignIn";
+import {UserAuth} from "../context/AuthContext";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../Auth/firebase"
 
 export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [handleSignIn, setHandleSignIn] = useState()
+    const [error, setError] = useState("")
+    const [handleSignIn, setHandleSignIn] = useState("")
 
-    const signUp = (e) => {
-        e.preventDefault();
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                console.log(userCredential)
-            }).catch((error) => {
-                console.log(error)
-            })
-    }
+    const {createUser} = UserAuth()
 
-    const handleSignInClick = (event) => {
-        event.preventDefault();
-        setIsOpen(false);
-        setHandleSignIn(true);
-      };
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setError("")
+        try {
+            await createUser(email, password)
+            navigate("/main")
+        } catch (e) {
+            setError(e.message)
+            console.log(e.message)
+        }
+        // setIsOpen(false);
+        // setHandleSignIn(true);
+    };
     
       const handleCloseSignInModal = () => {
         setHandleSignIn(false);
       };
-    
+
       const handleOpenSignInModal = () => {
         setHandleSignIn(true);
       };
@@ -57,13 +59,11 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                         Sign Up for an account
                     </h1>
                     <form
-                        onSubmit={signUp} 
-                        className="space-y-4 md:space-y-6" 
-                        action="#"
+                        onSubmit={handleSubmit}
+                        className="space-y-4 md:space-y-6"
                     >
                         <div>
-                            <label 
-                                for="email" 
+                            <label
                                 className="block mb-2 text-sm font-medium text-[#060957] ">
                                 Your email
                             </label>
@@ -80,8 +80,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                             />
                         </div>
                         <div>
-                            <label 
-                                for="password" 
+                            <label
                                 className="block mb-2 text-sm font-medium text-[#060957] "
                             >   Password
                             </label>
@@ -102,8 +101,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                                     <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""/>
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label 
-                                        for="remember" 
+                                    <label
                                         className="text-[#060957] "
                                     >
                                         Remember me
@@ -123,7 +121,7 @@ export const SignUp = ({ patientId, open, onClose, setIsOpen }) => {
                                 Have an account yet? 
                             <Link 
                             onClick={handleOpenSignInModal}
-                                href="#" 
+                                to="/"
                                 className="ml-1 font-medium text-primary-600 hover:underline dark:text-primary-500"
                             >
                                   Sign In
